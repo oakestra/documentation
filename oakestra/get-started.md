@@ -66,7 +66,7 @@ In this example we are going to use a single device to deploy all the components
 
 ```
 ## Url that points to the location of our root orchestrator
-export SYSTEM_MANAGER_URL=localhost
+export SYSTEM_MANAGER_URL=0.0.0.0
 ## Choose a unique name for your cluster
 export CLUSTER_NAME=My_Awesome_Cluster
 ## Come up with a name for the current location
