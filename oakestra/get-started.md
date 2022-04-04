@@ -1,25 +1,12 @@
 # Get Started with Oakestra
 
 
-<div style="
-	background:#fd0;
-	border-radius: 25px;
-	margin:5px;
-	padding:10px;
-	
-">
-
+<div style="background:#fd0;border-radius: 25px;margin:5px;padding:10px;">
 	<span> Oakestra platform is still under active development. This guide can change on a weekly basis. </span>
 	
 </div>
 
-<div style="
-	background:#fd0;
-	border-radius: 25px;
-	margin:5px;
-	padding:10px;
-	
-">
+<div style="background:#fd0;border-radius: 25px;margin:5px;padding:10px;">
 
 	<span> <b>Help needed!</b> Feel free to propose your ideas and share your expertise. Thank you in advance!</span>
 	
