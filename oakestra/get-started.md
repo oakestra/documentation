@@ -137,7 +137,9 @@ The M-DOC deployment enables you to deploy One cluster with multiple worker node
 The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator and then to attach the worker nodes. 
 
 **1)** On the node that you wish to use as a cluster and root orchestrator execute step **1-DOC.1** and **1-DOC.2**
+
 **2)** Now we need to prepare all the worker nodes. On each worker node execute the following:
+
 2.1) Downlaod and unpack both the NodeEngine and the NetManager:
 
 ```
@@ -164,11 +166,10 @@ sudo NetManager -p 6000 &
 sudo NodeEngine -n 6000 -p 10100 -a <IP ADDRESS OF THE CLSUTER ORCHESTRATOR>
 ```
 
-### MDNC (M Devices, N ClustersIP ADDRESS OF THE CLSUTER ORCHESTRATORIP ADDRESS OF THE CLSUTER ORCHESTRATOR)
+### MDNC (M Devices, N Clusters)
 
 This represents the most versatile deployment. You have the possibility to split your resoruces in multiple clusters, within different locations and with different resources. In this deployment we need to deploy the Root and the Cluster orchestrator on different nodes. Each indipended clsuter orchestrator represent a different cluster of resoruces. The worker nodes attached to each cluster are aggregated and seen as a unique big resoruce from the point of view fo the Root. This deployment isolates the resources from  the root perspective and delegates the resposibility to the cluester orchestrator. 
-
-![](res/2ClustersExample.png) 
+![](res/2ClusterExample.png) 
 
 **1)** In this first step we need to deploy the RootOrchestrator component on a Node. To do this, on the desired node you need to clone the repository, move to the root orchestrator folder and execute the startup command. 
  
@@ -179,7 +180,7 @@ $ sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
-**2)** For each node that needs to host a clsuter orchestrator you need to:
+**2)** For each node that needs to host a cluster orchestrator you need to:
 2.1) Export the ENV variables needed to connect to the cluster orchestrator:
 
 ```
@@ -196,6 +197,8 @@ $ git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 $ sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
+
+**3)** Start and configure each worker as described in M-DOC.2
 
 ### Hybrids
 
