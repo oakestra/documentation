@@ -6,7 +6,7 @@
 
 - [High-level archtecture](#high-level-architecture)
 - [Create your first Oakestra cluster](#create-your-first-oakestra-cluster)
-- [Deploy your first application](#deploy-your-first-application)
+- [Deploy your first applications](#deploy-your-first-applications)
 
 ## High-level architecture
 
@@ -36,12 +36,11 @@ In this example, we will use a single device to deploy all the components. This 
 
 ![Deployment example with a single device](res/SingleNodeExample.png)
 
-0) First, let's export the required environment variables
+**0)** First, let's export the required environment variables
 
 ```
 ## Url that points to the location of our root orchestrator
-# export SYSTEM_MANAGER_URL=<IP ADDRESS OF THE MACHINE>
-
+export SYSTEM_MANAGER_URL=<IP ADDRESS OF THE MACHINE>
 ## Choose a unique name for your cluster
 export CLUSTER_NAME=My_Awesome_Cluster
 ## Come up with a name for the current location
@@ -51,13 +50,13 @@ export CLUSTER_LOCATION=My_Awesome_Apartment
 **1)** now clone the repository and move into it using:
 
 ```
-$ git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 ```
 
 **2)** Run a local 1-DOC cluster
 
 ```
-$ sudo -E docker-compose -f run-a-cluster/1-DOC-<arch>.yml up -d
+sudo -E docker-compose -f run-a-cluster/1-DOC-<arch>.yml up -d
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
@@ -65,14 +64,14 @@ $ sudo -E docker-compose -f run-a-cluster/1-DOC-<arch>.yml up -d
 **3)** download, untar and install the node engine package
 
 ```
-$ wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
+wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
 **4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
 ```
-$ wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
+wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
@@ -117,9 +116,9 @@ The deployment of this kind of cluster is similar to 1-DOC. We first need to sta
 2.1) Downlaod and unpack both the NodeEngine and the NetManager:
 
 ```
-$ wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
+wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
 
-$ wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
+wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
 
 ```
 
@@ -148,9 +147,9 @@ This represents the most versatile deployment. You can split your resources into
 **1)** In this first step, we need to deploy the RootOrchestrator component on a Node. To do this, you need to clone the repository on the desired node, move to the root orchestrator folder, and execute the startup command. 
  
 ```
-$ git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 
-$ sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
+sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
@@ -166,9 +165,9 @@ export CLUSTER_LOCATION=<choose a name for the cluster's location>
 2.2) Clone the repo and run the cluster orchestrator:
 
 ```
-$ git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 
-$ sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
+sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
@@ -179,7 +178,80 @@ $ sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 You should have got the gist now, but if you want, you can build the infrastructure by composing the components like LEGO blocks.
 Do you want to give your Cluster Orchestrator computational capabilities for the deployment? Deploy there the NodeEngine+Netmanager components, and you're done. You don't want to use a separate node for the Root Orchestrator? Simply deploy it all together with a cluster orchestrator.
 
-## Deploy your first application
-### Create a deployment descriptor
+## Deploy your first applications
+
+Let's try deploying an Nginx server and a client. Then we'll enter inside the client container and try to curl Nginx. 
+
+All we need to do to deploy an application is to create a deployment descriptor and submit it to the platform using the CLI.
+
+### Deployment descriptors
+
+**1)** Let's create the Nginx deployment descriptor. Create a file named `nginx.yaml` and insert the following.
+
+```
+api_version: v0.1
+app_name: Nginx
+app_ns: default
+service_name: server
+service_ns: default
+image: docker.io/library/nginx:latest
+image_runtime: docker
+RR_ip: 10.30.30.30
+port: 80:80
+cmd: []
+requirements:
+    cpu: 1 # cores
+    memory: 200  # in MB
+```
+
+**2)** Let's create a client container using the curl image. Create a file named `client.yaml` and insert the following.
+
+```
+api_version: v0.1
+app_name: Client
+app_ns: default
+service_name: client
+service_ns: default
+image: docker.io/curlimages/curl:7.82.0
+image_runtime: docker
+commands: ["sh", "-c", "tail -f /dev/null"]
+requirements:
+    cpu: 1 # cores
+    memory: 100  # in MB
+```
+
+A detailed description of these fields can be found in the **Deployment descriptors** section of the Wiki. 
+
 ### Deployment CLI
 
+On the root orchestrator's node use the following commands to deploy the Nginx container and then the Client container.
+
+```
+curl -F file=@'nginx.yaml' http://localhost:10000/api/deploy -v
+
+curl -F file=@'client.yaml' http://localhost:10000/api/deploy -v
+```
+
+Check the status of the deployment:
+
+```
+curl localhost:10000/api/jobs | json_pp
+```
+
+If both services show the status **ACTIVE** then everything went fine. Otherwise, there might be a configuration issue or a bug. Please debug it with `docker logs system_manager -f --tail=100` on the root orchestrator and with `docker logs cluster_manager -f --tail=100` on the cluster orchestrator and open an issue. 
+
+If both services are ACTIVE is time to test the communication. 
+
+Move into the worker node hosting the client and use the following command to log into the container. 
+
+```
+sudo ctr -n edge.io task exec --exec-id term1 Client.default.client.default /bin/sh
+```
+
+Once we are inside our client, we can curl the Nginx server and check if everything works.
+
+```
+curl 10.30.30.30
+```  
+
+Note that this address is the one we specified in the Nginx's deployment descriptor. 
