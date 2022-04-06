@@ -1,55 +1,42 @@
+![](res/wiki-banner-help.png)
+
 # Get Started with Oakestra
 
+**Table of content:**
 
-<div style="background:#fd0;border-radius: 25px;margin:5px;padding:10px;">
-	<span> Oakestra platform is still under active development. This guide can change on a weekly basis. </span>
-	
-</div>
+- [High-level archtecture](#high-level-architecture)
+- [Create your first Oakestra cluster](#create-your-first-oakestra-cluster)
+- [Deploy your first application](#deploy-your-first-application)
 
-<div style="background:#fd0;border-radius: 25px;margin:5px;padding:10px;">
-
-	<span> <b>Help needed!</b> Feel free to propose your ideas and share your expertise. Thank you in advance!</span>
-	
-</div>
-
-
-## High level architecture
+## High-level architecture
 
 ![High level architecture picture](res/highLevelArch.png)
 
-Oakestra let you deploy your workload on devices of any size. From a small RasperryPi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
+Oakestra lets you deploy your workload on devices of any size. From a small RasperryPi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
 
 * The **Root Orchestrator** manages different clusters of resources. The root only sees aggregated cluster resources. 
-* The **Cluster orchestrator** manages your worker nodes. This component collects the real time resources and schedules your workloads to the perfect matching device.
-* A **Worker** is any device where a component called NodeEngine is installed. Each node can support multiple execution environment such as Containers (containerd runtime), MicroVM (containerd runtime) and Unikernels (mirageOS). 
+* The **Cluster orchestrator** manages your worker nodes. This component collects the real-time resources and schedules your workloads to the perfect matching device.
+* A **Worker** is any device where a component called NodeEngine is installed. Each node can support multiple execution environments such as Containers (containerd runtime), MicroVM (containerd runtime), and Unikernels (mirageOS).
+
+Disclaimer, currently, only containers are supported. Help is still needed for Unikernels and MicroVMs. 
 
 
 ## Create your first Oakestra cluster
 
 Let's start simple with a single node deployment, where all the components are in the same device. Then, we will separate the components and use multiple devices until we're able to create multiple clusters. 
 
-<div style="
-	background:lightgrey;
-	border-radius: 25px;
-	margin:5px;
-	padding:10px;
-	
-">
-	<b>Requirements: <br></b>
-	<ul>
-		<li> Linux (Workers only)
- 		<li> Docker + Docker compose (Orchestrators only)
-	</ul>
-	
-</div>
+### Requirements:
+
+- Linux (Workers only)
+- Docker + Docker compose (Orchestrators only)
 
 ### 1-DOC (1 Device, One Cluster) 
 
-In this example we are going to use a single device to deploy all the components. This is not recommended for production environments but it is quite cool for home environment and development. 
+In this example, we will use a single device to deploy all the components. This is not recommended for production environments, but it is pretty cool for home environments and development. 
 
-![Deployment example with a signle device](res/SingleNodeExample.png)
+![Deployment example with a single device](res/SingleNodeExample.png)
 
-0) First let's export the required environment variables
+0) First, let's export the required environment variables
 
 ```
 ## Url that points to the location of our root orchestrator
@@ -82,7 +69,7 @@ $ wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/Go
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
-**4)** (optional) download and unzip and install the network manager, this enables an overlay network across your services
+**4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
 ```
 $ wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
@@ -106,7 +93,7 @@ sudo NetManager -p 6000 &
 ```
 
 
-**5)** start the NodeEngine. Please use the `-n 6000` parameter only if you started the netowrk component on step 4. This paramenter in fact is used to specifcy the internal port of the network component, if any. 
+**5)** start the NodeEngine. Please only use the `-n 6000` parameter if you started the network component in step 4. This parameter, in fact, is used to specify the internal port of the network component, if any. 
 
 ```
 sudo NodeEngine -n 6000 -p 10100
@@ -117,15 +104,15 @@ sudo NodeEngine -n 6000 -p 10100
 
 ### M-DOC (M Devices, One Cluster)
 
-The M-DOC deployment enables you to deploy One cluster with multiple worker nodes. The main difference between this deployment and 1-DOC is that here the worker nodes might be external and there can be multiple of them. 
+The M-DOC deployment enables you to deploy One cluster with multiple worker nodes. The main difference between this deployment and 1-DOC is that the worker nodes might be external here, and there can be multiple of them. 
 
 ![](res/1ClusterExample.png)
 
-The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator and then to attach the worker nodes. 
+The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator. Afterward, we can attach the worker nodes. 
 
-**1)** On the node that you wish to use as a cluster and root orchestrator execute step **1-DOC.1** and **1-DOC.2**
+**1)** On the node you wish to use as a cluster and root orchestrator, execute steps **1-DOC.1** and **1-DOC.2**
 
-**2)** Now we need to prepare all the worker nodes. On each worker node execute the following:
+**2)** Now, we need to prepare all the worker nodes. On each worker node, execute the following:
 
 2.1) Downlaod and unpack both the NodeEngine and the NetManager:
 
@@ -155,10 +142,10 @@ sudo NodeEngine -n 6000 -p 10100 -a <IP ADDRESS OF THE CLSUTER ORCHESTRATOR>
 
 ### MDNC (M Devices, N Clusters)
 
-This represents the most versatile deployment. You have the possibility to split your resoruces in multiple clusters, within different locations and with different resources. In this deployment we need to deploy the Root and the Cluster orchestrator on different nodes. Each indipended clsuter orchestrator represent a different cluster of resoruces. The worker nodes attached to each cluster are aggregated and seen as a unique big resoruce from the point of view fo the Root. This deployment isolates the resources from  the root perspective and delegates the resposibility to the cluester orchestrator. 
+This represents the most versatile deployment. You can split your resources into multiple clusters within different locations and with different resources. In this deployment, we need to deploy the Root and the Cluster orchestrator on different nodes. Each independent clsuter orchestrator represents a cluster of resources. The worker nodes attached to each cluster are aggregated and seen as a unique big resource from the point of view of the Root. This deployment isolates the resources from the root perspective and delegates the responsibility to the cluster orchestrator. 
 ![](res/2ClusterExample.png) 
 
-**1)** In this first step we need to deploy the RootOrchestrator component on a Node. To do this, on the desired node you need to clone the repository, move to the root orchestrator folder and execute the startup command. 
+**1)** In this first step, we need to deploy the RootOrchestrator component on a Node. To do this, you need to clone the repository on the desired node, move to the root orchestrator folder, and execute the startup command. 
  
 ```
 $ git clone https://github.com/edgeIO/edgeio.git && cd edgeio
@@ -167,7 +154,7 @@ $ sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
-**2)** For each node that needs to host a cluster orchestrator you need to:
+**2)** For each node that needs to host a cluster orchestrator, you need to:
 2.1) Export the ENV variables needed to connect to the cluster orchestrator:
 
 ```
@@ -189,8 +176,8 @@ $ sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 
 ### Hybrids
 
-You should have got the gists now, but if you want you can build the infrastructure by composing the components like LEGO blocks.
-You want to give your Cluster Orchestrator computational capabilities? Deploy the NodeEngine+Netmanager compoentns and you're done. You don't want to use a separate node for the Root Orcestrator? Simply deploy it all together with a cluster orchestrator.
+You should have got the gist now, but if you want, you can build the infrastructure by composing the components like LEGO blocks.
+Do you want to give your Cluster Orchestrator computational capabilities for the deployment? Deploy there the NodeEngine+Netmanager components, and you're done. You don't want to use a separate node for the Root Orchestrator? Simply deploy it all together with a cluster orchestrator.
 
 ## Deploy your first application
 ### Create a deployment descriptor
