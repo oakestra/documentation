@@ -178,7 +178,7 @@ sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 You should have got the gist now, but if you want, you can build the infrastructure by composing the components like LEGO blocks.
 Do you want to give your Cluster Orchestrator computational capabilities for the deployment? Deploy there the NodeEngine+Netmanager components, and you're done. You don't want to use a separate node for the Root Orchestrator? Simply deploy it all together with a cluster orchestrator.
 
-## Deploy your first applications
+## Deploy your first application
 
 Let's try deploying an Nginx server and a client. Then we'll enter inside the client container and try to curl Nginx. 
 
