@@ -23,6 +23,8 @@ This section contains the technical documentation of Oakestra
   - [Frontend](guicli/frontend.md) 
 - Contribute
   - [Contribute](contribute/contribute.md)
+  - [Coding style](contribute/coding-style.md)
+  - [Code of Conduct](contribute/coc.md)
 
 ## Documentation contribution guide
 
@@ -34,3 +36,4 @@ Open issues and propose PRs to contribute to this documentation or to the projec
 2) While writing the documentation, please use an informal tone.
 3) Everything must be in English language.
 4) Be compliant to our [CoC](contribute/coc.md) (Code of Conduct) 
+5) Always update this structure if you add or remove an entry
