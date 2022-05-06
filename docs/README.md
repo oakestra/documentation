@@ -20,7 +20,8 @@ This section contains the technical documentation of Oakestra
   - [Semantic addressing](networking/semantic-addressing.md)
   - [Oakestra mesh](networking/oakestra-mesh.md)
 - GUI/CLI
-  - [Frontend](guicli/frontend.md) 
+  - [Frontend](guicli/frontend/frontend.md) 
+  - [CLI](guicli/cli/cli.md)
 - Contribute
   - [Contribute](contribute/contribute.md)
   - [Coding style](contribute/coding-style.md)
