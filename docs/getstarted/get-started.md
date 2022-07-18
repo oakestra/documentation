@@ -64,14 +64,14 @@ sudo -E docker-compose -f run-a-cluster/1-DOC-<arch>.yml up -d
 **3)** download, untar and install the node engine package
 
 ```
-wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra/releases/download/NodeEngine-v0.02/NodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
 **4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
 ```
-wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.04-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
 ```
 ( please replace < arch > with your device architecture: **arm** or **amd64** )
 
@@ -116,10 +116,9 @@ The deployment of this kind of cluster is similar to 1-DOC. We first need to sta
 2.1) Downlaod and unpack both the NodeEngine and the NetManager:
 
 ```
-wget -c https://github.com/edgeIO/edgeio/releases/download/NodeEngine-v0.01/GoNodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra/releases/download/NodeEngine-v0.02/NodeEngine.tar.gz && tar -C GoNodeEngine -xzf GoNodeEngine.tar.gz && cd GoNodeEngine && ./install.sh <arch>
 
-wget -c https://github.com/edgeIO/edgeionet/releases/download/v0.03-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
-
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.04-experimental/NetManager.tar.gz && tar -C .  -xzf GoNodeEngine.tar.gz && cd NetManager && ./install.sh <arch>
 ```
 
 2.2) Edit `/etc/netmanager/netcfg.json` accordingly:
