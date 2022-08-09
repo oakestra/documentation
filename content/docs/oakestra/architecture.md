@@ -7,7 +7,7 @@ categories:
 tags:
     - Architecture
 ---
-![](res/wiki-banner-help.png)
+![](/oakestra/wiki-banner-help.png)
 
 # Table of content
 
@@ -28,7 +28,7 @@ This section of the wiki is intended for people willing to contribute to the pro
 
 ## Root Orchestrator
 
-![](res/RootArch.png)
+![](/oakestra/RootArch.png)
 
 The Root Orchestrator is a centralized control plane that is aware of the participating clusters.
 
@@ -65,7 +65,7 @@ The main problem of a centralized control plane is that it can act as a single p
 
 ## Cluster Orchestrator
 
-![](res/ClusterArch.png)
+![](/oakestra/ClusterArch.png)
 
 TODO
 
