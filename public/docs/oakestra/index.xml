@@ -105,7 +105,8 @@ changing regularly, such as the number of worker nodes per cluster, total amount
         <pubDate>Tue, 09 Aug 2022 15:56:27 +0200</pubDate>
         
         <guid>https://oakestra.io/docs/oakestra/scheduling/</guid>
-        <description>&lt;h1 id=&#34;scheduling&#34;&gt;Scheduling&lt;/h1&gt;
+        <description>&lt;h1 id=&#34;how-does-the-scheduling-work-in-oakestra&#34;&gt;How does the scheduling work in Oakestra?&lt;/h1&gt;
+&lt;h1 id=&#34;scheduling-algorithms&#34;&gt;Scheduling Algorithms&lt;/h1&gt;
 </description>
         </item>
         
