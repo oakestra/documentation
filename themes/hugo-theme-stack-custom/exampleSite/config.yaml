@@ -1,15 +1,25 @@
-baseurl: https://oakestra.io
+baseurl: https://example.com
 languageCode: en-us
-theme: hugo-theme-stack-custom
+theme: hugo-theme-stack
 paginate: 5
-title: Oakestra
+title: Example Site
 
 languages:
     en:
         languageName: English
-        title: Oakestra
+        title: Example Site
         weight: 1
+    zh-cn:
+        languageName: 中文
+        title: 演示站点
+        weight: 2
+    ar:
+        languageName: عربي
+        languagedirection: rtl
+        title: موقع تجريبي
+        weight: 3
 
+# Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
 
 # GA Tracking ID
@@ -43,6 +53,8 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
+        emoji: 🍥
+        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         avatar:
             enabled: true
             local: true
@@ -57,7 +69,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: false
+        enabled: true
         provider: disqus
 
         disqusjs:
@@ -179,32 +191,20 @@ params:
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
-    main:
-        - identifier: getstarted
-          weigth: -100
-          name: Get Started
-          params:
-            icon: clock
-          url: /docs/getstarted/get-started
-        - identifier: docs
-          weight: -90
-          name: Docs
-          params: 
-            icon: tag
-          url: /docs/
-        - identifier: about
-          weigth: -80
-          name: About
-          params:
-            icon: user
-          url: /about/  
+    main: []
+
     social:
         - identifier: github
           name: GitHub
-          weight: -90
-          url: https://github.com/oakestra
+          url: https://github.com/CaiJimmy/hugo-theme-stack
           params:
               icon: brand-github
+
+        - identifier: twitter
+          name: Twitter
+          url: https://twitter.com
+          params:
+              icon: brand-twitter
 
 related:
     includeNewer: true
@@ -234,5 +234,3 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
-
-publishDir: oakestra.github.io
