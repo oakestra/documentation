@@ -1,6 +1,6 @@
 ---
 title: "Get Started with Oakestra"
-date: 2022-08-09T15:56:27+02:00
+date: 2022-08-08T15:56:27+02:00
 draft: false
 categories:
     - Docs

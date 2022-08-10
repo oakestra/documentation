@@ -180,19 +180,24 @@ params:
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
     main:
+        - identifier: getstarted
+          weigth: -100
+          name: Get Started
+          params:
+            icon: clock
+          url: /docs/getstarted/get-started
         - identifier: docs
-          weight: -100
+          weight: -90
           name: Docs
           params: 
             icon: tag
           url: /docs/
         - identifier: about
-          weigth: -100
+          weigth: -80
           name: About
           params:
             icon: user
           url: /about/  
-
     social:
         - identifier: github
           name: GitHub

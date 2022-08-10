@@ -3,7 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oakestra.io/</loc>
-    <lastmod>2022-08-09T15:56:27+02:00</lastmod>
+    <lastmod>2022-08-10T11:28:03+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/about/</loc>
+    <lastmod>2022-08-10T11:28:03+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/about/contacts/</loc>
+    <lastmod>2022-08-10T11:28:03+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/about/team/</loc>
+    <lastmod>2022-08-10T11:27:56+02:00</lastmod>
   </url><url>
     <loc>https://oakestra.io/tags/architecture/</loc>
     <lastmod>2022-08-09T15:56:27+02:00</lastmod>
@@ -30,15 +39,6 @@
     <lastmod>2022-08-09T15:56:27+02:00</lastmod>
   </url><url>
     <loc>https://oakestra.io/docs/</loc>
-    <lastmod>2022-08-09T15:56:27+02:00</lastmod>
-  </url><url>
-    <loc>https://oakestra.io/docs/getstarted/</loc>
-    <lastmod>2022-08-09T15:56:27+02:00</lastmod>
-  </url><url>
-    <loc>https://oakestra.io/docs/getstarted/get-started/</loc>
-    <lastmod>2022-08-09T15:56:27+02:00</lastmod>
-  </url><url>
-    <loc>https://oakestra.io/tags/getsarted/</loc>
     <lastmod>2022-08-09T15:56:27+02:00</lastmod>
   </url><url>
     <loc>https://oakestra.io/docs/oakestra/architecture/</loc>
@@ -70,6 +70,17 @@
   </url><url>
     <loc>https://oakestra.io/p/welcome/</loc>
     <lastmod>2022-08-09T15:56:27+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/docs/getstarted/</loc>
+    <lastmod>2022-08-08T15:56:27+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/docs/getstarted/get-started/</loc>
+    <lastmod>2022-08-08T15:56:27+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/tags/getsarted/</loc>
+    <lastmod>2022-08-08T15:56:27+02:00</lastmod>
+  </url><url>
+    <loc>https://oakestra.io/tags/about/</loc>
   </url><url>
     <loc>https://oakestra.io/docs/guicli/</loc>
   </url><url>
