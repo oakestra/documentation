@@ -235,4 +235,4 @@ markup:
         lineNumbersInTable: true
         tabWidth: 4
 
-publishDir: oakestra.github.io
+publishDir: build

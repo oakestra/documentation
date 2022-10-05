@@ -1,6 +1,6 @@
 ---
 title: "Get Started with Oakestra"
-date: 2022-08-08T15:56:27+02:00
+date: 2022-10-05T09:56:27+02:00
 draft: false
 categories:
     - Docs
@@ -58,28 +58,26 @@ export CLUSTER_LOCATION=My_Awesome_Apartment
 **1)** now clone the repository and move into it using:
 
 ```
-git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/oakestra/oakestra.git && cd oakestra
 ```
 
 **2)** Run a local 1-DOC cluster
 
 ```
-sudo -E docker-compose -f run-a-cluster/1-DOC-<arch>.yml up -d
+sudo -E docker-compose -f run-a-cluster/1-DOC.yml up
 ```
-( please replace < arch > with your device architecture: **arm** or **amd64** )
 
 
 **3)** download, untar and install the node engine package
 
 ```
-wget -c https://github.com/oakestra/oakestra/releases/download/NodeEngine-v0.02/NodeEngine.tar.gz && tar -xzf NodeEngine.tar.gz && cd NodeEngine/build && chmod +x install.sh && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh
 ```
-( please replace < arch > with your device architecture: **arm-7** or **amd64** )
 
 **4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
 ```
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.04-experimental/NetManager.tar.gz && tar -xzf NetManager.tar.gz && cd NetManager && chmod +x install.sh && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 ( please replace < arch > with your device architecture: **arm-7** or **amd64** )
 
@@ -124,9 +122,9 @@ The deployment of this kind of cluster is similar to 1-DOC. We first need to sta
 2.1) Downlaod and unpack both the NodeEngine and the NetManager:
 
 ```
-wget -c https://github.com/oakestra/oakestra/releases/download/NodeEngine-v0.02/NodeEngine.tar.gz && tar -xzf NodeEngine.tar.gz && cd NodeEngine/build && chmod +x install.sh && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh
 
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.04-experimental/NetManager.tar.gz && tar -xzf NetManager.tar.gz && cd NetManager && chmod +x install.sh && ./install.sh <arch>
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 
 2.2) Edit `/etc/netmanager/netcfg.json` accordingly:
