@@ -1,7 +1,7 @@
 baseURL = "https://oakestra.io"
 title = "Oakestra"
 paginate = 3
-theme="hugo-theme-stack"
+theme="hugo-geekdoc"
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
