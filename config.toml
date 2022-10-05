@@ -1,4 +1,4 @@
-baseURL = "https://oakestra.io"
+baseURL = "https://oakestra.io/"
 title = "Oakestra"
 theme = "hugo-geekdoc"
 

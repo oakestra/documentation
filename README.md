@@ -10,10 +10,10 @@ Check out Step 1 of [Getting started with goHugo](https://gohugo.io/getting-star
 # Build the docs website
 
 1. move inside the oakestra.github.io folder and give it a `git pull` just in case. 
-2. go back to the main folder and build the website using `hugo -D`
+2. go back to the main folder and build the website using ` use `hugo -b oakestra.io/docs -d oakestra.github.io/docs`
 3. move again inside the folder oakestra.github.io, commit and push
 
 # Run development docs website server
 
-1. use `hugo`
+1. use `hugo serve`
 
