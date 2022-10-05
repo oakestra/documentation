@@ -17,7 +17,7 @@
         <span class="flex align-center">
           <img
             class="gdoc-brand__img"
-            src="{{ (default "brand.svg" .Root.Site.Params.GeekdocLogo) | relURL }}"
+            src="{{ (default "logo.png" .Root.Site.Params.GeekdocLogo) | relURL }}"
             alt=""
           />
           <span class="gdoc-brand__title">{{ .Root.Site.Title }}</span>
@@ -50,7 +50,7 @@
           <a href="{{ .Root.Site.BaseURL }}" class="gdoc-header__link">
             <svg class="gdoc-icon gdoc_home">
               <title>{{ i18n "button_homepage" }}</title>
-              <use xlink:href="#gdoc_home"></use>
+              <use xlink:href="/"></use>
             </svg>
           </a>
         </span>
