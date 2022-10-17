@@ -144,20 +144,20 @@ connect to `<root_orch_ip>:10000/api/docs`
 Authenticate using the following procedure:
 
 1. locate the login method and use the try-out button
-![try-login](getstarted/login-try.png)
+![try-login](/getstarted/login-try.png)
 2. Use the default Admin credentials to login
-![execute-login](getstarted/login-execute.png)
+![execute-login](/getstarted/login-execute.png)
 3. Copy the result login token
-![token-login](getstarted/login-token-copy.png)
+![token-login](/getstarted/login-token-copy.png)
 4. Go to the top of the page and authenticate with this token
-![auth-login](getstarted/authorize.png)
-![auth2-login](getstarted/authorize-2.png)
+![auth-login](/getstarted/authorize.png)
+![auth2-login](/getstarted/authorize-2.png)
 
 ### Register an application and the services
 After you authenticate with the login function, you can try out to deploy the first application. 
 
 1. Upload the deployment description to the system. You can try using the deployment descriptor above.
-![post app](getstarted/post-app.png)
+![post app](/getstarted/post-app.png)
 
 The response contains the Application id and the id for all the application's services. Now the application and the services are registered to the platform. It's time to deploy the service instances! 
 
