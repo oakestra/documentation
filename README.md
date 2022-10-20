@@ -15,5 +15,5 @@ Check out Step 1 of [Getting started with goHugo](https://gohugo.io/getting-star
 
 # Run development docs website server
 
-1. use `hugo serve -b localhost`
+1. use `hugo serve`
 

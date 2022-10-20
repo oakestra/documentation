@@ -83,7 +83,7 @@ Since version 0.4, Oakestra (previously, EdgeIO) uses the following deployment d
           "storage": 0,
           "code": "docker.io/library/nginx:latest",
           "state": "",
-          "port": "6080:60/tcp",
+          "port": "6080:80/tcp",
           "addresses": {
             "rr_ip": "10.30.30.30"
           },
@@ -144,14 +144,14 @@ connect to `<root_orch_ip>:10000/api/docs`
 Authenticate using the following procedure:
 
 1. locate the login method and use the try-out button
-![try-login](/getstarted/login-try.png)
+![try-login](/docs/getstarted/login-try.png)
 2. Use the default Admin credentials to login
-![execute-login](/getstarted/login-execute.png)
+![execute-login](/docs/getstarted/login-execute.png)
 3. Copy the result login token
-![token-login](/getstarted/login-token-copy.png)
+![token-login](/docs/getstarted/login-token-copy.png)
 4. Go to the top of the page and authenticate with this token
-![auth-login](/getstarted/authorize.png)
-![auth2-login](/getstarted/authorize-2.png)
+![auth-login](/docs/getstarted/authorize.png)
+![auth2-login](/docs/getstarted/authorize-2.png)
 
 ### Register an application and the services
 After you authenticate with the login function, you can try out to deploy the first application. 
@@ -183,11 +183,15 @@ each call to this endpoint generates a new instance of the service
 
 ### Check if the deployment succeded
 
-If both services show the status **ACTIVE** then everything went fine. Otherwise, there might be a configuration issue or a bug. Please debug it with `docker logs system_manager -f --tail=100` on the root orchestrator and with `docker logs cluster_manager -f --tail=100` on the cluster orchestrator and open an issue. 
+Familiarize yourself with the API and discover for each one of the service the status and the public address.
+
+If both services show the status **ACTIVE** then everything went fine. Otherwise, there might be a configuration issue or a bug. Please debug it with `docker logs system_manager -f --tail=1000` on the root orchestrator, with `docker logs cluster_manager -f --tail=1000` on the cluster orchestrator and checking the logs of the NetManager and NodeEngine. Then please open an issue. 
 
 If both services are ACTIVE, it is time to test the communication. 
 
-Move into the worker node hosting the client and use the following command to log into the container. 
+Try to reach the nginx server you just deployed reaching: http://<deployment_machine_ip>:6080 If you see the Nginx landing page the deployment succeeded! Hurray! 🎉
+
+If you want to try the semantic addressing, move into the worker node hosting the client and use the following command to log into the container. 
 
 ```
 sudo ctr -n edge.io task exec --exec-id term1 Client.default.client.default /bin/sh

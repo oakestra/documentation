@@ -77,7 +77,7 @@ enableRobotsTXT = true
   geekdocDarkModeDim = false
 
   # (Optional, default false) Enforce code blocks to always use the dark color theme.
-  geekdocDarkModeCode = false
+  geekdocDarkModeCode = true
 
   # (Optional, default true) Display a "Back to top" link in the site footer.
   geekdocBackToTop = true

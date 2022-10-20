@@ -19,7 +19,7 @@ weight: -100
 
 ## High-level architecture
 
-![High level architecture picture](/getstarted/highLevelArch.png)
+![High level architecture picture](/docs/getstarted/highLevelArch.png)
 
 Oakestra lets you deploy your workload on devices of any size. From a small RasperryPi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
 
@@ -44,11 +44,11 @@ Let's start simple with a single node deployment, where all the components are i
 
 In this example, we will use a single device to deploy all the components. This is not recommended for production environments, but it is pretty cool for home environments and development. 
 
-![Deployment example with a single device](/getstarted/SingleNodeExample.png)
+![Deployment example with a single device](/docs/getstarted/SingleNodeExample.png)
 
 **0)** First, let's export the required environment variables
 
-```
+```Shell
 ## Choose a unique name for your cluster
 export CLUSTER_NAME=My_Awesome_Cluster
 ## Come up with a name for the current location
@@ -57,33 +57,33 @@ export CLUSTER_LOCATION=My_Awesome_Apartment
 
 **1)** now clone the repository and move into it using:
 
-```
+```Shell
 git clone https://github.com/oakestra/oakestra.git && cd oakestra
 ```
 
 **2)** Run a local 1-DOC cluster
 
-```
+```Shell
 sudo -E docker-compose -f run-a-cluster/1-DOC.yml up
 ```
 
 
 **3)** download, untar and install the node engine package
 
-```
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh
+```Shell
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
 ```
 
 **4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
-```
+```Shell
 wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 ( please replace < arch > with your device architecture: **arm-7** or **amd64** )
 
 4.1) Edit `/etc/netmanager/netcfg.json` as follows:
 
-```
+```Shell
 {
   "NodePublicAddress": "<IP ADDRESS OF THIS DEVICE>",
   "NodePublicPort": "<PORT REACHABLE FROM OUTSIDE, use 50103 as default>",
@@ -100,7 +100,7 @@ sudo NetManager -p 6000 &
 
 **5)** start the NodeEngine. Please only use the `-n 6000` parameter if you started the network component in step 4. This parameter, in fact, is used to specify the internal port of the network component, if any. 
 
-```
+```Shell
 sudo NodeEngine -n 6000 -p 10100
 ```
 ( you can use `NodeEngine -h` for further details )
@@ -111,7 +111,7 @@ sudo NodeEngine -n 6000 -p 10100
 
 The M-DOC deployment enables you to deploy One cluster with multiple worker nodes. The main difference between this deployment and 1-DOC is that the worker nodes might be external here, and there can be multiple of them. 
 
-![](/getstarted/1ClusterExample.png)
+![](/docs/getstarted/1ClusterExample.png)
 
 The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator. Afterward, we can attach the worker nodes. 
 
@@ -119,17 +119,19 @@ The deployment of this kind of cluster is similar to 1-DOC. We first need to sta
 
 **2)** Now, we need to prepare all the worker nodes. On each worker node, execute the following:
 
-2.1) Downlaod and unpack both the NodeEngine and the NetManager:
+2.1) Downlaod and unpack both the NodeEngine
 
+```Shell
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
 ```
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh
-
+and the NetManager
+```Shell
 wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 
 2.2) Edit `/etc/netmanager/netcfg.json` accordingly:
 
-```
+```Shell
 {
   "NodePublicAddress": "<IP ADDRESS OF THIS DEVICE>",
   "NodePublicPort": "<PORT REACHABLE FROM OUTSIDE, internal port is always 50103>",
@@ -139,7 +141,7 @@ wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetMan
 ``` 
 2.3) Run the NetManager and the NodeEngine components:
 
-```
+```Shell
 sudo NetManager -p 6000 &
 sudo NodeEngine -n 6000 -p 10100 -a <IP ADDRESS OF THE CLSUTER ORCHESTRATOR>
 ```
@@ -147,11 +149,11 @@ sudo NodeEngine -n 6000 -p 10100 -a <IP ADDRESS OF THE CLSUTER ORCHESTRATOR>
 ### MDNC (M Devices, N Clusters)
 
 This represents the most versatile deployment. You can split your resources into multiple clusters within different locations and with different resources. In this deployment, we need to deploy the Root and the Cluster orchestrator on different nodes. Each independent clsuter orchestrator represents a cluster of resources. The worker nodes attached to each cluster are aggregated and seen as a unique big resource from the point of view of the Root. This deployment isolates the resources from the root perspective and delegates the responsibility to the cluster orchestrator. 
-![](/getstarted/2ClusterExample.png) 
+![](/docs/getstarted/2ClusterExample.png) 
 
 **1)** In this first step, we need to deploy the RootOrchestrator component on a Node. To do this, you need to clone the repository on the desired node, move to the root orchestrator folder, and execute the startup command. 
  
-```
+```Shell
 git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 
 sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
@@ -161,7 +163,7 @@ sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
 **2)** For each node that needs to host a cluster orchestrator, you need to:
 2.1) Export the ENV variables needed to connect to the cluster orchestrator:
 
-```
+```Shell
 export SYSTEM_MANAGER_URL=<IP ADDRESS OF THE NODE HOSTING THE ROOT ORCHESTRATOR>
 export CLUSTER_NAME=<choose a name for your cluster>
 export CLUSTER_LOCATION=<choose a name for the cluster's location>
@@ -169,7 +171,7 @@ export CLUSTER_LOCATION=<choose a name for the cluster's location>
 
 2.2) Clone the repo and run the cluster orchestrator:
 
-```
+```Shell
 git clone https://github.com/edgeIO/edgeio.git && cd edgeio
 
 sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
