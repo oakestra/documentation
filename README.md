@@ -1,5 +1,5 @@
 # Oakestra documentation 
-## hosted at [oakestra.io](oakestra.io)
+hosted at [oakestra.io](oakestra.io)
 
 The contents from this repository is hosted on the Oakestra website. This docs contains both component's descriptions and user guides.
 
