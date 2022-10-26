@@ -1,19 +1,26 @@
-# This is the Okakestra website 
+# Oakestra documentation 
+hosted at [oakestra.io](oakestra.io)
 
-This repository cotnains the Oakestra website and its documentation. This docs contains both component's descriptions and user guides.
+The contents from this repository is hosted on the Oakestra website. This docs contains both component's descriptions and user guides.
 
-# Prerequisites
+- documentation: [oakestra.io/docs](oakestra.io/docs)
+
+The Unikraft site is written in [Markdown](https://www.markdownguide.org/) and published via [goHugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/).
+
+# Build
+
+## Prerequisites
 
 In order to visualize and build the documentation website you need to set up your Hug Environment. 
 Check out Step 1 of [Getting started with goHugo](https://gohugo.io/getting-started/quick-start/)
 
-# Build the docs website
+## Build the docs website
 
 1. move inside the oakestra.github.io folder and give it a `git pull` just in case. 
 2. go back to the main folder and build the website using ` use `hugo -d oakestra.github.io/`
 3. move again inside the folder oakestra.github.io, commit and push
 
-# Run development docs website server
+## Run development docs website server
 
 1. use `hugo serve`
 
