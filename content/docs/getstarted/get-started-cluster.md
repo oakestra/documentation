@@ -19,7 +19,7 @@ weight: -100
 
 ## High-level architecture
 
-![High level architecture picture](/docs/getstarted/highLevelArch.png)
+![High level architecture picture](/getstarted/highLevelArch.png)
 
 Oakestra lets you deploy your workload on devices of any size. From a small RasperryPi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
 
@@ -44,7 +44,7 @@ Let's start simple with a single node deployment, where all the components are i
 
 In this example, we will use a single device to deploy all the components. This is not recommended for production environments, but it is pretty cool for home environments and development. 
 
-![Deployment example with a single device](/docs/getstarted/SingleNodeExample.png)
+![Deployment example with a single device](/getstarted/SingleNodeExample.png)
 
 **0)** First, let's export the required environment variables
 
@@ -111,7 +111,7 @@ sudo NodeEngine -n 6000 -p 10100
 
 The M-DOC deployment enables you to deploy One cluster with multiple worker nodes. The main difference between this deployment and 1-DOC is that the worker nodes might be external here, and there can be multiple of them. 
 
-![](/docs/getstarted/1ClusterExample.png)
+![](/getstarted/1ClusterExample.png)
 
 The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator. Afterward, we can attach the worker nodes. 
 
@@ -149,7 +149,7 @@ sudo NodeEngine -n 6000 -p 10100 -a <IP ADDRESS OF THE CLSUTER ORCHESTRATOR>
 ### MDNC (M Devices, N Clusters)
 
 This represents the most versatile deployment. You can split your resources into multiple clusters within different locations and with different resources. In this deployment, we need to deploy the Root and the Cluster orchestrator on different nodes. Each independent clsuter orchestrator represents a cluster of resources. The worker nodes attached to each cluster are aggregated and seen as a unique big resource from the point of view of the Root. This deployment isolates the resources from the root perspective and delegates the responsibility to the cluster orchestrator. 
-![](/docs/getstarted/2ClusterExample.png) 
+![](/getstarted/2ClusterExample.png) 
 
 **1)** In this first step, we need to deploy the RootOrchestrator component on a Node. To do this, you need to clone the repository on the desired node, move to the root orchestrator folder, and execute the startup command. 
  

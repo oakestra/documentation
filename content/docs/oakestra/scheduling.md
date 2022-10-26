@@ -9,11 +9,11 @@ draft: false
 
 Oakestra's architecture is composed of two tiers. Resources are divided into clusters. A cluster is seen as the aggregation of all its resources. A job is first scheduled to a cluster, and then the cluster scheduler decides the target worker.  
 
-![scheduling algo](/docs/oakestra/cluster-worker-selection.png)
+![scheduling algo](/oakestra/cluster-worker-selection.png)
 
 The scheduling component is as simple as a Celery worker. The scheduler receives a job description and gives back an allocation target. We differentiate between the Root scheduler and Cluster scheduler. The Root scheduler finds a suitable cluster (step 1), and the Cluster scheduler finds a suitable worker node (step 2).
 
-![scheduling algo](/docs/oakestra/scheduling-celery-worker.png)
+![scheduling algo](/oakestra/scheduling-celery-worker.png)
 
 This scheduling algorithm does not ensure an absolute optimal deployment but consistently reduces the search space. 
 
@@ -21,7 +21,7 @@ This scheduling algorithm does not ensure an absolute optimal deployment but con
 
 At each layer, the scheduling decision consists of the creation of a `candidate_list` of clusters (or workers), the exclusion of unsuitable candidates, and then the selection of the "best" candidate accordingly to a scheduling algorithm.
 
-![scheduling algo](/docs/oakestra/scheduling-algo.png)
+![scheduling algo](/oakestra/scheduling-algo.png)
 
 The scheduling algorithms are implemented in the `calculation.py` component of each respective scheduler. 
 
