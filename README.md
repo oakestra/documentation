@@ -7,6 +7,17 @@ The contents from this repository are hosted on the Oakestra website. This docum
 
 The Oakestra site is written in [Markdown](https://www.markdownguide.org/) and published via [goHugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/).
 
+# Files Strucutre 
+
+/
+├── content/    ---> This is where the website files are
+│   ├── _index.html   ---> website landing page
+│   ├── about/  ---> about category
+│   └── docs/  ---> documentation subfolder
+│   
+├── static/  ---> folder where all the static files are
+└── the remaining files are framework realted, avoid touching them :)
+
 # Build
 
 ## Prerequisites
