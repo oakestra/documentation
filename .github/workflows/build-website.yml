@@ -11,7 +11,8 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.104.3+extended'
+        hugo-version: '0.104.3'
+        extended: true
     
     - name: Checkout repo on source_branch
       uses: actions/checkout@v2
