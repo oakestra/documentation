@@ -28,7 +28,7 @@ jobs:
       id: build_step  # <<for outputs>>
       with:
         source_branch: 'main'
-        #release_branch: 'bon-voyage'
+        release_branch: 'main'
         submodule_release_branch: 'main'
         # full_rebuild: true
         hugo_publish_directory: 'oakestra.github.io'   
