@@ -9,6 +9,7 @@ The Oakestra site is written in [Markdown](https://www.markdownguide.org/) and p
 
 # Files Strucutre 
 
+```
 /
 ├── content/    ---> This is where the website files are
 │   ├── _index.html   ---> website landing page
@@ -17,6 +18,7 @@ The Oakestra site is written in [Markdown](https://www.markdownguide.org/) and p
 │   
 ├── static/  ---> folder where all the static files are
 └── the remaining files are framework realted, avoid touching them :)
+```
 
 # Build
 
