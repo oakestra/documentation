@@ -64,7 +64,7 @@ git clone https://github.com/oakestra/oakestra.git && cd oakestra
 **2)** Run a local 1-DOC cluster
 
 ```Shell
-sudo -E docker-compose -f run-a-cluster/1-DOC.yml up
+sudo -E docker-compose -f run-a-cluster/1-DOC.yaml up
 ```
 
 
