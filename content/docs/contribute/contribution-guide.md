@@ -108,3 +108,25 @@ With the growth in the interest for Oakestra, many people are onboarding. By col
 
 Try to write the issues in a clear way so that anyone might be able to fit in and contribute. 
 Then keep an eye on the issue's comment section and add the label "help needed" if required. 
+
+## Versioning
+
+The project version is written in the file `version.txt` 
+Make sure to update this file accordingly. 
+
+N.b. The versions are amanged only by this file. NEVER CREATE A VERSION TAG MANUALLY. 
+
+## Release images
+
+An accepted pull-request towards main creates a release TAG corresponding to the version in `version.txt`. 
+The release images will be created automatically by the git workflows. 
+
+- If a release tag exist already, will not be replaced. You need to increase the version number! 
+- If you get an artifact creation error, most likely the release was not yet created on github. Please create a new release for the new tag and re-run the failed jobs. 
+
+## Alpha images
+
+An accepted pull-request towards develop creates an alpha TAG corresponding to the version in `version.txt` with the `alpha-` prefix. If the tag exists already, it will be updated. 
+The alpha images will be created automatically by the git workflows. 
+
+- If you get an artifact creation error, most likely the release was not yet created on github. Please create a new alpha-release for the new tag and re-run the failed jobs. 
