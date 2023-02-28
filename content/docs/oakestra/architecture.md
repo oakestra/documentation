@@ -93,9 +93,9 @@ A machine, in order to be qualified as Worker Node, must contain a Node Engine a
 
 The Node Engine is a single binary implemented using Go Lang and is composed of the following modules:
 
-* MQTT: This is the interface between the worker and the Cluster. The deployment commands, node status updates and jobs updates use this component. 
+* MQTT: This is the interface between the worker and the Cluster. The deployment commands, node status updates, and jobs updates use this component. 
 * Models: This contains the models that describe the node and the jobs. 
-	* Node: describes the resources of the node that are transmitted to the custer. This is decomposed in dynamic resources and static. The status of static resources is transmitted only at startup. Dynamic resource statuses such as cpu/memory usage are updated regularly.  
+	* Node: describes the resources of the node that are transmitted to the cluster. This is decomposed into dynamic resources and static. The status of static resources is transmitted only at startup. Dynamic resource statuses such as cpu/memory usage are updated regularly.  
 	* Service: describe the fields of the services that are managed by this implementation of the worker node, as well as the real-time service usage statistics that must be monitored. 
 * Jobs: Background jobs that monitor the status of the Worker node itself and the applications deployed. 
 * Runtimes: Contains the glue with the supported system runtimes. Right now, the runtime dispatcher only supports containerd and, therefore, "containers" is the only runtime available. Any new runtime integration is implemented here. We're currently working on Unikernels integration. 
