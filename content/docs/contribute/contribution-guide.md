@@ -77,12 +77,14 @@ Try to be concise and informative. Here some good ✅ and bad ❌ examples to gi
 
 ## Contribution steps
 
-- Open an Issue
-- Starting from the issue, detach a branch from "develop" and entitle it using the following pattern: `<Issue nr.>_issue_name_in_snake_case`
-- Perform your contributions in this branch 
-- Make sure to update the documentation as well
-- Make sure that the PR passes all the automated tests suits
-- Once finished, open a Pull Request towards the develop branch. If you're a student, put your supervisors as Reviewers. Otherwise, refer to the people with the most contributions. Then wait for their approval. 
+- Open an Issue or Pick one
+- Assign it to yourself, or ask for it. 
+- Fork the develop branch and detach a branch named after the issue
+- When the issue is solved, tested and discussed in your fork, propose a PR towards the develop branch. Don't forget to link the PR to the issue using the proper [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+- If necessary, update the [documentation](https://github.com/oakestra/documentation) as well using the same procedure
+- Make sure that the PR passes all the automated tests.
+- Add the maintainers as Reviewers.
+- Don't disappear, try to stay active in the discussion section until required. 
 
 ## Multi-repo contributions
 
