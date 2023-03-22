@@ -14,11 +14,11 @@ Make sure the following software is installed:
 
 * Git 2.13.2+ ([installation manual](https://git-scm.com/downloads))
 * Docker 1.13.1+ ([installation manual](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/))
-* Node.js 16+ and npm 8+ ([installation with nvm](https://github.com/creationix/nvm#usage))
+* Node.js 18+ and npm 8+ ([installation with nvm](https://github.com/creationix/nvm#usage))
 
 1) Clone the repository
 ```shell
-git clone https://github.com/edgeIO/dashboard.git
+git clone https://github.com/oakestra/dashboard.git
 ```
 
 2) Install the dependencies:
@@ -30,7 +30,7 @@ npm install
 ## Running the Okakestra Framework
 
 To be able to log in to the dashboard and test all functions, at least the System Manager and MongoDB must be started.
-How to start them is described in the README of the `edgeio` repository.
+How to start them is described in the README of the `oakestra` repository.
 
 ## Serving Dashboard for Development
 
