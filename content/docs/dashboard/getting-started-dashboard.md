@@ -1,10 +1,24 @@
 ---
-title: "Getting started with the frontend"
-date: 2022-08-09T15:56:27+02:00
-draft: true
+title: "Start your Dashboard"
+date: 2022-10-05T09:56:27+02:00
+draft: false
+categories:
+- Docs
+tags:
+- GetStarted
 ---
 
-# Getting started
+![](/wiki-banner-help.png)
+
+Dashboard is a web-based Oakestra user interface. You can use Dashboard to deploy applications to a Oakestra cluster, troubleshoot your application, and manage the cluster resources. You can use Dashboard to get an overview of applications running on your cluster, as well as for creating or modifying individual services. For example, you can deploy a service, view the status of running services and create service SLAs with the intuitive form.
+Dashboard also provides information on the state of Oakestra resources in your cluster and on any errors that may have occurred.
+
+# Requirements
+
+- You have a running Root Orchestrator.
+- You can access the APIs at `<root-orch-ip>:10000`
+
+# Deploying the Dashboard
 
 This document describes how to setup your development environment.
 
@@ -27,12 +41,12 @@ git clone https://github.com/oakestra/dashboard.git
 npm install
 ```
 
-## Running the Okakestra Framework
+### Running the Okakestra Framework
 
 To be able to log in to the dashboard and test all functions, at least the System Manager and MongoDB must be started.
 How to start them is described in the README of the `oakestra` repository.
 
-## Serving Dashboard for Development
+### Serving Dashboard for Development
 
 
 ```shell
@@ -48,7 +62,7 @@ Follow [Building Dashboard for Production](#building-dashboard-for-production) s
 
 > Due to the deployment complexities of i18n and the need to minimize rebuild time, the development server only supports localizing a single locale at a time. Setting the "localize" option to true will cause an error when using ng serve if more than one locale is defined. Setting the option to a specific locale, such as "localize": ["fr"], can work if you want to develop against a specific locale (such as fr).
 
-## Building Dashboard for Production
+### Building Dashboard for Production
 
 In the production environment you need the following files: 
 
@@ -58,7 +72,7 @@ In the production environment you need the following files:
 4) `docker-compose.yml`
 
 
-### 1. dist folder:
+#### 1) dist folder:
 The dashboard project can be built for production by using the following task:
 
 ```shell
@@ -67,7 +81,7 @@ npm run build
 
 The code is compiled, compressed, i18n support is enabled and debug support removed. The dashboard binary can be found in the `dist` folder.
 
-### 2. docker folder: 
+#### 2) docker folder: 
 
 To use the environment variables of a Docker container in your Angular application we use the library [angular-server-side-configuration](https://www.npmjs.com/package/angular-server-side-configuration). For any problems you can consult the readme of that repository.
 
@@ -78,11 +92,11 @@ It contains a package.json file that has a dependency on angular-server-side-con
 
 The entrypoint.sh script is used to install NodeJS and the angular-server-side-configuration library. After that, it runs the main.js script to set the environment variables and at the end, all NodeJS-related stuff is deleted and the Nginx server can be started with the defined settings in the configuration file. 
 
-### 3. dockerfile 
+#### 3) dockerfile 
 
 Copies all relevant files into the container and executes the `entrypoint.sh` script
 
-### 4. docker compose
+#### 4) docker compose
 
 To start the Docker service the Ip address of the system manager should be defined in the `docker-compose.yml` file. If the dashboard cannot reach the system manager, the user cannot log in.
 

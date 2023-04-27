@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9919033c-c6ae-466d-a0c9-ddd17969588d" name="Changes" comment="small update">
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/_index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/cli/cli.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/architecture.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/getting-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/res/architecture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/frontend.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/access-control.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/features.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/features.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/app.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/connection.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/delete.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/login.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/service.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/status.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/installation.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MhFpJdTXezVRz2z7lyMOVceBvq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Documents\GitHub\documentation\content\docs\dashboard" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9919033c-c6ae-466d-a0c9-ddd17969588d" name="Changes" comment="" />
+      <created>1678212088563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678212088563</updated>
+      <workItem from="1678212089698" duration="967000" />
+      <workItem from="1679503518362" duration="916000" />
+      <workItem from="1679565723814" duration="109000" />
+      <workItem from="1680356624190" duration="770000" />
+      <workItem from="1681544021480" duration="15000" />
+      <workItem from="1682001210836" duration="6034000" />
+    </task>
+    <task id="LOCAL-00001" summary="small update">
+      <created>1679503839397</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679503839397</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="small update" />
+    <option name="LAST_COMMIT_MESSAGE" value="small update" />
+  </component>
+</project>

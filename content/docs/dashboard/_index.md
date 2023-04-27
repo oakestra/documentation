@@ -1,6 +1,6 @@
 +++
 aliases = ["posts", "articles", "blog", "showcase", "docs"]
-title = "CLI & Frontend"
+title = "Dashboard"
 author = "Oakestra"
-tags = ["gui"]
+tags = ["dashboard"]
 +++

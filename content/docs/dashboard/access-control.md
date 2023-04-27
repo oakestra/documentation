@@ -1,8 +1,13 @@
 ---
-title: "Front end access control"
-date: 2022-08-09T15:56:27+02:00
-draft: true
+title: "Dashboard access control"
+date: 2022-10-05T09:56:27+02:00
+draft: false
+categories:
+- Docs
+  tags:
+- GetStarted
 ---
+
 # Access control
 
 Once Dashboard is installed and accessible we can focus on configuring access control to the resources for users.
@@ -14,14 +19,14 @@ This admin user can be used to create additional users.
 
 ## Introduction
 
-EdgeIO supports currently only one way of authenticating and authorizing users.
+Oakestra supports currently only one way of authenticating and authorizing users.
 Authorization is handled by the Root Orchestrator (System Manager) API server.
 The Dashboard only acts as a proxy and passes all auth information to it. 
 In case of forbidden access corresponding warnings will be displayed in the Dashboard.
 
 ## Authentication
 
-EdgeIO Dashboard supports currently only this way of authenticating users:
+Oakestra Dashboard supports currently only this way of authenticating users:
 
 * **Username/password** that can be used on Dashboard login view.
 
