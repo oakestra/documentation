@@ -1,21 +1,31 @@
 ---
-title: "Dashboard access control"
+title: "Access Control"
 date: 2022-10-05T09:56:27+02:00
 draft: false
 categories:
-- Docs
-  tags:
-- GetStarted
+  - Docs
+tags:
+  - GetStarted
 ---
 
-# Access control
+![](/wiki-banner-help.png)
 
-Once Dashboard is installed and accessible we can focus on configuring access control to the resources for users.
+## Access control
 
-When the framework is started for the first time, an admin user is automatically created. 
-This admin user can be used to create additional users.
+Upon successful installation and accessibility of the Dashboard, our attention can shift to configuring 
+access control to resources for various users.
 
-**IMPORTANT:** Make sure that the Admin password is changed after the first start of the System Manager.
+Upon launching the framework for the first time, an administrative user is automatically generated. 
+This administrative user can then be leveraged to create additional users and organizations within the system.
+
+Credentials for the admin user: 
+
+**Username:** Admin
+
+**Password:** Admin
+
+It is important to note that after the initial launch of the System Manager, 
+it is imperative to change the password for the Admin user as an added measure of security.
 
 ## Introduction
 
@@ -26,23 +36,21 @@ In case of forbidden access corresponding warnings will be displayed in the Dash
 
 ## Authentication
 
-Oakestra Dashboard supports currently only this way of authenticating users:
+Oakestra Dashboard currently supports only the following method for authenticating users:
 
-* **Username/password** that can be used on Dashboard login view.
+- **Username/password** that can be used on the Dashboard login view.
 
-After a user is logged in, tokens in the authorization header are used to authenticate the user.
+Once a user has successfully logged in, tokens in the authorization header are leveraged to authenticate the user.
 
-### Authorization header
+### Authorization Header
 
-Using authorization header is the only way to make Dashboard act as a specific user. 
-Note that there are some risks if plain HTTP is used since the traffic is vulnerable to [MITM attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+Using the authorization header is the only way to make Dashboard function as a specific user. However, it is worth noting that if plain HTTP is used, the traffic is vulnerable to [MITM attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), which could result in potential security risks.
 
-To make Dashboard use authorization header you simply need to pass `Authorization: Bearer <token>` in every request to Dashboard. 
-This is currently done automatically with an HTTP interceptor.
+To enable Dashboard to utilize the authorization header, simply pass `Authorization: Bearer <token>` with every request made to Dashboard. Currently, this is automatically executed with an HTTP interceptor.
 
-To quickly test it check out [Requestly](https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa) Chrome browser plugin that allows to manually modify request headers.
+To test this feature swiftly, try out the [Requestly](https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa) Chrome browser plugin that enables manual modification of request headers.
 
-## Admin privileges
+## Admin Privileges
 
-**IMPORTANT:** Make sure that you know what you are doing before proceeding. Granting admin privileges to Dashboard's Service Account might be a security risk.
+**IMPORTANT:** Before proceeding, it is crucial to understand the potential security implications of granting admin privileges to Dashboard's Service Account.
 

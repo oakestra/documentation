@@ -1,63 +1,84 @@
 ---
-title: "Dashboard Features"
+title: "Features"
 date: 2022-10-05T09:56:27+02:00
 draft: false
 categories:
-- Docs
-  tags:
-- GetSarted
+    - Docs
+tags:
+    - GetStarted
 ---
+
+![](/wiki-banner-help.png)
+
 # Features
 
-We have tried to build the dashboard as logically as possible. 
-Nevertheless, the most important functions of the dashboard are explained here. 
+The user interface is still under development and therefore does not offer so many features yet. 
+However, we are working on it to support more and more features. 
+If you find ideas for new features or bugs post an issue in the [GitHub repository](https://github.com/oakestra/dashboard).
 
-## Login
+## Creating a service
 
-You can easily log in to the dashboard with your username and password. If you don't have a user account yet, ask the admin to create one for you.
+Creating a service is the main task of the dashboard, as described in other parts of the documentation, 
+an SLA definition must be created for it. This can be easily done using the various input fields 
+in the dashboard. 
 
-If you forgot your password you can reset it by clicking on the Forgot Password button, you will receive a mail with a link to create a new password. 
-
-## Creating an Application
-
-To create a new application just click on the plus symbol in the application section on the left side. 
-Once you have pressed it, a dialog will open where you can specify the name, namespace and description of the application. 
-
-## View Status of a Service
-
-To view the detailed status of a service and read out current data such as CPU and memory consumption, simply click on the status and a dialog opens with the corresponding values. 
+To do this, first, create an application, then you can create a service in this application by 
+entering the various values in the form. The dashboard then creates the SLA deployment descriptor 
+based on your input and sends it to the root orchestrator.
 
 
-## Delete User
+## Organizations
 
-To create, edit or delete a user you have to go to the user management page. This page can be found on the top right when you click on the people icon.
+Organizations ensure smooth collaboration within a team in Oakestra. 
+Members of an organization have access to all applications created within that organization, 
+and they can use the resources provided within the organization to deploy new services.
 
-In this example an existing user will be deleted.
+### Root Organization
 
-**Note that the user management page can only be accessed by an admin.**
-
-### Create Service
-
-To create a new service we click on the ``create service`` button. 
-We will be redirected to another page where many attributes can be defined. 
-
-
-In this example only a few attributes are given, in the following you will find a complete list of all attributes with a short description.
+When the root orchestrator is started for the first time, a root organization 
+is also created with the admin, and each user is automatically part of this root organization. 
+However, users can also be part of other organizations.
+The root organization has specific properties. 
+Unlike other organizations, where a user can view all applications within the organization 
+and share resources, in the root organization, 
+only the applications that a user has created can be viewed.
 
 
+## Roles
 
-## Create connections between services
+After a successful login, the user receives a JWT token that authenticates the user. 
+The token contains the user's roles and the organization ID in which the user is currently logged in. 
+We distinguish between the following different roles.
 
-There are several ways to create a connection between two services.
+### Admin
 
-1. A connection can be created in the previously shown input form.
+The admin is created at the start of the root orchestrator. He can create new users, create organizations, 
+add users to organizations and change settings in the complete system.
 
-2. A connection can also be created using the connection graph. 
-For this we connect two services simply by drag and drop.
-A dialog will open where you can specify the requirements for the connection.
+### Organization Admin
 
-This gif shows the creation of a connection with the connection graph:
+A user with this role is the admin of an organization he can add new users to the organization 
+and manage their roles within the organization.
 
-There are many more functions which are not described here. 
-In the future this page will be extended and more functions will be added. 
-If you still have difficulties with a function contact the EdgeIO team. 
+
+### Infrastructure Provider
+
+A user with this role can add resources that can then be used to deploy applications there.
+
+### Application Provider
+
+This is the default role of a user, he can create applications and services and manage them accordingly.
+
+## E-mail Configuration
+
+The admin of Oakestra can configure an SMTP server in the settings.
+
+If no SMTP server is configured, the official Oakestra mail service can be used in the future.
+
+Currently, mails are sent in the following scenarios:
+
+- When creating a new user, the user receives a mail with the password previously set by the admin.
+- When changing the password of a user
+- And to reset the password of a user.
+
+If nothing is configured, no mails are sent and the admin must reset the password for the user. 

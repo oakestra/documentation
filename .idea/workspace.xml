@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9919033c-c6ae-466d-a0c9-ddd17969588d" name="Changes" comment="small update">
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/cli/cli.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/architecture.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/getting-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/developer/res/architecture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/frontend.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/access-control.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/features.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/features.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/app.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/connection.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/delete.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/login.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/service.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/gifs/status.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/guicli/frontend/user/installation.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/dashboard/features.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/features.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +58,9 @@
       <workItem from="1680356624190" duration="770000" />
       <workItem from="1681544021480" duration="15000" />
       <workItem from="1682001210836" duration="6034000" />
+      <workItem from="1682610741009" duration="517000" />
+      <workItem from="1684063985449" duration="11251000" />
+      <workItem from="1684168293583" duration="944000" />
     </task>
     <task id="LOCAL-00001" summary="small update">
       <created>1679503839397</created>
