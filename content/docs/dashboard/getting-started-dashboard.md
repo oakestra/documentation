@@ -42,17 +42,16 @@ Make sure the following software is installed:
 
 ## Deployment
 
-**0)** First, let's export the required environment variables
-
-```Shell
-export API_ADDRESS=IP_of_the_system_manager_api
-```
-
-
-**1)** Clone the repository
+**0)** Clone the repository
 
 ```shell
 git clone https://github.com/oakestra/dashboard.git && cd dashboard
+```
+
+**1)** Create a file that contains the environment variables
+
+```Shell
+echo "API_ADDRESS=<IP_of_the_system_manager_api>:10000" > .env
 ```
 
 **2)** Run the dashboard
