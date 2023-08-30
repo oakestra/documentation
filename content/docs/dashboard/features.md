@@ -18,13 +18,50 @@ If you find ideas for new features or bugs post an issue in the [GitHub reposito
 
 ## Creating a service
 
-Creating a service is the main task of the dashboard, as described in other parts of the documentation, 
-an SLA definition must be created for it. This can be easily done using the various input fields 
-in the dashboard. 
+Creating a service is the main task of the dashboard, as described in other parts of the documentation,
+an SLA definition must be created for it. This can be easily done using the various input fields
+in the dashboard.
 
-To do this, first, create an application, then you can create a service in this application by 
-entering the various values in the form. The dashboard then creates the SLA deployment descriptor 
+To do this, first, create an application, then you can create a service in this application by
+entering the various values in the form. The dashboard then creates the SLA deployment descriptor
 based on your input and sends it to the root orchestrator.
+
+If you already have other SLA configurations, you can upload this 
+configuration to the dashboard, and it will send everything to the root.
+
+Please note that the JSON file should have the following format.
+
+
+```
+{
+  "microservices": [
+    {
+        "microserviceID": "",
+        "microservice_name": "Nginx",
+        "microservice_namespace": "demo",
+        "virtualization": "container",
+        "cmd": [],
+        "memory": 100,
+        "vcpus": 1,
+        "vgpus": 0,
+        "vtpus": 0,
+        "bandwidth_in": 0,
+        "bandwidth_out": 0,
+        "storage": 0,
+        "code": "docker.io/library/nginx:latest",
+        "state": "",
+        "port": "8080",
+        "added_files": []
+        ....
+    }
+  ]
+}
+
+```
+
+The microservice array can then contain any number of service configurations.
+
+
 
 
 ## Organizations
