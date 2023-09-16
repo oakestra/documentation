@@ -77,12 +77,14 @@ Try to be concise and informative. Here some good ✅ and bad ❌ examples to gi
 
 ## Contribution steps
 
-- Open an Issue
-- Starting from the issue, detach a branch from "develop" and entitle it using the following pattern: `<Issue nr.>_issue_name_in_snake_case`
-- Perform your contributions in this branch 
-- Make sure to update the documentation as well
-- Make sure that the PR passes all the automated tests suits
-- Once finished, open a Pull Request towards the develop branch. If you're a student, put your supervisors as Reviewers. Otherwise, refer to the people with the most contributions. Then wait for their approval. 
+- Open an Issue or Pick one
+- Assign it to yourself, or ask for it. 
+- Fork the develop branch and detach a branch named after the issue
+- When the issue is solved, tested and discussed in your fork, propose a PR towards the develop branch. Don't forget to link the PR to the issue using the proper [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+- If necessary, update the [documentation](https://github.com/oakestra/documentation) as well using the same procedure
+- Make sure that the PR passes all the automated tests.
+- Add the maintainers as Reviewers.
+- Don't disappear, try to stay active in the discussion section until required. 
 
 ## Multi-repo contributions
 
@@ -108,3 +110,25 @@ With the growth in the interest for Oakestra, many people are onboarding. By col
 
 Try to write the issues in a clear way so that anyone might be able to fit in and contribute. 
 Then keep an eye on the issue's comment section and add the label "help needed" if required. 
+
+## Versioning
+
+The project version is written in the file `version.txt` 
+Make sure to update this file accordingly. 
+
+N.b. The versions are amanged only by this file. NEVER CREATE A VERSION TAG MANUALLY. 
+
+## Release images
+
+An accepted pull-request towards main creates a release TAG corresponding to the version in `version.txt`. 
+The release images will be created automatically by the git workflows. 
+
+- If a release tag exist already, will not be replaced. You need to increase the version number! 
+- If you get an artifact creation error, most likely the release was not yet created on github. Please create a new release for the new tag and re-run the failed jobs. 
+
+## Alpha images
+
+An accepted pull-request towards develop creates an alpha TAG corresponding to the version in `version.txt` with the `alpha-` prefix. If the tag exists already, it will be updated. 
+The alpha images will be created automatically by the git workflows. 
+
+- If you get an artifact creation error, most likely the release was not yet created on github. Please create a new alpha-release for the new tag and re-run the failed jobs. 

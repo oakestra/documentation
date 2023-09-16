@@ -1,13 +1,12 @@
-# Oakestra documentation 
-hosted at [oakestra.io](oakestra.io)
+# Oakestra Site 
 
-The contents from this repository are hosted on the Oakestra website. This documentation contains component descriptions and user guides.
+This is the main repository which will also build the landing page. The website is hosted at [oakestra.io](oakestra.io).
 
 - documentation: [oakestra.io/docs](oakestra.io/docs)
 
 The Oakestra site is written in [Markdown](https://www.markdownguide.org/) and published via [goHugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/).
 
-# Files Strucutre 
+# Files Structure 
 
 ```
 /
@@ -24,14 +23,21 @@ The Oakestra site is written in [Markdown](https://www.markdownguide.org/) and p
 
 ## Prerequisites
 
-In order to visualize the documentation website you need to set up your Hug Environment. 
-Check out Step 1 of [Getting started with goHugo](https://gohugo.io/getting-started/quick-start/)
+In order to visualize the documentation website you need to set up your local Hugo environment. 
+Check out `Step 1` of [Getting started with goHugo](https://gohugo.io/getting-started/quick-start/)
 
 ## Publish the docs and update the website
 
-1. Just push the source codes to this repo. The website will build automatically.  
+Push the source code to this repo. The website will build automatically.  
 
 ## Run development server website
 
 If you want to visualize the website locally to preview your changes, you can use the command `hugo serve`.
-Once the preview website is ready you can visualize it at `localhost:1313`
+
+After building and deploying the site, `hugo` provides instructions on accessing and using it:
+
+```text
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+```
+
+Access the `http://localhost:1313/` URL in the browser to view the site.

@@ -71,13 +71,13 @@ sudo -E docker-compose -f run-a-cluster/1-DOC.yaml up
 **3)** download, untar and install the node engine package
 
 ```Shell
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.202/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
 ```
 
 **4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
 
 ```Shell
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.202/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 ( please replace < arch > with your device architecture: **arm-7** or **amd64** )
 
@@ -122,11 +122,11 @@ The deployment of this kind of cluster is similar to 1-DOC. We first need to sta
 2.1) Downlaod and unpack both the NodeEngine
 
 ```Shell
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.2/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
+wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.202/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
 ```
 and the NetManager
 ```Shell
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.2/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
+wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.202/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
 ```
 
 2.2) Edit `/etc/netmanager/netcfg.json` accordingly:
@@ -154,7 +154,7 @@ This represents the most versatile deployment. You can split your resources into
 **1)** In this first step, we need to deploy the RootOrchestrator component on a Node. To do this, you need to clone the repository on the desired node, move to the root orchestrator folder, and execute the startup command. 
  
 ```Shell
-git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/oakestra/oakestra.git && cd oakestra
 
 sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
 ```
@@ -172,7 +172,7 @@ export CLUSTER_LOCATION=<choose a name for the cluster's location>
 2.2) Clone the repo and run the cluster orchestrator:
 
 ```Shell
-git clone https://github.com/edgeIO/edgeio.git && cd edgeio
+git clone https://github.com/oakestra/oakestra.git && cd oakestra
 
 sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
 ```
