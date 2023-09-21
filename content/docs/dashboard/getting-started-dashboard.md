@@ -66,3 +66,5 @@ To be able to log into the dashboard and test all functions, at least the System
 MongoDB must be started. 
 How to start them is described in this WIKI [here](../../getstarted/get-started-cluster).
 
+If these components were not started or the wrong IP address was configured, the login screen can be reached, but you cannot log in to the dashboard.
+

@@ -50,7 +50,11 @@ To enable Dashboard to utilize the authorization header, simply pass `Authorizat
 
 To test this feature swiftly, try out the [Requestly](https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa) Chrome browser plugin that enables manual modification of request headers.
 
-## Admin Privileges
 
-**IMPORTANT:** Before proceeding, it is crucial to understand the potential security implications of granting admin privileges to Dashboard's Service Account.
+## Organization Login
 
+If you want to log in to an organization you have to enter the organization name if there is no organization yet or if no organization is entered, you will be automatically logged in to the ROOT organization.
+
+Here you can see the login to the **sampleOrga:**
+
+![](/orga-login.gif)

@@ -16,15 +16,25 @@ The user interface is still under development and therefore does not offer so ma
 However, we are working on it to support more and more features. 
 If you find ideas for new features or bugs post an issue in the [GitHub repository](https://github.com/oakestra/dashboard).
 
+
+## Creating an application
+
+In Oakestra there is the principle of applications and services, within one application there can be several services and one user can create several applications.
+
+In order to create a service, an application must first be created.  This is very simple, you only need to specify the name, the namespace and an optional description.
+
+![](/add-app.gif)
+
 ## Creating a service
 
 Creating a service is the main task of the dashboard, as described in other parts of the documentation,
 an SLA definition must be created for it. This can be easily done using the various input fields
 in the dashboard.
 
-To do this, first, create an application, then you can create a service in this application by
-entering the various values in the form. The dashboard then creates the SLA deployment descriptor
+To do this, first create an application or select the appropriate application in which a new service should be created.  Then you can create a service in this application by entering the various values in the form. The dashboard then creates the SLA provisioning descriptor
 based on your input and sends it to the root orchestrator.
+
+![](/create-service.gif)
 
 If you already have other SLA configurations, you can upload this 
 configuration to the dashboard, and it will send everything to the root.
@@ -37,7 +47,7 @@ Please note that the JSON file should have the following format.
   "microservices": [
     {
         "microserviceID": "",
-        "microservice_name": "Nginx",
+        "microservice_name": "Demo",
         "microservice_namespace": "demo",
         "virtualization": "container",
         "cmd": [],
@@ -61,24 +71,13 @@ Please note that the JSON file should have the following format.
 
 The microservice array can then contain any number of service configurations.
 
+![](/sla-upload.gif)
 
+## Service Details
 
+Once a service has been created and deployed, the parts of an instance can be viewed. To do this, click on the arrow in the instance list.
 
-## Organizations
-
-Organizations ensure smooth collaboration within a team in Oakestra. 
-Members of an organization have access to all applications created within that organization, 
-and they can use the resources provided within the organization to deploy new services.
-
-### Root Organization
-
-When the root orchestrator is started for the first time, a root organization 
-is also created with the admin, and each user is automatically part of this root organization. 
-However, users can also be part of other organizations.
-The root organization has specific properties. 
-Unlike other organizations, where a user can view all applications within the organization 
-and share resources, in the root organization, 
-only the applications that a user has created can be viewed.
+![](/details.gif)
 
 
 ## Roles
@@ -106,6 +105,31 @@ A user with this role can add resources that can then be used to deploy applicat
 
 This is the default role of a user, he can create applications and services and manage them accordingly.
 
+## User Management
+
+The admin can easily add a new user in the user management and assign him appropriate roles. 
+
+![](/create-user.gif)
+
+## Organizations
+
+Organizations ensure smooth collaboration within a team in Oakestra. 
+Members of an organization have access to all applications created within that organization, 
+and they can use the resources provided within the organization to deploy new services.
+
+### Root Organization
+
+When the root orchestrator is started for the first time, a root organization 
+is also created with the admin, and each user is automatically part of this root organization. 
+However, users can also be part of other organizations.
+The root organization has specific properties. 
+Unlike other organizations, where a user can view all applications within the organization 
+and share resources, in the root organization, 
+only the applications that a user has created can be viewed.
+
+
+
+
 ## E-mail Configuration
 
 The admin of Oakestra can configure an SMTP server in the settings.
@@ -119,3 +143,8 @@ Currently, mails are sent in the following scenarios:
 - And to reset the password of a user.
 
 If nothing is configured, no mails are sent and the admin must reset the password for the user. 
+
+![](/smtp.gif)
+
+
+**Important:** This feater is implemented in the frontend but not yet 100% in the backend and therefore might not work yet.
