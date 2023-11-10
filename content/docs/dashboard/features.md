@@ -27,9 +27,14 @@ In order to create a service, an application must first be created.  This is ver
 
 ## Creating a service
 
-Creating a service is the main task of the dashboard, as described in other parts of the documentation,
-an SLA definition must be created for it. This can be easily done using the various input fields
-in the dashboard.
+To create a service, you can use the APIs as described [here](https://www.oakestra.io/docs/getstarted/get-started-app).
+Another option is to create a service with the dashboard,
+which makes this process much easier.
+
+As described in other parts of the documentation,
+an SLA definition (Service Level Agreement) must be created for the
+creation of an application.
+This can be done easily using the various input fields in the dashboard.
 
 To do this, first create an application or select the appropriate application in which a new service should be created.  Then you can create a service in this application by entering the various values in the form. The dashboard then creates the SLA provisioning descriptor
 based on your input and sends it to the root orchestrator.
@@ -44,27 +49,47 @@ Please note that the JSON file should have the following format.
 
 ```
 {
-  "microservices": [
-    {
-        "microserviceID": "",
-        "microservice_name": "Demo",
-        "microservice_namespace": "demo",
-        "virtualization": "container",
-        "cmd": [],
-        "memory": 100,
-        "vcpus": 1,
-        "vgpus": 0,
-        "vtpus": 0,
-        "bandwidth_in": 0,
-        "bandwidth_out": 0,
-        "storage": 0,
-        "code": "docker.io/library/nginx:latest",
-        "state": "",
-        "port": "8080",
-        "added_files": []
-        ....
-    }
-  ]
+"microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "curl",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "cmd": ["sh", "-c", "tail -f /dev/null"],
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/curlimages/curl:7.82.0",
+          "state": "",
+          "port": "9080",
+          "added_files": []
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "nginx",
+          "microservice_namespace": "test",
+          "virtualization": "container",
+          "cmd": [],
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/library/nginx:latest",
+          "state": "",
+          "port": "6080:80/tcp",
+          "addresses": {
+            "rr_ip": "10.30.30.30"
+          },
+          "added_files": []
+        }
+      ]
 }
 
 ```
@@ -113,9 +138,24 @@ The admin can easily add a new user in the user management and assign him approp
 
 ## Organizations
 
-Organizations ensure smooth collaboration within a team in Oakestra. 
-Members of an organization have access to all applications created within that organization, 
-and they can use the resources provided within the organization to deploy new services.
+An Organization in Oakestra is a fundamental unit designed to facilitate and enhance collaboration among team members. 
+It serves as a container for projects, applications, and resources, providing a structured and efficient 
+environment for collective work. 
+Within an organization, team members share a common space where they can 
+collaboratively develop, manage, and deploy applications.
+
+Key attributes of an Oakestra Organization include:
+
+- **Collaborative Space:** Organizations provide a dedicated space for team members to work together.
+This shared environment ensures that all members have visibility into the applications and projects associated with the organization.
+
+- **Access Control:** Members of an organization enjoy access to all applications 
+created within that organizational context. 
+This access control mechanism streamlines collaboration by allowing team members to contribute to shared projects seamlessly.
+
+- **Resource Utilization:** The organization serves as a hub for resource management. 
+Team members can utilize the resources provided within the organization to deploy new services, 
+fostering an efficient and centralized approach to application development.
 
 ### Root Organization
 
@@ -147,4 +187,5 @@ If nothing is configured, no mails are sent and the admin must reset the passwor
 ![](/smtp.gif)
 
 
-**Important:** This feater is implemented in the frontend but not yet 100% in the backend and therefore might not work yet.
+**Important:** This feature is implemented in the frontend but not yet 100% in the backend and therefore might not work yet.
+[Here](https://github.com/oakestra/oakestra/issues/182) you can see the GitHub issue for this feature.
