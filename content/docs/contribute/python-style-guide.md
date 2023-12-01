@@ -4,13 +4,16 @@ date: 2023-11-30T15:56:27+02:00
 draft: false
 ---
 
-# Contributor Python Code Style Guide
-
 The most important shared understanding should be that spending additional time on high-quality and easily comprehensable/readable code is absolutely worth it and crucial for success in software engineering.
 
-Recommended read:
+Recommended reads:
 
 https://bayrhammer-klaus.medium.com/you-spend-much-more-time-reading-code-than-writing-code-bc953376fe19
+
+https://google.github.io/styleguide/pyguide.html#385-block-and-inline-comments
+
+https://google.github.io/styleguide/pyguide.html#386-punctuation-spelling-and-grammar
+
 
 Besides that, having and enforcing a common code style guide helps the team to stick to and create high quality code that is uniform, thus easier to get used to (onboarding) and comprehend. We want to help and make life easier for our individual team members and not enforce/punish them during their work.
 
