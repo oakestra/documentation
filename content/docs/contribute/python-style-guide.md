@@ -52,6 +52,34 @@ These changes will allow you to apply Black formatting automatically every time 
 3) Activate "Editor: Format On Save"
 4) Select "Black Formatter" for "Editor: Default Formatter"
 
+### Integrating Black in PyCharm
+There is a plugin for black:
+
+![BlackConnect](images/black_connect_marketplace.png)
+
+For it to work properly you need to do the following:
+Read the plugin description carefully
+Install `blackd` via pip.
+
+Instead of  running black as a software locally it connects to a fast & lightweight remote server to run the formatting.
+
+You can connect to the server by running this command: `blackd`
+
+You can then trigger the black formatting by pressing " `Alt + Shift + B` ".
+
+You can also configure the following:
+
+Run black on file save & refactor:
+![blackd_save](images/blackd_save.png)
+![blackd_settings](images/blackd_settings.png)
+
+Further settings can be found here:
+![balckd_settings_plus](images/balckd_settings_plus.png)
+
+Make sure to change the Line length to 100.
+
+If you want the plugin to start the blackd connection on IDE startup make sure to provide the Path to your local blackd installation.
+
 ## *Flake8*
 Flake provides concrete custom errorcodes for found issues.
 Feel free to look them up online to properly understand how to fix them. E.g. for the issue code F841
@@ -75,6 +103,11 @@ As already mentioned flake8 sadly cannot fix our logical issues for us, however 
 
 Install the official (from Microsoft) "Flake8" extension.
 
+### Making flake8 work in PyCharm
+There is sadly no trivial way of including flake8 into PyCharm i.e. there is no plugin for it, however I have found the following resources that might help:
+- https://pypi.org/project/flake8-for-pycharm/
+- https://gist.github.com/tossmilestone/23139d870841a3d5cba2aea28da1a895
+
 ## *isort*
 ### Installation
 `pip install isort`
@@ -92,3 +125,8 @@ You can run the following to check what isort would change:
 
 ### Automating isort in VSCode
 Similar to Black's extension the official (Microsoft) "isort" extension will automatically sort all your imports when you safe a file.
+
+### Isort in PyCharm
+Similar to flake8 there is not native/trivial way of including isort into PyCharm yet. You can however configure the imports settings and adjust them to make them as similar to isort.
+(Note: The screenshot only shows where to find the settings, it does not show recommended settings.)
+![import_settings](images/import_settings.png)
