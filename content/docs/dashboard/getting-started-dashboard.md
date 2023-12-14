@@ -42,17 +42,16 @@ Make sure the following software is installed:
 
 ## Deployment
 
-**0)** First, let's export the required environment variables
-
-```Shell
-export API_ADDRESS=IP_of_the_system_manager_api
-```
-
-
-**1)** Clone the repository
+**0)** Clone the repository
 
 ```shell
 git clone https://github.com/oakestra/dashboard.git && cd dashboard
+```
+
+**1)** Create a file that contains the environment variables
+
+```Shell
+echo "API_ADDRESS=<IP_of_the_system_manager_api>:10000" > .env
 ```
 
 **2)** Run the dashboard
@@ -66,4 +65,6 @@ sudo docker-compose up
 To be able to log into the dashboard and test all functions, at least the System Manager and 
 MongoDB must be started. 
 How to start them is described in this WIKI [here](../../getstarted/get-started-cluster).
+
+If these components were not started or the wrong IP address was configured, the login screen can be reached, but you cannot log in to the dashboard.
 

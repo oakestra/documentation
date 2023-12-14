@@ -7,8 +7,8 @@
     <list default="true" id="9919033c-c6ae-466d-a0c9-ddd17969588d" name="Changes" comment="small update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/access-control.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/docs/dashboard/features.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/features.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/docs/dashboard/getting-started-dashboard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oakestra.github.io" beforeDir="false" afterPath="$PROJECT_DIR$/oakestra.github.io" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +61,8 @@
       <workItem from="1682610741009" duration="517000" />
       <workItem from="1684063985449" duration="11251000" />
       <workItem from="1684168293583" duration="944000" />
+      <workItem from="1694861434543" duration="46000" />
+      <workItem from="1694867057146" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="small update">
       <created>1679503839397</created>
