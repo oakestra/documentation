@@ -16,9 +16,9 @@ Git pipelines often fail because of linting issues, which then requires another 
 
 ## Why `pre-commit`
 
-Git hooks are not shared across the repo, and it's only avaiable locally. This means every developer will need to implement their own hooks. Hence tool called `pre-commit`. The tool name `pre-commit` name is misleading as it implies it only provides pre-commit hooks. However it also provides other stages such as `pre-push`.
+Git hooks are not shared across the repo, and it's only available locally. This means every developer will need to implement their own hooks. Hence we use a tool called `pre-commit`. Through this tool, developers define a configuration file that is commited to the repository, ensuring that all contributors have access to the same hook configurations.
 
-Through this tool, developers define a configuration file that specifies what 
+*Note that the tool name, `pre-commit`, is misleading as it implies it only provides pre-commit hooks, however it also provides other stages/hooks such as `pre-push`.*
 More information on the tool can be found [here](https://pre-commit.com/)
 
 
@@ -33,7 +33,7 @@ brew install pre-commit
 ```
 
 2. **Install the git hooks scripts**:
-In Oakestra repo, there is a file called `.pre-commit-config.yaml` containing git hooks. They can be installed by running:
+In the Oakestra repo, there is a file called `.pre-commit-config.yaml` containing git hooks. They can be installed by running:
 ```sh
 pre-commit install --hook-type pre-push
 ```
