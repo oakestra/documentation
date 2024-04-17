@@ -55,7 +55,7 @@ These changes will allow you to apply Black formatting automatically every time 
 ### Integrating Black in PyCharm
 There is a plugin for black:
 
-![BlackConnect](images/black_connect_marketplace.png)
+![BlackConnect](/img/docs/contribute/python-style-guide/black_connect_marketplace.png)
 
 For it to work properly you need to do the following:
 Read the plugin description carefully
@@ -70,11 +70,14 @@ You can then trigger the black formatting by pressing " `Alt + Shift + B` ".
 You can also configure the following:
 
 Run black on file save & refactor:
-![blackd_save](images/blackd_save.png)
-![blackd_settings](images/blackd_settings.png)
+
+![blackd_save](/img/docs/contribute/python-style-guide/blackd_save.png)
+
+![blackd_settings](/img/docs/contribute/python-style-guide/blackd_settings.png)
 
 Further settings can be found here:
-![balckd_settings_plus](images/balckd_settings_plus.png)
+
+![balckd_settings_plus](/img/docs/contribute/python-style-guide/balckd_settings_plus.png)
 
 Make sure to change the Line length to 100.
 
@@ -83,7 +86,8 @@ If you want the plugin to start the blackd connection on IDE startup make sure t
 ## *Flake8*
 Flake provides concrete custom errorcodes for found issues.
 Feel free to look them up online to properly understand how to fix them. E.g. for the issue code F841
-![Flake error online lookup](images/flake8_online.png)
+
+![Flake error online lookup](/img/docs/contribute/python-style-guide/flake8_online.png)
 
 ### Installation
 `pip install flake8`
@@ -99,7 +103,7 @@ Base command:
 ### Enabling flake8 highlighting in VSCode
 As already mentioned flake8 sadly cannot fix our logical issues for us, however it can point them out directly in the code by highlighting possible mistakes and when you hover over them it will point to a concrete so-called flake-error that can be looked up online to figure out how to fix it.
 
-![Example of flake8 VSCode highlighting](images/flake8_vscode_example.png)
+![Example of flake8 VSCode highlighting](/img/docs/contribute/python-style-guide/flake8_vscode_example.png)
 
 Install the official (from Microsoft) "Flake8" extension.
 
@@ -129,4 +133,5 @@ Similar to Black's extension the official (Microsoft) "isort" extension will aut
 ### Isort in PyCharm
 Similar to flake8 there is not native/trivial way of including isort into PyCharm yet. You can however configure the imports settings and adjust them to make them as similar to isort.
 (Note: The screenshot only shows where to find the settings, it does not show recommended settings.)
-![import_settings](images/import_settings.png)
+
+![import_settings](/img/docs/contribute/python-style-guide/import_settings.png)
