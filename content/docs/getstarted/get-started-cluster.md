@@ -46,42 +46,22 @@ In this example, we will use a single device to deploy all the components. This 
 
 ![Deployment example with a single device](/getstarted/SingleNodeExample.png)
 
-**0)** First, let's export the required environment variables
+**1)**
 
-```Shell
-## Choose a unique name for your cluster
-export CLUSTER_NAME=My_Awesome_Cluster
-## Come up with a name for the current location
-export CLUSTER_LOCATION=My_Awesome_Apartment
+Let's start the Root, the dashboard, and a cluster orchestrator on your machine. 
+
 ```
-
-**1)** now clone the repository and move into it using:
-
-```Shell
-git clone https://github.com/oakestra/oakestra.git && cd oakestra
-```
-
-**2)** Run a local 1-DOC cluster
-
-```Shell
-sudo -E docker-compose -f run-a-cluster/1-DOC.yaml up
+curl -sfL oakestra.io/getstarted.sh | sh -
 ```
 
 
-**3)** download, untar and install the node engine package
+**2)** download, untar and install the node engine and network manager binaries
 
 ```Shell
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.202/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
+curl -sfL https://raw.githubusercontent.com/oakestra/oakestra/develop/scripts/InstallOakestraWorker.sh | sh -  
 ```
 
-**4)** (optional) download and unzip and install the network manager; this enables an overlay network across your services
-
-```Shell
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.202/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
-```
-( please replace < arch > with your device architecture: **arm-7** or **amd64** )
-
-4.1) Edit `/etc/netmanager/netcfg.json` as follows:
+**3)** Configure the Network Manager by editing `/etc/netmanager/netcfg.json` as follows:
 
 ```Shell
 {
@@ -91,20 +71,25 @@ wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.202/NetM
   "ClusterMqttPort": "10003"
 }
 ```
-4.2) start the NetManager on port 6000
+**4)** start the NetManager on port 6000
 
 ```
 sudo NetManager -p 6000 &
 ```
 
 
-**5)** start the NodeEngine. Please only use the `-n 6000` parameter if you started the network component in step 4. This parameter, in fact, is used to specify the internal port of the network component, if any. 
+**5)** start the NodeEngine. 
 
 ```Shell
-sudo NodeEngine -n 6000 -p 10100
+sudo NodeEngine -n 6000 -p 10100 -a <Cluster Orchestrator IP Address>
 ```
 ( you can use `NodeEngine -h` for further details )
 
+If you see the NodeEngine reporting metrics to the Cluster...
+
+🏆 Success!
+
+✨🆕✨ If the worker node machine has KVM installed and it supports nested virtualization, you can add the flag -u=true to the NodeEngine startup command to enable Oakestra Unikernel deployment support for this machine.
 
 
 ### M-DOC (M Devices, One Cluster)
@@ -115,18 +100,14 @@ The M-DOC deployment enables you to deploy One cluster with multiple worker node
 
 The deployment of this kind of cluster is similar to 1-DOC. We first need to start the root and cluster orchestrator. Afterward, we can attach the worker nodes. 
 
-**1)** On the node you wish to use as a cluster and root orchestrator, execute steps **1-DOC.1** and **1-DOC.2**
+**1)** On the node you wish to use as a cluster and root orchestrator, execute steps **1-DOC.1**.
 
 **2)** Now, we need to prepare all the worker nodes. On each worker node, execute the following:
 
-2.1) Downlaod and unpack both the NodeEngine
+2.1) Downlaod and unpack both the NodeEngine and NetManager
 
 ```Shell
-wget -c https://github.com/oakestra/oakestra/releases/download/v0.4.202/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
-```
-and the NetManager
-```Shell
-wget -c https://github.com/oakestra/oakestra-net/releases/download/v0.4.202/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
+curl -sfL https://raw.githubusercontent.com/oakestra/oakestra/develop/scripts/InstallOakestraWorker.sh | sh -  
 ```
 
 2.2) Edit `/etc/netmanager/netcfg.json` accordingly:
@@ -156,9 +137,9 @@ This represents the most versatile deployment. You can split your resources into
 ```Shell
 git clone https://github.com/oakestra/oakestra.git && cd oakestra
 
-sudo -E docker-compose -f root_orchestrator/docker-compose-<arch>.yml up
+export SYSTEM_MANAGER_URL=<IP ADDRESS OF THE NODE HOSTING THE ROOT ORCHESTRATOR>
+sudo -E docker-compose -f root_orchestrator/docker-compose.yml up
 ```
-( please replace < arch > with your device architecture: **arm** or **amd64** )
 
 **2)** For each node that needs to host a cluster orchestrator, you need to:
 2.1) Export the ENV variables needed to connect to the cluster orchestrator:
@@ -174,9 +155,8 @@ export CLUSTER_LOCATION=<choose a name for the cluster's location>
 ```Shell
 git clone https://github.com/oakestra/oakestra.git && cd oakestra
 
-sudo -E docker-compose -f cluster_orchestrator/docker-compose-<arch>.yml up
+sudo -E docker-compose -f cluster_orchestrator/docker-compose.yml up
 ```
-( please replace < arch > with your device architecture: **arm** or **amd64** )
 
 **3)** Start and configure each worker as described in M-DOC.2
 
