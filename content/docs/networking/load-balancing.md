@@ -1,47 +1,99 @@
 ---
-title: "IPv4 Service IP implementation details"
-date: 2022-08-09T15:56:27+02:00
+title: "Load Balancing in Oakestra"
+date: 2023-03-01T12:56:27+02:00
 draft: false
+hidden: false
 ---
 
-In this wiki page, we'll go through the details of the IPv4 implementation of the Service IPs in Oakestra. 
+# Load Balancing in Oakestra
 
-The building blocks are:
+The load balancing in Oakestra consists of a multi-step address conversion protocol using semantic addresses as part of a overlay network.
+On this page we want to achieve:
 
-* Network Overlays
-* Proxy Translation
-* Interest registration
+- Explain the overlay network
+- Explain the semantic addresses
+- Explain proxy conversion protocol
 
-	
-## Network Overlays
-![Overlay Example](/network/Overlay-layers.png)
+## Overlay network
+
+We start by explaining the different network abstraction layers in place and then continue with the semantic addressing.
+
+### Layers
+
+[Overlay Example](/network/Overlay-layers.png)
 
 The abstraction required to enable service-to-service communication spans 3 different layers. 
 
 #### Physical layer
 At the very bottom of the hierarchy, we have the physical layer, where we address machines rather than microservices or containers. 
-In this space, an IP address is an address that can be used to uniquely identify a machine and reach it. In Oakestra, we keep track of this layer, pairing each service with a **Node IP** and **Port**. The pair IP:port enables us to reach multiple devices sharing the same IP address (NAT). Each worker node exposes the network stack required to enable the upper layers of the overlay at the assigned port. 
+In this space, an IP address is an address that can be used to uniquely identify a machine and reach it. In Oakestra, we keep track of this layer, pairing each service with a **Node IP** and **Port**. The pair `IP:Port` enables us to reach multiple devices sharing the same IP address (NAT). Each worker node exposes the network stack required to enable the upper layers of the overlay at the assigned port. 
 
 #### Virtual layer
-Each physical machine is provisioned with a virtual subnetwork. The subnetwork is assigned by the root orchestrator. When instantiating a container, the system provides a so-called **Namespace IP**, which is an IPv4 address provisioned from the virtual subnetwork of the node. This address is used to route the traffic within the platform to the running containers. The current implementation uses a default fixed netmask of 26 bits for the node subnetwork from the private 10.18.0.0/16 network, allowing over 1024 devices, each supporting 64 containers, for a maximum of 65536 containers. Support for more devices and bigger subnetworks can be achieved by changing the default subnetwork to, i.e., 10.0.0.0/8 or even further transitioning to virtual IPv6 networking. 
+Each physical machine is provisioned with a virtual subnetwork. The subnetwork is assigned by the root orchestrator. When instantiating a container, the system provides a so-called **Namespace IP**, which is an address provisioned from the virtual subnetwork of the node. This address is used to route the traffic within the platform to the running containers. The current implementation uses a default fixed netmask of 26 bits for IPv4 [120 bits for IPv6] for the node subnetwork from the private `10.18.0.0/16` [`fc00::/7`] network, allowing over 1024 [a lot of] devices, each supporting 64 [256] containers, for a maximum of 65536 [a lot] containers. Support for more devices and bigger subnetworks can be achieved by changing the default subnetwork to, i.e., 10.0.0.0/8 or even further transitioning to full virtual IPv6 networking. 
+
+**Disclaimer**: As of v0.4.301, the IPv6 implementation still requires further work in order to work on its own. The current implementation is a 1-to-1 mapping, so the IPv4 induced limitations still persist.
 	
 #### Service layer
 This is the layer where we abstract from the virtualization technology in use to a Service. 
 The service layer does not take into consideration the physical positioning of services, the number of instances of each service, the subnetworks, or the routing. This layer provides abstractions that allow the developers to forget about the underlying implementation and just address the service required for the business logic of the application. 
-This abstraction is enabled by the **Service IPs**. These are a set of IPv4 addresses that identify services and all their instances and that can be used to transparently pick the right instance and establish a connection. A Service IP expresses an inherent balancing policy, and, for each service, we have as many Service IPs as the implemented system balancing policies (Look at the Semantic Addressing page of this wiki for more details).
+This abstraction is enabled by the **Service IPs**. These are a set of addresses that identify services and all their instances and that can be used to transparently pick the right instance and establish a connection. A Service IP expresses an inherent balancing policy, and, for each service, we have as many Service IPs as the implemented system balancing policies.
 
 A subset of the Service IPs are the **Instance IPs**. They balance the traffic always to a specific instance of a service. Therefore, when deploying a service, the system will provision the following addresses:
 
 * 1 Load Balanced Service IP for each balancing policy implemented in the system
 * 1 Instance IP for each new instance of the service that has been deployed. 
 
-The latest version of Oakestra (v0.4.201), only implements Round Robin Service IPs. 
+The latest version of Oakestra (v0.4.301), only implements Round Robin Service IPs. 
 
-One might ask, **what's the difference between an Instance IP and a Namespace IP?** They operate on 2 different abstraction layers. The Namespace IP depends on the virtualized subnetwork of a worker node and changes when migrating an application from one node to another. It cannot be provisioned beforehand and must not be used by developers. The Instance IP is part of the Service layer abstraction. Therefore it identifies an instance regardless of migration operations, scales up, scales down, and can be provisioned even before the deployment of a service instance.  
+<details>
+<summary><b>What's the difference between an Instance IP and a Namespace IP?</b></summary>
+They operate on 2 different abstraction layers. The Namespace IP depends on the virtualized subnetwork of a worker node and changes when migrating an application from one node to another. It cannot be provisioned beforehand and must not be used by developers. The Instance IP is part of the Service layer abstraction. Therefore it identifies an instance regardless of migration operations, scales up, scales down, and can be provisioned even before the deployment of a service instance.  
+</details>
 
-## Proxy Translation	
+### Semantic Addressing
 
-The Service layer networking is achieved thanks to a worker-level tun-proxy transparently instantiated as part of the Oakestra network component. The following picture is an example of what happens in a worker node based on the IPv4 implementation of the NetManager component.
+The semantic addressing happens on the above mentioned service layer.
+Similar to a cluster IP in Kubernetes, these addresses reference all the instances (replicas) of a microservice with a single address. This address does not change when scaling up the instances or when migrating them.
+Anyway, unlike the Kubernetes cluster IP, when deploying a service in Oakestra, the platform provides as many Service IP addresses as the number of balancing policies supported (and active) within the platform.
+
+#### Example
+
+[NetExample](/network/NetExample_dual_stack.png)
+
+A developer can communicate with any instance of Service B either with **Round Robin** balancing policy or the **Closest** balancing policy. The former balances the traffic evenly between all the instances, and the latter finds the geographically closer instance.
+
+**Reminder**: Currently the **IPv6 Closest** balancing strategy IP addresses (reserved, but not implemented) are in the `fdff:1000::/21` subnet, and **IPv6 Round Robin** in `fdff:2000::/21`. In IPv4, both balancing strategies take their IPs from the `10.30.0.0/16` subnet. For further information, take a look at the [IPv4](/networking/ipv4-address-space.md) or [IPv6](/networking/ipv6-address-space.md) address space documentation pages.
+
+Service A performs the first request <img src="/network/NetArchExample_envelope_1.png" alt= "envelope_1" width="30"> using the ServiceIP <font style="color:red">fdff:1000::1</font> representing the closest instance balancing policy.
+The network components' proxy converts the address to the Namespace IP of Service B Instance 1, which looks like it is the geographically closer service. The message will be, therefore **transparently** delivered to the closest instance of Service B. Note that the Namespace IP is the real address of the instance, the one provisioned at deployment time, unique and dynamic. An application developer never sees or uses this address, as it depends on the subnetwork of the specific machine where the service is deployed. Find out more about the Namespace IP by reading the implementation details.
+
+Then, Service A performs a second request <img src="/network/NetArchExample_envelope_2.png" alt= "envelope_1" width="30"> using the ServiceIP <font style="color:blue">fdff:2000::1</font> representing the Round Robin balancing policy. The network components' proxy converts the address to the Namespace IP of Service B Instance 3, which is randomly chosen among all the available instances.
+
+When Service A performs a third request <img src="/network/NetArchExample_envelope_3.png" alt= "envelope_3" width="30"> using again the ServiceIP <font style="color:blue">fdff:2000::1</font> representing the Round Robin balancing policy, this time, the network components' proxy randomly chooses Service B Instance 2.
+
+The fourth request <img src="/network/NetArchExample_envelope_4.png" alt= "envelope_4" width="30"> from Service A to Service B uses the Instance IP representing instance 3. The proxy component then automatically chooses Service B Instance 3.
+
+The last request <img src="/network/NetArchExample_envelope_5.png" alt= "envelope_5" width="30"> demonstrates that IPv4 requests work the same way as described above.
+
+6to4 or 4to6 service translation in the latest version of Oakestra (v0.4.301) is not supported (yet).
+
+<details>
+<summary><b>Why do we need Instance IPs?</b></summary>
+
+1. Instance IPs represent a service's instance uniquely within the platform. Even when the instance migrates toward new devices, the Instance IP always represents the instance and not the machine where the instance is deployed. The Instance IP is the foundation that enables an overlay network that abstracts services from machines.
+
+2. When forwarding the packet, the proxy uses the sender's Instance IP in the `from` header field of the packet. This way, any response or connection-oriented protocol can transparently work, and we guarantee the original sender receives the response.
+</details>
+
+<details>
+<summary><b>Why Service IPs? Why do we need multiple balancing policies?</b></summary>
+
+At the Edge, Oakestra's net component enables flexibility in the way developers can balance the traffic without the requirement of adapting the code. Just by using a Service IP instead of a regular IP, a developer can achieve balancing by using any protocol based on UDP or TCP and can also customize the balancing behavior of each request accordingly to their need. Edge computing brings resources closer to the users, so one might need to forward some traffic with very low latency using Closest balancing policy, or one might just want to evenly balance another endpoint with Round Robin policy.
+</details>
+
+## Proxy Conversion
+
+In order to make the service layer networking functional, a worker-level tun-proxy is transparently instantiated as part of the Oakestra network component. The following picture is an example of what happens in a worker node based on the IPv4 implementation of the NetManager component. It is worth noting, that **IPv4 and IPv6 work identically**. For simplicity, we will stick to IPv4 addresses.
 
 ![Overlay Example](/network/Overlay-example.png)
 
@@ -69,7 +121,8 @@ Following the example mentioned above, suppose we deployed services X1 and X3 us
           "virtualization": "container",
           "code": "docker.io/X/X1",
           "addresses": {
-            "rr_ip": "10.30.0.1"
+            "rr_ip": "10.30.0.1",
+            "rr_ip_v6": "fdff:2000::1"
           },
         },
         {
@@ -80,6 +133,7 @@ Following the example mentioned above, suppose we deployed services X1 and X3 us
           "code": "docker.io/X/X3",
           "addresses": {
             "rr_ip": "10.30.1.30"
+            "rr_ip_v6": "fdff:2000::30"
           	},
         }
       ]
@@ -208,10 +262,9 @@ In this step, we see how the ProxyTUN uses the **Physical layer** information to
 
 The Net Manager does not need to translate the incoming packet as the recipient IP is a **Virtual layer** known address. Notice how a response from X3 to X1 follows the same steps shown in this example.
 
----
 
 
-## Interest Registration
+### Interest Registration
 
 Here we show a sequence diagram of how a table query and an interest registration work in the worker-cluster-root hierarchy.
 
