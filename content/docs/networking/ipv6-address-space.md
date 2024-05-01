@@ -7,7 +7,7 @@ hidden: false
 
 # IPv6 Address Partitioning
 
-In this page we go over the IPv6 address space partitioning for Oakestra.
+Let's now discuss the IPv6 address space partitioning in Oakestra.
 
 ## Network Split
 
@@ -42,9 +42,8 @@ In the following we give a short meaning for each tag.
 
 ## Example Application
 
-Using above network address schema, we provide the following example for clarity. If we deploy an example application with two instances on the same worker node, an example address configuration can be the following:
+If we deploy an example application A with Service S and two instances (S1 and S2) on the same worker node W, an example address configuration can be the following:
 
-Application A with Service S and deployed instances S1 and S2 on worker node W:
 |App A|Addresses / Subnets assigned|
 |-|-|
 |Worker W|`fc00::c0:ffee:/120`|
@@ -52,6 +51,6 @@ Application A with Service S and deployed instances S1 and S2 on worker node W:
 |S1| Instance IP: `fdff::2f`<br> Namespace IP: `fc00::c0:ffee:2`|
 |S2| Instance IP: `fdff::30`<br> Namespace IP: `fc00::c0:ffee:3`|
 
-**Note**: Currently the Oakestra platform makes use of the whole IPv6 address space available. This may cause issues with other applications requiring an IPv6 address from the `fc00::/7` address space.
+> **Note**: Currently the Oakestra platform makes use of the whole IPv6 address space available. This may cause issues with other applications requiring an IPv6 address from the `fc00::/7` address space.
 
-At this point we highly recommend to continue your read with the [semantic addressing](semantic-addressing.md) chapter on Oakestra networking.
+At this point we highly recommend to continue your read with the [load balancing](load-balancing.md) chapter on Oakestra networking.
