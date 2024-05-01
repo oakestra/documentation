@@ -77,11 +77,14 @@ The last request <img src="/network/NetArchExample_envelope_5.png" alt= "envelop
 
 
 >**Why do we need Instance IPs?**
->1. Instance IPs represent a service's instance uniquely within the platform. Even when the instance migrates toward new devices, the Instance IP always represents the instance and not the machine where the instance is deployed. The Instance IP is the foundation that enables an overlay network that abstracts services from machines.
->2. When forwarding the packet, the proxy uses the sender's Instance IP in the `from` header field of the packet. This way, any response or connection-oriented protocol can transparently work, and we guarantee the original sender receives the response.
+>
+>Instance IPs represent a service's instance uniquely within the platform. Even when the instance migrates toward new devices, the Instance IP always represents the instance and not the machine where the instance is deployed. The Instance IP is the foundation that enables an overlay network that abstracts services from machines.
+>
+>When forwarding the packet, the proxy uses the sender's Instance IP in the `from` header field of the packet. This way, any response or connection-oriented protocol can transparently work, and we guarantee the original sender receives the response.
 
 
 >**Why Service IPs? Why do we need multiple balancing policies?**
+>
 >At the Edge, Oakestra's net component enables flexibility in the way developers can balance the traffic without the requirement of adapting the code. Just by using a Service IP instead of a regular IP, a developer can achieve balancing by using any protocol based on UDP or TCP and can also customize the balancing behavior of each request accordingly to their need. Edge computing brings resources closer to the users, so one might need to forward some traffic with very low latency using Closest balancing policy, or one might just want to evenly balance another endpoint with Round Robin policy.
 
 
