@@ -41,7 +41,7 @@ A subset of the Service IPs are the **Instance IPs**. They balance the traffic a
 * 1 Load Balanced Service IP for each balancing policy implemented in the system
 * 1 Instance IP for each new instance of the service that has been deployed. 
 
-The latest version of Oakestra (v0.4.301), only implements Round Robin Service IPs. 
+>The latest version of Oakestra (v0.4.301), only implements Round Robin Service IPs. 
 
 
 >**What's the difference between an Instance IP and a Namespace IP?**
@@ -60,7 +60,7 @@ Unlike the Kubernetes cluster IP, when deploying a service in Oakestra, the plat
 
 A developer can communicate with any instance of Service B either with **Round Robin** balancing policy or the **Closest** balancing policy. The former balances the traffic evenly between all the instances, and the latter finds the geographically closer instance.
 
-> **Reminder**: Currently the **IPv6 Closest** balancing strategy IP addresses (reserved, but not implemented) are in the `fdff:1000::/21` subnet, and **IPv6 Round Robin** in `fdff:2000::/21`. In IPv4, both balancing strategies take their IPs from the `10.30.0.0/16` subnet. For further information, take a look at the [IPv4](/networking/ipv4-address-space.md) or [IPv6](/networking/ipv6-address-space.md) address space documentation pages.
+>**Reminder**: Currently the **IPv6 Closest** balancing strategy IP addresses (reserved, but not implemented) are in the `fdff:1000::/21` subnet, and **IPv6 Round Robin** in `fdff:2000::/21`. In IPv4, both balancing strategies take their IPs from the `10.30.0.0/16` subnet. For further information, take a look at the [IPv4](/networking/ipv4-address-space.md) or [IPv6](/networking/ipv6-address-space.md) address space documentation pages.
 
 Service A performs the first request <img src="/network/NetArchExample_envelope_1.png" alt= "envelope_1" width="30"> using the ServiceIP <font style="color:red">fdff:1000::1</font> representing the closest instance balancing policy.
 The network components' proxy converts the address to the Namespace IP of Service B Instance 1, which looks like it is the geographically closer service. The message will be, therefore **transparently** delivered to the closest instance of Service B. Note that the Namespace IP is the real address of the instance, the one provisioned at deployment time, unique and dynamic. An application developer never sees or uses this address, as it depends on the subnetwork of the specific machine where the service is deployed.
@@ -73,7 +73,7 @@ The fourth request <img src="/network/NetArchExample_envelope_4.png" alt= "envel
 
 The last request <img src="/network/NetArchExample_envelope_5.png" alt= "envelope_5" width="30"> demonstrates that IPv4 requests work the same way as described above.
 
-6to4 or 4to6 service translation in the latest version of Oakestra (v0.4.301) is not supported (yet).
+>6to4 or 4to6 service translation in the latest version of Oakestra (v0.4.301) is not supported (yet).
 
 
 >**Why do we need Instance IPs?**
