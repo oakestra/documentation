@@ -6,7 +6,7 @@ categories:
     - Docs
 tags:
     - GetSarted
-weight: -99
+weight: 106
 ---
 
 ## Requirements
