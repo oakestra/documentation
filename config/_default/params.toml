@@ -32,7 +32,7 @@ mainSections = ["docs"]
   indexSummary = false # true or false (default); whether to index only the `.Summary` instead of the full `.Content`; limits the respective JSON field size and thus increases loading time
 
   ## Search results
-  showDate = false # false (default) or true
+  showDate = true # false (default) or true
   showSummary = true # true (default) or false
   searchLimit = 99 # 0 (no limit, default) or natural number
 
