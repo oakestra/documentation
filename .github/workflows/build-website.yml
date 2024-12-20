@@ -21,6 +21,9 @@ jobs:
 
     - name: Install dependencies
       run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+    - name: Npm install
+      run: "npm install"
     
     - name: Checkout repo on source_branch
       uses: actions/checkout@v4
