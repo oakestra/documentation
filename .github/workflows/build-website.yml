@@ -19,10 +19,6 @@ jobs:
     - name: Install Dart Sass
       run: sudo snap install dart-sass
 
-    - name: Setup Pages
-      id: pages
-      uses: actions/configure-pages@v4
-
     - name: Install dependencies
       run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
     
