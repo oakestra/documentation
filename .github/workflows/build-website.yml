@@ -18,6 +18,19 @@ jobs:
 
     - name: Install Dart Sass
       run: sudo snap install dart-sass
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v4
+
+    - name: Install dependencies
+      run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
     
     - name: Checkout repo on source_branch
       uses: actions/checkout@v4
