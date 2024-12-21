@@ -35,8 +35,8 @@ Oakestra prioritizes minimal overhead to address the computational, storage, and
 Take full control of your microservices with Oakestra's powerful API and intuitive management tools.
 
 - [Oakestra API](/docs/getting-started/deploy-app/with-the-api/)
-- [Oakestra CLI](/docs/getting-started/deploy-app/with-the-dashboard/)
-- [Oakestra Dashboard](/docs/getting-started/deploy-app/with-the-cli/)
+- [Oakestra CLI](/docs/getting-started/deploy-app/with-the-cli/)
+- [Oakestra Dashboard](/docs/getting-started/deploy-app/with-the-dashboard/)
 - [Application Catalog](/docs/manuals/app-catalog/example-applications/)
 
 {{< /card >}}
