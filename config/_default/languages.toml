@@ -5,5 +5,5 @@
   [en.params]
     languageISO = "EN"
     languageTag = "en-US"
-    footer = 'Brought to you by Oakestra'
+    footer = '© 2025 The Oakestra Authors. All rights reserved.'
     alertText = '<a class="alert-link stretched-link fw-normal" href="https://github.com/oakestra/oakestra/releases/tag/v0.4.400" target="_blank">Oakestra stable release Bass (v 0.4.4) is out! </a>'
