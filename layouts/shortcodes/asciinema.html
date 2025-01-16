@@ -1,7 +1,7 @@
 <!-- Reference: https://docs.asciinema.org/manual/player/options/ -->
 
 <div id='{{ with .Get "key" }}{{ . }}{{ else }}default-key{{ end }}'></div>
-<script src="{{ .Site.BaseURL }}/js/asciinema-player.min.js"></script>
+<script src="/js/asciinema-player.min.js"></script>
 <script>
 AsciinemaPlayer.create('/casts/{{ with .Get "key" }}{{ . }}{{ else }}default-key{{ end }}.cast', document.getElementById('{{ with .Get "key" }}{{ . }}{{ else }}default-key{{ end }}'), {
   {{ if .Get "cols" }}cols: "{{ .Get "cols" }}",{{ end }}

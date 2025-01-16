@@ -86,7 +86,7 @@ Robin policy. Therefore, X1 will use this address to perform load-balanced reque
 Click on different steps to see what is happening behind-the-scenes.
 
 {{< tabs-icon "Requests" >}}
-{{< tab-icon "Step 1 - GET" "_step1.png">}}
+{{< tab-icon "Step 1 - GET" "./_step1.png">}}
 
 
 #### http://10.30.1.30:30443/api/hello
@@ -107,7 +107,7 @@ The `from ip`, is the Virtual Layer IP, the **Namespace IP** of the container. T
 VETH device used to connect the container namespace to the virtual bridge in the system namespace.
 {{< /tab-icon >}}
 
-{{< tab-icon "Step 2 - Cache Miss" "_step2.png">}}
+{{< tab-icon "Step 2 - Cache Miss" "./_step2.png">}}
 
 #### Cache Miss
 
@@ -141,7 +141,7 @@ only keeps track of the services currently deployed in this machine. No interest
 recorded so far.
 {{< /tab-icon >}}
 
-{{< tab-icon "Step 3 - Table Query" "_step3.png">}}
+{{< tab-icon "Step 3 - Table Query" "./_step3.png">}}
 
 #### Table query
 
@@ -157,7 +157,7 @@ This operation is called **table query** and serves a double purpose:
 This is one of the building blocks of the proposed abstraction, and it is detailed in the [Interest Registration section](#interest-registration).
 {{< /tab-icon >}}
 
-{{< tab-icon "Step 4 - Update" "_step4.png" >}}
+{{< tab-icon "Step 4 - Update" "./_step4.png" >}}
 
 #### Update
 
@@ -201,7 +201,7 @@ instances: [
 
 {{< /tab-icon >}}
 
-{{< tab-icon "Step 5 - Conversion" "_step5.png">}}
+{{< tab-icon "Step 5 - Conversion" "./_step5.png">}}
 
 #### Service IP conversion - from: 10.30.1.30 to 10.21.0.1
 
@@ -240,7 +240,7 @@ to
 The conversion just shown is the key to enabling transparent Service Layer abstraction.
 {{< /tab-icon >}}
 
-{{< tab-icon "Step 6 - UDP Request" "_step6.png" >}}
+{{< tab-icon "Step 6 - UDP Request" "./_step6.png" >}}
 
 #### UDP to 131.1.21.5:55301
 
