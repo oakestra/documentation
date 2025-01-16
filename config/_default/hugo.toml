@@ -65,6 +65,8 @@ copyRight = "Copyright (c) 2020-2024 Thulite"
 
 [minify]
   disableSVG = true
+  disableJS = true
+  disableCSS = true
 
 [minify.tdewolff.html]
   keepWhitespace = false

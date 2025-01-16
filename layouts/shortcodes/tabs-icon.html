@@ -5,12 +5,14 @@
 {{ if .Inner }}{{ end }}
 {{ $id := .Get 0 }}
 {{ $group := printf "tabs-%s" $id }}
+{{ $pageDir := .Page.File.Dir }}
 
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
   {{ range $index, $tab := .Scratch.Get $group -}}
+    {{ $iconImg := printf "/%simages/%s" $pageDir $tab.Icon }}
     <button data-toggle-tab="{{ $tab.Name | lower }}" class="nav-link{{ if not $index }} active{{ end }}" id="{{ printf "%s-%d" $group $index }}-tab" data-bs-toggle="tab" data-bs-target="#{{ printf "%s-%d" $group $index }}" type="button" role="tab" aria-controls="{{ printf "%s-%d" $group $index }}" aria-selected="true">
-      {{ $tab.Name -}} &nbsp <img src="{{ $tab.Icon }}" alt= "{{ $tab.Icon }}" width="30">
+      {{ $tab.Name -}} &nbsp <img src="{{ $iconImg }}" alt= "{{ $iconImg }}" width="30">
     </button>
   {{ end -}}
   </div>
