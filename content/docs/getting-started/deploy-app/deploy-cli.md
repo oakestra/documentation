@@ -18,7 +18,7 @@ asciinema: true
 ---
 
 <span class="lead">
-Besides using the API directly or clicking through the dashboard UI, you can also interact with Oakestra using the Command Line Interface (`oak-cli`).
+Besides using the API directly or clicking through the dashboard UI, you can also interact with Oakestra using the Command Line Interface.
 </span>
 
 {{< callout context="tip" title="Benefits of `oak-cli`" icon="outline/rocket">}} 
@@ -158,7 +158,7 @@ This page only highlights a small subset of available `oak-cli` capabilities.
 {{< link-card
   title="CLI Manuals"
   description="Explore every available CLI command in detail and more"
-  href="/docs/manuals/cli/overview"
+  href="/docs/manuals/cli/cli-overview"
   target="_blank"
 >}}
 

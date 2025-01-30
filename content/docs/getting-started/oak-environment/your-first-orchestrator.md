@@ -14,13 +14,13 @@ seo:
 Let's get you up to speed with the easiest possible setup. You'll be able to run your first Oakestra Orchestrator in a few seconds!
 
 {{< callout context="note" title="Did you know?" icon="outline/info-circle" >}}
-You can install all required dependencies for Oakestra setup on your machine using `oak-cli`. Simply use the command
+You can install all required dependencies for Oakestra setup on your machine using the `oak-cli`. Simply use the command
 
 ```bash
 oak i fundamentals 
 ```
 
-Learn more about installing `oak-cli` in the [CLI Setup](/docs/getting-started/deploy-app/with-the-cli) page.
+Learn more about installing the `oak-cli` in the [CLI Setup](/docs/getting-started/deploy-app/with-the-cli) page.
 
 {{< /callout >}}
 
