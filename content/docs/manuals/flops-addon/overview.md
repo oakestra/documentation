@@ -56,3 +56,9 @@ seo:
   href="/docs/manuals/flops-addon/internals/image-building-process"
 >}}
 
+
+{{< link-card
+  title="MLflow MLOps Integration"
+  description="Learn how FLOps integrates MLflow into its architecture and workflows" 
+  href="/docs/manuals/flops-addon/internals/mlflow-mlops-integration"
+>}}

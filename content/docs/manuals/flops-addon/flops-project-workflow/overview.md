@@ -72,8 +72,8 @@ Projects are based on the SLA you use - they can vary in:
 >}}
 
 {{< link-card
-  title="Stages 4 & 5: Performing FL"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-doing-fl/"
+  title="Stages 4 & 5: Doing FL"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-performing-fl/"
 >}}
 
 

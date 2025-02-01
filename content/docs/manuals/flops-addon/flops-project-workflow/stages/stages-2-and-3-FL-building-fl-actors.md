@@ -15,7 +15,7 @@ asciinema: true
 The FLOps manager tries to look up matching container images for learners and aggregators.
 The manager checks for images in the FLOps image registry (*part of the management suite*) that match the ML repository that was part of the requested project SLA. 
 
-If a match is found, there is no need to build redundant images, and the project goes straight to [stage 4](/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-doing-fl/).
+If a match is found, there is no need to build redundant images, and the project goes straight to [stage 4](/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-performing-fl/).
 
 ## Stage 2: FL-Actor Image-Builder Deployment
 
