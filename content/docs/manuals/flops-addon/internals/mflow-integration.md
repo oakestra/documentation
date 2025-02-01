@@ -11,62 +11,161 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  "Mocking" data for training requires a basic understanding of how FLOps manages ML data on learner nodes.
-  Ensure you have read the [respective documentation](/docs/manuals/flops-addon/internals/ml-data-management/).
-{{< /callout >}}
+## MLflow Basics
 
-FLOps provides a mock data provider (**MDP**) service *(container image)* that helps newcomers or those without access to edge devices to get started quickly and use FLOps, e.g., on a single machine.
-The MDP is an example implementation for your edge devices to follow to ensure they can correctly send their data to the orchestrated learner nodes.
+MLflow is a broad open-source MLOps platform that enriches and unifies common ML tasks.
+It provides automatic solutions for ML challenges.
+It supports varous popular ML tools and frameworks such as Kera, Pytorch, and HuggingFace.
+MLflow is highly flexible, customizable and extendable.
+It supports ML workflow loops from conception to re-deployment.
+MLflow does not explicitly focus on orchestration nor FL.
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  An MDP has to be deployed as an Oakestra service on the same worker node where later training should occur.
-  These worker nodes must have the FLOps-learner addon activated.
+### Selection of critical MLFlow components
 
-  The MDP and any FLOps project require data tags in their SLAs.
-  These tags have to match; otherwise, the learner will not find the data, and training will fail.
+MLflow divides its core features into multiple different interconnected components.
+These components are rather conceptual groupings of functionalities rather than concrete isolated interfaces.
 
-  You must ensure that the dataset you are requesting can be correctly transformed by the ML Git repository to use for training.
-  I.e., always double-check if the dataset is compatible with your specified ML training code.
-{{< /callout >}}
+{{< details "**Tracking**">}}
+
+  MLflow can track and log ML experiments to help users record and compare their ML results.
+  Tracking details such as frequency, subject, and storage-destination are freely configurable.
+  Users can specify and finetune this tracking or let MLflow handle it automatically.
+  MLflow offers its tracking via various APIs, including Python and REST.
+  Tracking only handles lightweight parameters, except for input data.
+  It does not track or record trained models (weights and biases).
+
+  **Key Concepts**
+  - Experiment: Set of runs
+  - Run: Specific execution of a piece of code
+    - Can record various customizable aspects:
+      - Code version, metrics, custom tags, etc.
+  - Popular elements to track:
+    - Hyperparameters
+    - Custom metaparameters
+    - Utilized code
+    - Training data
+    - Metrics - e.g. accuracy & loss
+
+  The tracking artifacts get recorded in a centralized place.
+  By default, these artifacts are recorded in a local directory.
+  These tracked records can also be stored and managed by a dedicated local or remote scalable tracking server enabling users to easily share their tracked results.
+  An MLflow tracking server comes with its own sophisticated and feature-rich web-based GUI.
+  This GUI allows users to inspect, compare, and manage their recorded findings easily.
+
+  FLOps uses MLflow's tracking server and GUI by deploying it as an Oakestra service to keep the control plane light-weight.
+  The aggregator communicates with this tracking server to log its training rounds, results, and system metrics.
+
+{{< /details >}}
 
 
-## MDP SLA Format
+{{< details "**Models**">}}
 
-Here is an SLA example for the [cifar10](https://huggingface.co/datasets/uoft-cs/cifar10/viewer/plain_text/train) dataset that the MDP will split into three partitions.
+  MLflow can record and store (trained) ML models in uniform and popular formats.
+  Popular formats are called "flavors" in MLflow and include pickle formats, python functions, and ML framework-specific solutions.
+  Models can be stored together with exemplary input data, ML code, metadata, and a list of necessary dependencies for replication.
+  MLflow differentiates between storing lightweight parameters, meta-information, and models.
+  Model signatures can also be specified.
+  These signatures are similar to function signatures in programming.
+  They include the expected input and output types.
+  Other tools can utilize such signatures to automatically create the correct Python functions or REST APIs for a model.
+  Due to this standardized representation, many other tools can work with these models.
+  This uniformity also makes deploying these models more efficient.
+  MLflow allows users to deploy models to different environments via various ways, such as local inference servers (REST API), docker containers, and Kubernetes.
 
-```json
-{  % The ID has to match the user’s orchestrator ID.
-  "customerID": "Admin",
-  "mock_data_configuration": {
-    % This value can be any dataset name available in Hugging Face.
-    "dataset_name": "cifar10",
-    "number_of_partitions": 3,
-    % This tag must match the one for your FLOps project,
-    % otherwise the learner will not find the data and training will fail.
-    "data_tag": "my_tag"
-  }
-}
-```
+  FLOps utilizes logged MLflow models to allow its users to easily work, share, store, export, and deploy its trained FL models.
+  Furthermore, FLOps combines its own image-building capabilities with MLflow's model API to build matching easily deployable multi-platform model/inference-server container images.
 
-To deploy an MDP you have to send an API request to the FLOps manager with a fitting SLA.
-The POST endpoint is: `/api/flops/mocks`
+{{< /details >}}
 
-{{< callout context="note" title="Make mocking data easy" icon="outline/info-circle" >}}
-  The `oak-cli` provides predefined MDP SLAs and can deploy them for you with a single [command](/docs/manuals/cli/features/flops-addon/#oak-addon-flops-mock-data-m).
-{{< /callout >}}
+Registry
+MLflow’s model registry is comparable to an interface or API that works with a subset of logged models.
+It is not a dedicated standalone registry, unlike container image registries.
+It does not host complete models. This registry enables labeling and versioning for logged models.
+Labeling includes specific information that tells users if the model is currently in development, review, or production-ready.
+Not all logged models are part of the model registry.
+Users can manually or automatically decide if and what models they want to add to the model registry.
+This process is called registering a model.
+Every registered model is also a logged model.
+The benefit of this separation is that models in the registry are carefully selected and managed.
 
-## Architecture
+Projects
+Projects allow replicating the exact ML environment for development.
+Unlike the tracked pieces of code from the tracking or model components, MLflow projects contain the entire codebase that was used to train a specific model.
+Projects aim to uniformly package ML code for reproducibility and distribution.
+The heart of an MLflow project is its MLproject file.
+It contains all the necessary information regarding dependencies and environments to guarantee identical conditions.
+This file can have multiple entry points, similar to a Docker file.
+These entry points can be used for different use cases, including training or evaluation.
+Other users can quickly start using such projects due to MLflow’s project CLI commands.
+A project’s entry point can be called by the project CLI.
+MLflow can also invoke a project as part of a dynamically built docker container.
+The image gets built automatically via Docker after running the CLI command.
+The CLI allows running projects that are local, remote, or stored in a git repository.
+MLflow projects have a lot of potential, but they are not yet capable of fully handling robust automatic containerization and dependency management.
+They work fine if run directly on a host machine that supports Docker.
+Most orchestrators expect images and deploy containers.
+It is not yet possible to orchestrate and deploy MLflow projects directly instead of using manually configured images.
+Issues arise when wrapping an MLflow project into a generic image and then internally calling its CLI to build and run the corresponding image.
+MLflow uses Docker directly, which is, in most cases, not possible inside a containerized environment.
+This limitation is represented in the official MLflow examples.
+In this example, all necessary dependencies are explicitly mentioned and installed in a custom Dockerfile that needs to be built manually to run the ML experiments.
+This emphasizes that MLflow projects cannot be automatically turned into standalone container images yet.
 
-{{<svg "mock-data-provider">}}
+This is a major reason why FLOps requires a custom image building approach that can be used in containerd containers to build images.
 
-The MDP uses [Flower Datasets](https://flower.ai/docs/datasets/) to fetch monolithic datasets from [Hugging Face](https://huggingface.com/) and split them into heterogeneous partitions.
-Each partition is sent (via [Arrow Flight](https://arrow.apache.org/docs/format/Flight.html)) to the ML Data Server located on the same worker node, just as if multiple edge devices had sent their data to the data server.
+MLflow stores its artifacts in two different data stores.
+The default does not use any dedicated local or remote storage components.
+Instead, everything gets stored locally.
+All lightweight metadata, including metrics, tags, and results, are stored in the backend store.
+A backend store can be a database, a file server, or a cloud service.
+Heavy artifacts like trained models are kept in the artifact store.
+Registered models utilize both stores.
+Their metadata, such as versions and hyperparameters, are kept in the backend store.
+Their corresponding trained model is located in the artifact store.
+MLflow supports many optional components that can be arranged in various architectures.
+In the simplest case, everything is stored and located on the local machine, with no need for a dedicated tracking server or data stores.
+More sophisticated structures support shared and distributed workflows and workloads.
+The mentioned components can be gradually added or removed.
+Therefore, MLflow allows flexible and custom solutions.
+For example, the artifact store, backend store, and tracking server can all be deployed on different machines and environments.
+This separation of concerns enables improved scalability and reduces singular points of failure.
+The tracking server can function as a proxy and bridge between machines that perform the ML experiments and the data stores.
+This approach enables centralized security and access control, which simplifies client interactions.
 
-Once training starts *(assuming the data tags match)*, the learner service will fetch the stored data and merge it back together.
+## FLOps' MLOps Architecture
 
-{{< link-card
-  title="Mock Data Provider Implementation"
-  description="Look at the source code that powers the mock data providers"
-  href="https://github.com/oakestra/addon-FLOps/tree/main/mock_data_provider_package"
->}}
+{{<svg "mlops-architecture">}}
+
+After every training round, the aggregator logs lightweight artifacts like metrics, parameters, tags, or runs.
+In addition, the aggregator stores exactly one global model copy locally.
+After every round, the aggregator checks if the new model’s performance is better or worse.
+The aggregator will update its local model if the new model is better.
+At the end of the last training round, the aggregator sends the best trained global model to the artifact store.
+
+An MLflow run represents an individual execution of (usually ML) code.´
+Each run can collect various pieces of information, such as metrics, hyperparameters, or custom tags.
+These lightweight elements are represented as A in the Figure.
+An MLflow experiment gathers multiple runs.
+FLOps maps these MLflow terms directly to FL.
+An experiment becomes an FLOps project and runs are FL training rounds.
+
+The aggregator logs everything besides local elements over the tracking server.
+The tracking server works as a proxy for artifacts.
+Thus, any access to any logged objects goes through the tracking server.
+The tracking server itself does not have any state.
+
+Its GUI showcases the stored elements in the backend and artifact stores hosted via the FLOps management.
+Note that these stores can be deployed and scaled individually onto different machines.
+There are various ways of setting up and provisioning MLflow components.
+For example, the backend store can be a local directory, a remote database, a cloud file server, or blob storage.
+The backend store hosts lightweight elements, and the artifact store hosts heavy-weight elements such as models or images.
+FLOps currently uses a MySQL database for the backend store and a vsftpd (very secure FTP daemon) server for the artifact store.
+No MLOps logging takes place on the learners.
+Only the aggregator uses these techniques.
+This approach works as expected regarding concrete FL metrics and models.
+
+MLflow also provides a way to track system metrics, which FLOps uses.
+These metrics only capture information about the aggregator, not the connected learners.
+No information belonging to individual learners gets logged.
+Furthermore, FLOps ensures that users can only access their own recorded artifacts.
+FLOps explicitly upholds these separations to minimize possible privacy hazards and attack vectors.
