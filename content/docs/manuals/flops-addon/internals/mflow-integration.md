@@ -13,9 +13,9 @@ seo:
 
 ## MLflow Basics
 
-MLflow is a broad open-source MLOps platform that enriches and unifies common ML tasks.
+[MLflow](https://mlflow.org/) is a broad open-source MLOps platform that enriches and unifies common ML tasks.
 It provides automatic solutions for ML challenges.
-It supports various popular ML tools and frameworks such as Kera, Pytorch, and HuggingFace.
+It supports various popular ML tools and frameworks such as [Keras](https://keras.io/) and [Pytorch](https://pytorch.org/).
 MLflow is highly flexible, customizable, and extendable.
 It supports ML workflow loops from conception to re-deployment.
 MLflow does not explicitly focus on orchestration or FL.
