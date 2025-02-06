@@ -23,7 +23,7 @@ FLOps currently supports the following post-training steps:
 ## PTS A: Build Image for Trained Model
 
 In this step, FLOps deploys another image-builder service.
-It fetches the logged trained model from the artifact store, part of the FLOps management suite.
+It fetches the logged trained model from the artifact store which is part of the FLOps management suite.
 The builder creates a new container image that encapsulates that model and can be used as an inference server on multiple target platforms.
 The initial project SLA determines these target platforms.
 The built image can be pulled by users directly from their FLOps image registry and used freely.
