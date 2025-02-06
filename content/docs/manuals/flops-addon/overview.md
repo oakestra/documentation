@@ -29,7 +29,6 @@ seo:
   href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
 >}}
 
-
 {{< link-card
   title="Customize your FLOps Projects"
   description="Learn how to configure custom SLAs and ML Git repositories"

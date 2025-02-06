@@ -137,6 +137,14 @@ This model signature can differ significantly between models.
 Therefore FLOps does not provide a universally applicable inference test service.
 For our base-case example we do provide a ready-made image and SLA for you.
 The only thing you need to do is to paste the copied IP into the matching `cmd` slot.
+Once deployed the inference tester service will automatically prepare test samples and request the inference server for predictions.
+The test service will continue requesting predictions in a loop until it is removed manually.
+
+{{< link-card
+  title="Base Case Inference Tester Implementation"
+  description="Look at the source code of the base case inference tester"
+  href="https://github.com/oakestra/addon-FLOps/tree/main/trained_model_image_inference_testers/mnist_sklearn"
+>}}
 
 ```json
 {
@@ -183,6 +191,8 @@ The only thing you need to do is to paste the copied IP into the matching `cmd` 
 {{< /callout >}}
 
 
+The following demo shows the intended base-case inference test workflow.
+
 {{< asciinema key="flops_inference_test" poster="0:12" idleTimeLimit="2" >}}
 
 ```bash
@@ -214,3 +224,19 @@ The only thing you need to do is to paste the copied IP into the matching `cmd` 
 │ ...                                                                                                    │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
+This snippet from the demo shows the logs from the inference tester service.
+You can see that the test service picks a random matching (MNIST) test sample and queries the inference server for a prediction.
+The first two examples (1 & 9) were correct and third one (6) was not predicted correctly.
+This behavior matches our logged model accuracy which after only three training rounds is around 80%.
+
+{{< callout context="tip" title="*Base Case Completed!*" icon="outline/confetti" >}}
+  Congratulations for reaching the end of the base case FLOps project!
+
+  Feel free to reset/flush your components and try it out again or dive straight into creating your own customized projects.
+{{< /callout >}}
+
+{{< link-card
+  title="Customize your FLOps Projects"
+  description="Learn how to configure custom SLAs and ML Git repositories"
+  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
+>}}
