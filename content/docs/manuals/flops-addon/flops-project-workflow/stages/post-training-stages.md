@@ -1,0 +1,158 @@
+---
+title: "Post Training Stages"
+summary: ""
+draft: false
+weight: 380
+toc: true
+seo:
+  title: "" # custom title (optional)
+  description: "" # custom description (recommended)
+  canonical: "" # custom canonical URL (optional)
+  noindex: false # false (default) or true
+asciinema: true
+---
+
+Post training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model got logged.
+Users can freely specify what steps they want for their projects as part of their project SLAs.
+If no post-training steps are requested the FLOps project counts as completed.
+The tracking server and its GUI keep running for users to inspect and work with their project results.
+Our base-case uses post training steps.
+
+FLOps currently supports the following post-training steps:
+
+## PTS A: Build Image for Trained Model
+
+In this step another image-builder service gets deployed.
+It fetches the logged trained model from the artifact store which is part of the FLOps management suite.
+The builder creates a new container image that encapsulates that model and can be used as an inference server on multiple target platforms.
+These target platform are based on the initial project SLA.
+The build image can be pulled by users directly from their FLOps image registry and used freely.
+
+```bash
+╭──────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
+│ Service Name         │ Service ID               │ Instances      │ App Name         │ App ID                   │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ observ645bb530b3f8   │ 67a46c2398d83ad599b91a84 │  0 RUNNING     │ observatory      │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │                  │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ trackinge3afed0047b0 │ 67a46c2498d83ad599b91a85 │  0 RUNNING     │ observatory      │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │                  │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ builder645bb530b3f8  │ 67a46c5d98d83ad599b91a88 │  0 RUNNING     │ projc52d30441176 │ 67a46c2398d83ad599b91a83 │
+│                      │                          │                │                  │                          │
+╰──────────────────────┴──────────────────────────┴────────────────┴──────────────────┴──────────────────────────╯
+```
+
+{{< link-card
+  title="Want to know more about the trained model image build?"
+  description="Learn how the logged trained model gets transformed into a container image" 
+  href="/docs/manuals/flops-addon/internals/image-building-process"
+>}}
+
+## PTS B: Deploy Trained Model Image
+
+{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+  Relies on PTS A to be successful and the trained model image to be present in your FLOps image registy. 
+{{< /callout >}}
+
+FLOps provides the possibility to deploy the build trained model / inference server image directly onto an orchestrated worker node.
+Once deployed this service will serve an inference server for your trained model.
+
+
+```bash
+╭──────────────────────┬──────────────────────────┬────────────────┬─────────────┬──────────────────────────╮
+│ Service Name         │ Service ID               │ Instances      │ App Name    │ App ID                   │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ observ645bb530b3f8   │ 67a46c2398d83ad599b91a84 │  0 RUNNING     │ observatory │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │             │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ trackinge3afed0047b0 │ 67a46c2498d83ad599b91a85 │  0 RUNNING     │ observatory │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │             │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ trmodel7bbd83d3a548  │ 67a46d2998d83ad599b91a8a │  0 RUNNING     │ helper      │ 67a46d2998d83ad599b91a89 │
+│                      │                          │                │             │                          │
+╰──────────────────────┴──────────────────────────┴────────────────┴─────────────┴──────────────────────────╯
+```
+
+### Testing the deployed Inference Server
+
+TODO
+
+```json
+{
+  "sla_version": "v2.0",
+  "customerID": "Admin",
+  "applications": [
+    {
+      "applicationID": "",
+      "application_name": "inferencetester",
+      "application_namespace": "inference",
+      "application_desc": "Inference tester",
+      "one_shot": true,
+      "microservices": [
+        {
+          "microserviceID": "",
+          "microservice_name": "inftest",
+          "microservice_namespace": "inftest",
+          "virtualization": "container",
+          "cmd": [
+            "poetry",
+            "run",
+            "python",
+            "main.py",
+            "<The internal service IP ~ 10.30.X.Y>"
+          ],
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "ghcr.io/malyuk-a/mnist_sklearn_inference_tester:latest",
+          "state": ""
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+{{< asciinema key="flops_inference_test" poster="0:12" idleTimeLimit="2" >}}
+
+```bash
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ name: inftest | NODE_SCHEDULED    | app name: inferencetester | app ID: 67a4743898d83ad599b91a8f       │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 0 | RUNNING    | public IP: 192.168.178.74 | cluster ID: 679cba79af4c1923eb5df1ae | Logs :             │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ |          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000        │
+│ [00:00<00:00, 212483.86 examples/s]                                                                    │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '1'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [1]}'                                                               │
+│ ic| original_expected_label == inference_result: True                                                  │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '9'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [9]}'                                                               │
+│ ic| original_expected_label == inference_result: True                                                  │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '1'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [6]}'                                                               │
+│ ic| original_expected_label == inference_result: False                                                 │
+│ ...                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```

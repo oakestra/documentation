@@ -44,7 +44,7 @@ This builder service is exclusive to its originating project.
 In stage 3, the deployed image-builder service builds the requested images for the learner and aggregator services.
 
 {{< callout context="danger" title="Critical" icon="outline/alert-octagon" >}}
-  Building (multi-platform) images for ML/FL dynamically based on flexible user-provided repositories is a delicate and error-prone business.
+  Building (multi-platform) images for ML/FL dynamically based on flexible user-provided repositories is a delicate and error-prone process.
 
   Building images can take up a significant part of the entire project duration - especially if the training configuration is lightweight *(fast / few rounds)*.
 
