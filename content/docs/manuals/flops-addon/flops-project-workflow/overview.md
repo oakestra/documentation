@@ -77,7 +77,7 @@ Projects are based on the SLA you use - they can vary in:
 >}}
 
 {{< link-card
-  title="Post Training Steps"
+  title="Post-training Steps"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/"
 >}}
 

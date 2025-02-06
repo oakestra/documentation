@@ -1,5 +1,5 @@
 ---
-title: "Post Training Steps"
+title: "Post-training Steps"
 summary: ""
 draft: false
 weight: 380
@@ -12,11 +12,11 @@ seo:
 asciinema: true
 ---
 
-Post training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model got logged.
+Post-training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model got logged.
 Users can freely specify what steps they want for their projects as part of their project SLAs.
 If no post-training steps are requested the FLOps project counts as completed.
 The tracking server and its GUI keep running for users to inspect and work with their project results.
-Our base-case uses post training steps.
+Our base case uses post-training steps.
 
 FLOps currently supports the following post-training steps:
 
@@ -141,8 +141,8 @@ Once deployed the inference tester service will automatically prepare test sampl
 The test service will continue requesting predictions in a loop until it is removed manually.
 
 {{< link-card
-  title="Base Case Inference Tester Implementation"
-  description="Look at the source code of the base case inference tester"
+  title="Base-case Inference Tester Implementation"
+  description="Look at the source code of the base-case inference tester"
   href="https://github.com/oakestra/addon-FLOps/tree/main/trained_model_image_inference_testers/mnist_sklearn"
 >}}
 
@@ -230,7 +230,7 @@ The first two examples (1 & 9) were correct and third one (6) was not predicted 
 This behavior matches our logged model accuracy which after only three training rounds is around 80%.
 
 {{< callout context="tip" title="*Base Case Completed!*" icon="outline/confetti" >}}
-  Congratulations for reaching the end of the base case FLOps project!
+  Congratulations for reaching the end of the base-case FLOps project!
 
   Feel free to reset/flush your components and try it out again or dive straight into creating your own customized projects.
 {{< /callout >}}
