@@ -61,7 +61,7 @@ The learner services need to fetch and process their local training data before 
 
 The actual FL training takes place during this stage.
 For our base-case scenario, the processes are as described in the [FL Overview](/docs/concepts/flops/fl-basics/#federated-learning-overview).
-Because the base-case should be as fast as possible, it only trains for 3 rounds.
+Because the base case should be as fast as possible, it only trains for 3 rounds.
 The following demo shows how a CLI user can inspect the running actors to observe the training rounds.
 
 {{< asciinema key="flops_fl_training" poster="0:12" idleTimeLimit="1.5" >}}

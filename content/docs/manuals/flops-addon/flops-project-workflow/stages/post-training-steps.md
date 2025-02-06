@@ -12,21 +12,21 @@ seo:
 asciinema: true
 ---
 
-Post-training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model got logged.
-Users can freely specify what steps they want for their projects as part of their project SLAs.
-If no post-training steps are requested the FLOps project counts as completed.
-The tracking server and its GUI keep running for users to inspect and work with their project results.
+Post-training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model is logged.
+Users can freely specify what steps they want for their projects as part of their SLAs.
+If no post-training steps are requested, the FLOps project counts as completed.
+The tracking server and its GUI keep running so users can inspect and work with their project results.
 Our base case uses post-training steps.
 
 FLOps currently supports the following post-training steps:
 
 ## PTS A: Build Image for Trained Model
 
-In this step another image-builder service gets deployed.
-It fetches the logged trained model from the artifact store which is part of the FLOps management suite.
+In this step, FLOps deploys another image-builder service.
+It fetches the logged trained model from the artifact store, part of the FLOps management suite.
 The builder creates a new container image that encapsulates that model and can be used as an inference server on multiple target platforms.
-These target platform are based on the initial project SLA.
-The build image can be pulled by users directly from their FLOps image registry and used freely.
+The initial project SLA determines these target platforms.
+The built image can be pulled by users directly from their FLOps image registry and used freely.
 
 ```bash
 ╭──────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
@@ -58,8 +58,8 @@ The build image can be pulled by users directly from their FLOps image registry 
   Relies on PTS A to be successful and the trained model image to be present in your FLOps image registry. 
 {{< /callout >}}
 
-FLOps provides the possibility to deploy the build trained model / inference server image directly onto an orchestrated worker node.
-Once deployed this service will serve an inference server for your trained model.
+FLOps lets you directly and automatically deploy the built-trained model/inference server image onto an orchestrated worker node.
+Once deployed, this service will serve as an inference server for your trained model.
 
 ```bash
 ╭──────────────────────┬──────────────────────────┬────────────────┬─────────────┬──────────────────────────╮
@@ -81,10 +81,10 @@ Once deployed this service will serve an inference server for your trained model
 
 ### Testing the deployed Inference Server
 
-To conclude the base case let's test our trained model's deployed inference server service.
+To conclude the base case, let's test our trained model's deployed inference server service.
 
-For this we need to find out the internal service IP of the running inference service.
-One way to do this is via the `oak s s -v exhausitive` command:
+We need to find out the internal service IP of the running inference service.
+One way to do this is via the `oak s s -v exhaustive` command:
 
 ```json
 ...
@@ -132,12 +132,13 @@ One way to do this is via the `oak s s -v exhausitive` command:
 ```
 We copy the `'RR_ip': '10.30.77.4'`.
 
-Inference serving depends on the concrete model signature which includes input/data types and formats. 
+
+Inference serving depends on the concrete model signature, which includes input/data types and formats. 
 This model signature can differ significantly between models.
-Therefore FLOps does not provide a universally applicable inference test service.
-For our base-case example we do provide a ready-made image and SLA for you.
-The only thing you need to do is to paste the copied IP into the matching `cmd` slot.
-Once deployed the inference tester service will automatically prepare test samples and request the inference server for predictions.
+Therefore, FLOps does not provide a universally applicable inference test service.
+For our base-case example, we provide a ready-made image and SLA for you.
+You have to paste the copied IP into the matching `cmd` slot.
+Once deployed, the inference tester service will automatically prepare test samples and request the inference server for predictions.
 The test service will continue requesting predictions in a loop until it is removed manually.
 
 {{< link-card
@@ -187,7 +188,7 @@ The test service will continue requesting predictions in a loop until it is remo
 ```
 
 {{< callout context="note" title="Add your SLA to the CLI" icon="outline/bolt" >}}
-  You can simply add a new app for your `oak-cli` by adding this SLA as a `.json` file to your `~/oak_cli/SLAs/` folder.
+  You can add a new app for your `oak-cli` by adding this SLA as a `.json` file to your `~/oak_cli/SLAs/` folder.
 {{< /callout >}}
 
 
@@ -224,15 +225,16 @@ The following demo shows the intended base-case inference test workflow.
 │ ...                                                                                                    │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
+
 This snippet from the demo shows the logs from the inference tester service.
 You can see that the test service picks a random matching (MNIST) test sample and queries the inference server for a prediction.
-The first two examples (1 & 9) were correct and third one (6) was not predicted correctly.
-This behavior matches our logged model accuracy which after only three training rounds is around 80%.
+The first two examples (1 & 9) were correct, but the model did not correctly predict the third one (6).
+This behavior matches our logged model accuracy, which is around 80% after only three training rounds.
 
 {{< callout context="tip" title="*Base Case Completed!*" icon="outline/confetti" >}}
-  Congratulations for reaching the end of the base-case FLOps project!
+  Congratulations on reaching the end of the base-case FLOps project!
 
-  Feel free to reset/flush your components and try it out again or dive straight into creating your own customized projects.
+  Feel free to reset/flush your components and try it again, or dive straight into creating customized projects.
 {{< /callout >}}
 
 {{< link-card
