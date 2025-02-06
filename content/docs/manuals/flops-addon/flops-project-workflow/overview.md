@@ -76,4 +76,11 @@ Projects are based on the SLA you use - they can vary in:
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-performing-fl/"
 >}}
 
+{{< link-card
+  title="Post Training Steps"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/"
+>}}
+
+
+
 

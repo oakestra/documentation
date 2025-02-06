@@ -1,5 +1,5 @@
 ---
-title: "Post Training Stages"
+title: "Post Training Steps"
 summary: ""
 draft: false
 weight: 380
@@ -55,7 +55,7 @@ The build image can be pulled by users directly from their FLOps image registry 
 ## PTS B: Deploy Trained Model Image
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  Relies on PTS A to be successful and the trained model image to be present in your FLOps image registy. 
+  Relies on PTS A to be successful and the trained model image to be present in your FLOps image registry. 
 {{< /callout >}}
 
 FLOps provides the possibility to deploy the build trained model / inference server image directly onto an orchestrated worker node.
@@ -84,9 +84,10 @@ Once deployed this service will serve an inference server for your trained model
 To conclude the base case let's test our trained model's deployed inference server service.
 
 For this we need to find out the internal service IP of the running inference service.
-One way to do this is via the `oak s s -v exhausitive` command
+One way to do this is via the `oak s s -v exhausitive` command:
 
 ```json
+...
 {
   'RR_ip': '10.30.77.4',                                                                          
   'RR_ip_v6': None,                                                                               
@@ -127,8 +128,15 @@ One way to do this is via the `oak s s -v exhausitive` command
   'vcpus': 1,                                                                                     
   'virtualization': 'docker'
 }
+...
 ```
+We copy the `'RR_ip': '10.30.77.4'`.
 
+Inference serving depends on the concrete model signature which includes input/data types and formats. 
+This model signature can differ significantly between models.
+Therefore FLOps does not provide a universally applicable inference test service.
+For our base-case example we do provide a ready-made image and SLA for you.
+The only thing you need to do is to paste the copied IP into the matching `cmd` slot.
 
 ```json
 {
@@ -169,6 +177,10 @@ One way to do this is via the `oak s s -v exhausitive` command
   ]
 }
 ```
+
+{{< callout context="note" title="Add your SLA to the CLI" icon="outline/bolt" >}}
+  You can simply add a new app for your `oak-cli` by adding this SLA as a `.json` file to your `~/oak_cli/SLAs/` folder.
+{{< /callout >}}
 
 
 {{< asciinema key="flops_inference_test" poster="0:12" idleTimeLimit="2" >}}
