@@ -61,7 +61,6 @@ The build image can be pulled by users directly from their FLOps image registry 
 FLOps provides the possibility to deploy the build trained model / inference server image directly onto an orchestrated worker node.
 Once deployed this service will serve an inference server for your trained model.
 
-
 ```bash
 ╭──────────────────────┬──────────────────────────┬────────────────┬─────────────┬──────────────────────────╮
 │ Service Name         │ Service ID               │ Instances      │ App Name    │ App ID                   │
@@ -82,7 +81,54 @@ Once deployed this service will serve an inference server for your trained model
 
 ### Testing the deployed Inference Server
 
-TODO
+To conclude the base case let's test our trained model's deployed inference server service.
+
+For this we need to find out the internal service IP of the running inference service.
+One way to do this is via the `oak s s -v exhausitive` command
+
+```json
+{
+  'RR_ip': '10.30.77.4',                                                                          
+  'RR_ip_v6': None,                                                                               
+  '_id': {'$oid': '67a46d2998d83ad599b91a8a'},                                                    
+  'addresses': {'rr_ip': '10.30.77.4'},                                                           
+  'app_name': 'helper',                                                                           
+  'app_ns': 'helper',                                                                             
+  'applicationID': '67a46d2998d83ad599b91a89',                                                    
+  'cmd': [],                                                                                      
+  'code': '192.168.178.74:5073/admin/trained_model:98afa654c6b441cb95b8185be5856163',             
+  'image': '192.168.178.74:5073/admin/trained_model:98afa654c6b441cb95b8185be5856163',            
+  'instance_list': [{'cluster_id': '679cba79af4c1923eb5df1ae',                                    
+                      'cluster_location': '49.8717,8.6503,1000',                                   
+                      'cpu': '0.003675',                                                           
+                      'cpu_history': '(hidden by CLI)',                                            
+                      'disk': '331776',                                                            
+                      'instance_number': 0,                                                        
+                      'logs': '(hidden by CLI)',                                                   
+                      'memory': '0.000000',                                                        
+                      'memory_history': '(hidden by CLI)',                                         
+                      'publicip': '192.168.178.74',                                                
+                      'status': 'RUNNING',                                                         
+                      'status_detail': None}],                                                     
+  'job_name': 'helper.helper.trmodel7bbd83d3a548.trmodel',                                        
+  'memory': 200,                                                                                  
+  'microserviceID': '67a46d2998d83ad599b91a8a',                                                   
+  'microservice_name': 'trmodel7bbd83d3a548',                                                     
+  'microservice_namespace': 'trmodel',                                                            
+  'next_instance_progressive_number': 1,                                                          
+  'one_shot': False,                                                                              
+  'port': '8088:8080',                                                                            
+  'privileged': False,                                                                           
+  'service_name': 'trmodel7bbd83d3a548',                                                          
+  'service_ns': 'trmodel',                                                                        
+  'status': 'NODE_SCHEDULED',                                                                     
+  'status_detail': 'Waiting for scheduling decision',                                             
+  'storage': 0,                                                                                   
+  'vcpus': 1,                                                                                     
+  'virtualization': 'docker'
+}
+```
+
 
 ```json
 {
