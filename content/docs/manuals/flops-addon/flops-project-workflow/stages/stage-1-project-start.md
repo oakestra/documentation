@@ -2,7 +2,7 @@
 title: "Stage 1: Project Start"
 summary: ""
 draft: false
-weight: 370
+weight: 37000
 toc: true
 seo:
   title: "" # custom title (optional)

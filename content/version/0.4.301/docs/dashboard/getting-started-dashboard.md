@@ -1,7 +1,7 @@
 ---
 title: "Start your Dashboard"
 draft: false
-weight: -99
+weight: -9900
 ---
 
 The Dashboard is a sophisticated web-based user interface for the Oakestra system. 

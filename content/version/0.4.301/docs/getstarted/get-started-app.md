@@ -1,7 +1,7 @@
 ---
 title: "Deploy your first App"
 draft: false
-weight: -99
+weight: -9900
 ---
 
 ## Requirements

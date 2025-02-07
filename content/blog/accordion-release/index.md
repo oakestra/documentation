@@ -5,7 +5,7 @@ summary: ""
 date: 2024-04-19T16:27:22+02:00
 lastmod: 2024-04-19T16:27:22+02:00
 draft: false
-weight: 50
+weight: 5000
 categories: [releases]
 tags: [releases, announcements]
 contributors: ["Oakestra Dev Team"]

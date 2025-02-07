@@ -2,7 +2,7 @@
 title: "Nginx Client-Server with Load Balancing"
 summary: ""
 draft: false
-weight: 332
+weight: 33200
 toc: true
 hidden: true
 seo:

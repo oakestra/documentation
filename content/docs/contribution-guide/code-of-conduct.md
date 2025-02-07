@@ -2,7 +2,7 @@
 title: "Code of Conduct"
 summary: ""
 draft: false
-weight: 404
+weight: 40400
 toc: true
 seo:
   title: "" # custom title (optional)

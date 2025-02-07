@@ -2,7 +2,7 @@
 title: "Addons"
 summary: ""
 draft: false
-weight: 221
+weight: 22100
 toc: true
 seo:
   title: "" # custom title (optional)

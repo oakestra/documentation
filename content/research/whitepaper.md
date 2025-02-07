@@ -8,6 +8,6 @@ badges: []
 pdf: "/pubs/oakestraWhitePaper.pdf"
 summary: ""
 draft: false
-weight: 212
+weight: 21200
 toc: false
 ---
