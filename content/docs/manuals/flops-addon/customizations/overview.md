@@ -11,10 +11,14 @@ seo:
   noindex: false # false (default) or true
 ---
 
+{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+  - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
+{{< /callout >}}
+
 ## Customizing your FLOps Project (SLA)
 
 The FLOps manager can only instantiate a new project via an SLA. This service layer
-agreement currently has the following structure.
+agreement currently has the following structure:
 
 ```json
 {

@@ -41,6 +41,12 @@ seo:
   href="/docs/contribution-guide/flops-addon/"
 >}}
 
+{{< link-card
+  title="FLOps API Endpoints  "
+  description="Discover the FLOps API"
+  href="/docs/manuals/flops-addon/flops-api-endpoints/"
+>}}
+
 ## FLOps Internals 
 
 {{< link-card

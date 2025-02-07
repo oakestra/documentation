@@ -21,7 +21,6 @@ asciinema: true
 
   To create and use custom SLAs and ML Git repositories, please familiarize yourself with this base case and read the dedicated [FLOps customization documentation](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
 
-
 {{< /callout >}}
 
 ## What is a FLOps Project?
