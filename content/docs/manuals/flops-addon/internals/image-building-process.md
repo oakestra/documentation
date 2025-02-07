@@ -2,7 +2,7 @@
 title: "Image Building Process"
 summary: ""
 draft: false
-weight: 37000
+weight: 0309060300
 toc: true
 seo:
   title: "" # custom title (optional)
