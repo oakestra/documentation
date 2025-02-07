@@ -2,7 +2,7 @@
 title: "CLI Overview"
 summary: ""
 draft: false
-weight: 34100
+weight: 36100
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "Create your first Oakestra Orchestrator"
 summary: ""
 draft: false
-weight: 10100
+weight: 12200
 toc: true
 seo:
   title: "" # custom title (optional)

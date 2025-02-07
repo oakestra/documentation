@@ -2,7 +2,7 @@
 title: "Kubernetes Integration"
 summary: ""
 draft: true
-weight: 30300
+weight: 33000
 toc: true
 seo:
   title: "" # custom title (optional)

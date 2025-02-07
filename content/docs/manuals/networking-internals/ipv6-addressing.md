@@ -2,7 +2,7 @@
 title: "IPv6 Addressing"
 summary: ""
 draft: false
-weight: 31300
+weight: 33300
 toc: true
 seo:
   title: "" # custom title (optional)
