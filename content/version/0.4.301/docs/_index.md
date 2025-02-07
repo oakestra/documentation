@@ -2,7 +2,7 @@
 title: "Wiki"
 menus: none
 linkTitle: "Wiki"
-weight: 20000
+weight: 200
 exclude_search: true
 toc_hide: true
 ---

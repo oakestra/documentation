@@ -51,7 +51,7 @@ Every page should have a weight - e.g:
 title: "High-Level Architecture"
 summary: ""
 draft: false
-weight: 20100
+weight: 0201000000
 toc: true
 ...
 ---
@@ -86,5 +86,6 @@ The following example helps you to visualize how we use weights:
 We are working with a maximum document/tree depth of 5.
 We are using 10 digits for the weight - 2 digits per depth level.
 Thus every level can fit 99 documents.
+(Why so many? -> Because 10 in one level is easily breached.)
 Each digit pair from left to right represents how deep the respective page/folder is located in.
 Each folder requires an _index.md file that contains its weight. 

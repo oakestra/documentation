@@ -2,7 +2,7 @@
 title: "High Level Setup Overview"
 summary: ""
 draft: false
-weight: 12100
+weight: 0102010000
 toc: true
 seo:
   title: "" # custom title (optional)

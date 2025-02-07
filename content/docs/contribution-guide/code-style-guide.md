@@ -2,7 +2,7 @@
 title: "Code Style Guide and Tools"
 summary: "Oakestra code style guide and tools for maintaining high-quality, readable code"
 draft: false
-weight: 40200
+weight: 0402000000
 toc: true
 seo:
   title: "Oakestra code style guide" # custom title (optional)

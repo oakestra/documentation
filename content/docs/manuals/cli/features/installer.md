@@ -2,7 +2,7 @@
 title: "Installer"
 summary: ""
 draft: false
-weight: 36210
+weight: 0306020100
 toc: true
 seo:
   title: "" # custom title (optional)
