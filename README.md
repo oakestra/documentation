@@ -51,7 +51,7 @@ Every page should have a weight - e.g:
 title: "High-Level Architecture"
 summary: ""
 draft: false
-weight: 0201000000
+weight: 201000000
 toc: true
 ...
 ---

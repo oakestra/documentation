@@ -2,7 +2,7 @@
 title: "Commit Hooks"
 summary: ""
 draft: false
-weight: 0403000000
+weight: 403000000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "Organizations"
 summary: ""
 draft: false
-weight: 0304010000
+weight: 304010000
 toc: true
 seo:
   title: "" # custom title (optional)

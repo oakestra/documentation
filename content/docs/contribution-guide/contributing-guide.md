@@ -2,7 +2,7 @@
 title: "Contributing Overview"
 summary: "How to contribute to Oakestra"
 draft: false
-weight: 0401000000
+weight: 401000000
 toc: true
 seo:
   title: "" # custom title (optional)

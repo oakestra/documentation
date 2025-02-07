@@ -2,7 +2,7 @@
 title: "Prepare Image-builder Workers"
 summary: ""
 draft: false
-weight: 0309030200
+weight: 309030200
 toc: true
 seo:
   title: "" # custom title (optional)
