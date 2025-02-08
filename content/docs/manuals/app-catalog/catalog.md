@@ -2,7 +2,7 @@
 title: "Example Applications"
 summary: ""
 draft: false
-weight: 331
+weight: 305010000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "Add Edge Devices (Workers) to Your Setup"
 summary: ""
 draft: false
-weight: 103
+weight: 102030000
 toc: true
 seo:
   title: "" # custom title (optional)
