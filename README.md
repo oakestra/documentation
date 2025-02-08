@@ -43,7 +43,7 @@ The website should look like the production one deployed at [oakestra.com](https
 
 ## Weights Explained
 
-Weights are necessary for the orderning shown in the left side bar as well as for the "Prev" and "Next" pages displayed at the bottom of every page.
+Weights are necessary for the ordering shown in the left side bar as well as for the "Prev" and "Next" pages displayed at the bottom of every page.
 
 Every page should have a weight - e.g:
 ```md
@@ -56,7 +56,7 @@ toc: true
 ...
 ---
 ```
-One can thing about pages and their weights as nodes on a tree structure.
+One can think about pages and their weights as nodes on a tree structure.
 The following example helps you to visualize how we use weights:
 
 ```
@@ -87,7 +87,7 @@ The following example helps you to visualize how we use weights:
 We are working with a maximum document/tree depth of 5.
 We are using 10 digits for the weight - 2 digits per depth level.
 Thus every level can fit 99 documents.
-(Why so many? -> Because 10 in one level is easily breached.)
+(Why so many? -> Because 10 in one level is easily and already breached.)
 Each digit pair from left to right represents how deep the respective page/folder is located in.
-Each folder requires an _index.md file that contains its weight. 
+Each folder requires an `_index.md` file that contains its weight. 
 The weight should not start with a 0 otherwise errors occur (octal interpretation).
