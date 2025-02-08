@@ -55,7 +55,7 @@ Thus, stragglers turn into another bottleneck.
   After aggregating an intermediate model, the intermediate aggregators send their parameters upstream to the root aggregator.
   The root combines the intermediate parameters into global ones and sends them downstream for further FL rounds.
 
-  The proper assignment of learners to aggregators determine the success of one’s HFL setup.
+  The proper assignment of learners to aggregators determines the success of one’s HFL setup.
   For example, if too many learners are attached to a given aggregator, that aggregator becomes a bottleneck.
   The intermediate aggregated model can be biased if too few learners are assigned.
   Thus, the infrastructure resources and management costs become unjustified for the small number of learners.
@@ -76,52 +76,56 @@ Thus, stragglers turn into another bottleneck.
 
 ## FLOps' CHFL
 
-One can combine HFL with CFL, where each intermediate aggregator is responsible for one or multiple clusters.
-
-Besides classic FL, FLOps supports (clustered) HFL.
+Besides classic FL, FLOps supports clustered hierarchical FL.
 Oakestra’s three-tiered layout supports geographically dispersed clusters.
 Each cluster has its own cluster orchestrator and set of worker nodes.
 This structure naturally alludes to the use of clustered and hierarchical FL.
-Remembering Figure 3.9, FLOps uses two different types of aggregators for HFL.
+
+FLOps uses two different types of aggregators for HFL.
 The root and cluster aggregators are deployed as services on worker nodes to distribute computational load.
-Only a single root aggregator exists.
-It can reside in any cluster.
+Only a single root aggregator exists for a given project.
+The root aggregator can reside in any cluster.
 Each orchestrated cluster hosts a single cluster aggregator.
 A cluster aggregator only works with learners inside the same cluster.
-This type of geographic clustering is why FLOps’ HFL is a clustered approach.
+This type of 'geographic' clustering is the reason why FLOps’ HFL is a clustered approach.
 Root aggregators treat cluster aggregators as plain learners, precisely as in classic FL.
 Cluster aggregators are a combination between learner and aggregator.
-Note that Flower does not natively support HFL.
-Therefore, this approach of realizing HFL via Flower is a custom novel solution.
-Figure 4.10 shows the detailed architecture of how FLOps realizes clustered HFL.
-This figure reuses and expands upon the stylistic conventions seen throughout this thesis, starting from Figure 2.2.
+
+{{< svg "chfl-architecture" >}}
+
+The figure shows the detailed architecture of how FLOps realizes clustered HFL.
 Every visible element beside the root aggregator is part of a single cluster.
 This setup supports multiple clusters.
+
 Because the root aggregator interacts with the cluster aggregators as if they were plain learners, cluster aggregators need to offer the same learner interface.
 The cluster aggregator implements the same learner interface and model manager as user ML code repositories.
 This approach requires implementing this interface properly and maintaining the state during multiple training cycles.
-Therefore, the cluster aggregator needs to be able to modify and access the underlying user ML model.#
-This model is the main reference point for model parameters in a cluster aggregator.
-At the start of a new training cycle the root aggregator calls the cluster aggregator’s fitModel method.
-It triggers the cluster aggregator’s handleAggregator method, which all aggregator types in FLOps have.
-The cluster aggregator performs conventional FL training with its learners and fuses new intermediate global parameters (pink P).
-Then, it updates its model copy stored in the user’s model manager.
+Therefore, the cluster aggregator needs to be able to modify and access the underlying user ML model.
+This ML model is the main reference point for model parameters in a cluster aggregator.
+
+At the start of a new training cycle, the root aggregator calls the cluster aggregator’s `fitModel` method.
+It triggers the cluster aggregator’s `handleAggregator` method, which all aggregator types in FLOps have.
+The cluster aggregator performs conventional FL training with its learners and fuses new intermediate global parameters *(pink P)*.
+Then, it updates its model copy, which is stored in the user’s model manager.
 By default, Flower also evaluates the model during training.
 The custom FLOps aggregator strategy can store and accumulate evaluation results.
 When the root aggregator requests to evaluate the cluster aggregator, it retrieves the stored values from the strategy and context objects.
-When the root aggregator calls the cluster aggregator’s getParameters method, the cluster aggregator calls its user’s model manager getParameters method.
+When the root aggregator calls the cluster aggregator’s `getParameters` method, the cluster aggregator calls its user’s model manager `getParameters` method.
 The same applies to setting parameters.
+
 In other words, the cluster aggregator mimics a learner by using the same interface, which works on the same user-provided ML model.
-The main differences between a learner and the cluster aggregator are that the fit model method performs classic FL training rounds, the evaluate function retrieves recorded results from the aggregator objects, and that the aggregator has no access to data.
+The main differences between a learner and the cluster aggregator are that the fit model method performs classic FL training rounds, the evaluate function retrieves recorded results from the aggregator objects, and the aggregator has no access to data.
 This way, FLOps can perform clustered hierarchical FL.
 Note that the underlying code is shared among all aggregator types, thus avoiding several similar implementations.
 I.e., the same aggregator image gets deployed with different parameters that decide the aggregator’s behavior.
 
-
-{{< svg "chfl-architecture" >}}
-
 ---
 
-To run CHFL via FLOps feel free to use the TODO project SLA that is available in the oak-cli.
+If you want to run CHFL via FLOps yourself, feel free to use the `hierarchical_mnist_sklearn_small.json` project SLA for reference and initial testing.
+It is provided by the `oak-cli`.
 
-Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs.
+{{< link-card
+  title="Create CHFL Project SLAs"
+  description="Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs."
+  href="/docs/manuals/flops-addon/customizations/project-slas/"
+>}}
