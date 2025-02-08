@@ -47,6 +47,14 @@ seo:
   href="/docs/manuals/flops-addon/flops-api-endpoints/"
 >}}
 
+## Advanced Topics
+
+{{< link-card
+  title="Clustered Hierarchical FL"
+  description="Explore how FLOps can utilize Oakestra's clustered hierarchy"
+  href="/docs/manuals/flops-addon/advanced/clustered-hierarchical-fl/"
+>}}
+
 ## FLOps Internals 
 
 {{< link-card

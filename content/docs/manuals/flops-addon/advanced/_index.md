@@ -1,11 +1,11 @@
 ---
-title: "FLOps Internals"
-description: "Explore how FLOps looks like under the hood" 
+title: "Advanced Topics"
+description: "Explore FLOps advanced topics"
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
 draft: false
-weight: 309070000
+weight: 309060000
 toc: false
 sidebar:
   collapsed: true
