@@ -37,7 +37,7 @@ seo:
 
 {{< callout context="note" title="Maximize Speed & Convenience" icon="outline/bolt" >}}
   Typing out `oak addon flops ...` every time can be cumbersome, even with tab-autocompletion enabled.
-  You can create an alias to run FLOps oak CLI commands more quickly.
+  You can create an alias to run FLOps oak-CLI commands more quickly.
 
   For example, add `alias oaf="oak addon flops"` to your `/etc/bash.bashrc` file.
 
