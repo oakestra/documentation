@@ -11,9 +11,9 @@ seo:
   noindex: false # false (default) or true
 ---
 
-Each FLOps project is associated with exactly one public ML code repository.
-Multiple users can reuse the same repository, and each user can create multiple FLOps projects per repository.
-To use your own ML code in FLOps you have to create a properly structured public Git repository and include a link to it in your project SLA.
+Each FLOps project is associated with precisely one public ML code repository.
+Multiple users can reuse the same repository, and each user can create various FLOps projects per repository.
+To use your own ML code in FLOps, you must create a properly structured public Git repository and include a link to it in your project SLA.
 The repository must fulfill the following structural requirements for this to be possible and straightforward.
 
 {{< svg "ml-code-repository-uml" >}}
@@ -23,20 +23,20 @@ The repository needs a dedicated file that lists all necessary dependencies to t
 
 {{< callout context="danger" title="Why the explicit Dependencies?" icon="outline/alert-octagon" >}}
   Having proper, minimal, and compatible dependencies is crucial for ML and FLOps.
-  Dependencies significantly impact all aspects ranging from image building speeds, sizes, deploment times, and more.
+  Dependencies significantly impact all aspects, from image-building speeds, sizes, deployment times, and more.
   Minor errors in the provided/used dependencies can break your FLOps project.
 
   Theoretically, it should be possible to extract these requirements dynamically by inspecting the code.
   However, this is a complex and error-prone endeavor.
-  To avoid issues, you have to provide and check these dependencies yourself as part of your ML repository.
+  To avoid issues, you must provide and check these dependencies as part of your ML repository.
 
-  We recommend using [mlflow's autologging feature](https://mlflow.org/docs/latest/tracking/autolog.html?highlight=autologging%20dependencies) to extract those dependencies.
+  We recommend using [mlflow's auto-logging feature](https://mlflow.org/docs/latest/tracking/autolog.html?highlight=autologging%20dependencies) to extract those dependencies.
   For this you can temporarily and effortlessly wrap your code with mlflow and use examplary data to run a single training and evaluation cycle for your ML model.
 
   Always verify if your provided dependency list is correct and in itself compatible. (Even mlflow's extracted dependencies can be erroneous!)
 {{< /callout >}}
 
-To help your code to fullfill this necessary structure please follow these templates:
+To help your code to fulfill this necessary structure, please follow these templates:
 
 {{< details "**DataManager Template**">}}
 ```python
@@ -163,7 +163,7 @@ class ModelManagerTemplate(ABC):
   ```
 
   `flops-utils` is necessary to build a proper `DataManager`.
-  It offers the auxiliary method that will be augmented during image building to load the local data for learning.
+  It offers the auxiliary method to be augmented during image building to load the local data for learning.
   Your DataManager implementation has to call it.
   ```python
   from flops_utils.ml_repo_building_blocks import load_dataset 
@@ -174,7 +174,7 @@ class ModelManagerTemplate(ABC):
   *FLOps is using flops-utils throughout its code base.*
 {{< /callout >}}
 
-The following are examplary implementations of the required files:
+The following are exemplary implementations of the required files:
 
 {{< details "**conda.yml**">}}
 ```yaml
@@ -306,10 +306,10 @@ class ModelManager(ModelManagerTemplate):
 
 The image-builder, aggregator, and learners utilize the code provided in the ML code repository.
 They have direct access to the model and data managers.
-The image builder requires the dependeny file to build the actor images properly.
+The image builder requires the dependency file to build the actor images properly.
 The learner uses the code found in the model and data managers and wraps itself around their implemented interface methods.
 As a result, you do not need to implement the FL (boilerplate) code yourself.
-Therefore, a learner’s `getParameters` method uses the `getParameters` method described in the user’s ML repository with additional logic around it.
+Therefore, a learner’s `getParameters` method uses the `getParameters` method described in the user’s ML repository with additional logic.
 
 {{< link-card
   title="Image Building Process"

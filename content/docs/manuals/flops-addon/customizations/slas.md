@@ -101,3 +101,4 @@ The next SLA displays a more advanced configuration with HFL, multi-platform sup
 }
 ```
 
+We encourage you to take existing SLAs and play around with different values.
