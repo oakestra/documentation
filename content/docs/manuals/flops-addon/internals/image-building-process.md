@@ -11,7 +11,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< details "**Why building images is necessary for FLOps**">}}
+{{< details "**Why is building images necessary for FLOps?**">}}
   Performing FL can be challenging.
   FLOps handles most FL aspects and configurations unless users want to [customize their FLOps projects](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
   FLOps takes pure (non-FL) ML code (in the form of Git repositories) and augments it to support FL.
@@ -19,7 +19,7 @@ seo:
   By using container images, learners can be deployed and distributed among various workers while stabilizing the training behavior and avoiding tedious varying configurations and setups that depend on the concrete worker machine.
 {{< /details >}}
 
-{{< details "**The reason for building images on worker nodes**">}}
+{{< details "**Why should you use worker nodes to build FLOps images?**">}}
 
   Image building (especially multi-platform ones) can get very demanding on a system.
   This is especially the case for dependency-rich ML projects.
