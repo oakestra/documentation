@@ -11,8 +11,14 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  For FLOps to work properly, at least one orchestrated worker node has to be capable of learning (performing machine learning).
+{{< callout context="caution" title="Mandatory" icon="outline/alert-triangle">}}
+  FLOps' main goal is to perform federated learning, i.e., to train a machine learning model on local data in a distributed and privacy-preserving way.
+  Training an ML model requires compatible data.
+  A worker node is required to aggregate matching data to be able to participate in training. 
+  By default, orchestrated nodes do not aggregate training data.
+  Only worker nodes that have been prepared as described on this page can collect such data and become FL learners. 
+
+  For FLOps to work as intended, you are required to prepare at least one of your orchestrated nodes, as described in this guide.
 {{< /callout >}}
 
 {{< callout context="tip" title="Optimize Learning" icon="outline/rocket" >}}
