@@ -22,35 +22,30 @@ seo:
   title="Prepare your system for FLOps"
   description="Explore the necessary steps and requirements to use FLOps" 
   href="/docs/manuals/flops-addon/preparations/flops-preparations-overview/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="Running a FLOps Project"
   description="Follow a step-by-step guide to create a trained FL model and inference server" 
   href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="Customize your FLOps Projects"
   description="Learn how to configure custom SLAs and ML Git repositories"
   href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="Contribute to FLOps"
   description="Explore how to modify, extend, and contribute to FLOps"
   href="/docs/contribution-guide/flops-addon/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="FLOps API Endpoints  "
   description="Discover the FLOps API"
   href="/docs/manuals/flops-addon/flops-api-endpoints/"
-  target="_blank"
 >}}
 
 ## Advanced Topics
@@ -59,7 +54,6 @@ seo:
   title="Clustered Hierarchical FL"
   description="Explore how FLOps can utilize Oakestra's clustered hierarchy"
   href="/docs/manuals/flops-addon/advanced/clustered-hierarchical-fl/"
-  target="_blank"
 >}}
 
 ## FLOps Internals 
@@ -68,19 +62,16 @@ seo:
   title="Local ML Data Management"
   description="Explore how FLOps manages ML data for local training"
   href="/docs/manuals/flops-addon/internals/ml-data-management/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="Image Building Process"
   description="Learn why and how container images are build in FLOps" 
   href="/docs/manuals/flops-addon/internals/image-building-process"
-  target="_blank"
 >}}
 
 {{< link-card
   title="MLflow MLOps Integration"
   description="Learn how FLOps integrates MLflow into its architecture and workflows" 
   href="/docs/manuals/flops-addon/internals/mlflow-mlops-integration"
-  target="_blank"
 >}}

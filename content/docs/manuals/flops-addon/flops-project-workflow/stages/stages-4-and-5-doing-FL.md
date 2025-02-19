@@ -127,5 +127,4 @@ All of these recorded properties can be exported and shared with other people.
   title="Want to know more about how FLOps uses MLflow for elevating its MLOps capabilities?"
   description="Learn how FLOps integrates MLflow into its architecture and workflows"
   href="/docs/manuals/flops-addon/internals/mlflow-mlops-integration/"
-  target="_blank"
 >}}

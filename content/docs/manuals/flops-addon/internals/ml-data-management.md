@@ -20,7 +20,6 @@ To emphasize this, FLOps requires real data from edge devices or "mocked" data p
   title="Mock Data Providers"
   description="Find out how to easily 'mock' real devices and data if you don't have access to such devices or want to simply try out FLOps on a single machine."
   href="/docs/manuals/flops-addon/internals/mock-data-providers/"
-  target="_blank"
 >}}
 
 ## Architecture
@@ -38,7 +37,6 @@ Lastly, the data will be forwarded to the ML model for training.
 {{< link-card
   title="Why does FLOps use Arrow Flight?"
   href="/docs/concepts/flops/overview/#apaches-data-suite"
-  target="_blank"
 >}}
 
 ## Workflow

@@ -51,5 +51,4 @@ On the worker nodes where you wish to perform ML model training, do the followin
   title="Curious about how learners handle and store data for training?"
   description="Explore how FLOps manages ML data for local training"
   href="/docs/manuals/flops-addon/internals/ml-data-management/"
-  target="_blank"
 >}}

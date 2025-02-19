@@ -52,5 +52,4 @@ It returns a confirmation.
   title="FLOps CLI commands"
   description="You don't need to remember these endpoints - the oak-cli has you covered!" 
   href="/docs/manuals/cli/features/flops-addon/"
-  target="_blank"
 >}}

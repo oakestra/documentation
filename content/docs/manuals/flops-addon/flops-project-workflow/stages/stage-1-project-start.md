@@ -19,7 +19,6 @@ We will use one of the predefined ones that the [oak-cli](/docs/getting-started/
 {{< link-card
   title="Create custom project SLAs"
   href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
-  target="_blank"
 >}}
 
 ```bash

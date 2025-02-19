@@ -69,5 +69,4 @@ Once training starts *(assuming the data tags match)*, the learner service will 
   title="Mock Data Provider Implementation"
   description="Look at the source code that powers the mock data providers"
   href="https://github.com/oakestra/addon-FLOps/tree/main/mock_data_provider_package"
-  target="_blank"
 >}}

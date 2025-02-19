@@ -18,7 +18,6 @@ seo:
   title="FL Basics"
   description="Explore fundamental concepts of Federated Learning"
   href="/docs/concepts/flops/fl-basics"
-  target="_blank"
 >}}
 
 ## FL with Oakestra
@@ -138,5 +137,4 @@ FLOps’ architecture/workflow consists of the following parts:
   title="FLOps Manuals"
   description="Explore how to set up and use FLOps yourself"
   href="/docs/manuals/flops-addon/flops-overview/"
-  target="_blank"
 >}}

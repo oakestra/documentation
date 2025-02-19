@@ -128,5 +128,4 @@ It is provided by the `oak-cli`.
   title="Create CHFL Project SLAs"
   description="Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs."
   href="/docs/manuals/flops-addon/customizations/project-slas/"
-  target="_blank"
 >}}

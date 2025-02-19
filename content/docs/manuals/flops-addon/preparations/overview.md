@@ -28,14 +28,12 @@ You can use a single node to build images and collect training data or two separ
   title="Image Building Preparation"
   description="Prepare a worker node to build (multi-platform) container images"
   href="/docs/manuals/flops-addon/preparations/prepare-image-builder-workers/"
-  target="_blank"
 >}}
 
 {{< link-card
   title="ML Training Data Preparation"
   description="Prepare a worker node to aggregate data for training" 
   href="/docs/manuals/flops-addon/preparations/prepare-learner-workers/"
-  target="_blank"
 >}}
 
 ### Set up FLOps Management
@@ -77,7 +75,6 @@ oak addon flops re
   title="FLOps CLI commands"
   description="Explore the oak-cli commands that help you to work with FLOps." 
   href="/docs/manuals/cli/features/flops-addon/"
-  target="_blank"
 >}}
 
 {{< callout context="note" title="Resetting your FLOps Management" icon="outline/info-circle" >}}
@@ -100,6 +97,4 @@ oak addon flops re
   title="Run FLOps Projects"
   description="Now that your system is prepared you can run FLOps Projects"
   href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
-  target="_blank"
 >}}
-
