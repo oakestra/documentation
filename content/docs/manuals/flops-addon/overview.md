@@ -11,9 +11,10 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  - You have carefully read the basic [concepts of FL & FLOps](/docs/concepts/flops/overview/).
+{{< callout context="caution" icon="outline/alert-octagon">}}
+  If you want to learn about Federated Learning and FLOps basics have a look at [the concepts](/docs/concepts/flops/overview/).
 {{< /callout >}}
+
 
 ## How to use FLOps
 
