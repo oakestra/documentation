@@ -57,7 +57,7 @@ export BACKEND_STORE_IP=<IP-F>
 
 {{< callout context="note" title="Hosting location for the FLOps managment suite" icon="outline/info-circle" >}}
   Currently, FLOps is intended to be co-hosted on the same node as your Oakestra root orchestrator.
-
+control plane.
   This means you should use the same public IP for all variables above.
 
   We intend to split this up to allow hosting FLOps management components on different machines for better scalability.
@@ -91,7 +91,7 @@ oak addon flops re
   Here are a few different approaches to clearing your FLOps management suite:
   - Restart the docker compose: This will clean everyhing but the image registy. (`oak addon flops re`)
   - `oak addon flops clear-registry`: Only clears the image registry.
-  - `oak addon flops redb`: Only clears the FLOps manager DB (all notion of current/last FLOps projects) 
+  - `oak addon flops redb`: Only clears the FLOps manager DB. (Removes all information about the current/last FLOps projects from the DB.)
 
   If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/cli/features/worker-node/).
 {{< /callout >}}
