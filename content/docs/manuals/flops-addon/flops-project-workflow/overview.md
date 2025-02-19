@@ -42,12 +42,6 @@ Projects are based on the SLA you use - they can vary in:
 - FL Strategy (classic or clustered hierarchical)
 - etc.
 
-{{< link-card
-  title="Configure Your Projects"
-  description="Explore how to create customized project SLAs"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
->}}
-
 ## Running a basic FLOps Project
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
