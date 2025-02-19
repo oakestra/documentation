@@ -11,7 +11,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< details "**Why is building images necessary?**">}}
+{{< details "**Why building images is necessary for FLOps**">}}
   Performing FL can be challenging.
   FLOps handles most FL aspects and configurations unless users want to [customize their FLOps projects](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
   FLOps takes pure (non-FL) ML code (in the form of Git repositories) and augments it to support FL.
