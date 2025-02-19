@@ -13,7 +13,7 @@ seo:
 
 {{< callout context="note" title="Machine Compatibility" icon="outline/server" >}}
   FLOps can run on a wide range of Linux-based devices.
-  
+
   It supports both ARM64 and AMD64 architectures.
 {{< /callout >}}
 
@@ -22,7 +22,7 @@ seo:
 Most FLOps services can run on any of the orchestrated worker nodes.
 Building multi-platform container images and performing ML/FL model training on aggregated data requires extra considerations.
 To allow FLOps to work as intended, you have to ensure that at least one of your worker nodes can build images and collect data for training.
-You can use one node to handle both tasks or two separate nodes doing one task each.
+You can use a single node to build images and collect training data or two separate ones, one of which will build images and the other aggregate data.
 
 {{< link-card
   title="Image Building Preparation"
