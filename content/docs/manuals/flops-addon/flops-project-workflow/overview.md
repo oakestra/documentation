@@ -52,26 +52,31 @@ Projects are based on the SLA you use - they can vary in:
 {{< link-card
   title="Stage 0: Preparations"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-0-preparation/"
+  target="_blank"
 >}}
 
 {{< link-card
   title="Stage 1: Project Start"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-1-project-start/"
+  target="_blank"
 >}}
 
 {{< link-card
   title="Stages 2 & 3: Building FL Actors"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-2-3-building-fl-actors/"
+  target="_blank"
 >}}
 
 {{< link-card
   title="Stages 4 & 5: Doing FL"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-performing-fl/"
+  target="_blank"
 >}}
 
 {{< link-card
   title="Post-training Steps"
   href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/"
+  target="_blank"
 >}}
 
 

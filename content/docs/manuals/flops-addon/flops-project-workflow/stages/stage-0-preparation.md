@@ -22,6 +22,7 @@ For the base-case project we will use one of the prepared repositories provided 
 {{< link-card
   title="Create your own ML Git Repository for FLOps"
   href="/docs/manuals/flops-addon/customizations/ml-git-repository/"
+  target="_blank"
 >}}
 
 
@@ -70,4 +71,5 @@ Output:
   title="Curious about ML data management?"
   description="Explore how FLOps manages ML data for local training"
   href="/docs/manuals/flops-addon/internals/ml-data-management/"
+  target="_blank"
 >}}

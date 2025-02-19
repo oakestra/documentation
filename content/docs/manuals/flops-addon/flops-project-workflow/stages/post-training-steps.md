@@ -50,6 +50,7 @@ The built image can be pulled by users directly from their FLOps image registry 
   title="Want to know more about the trained model image build?"
   description="Learn how the logged trained model gets transformed into a container image" 
   href="/docs/manuals/flops-addon/internals/image-building-process"
+  target="_blank"
 >}}
 
 ## PTS B: Deploy Trained Model Image
@@ -145,6 +146,7 @@ The test service will continue requesting predictions in a loop until it is remo
   title="Base-case Inference Tester Implementation"
   description="Look at the source code of the base-case inference tester"
   href="https://github.com/oakestra/addon-FLOps/tree/main/trained_model_image_inference_testers/mnist_sklearn"
+  target="_blank"
 >}}
 
 ```json
@@ -241,4 +243,5 @@ This behavior matches our logged model accuracy, which is around 80% after only 
   title="Customize your FLOps Projects"
   description="Learn how to configure custom SLAs and ML Git repositories"
   href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
+  target="_blank"
 >}}
