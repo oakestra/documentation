@@ -34,7 +34,7 @@ seo:
 
 {{< /details >}}
 
-## Architecture
+## FLOps Image Builder Architecture
 
 {{<svg-smaller "image-builder-simple" "Simplified Architecture" >}}
 
