@@ -64,7 +64,7 @@ export BACKEND_STORE_IP=<IP-F>
 {{< /callout >}}
 
 
-Start the management docker-compose:
+Start the management `docker compose`:
 ```bash
 docker compose -f <path-to-your-pulled-flops-repo>/docker/flops_management.docker_compose.yml up --build -d
 ```
