@@ -56,7 +56,7 @@ export BACKEND_STORE_IP=<IP-F>
 ```
 
 {{< callout context="note" title="Hosting location for the FLOps managment suite" icon="outline/info-circle" >}}
-  Currently, FLOps is intended to be co-hosted on the same node as your Oakestra control plane.
+  Currently, FLOps is intended to be co-hosted on the same node as your Oakestra root orchestrator.
 
   This means you should use the same public IP for all variables above.
 
