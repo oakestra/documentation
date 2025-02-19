@@ -25,6 +25,15 @@ seo:
   To speed up runtimes, prefer more powerful resource-rich machines.
 {{< /callout >}}
 
+{{< link-card
+  title="Curious about the Image Building Process?"
+  description="Explore why and how container images are build in FLOps" 
+  href="/docs/manuals/flops-addon/internals/image-building-process"
+  target="_blank"
+>}}
+
+<br>
+
 On the worker nodes where you wish to do the image building, do the following:
 - Ensure the NodeEngine is running
   ```bash
@@ -44,10 +53,3 @@ On the worker nodes where you wish to do the image building, do the following:
     Configured Addons:
          - image-builder: 🟢 Active
   ```
-
-{{< link-card
-  title="Curious about the Image Building Process?"
-  description="Explore why and how container images are build in FLOps" 
-  href="/docs/manuals/flops-addon/internals/image-building-process"
-  target="_blank"
->}}
