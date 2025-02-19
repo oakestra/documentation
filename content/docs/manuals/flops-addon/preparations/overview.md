@@ -11,6 +11,12 @@ seo:
   noindex: false # false (default) or true
 ---
 
+{{< callout context="note" title="Machine Compatibility" icon="outline/server" >}}
+  FLOps can run on a wide range of Linux-based devices.
+  
+  It supports both ARM64 and AMD64 architectures.
+{{< /callout >}}
+
 ### Preparing the Worker Nodes
 
 Most FLOps services can run on any of the orchestrated worker nodes.
