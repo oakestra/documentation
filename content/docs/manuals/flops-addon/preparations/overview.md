@@ -99,7 +99,7 @@ oak addon flops re
 {{< link-card
   title="Run FLOps Projects"
   description="Now that your system is prepared you can run FLOps Projects"
-  href="/docs/manuals/flops-addon/flops-project-workflow/flops-project-overview/"
+  href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
   target="_blank"
 >}}
 
