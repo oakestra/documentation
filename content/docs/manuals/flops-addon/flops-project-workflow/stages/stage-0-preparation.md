@@ -21,7 +21,7 @@ For the base-case project we will use one of the prepared repositories provided 
 
 {{< link-card
   title="Create your own ML Git Repository for FLOps"
-  href="/docs/manuals/flops-addon/customizations/ml-git-repository/"
+  href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"
   target="_blank"
 >}}
 
@@ -50,13 +50,13 @@ Once the MDP service's state is `COMPLETED ✅` you can undeploy it (`oak a d -y
 
 You can verify that the data has been populated on the learner by running the following on that node:
 
-- Find the ml-data-server docker container ID 
+- Find the `ml-data-server` docker container ID 
 ```bash
   docker ps | grep oakestra/addon-flops/ml-data-server
 ```
 Output: `0ce8c5d46372   ghcr.io/oakestra/addon-flops/ml-data-server:latest ...`
 
-Check that data was added:
+- Check that data was added:
 ```bash
   docker exec 0ce8c5d46372 ls /ml_data_server_volume  
 ```
