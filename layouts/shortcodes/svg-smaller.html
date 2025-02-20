@@ -1,4 +1,5 @@
 {{ $svgName := index .Params 0 }}
+{{ $caption := index .Params 1 }}
 {{ $pageDir := .Page.File.Dir }}
 
 {{ $lightSvgPath := printf "%ssvgs/%s/light.svg" $pageDir $svgName }}
@@ -12,5 +13,9 @@
         <figure class="svg-darkmode constrain-image">
             {{ readFile $darkSvgPath | safeHTML }}
         </figure>
+        {{ if $caption }}
+            <figcaption>{{ $caption | markdownify }}</figcaption>
+            <br>
+        {{ end }}
     </div>
 </div>

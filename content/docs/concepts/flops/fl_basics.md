@@ -96,5 +96,4 @@ After/during training, the client's data remains on the server and is exposed to
 {{< link-card
   title="Find out how you can do FL via Oakestra" 
   href="/docs/concepts/flops/overview/#fl-with-oakestra"
-  target="_blank"
 >}}

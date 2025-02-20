@@ -33,6 +33,10 @@ Always stick to this convention to ensure smooth CLI and Typer workflows and beh
 ## Linting & Formatting
 The CLI repository uses [ruff](https://github.com/astral-sh/ruff) for Python linting and formatting.
 
+Install ruff via `pip install ruff`.
+
+Use `ruff format` and `ruff check --fix` to keep your code compliant.
+
 ## Philosophy
 The `oak-cli` is a gateway to Oakestra and a multifaceted set of tools.
 Ensure high cohesion and low coupling by splitting unrelated/different parts into their own files and ["typer apps"](https://typer.tiangolo.com/tutorial/subcommands/add-typer/).
