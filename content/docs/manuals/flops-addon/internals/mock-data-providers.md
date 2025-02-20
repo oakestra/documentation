@@ -11,7 +11,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+{{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   "Mocking" data for training requires a basic understanding of how FLOps manages ML data on learner nodes.
   Ensure you have read the [respective documentation](/docs/manuals/flops-addon/internals/ml-data-management/).
 {{< /callout >}}

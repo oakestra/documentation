@@ -11,8 +11,15 @@ seo:
   noindex: false # false (default) or true
 ---
 
-The FLOps manager can only instantiate a new project via an SLA.
-This service layer agreement currently has the following structure:
+<span class="lead">
+  The FLOps manager can only instantiate a new project via a Service Layer Agreement JSON file.
+  This guide showcases the structure and all available properties and keys of such SLAs with examples.
+</span>
+
+{{< callout context="note" icon="outline/info-circle">}}
+  To see project SLAs in action have a look at [Stage 1: Project Start](/docs/manuals/flops-addon/flops-project-workflow/stages/stage-1-project-start/).
+{{< /callout >}}
+
 
 ```json
 {

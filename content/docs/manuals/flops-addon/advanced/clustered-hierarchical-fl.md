@@ -11,7 +11,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+{{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   - You understood how FLOps performs [classic FL](/docs/concepts/flops/fl-basics/)
   - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/)
   - You are familiar with [the structure of FLOps compatible ML Git Repositories](/docs/manuals/flops-addon/customizations/ml-git-repositories/)
@@ -28,7 +28,7 @@ Thus, stragglers turn into another bottleneck.
 
 ## Relevant FL Architectures
 
-{{< details "**Clustered FL**">}}
+{{< details "**Clustered FL**" open >}}
   {{< svg "clustered-fl" >}}
 
   The figure shows the Clustered FL (CFL) architecture that groups similar learners into clusters.
@@ -45,7 +45,7 @@ Thus, stragglers turn into another bottleneck.
 {{< /details >}}
 
 
-{{< details "**Hierarchical FL**">}}
+{{< details "**Hierarchical FL**" open >}}
   {{< svg "hierarchical-fl" >}}
 
   The figure depicts the hierarchical FL (HFL) architecture.
@@ -74,7 +74,7 @@ Thus, stragglers turn into another bottleneck.
 
 {{< /details >}}
 
-## FLOps' CHFL
+## FLOps' Clustered Hierarchical FL
 
 Besides classic FL, FLOps supports clustered hierarchical FL.
 Oakestra’s three-tiered layout supports geographically dispersed clusters.
@@ -116,8 +116,6 @@ The same applies to setting parameters.
 In other words, the cluster aggregator mimics a learner by using the same interface, which works on the same user-provided ML model.
 The main differences between a learner and the cluster aggregator are that the fit model method performs classic FL training rounds, the evaluate function retrieves recorded results from the aggregator objects, and the aggregator has no access to data.
 This way, FLOps can perform clustered hierarchical FL.
-Note that the underlying code is shared among all aggregator types, thus avoiding several similar implementations.
-I.e., the same aggregator image gets deployed with different parameters that decide the aggregator’s behavior.
 
 ---
 

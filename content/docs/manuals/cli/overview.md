@@ -11,7 +11,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+{{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   - You have carefully read [the application deployment with the `oak-cli`](/docs/getting-started/deploy-app/with-the-cli).
   - You are familiar with the basic setup, configuration, and usage of the CLI.
 {{< /callout >}}

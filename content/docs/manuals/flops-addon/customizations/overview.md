@@ -16,7 +16,7 @@ seo:
   This guide will teach you how to personalize your projects and make FLOps yours.
 </span>
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
+{{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
 {{< /callout >}}
 
