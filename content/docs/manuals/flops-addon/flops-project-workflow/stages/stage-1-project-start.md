@@ -16,11 +16,6 @@ To start a project we need to request the FLOps Manager (*which is part of FLOps
 FLOps projects are based on project SLAs.
 We will use one of the predefined ones that the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/) provides.
 
-{{< link-card
-  title="Create custom project SLAs"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
->}}
-
 ```bash
   oak addon flops p --project-sla-file-name mnist_sklearn_small.json
 ```
@@ -44,9 +39,9 @@ After sending out the project request via the CLI, the following happens:
   │ projc3fd78f56b75 │ (1)      │ 6761bf5d59461659a24b1197 │ 
   ╰──────────────────┴──────────┴──────────────────────────╯ 
   ```
-  - A proj.. app that acts as a wrapper encompassing all current and future services that only belong to our project.
+  - A `proj..` application that acts as a wrapper encompassing all current and future services that only belong to our project.
     - We could create several projects at the same time - each would get its own app.
-  - A singleton observatory app is created that will be shared only among projects of the same user. 
+  - A single observatory app is created that will be shared only among projects of the same user. 
 - The manager creates and deployes a project observer service.
   ```bash
   ╭─────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮     
@@ -89,3 +84,9 @@ After sending out the project request via the CLI, the following happens:
 
   Now relax, sit back, and continue reading the following stages to understand what FLOps is doing - and how you can use the trained model/inference server.
 {{< /callout >}}
+
+{{< link-card
+  title="In need of customization?"
+  description="Learn how to create and fine-tune your own FLOps projects"
+  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
+>}}
