@@ -19,16 +19,15 @@ For FLOps to use this repository correctly, it must follow some simple structura
 
 For the base-case project we will use one of the prepared repositories provided by the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/).
 
-{{< link-card
-  title="Create your own ML Git Repository for FLOps"
-  href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"
->}}
+{{< callout context="note" icon="outline/settings-question" >}}
+  Find out how to create your own ML Git Repository for FLOps [here](/docs/manuals/flops-addon/customizations/ml-git-repositories/).
+{{< /callout >}}
 
 
 ## Training Data
 
 In addition to preparing your system for FLOps we need data to perform FL *(training on the learner nodes)* before creating our base-case project.
-To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](/docs/manuals/flops-addon/internals/mock-data-providers/) (**MDP**).
+To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](/docs/manuals/flops-addon/advanced/mock-data-providers/) (**MDP**).
 In short, an MDP is a service deployed by FLOps on a learner node to populate it with data for training.
 
 {{< callout context="caution" title="MDP Requirements" icon="outline/alert-triangle">}}
