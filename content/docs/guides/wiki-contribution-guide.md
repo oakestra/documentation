@@ -5,7 +5,7 @@ summary: ""
 date: 2023-09-07T16:04:48+02:00
 lastmod: 2023-09-07T16:04:48+02:00
 draft: true
-weight: 800
+weight: 800000000
 toc: true
 version: 1.0
 seo:
@@ -98,7 +98,7 @@ To archive the current version of the docs you need to do the following:
  title: "v0.4.301"
  menus: none
  linkTitle: "v0.4.301"
- weight: 200
+ weight: 200000000
  exclude_search: true
  toc_hide: false
  hide_summary: true
