@@ -164,7 +164,7 @@ class ModelManagerTemplate(ABC):
 
   `flops-utils` is necessary to build a proper `DataManager`.
   It offers the auxiliary method to be augmented during image building to load the local data for learning.
-  Your DataManager implementation has to call it.
+  Your `DataManager` implementation has to call it.
   ```python
   from flops_utils.ml_repo_building_blocks import load_dataset 
   ```
@@ -322,3 +322,7 @@ Therefore, a learner’s `getParameters` method uses the `getParameters` method 
   description="Explore how FLOps synergizes local data with your augmented ML components for training" 
   href="/docs/manuals/flops-addon/internals/ml-data-management/"
 >}}
+
+<br>
+
+Continue reading to learn about advanced FLOps features such as clustered hierarchical FL.
