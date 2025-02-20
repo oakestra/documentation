@@ -42,13 +42,13 @@ seo:
   href="/docs/contribution-guide/flops-addon/"
 >}}
 
+## Advanced Topics
+
 {{< link-card
   title="FLOps API Endpoints  "
   description="Discover the FLOps API"
-  href="/docs/manuals/flops-addon/flops-api-endpoints/"
+  href="/docs/manuals/flops-addon/advanced/flops-api-endpoints/"
 >}}
-
-## Advanced Topics
 
 {{< link-card
   title="Clustered Hierarchical FL"
