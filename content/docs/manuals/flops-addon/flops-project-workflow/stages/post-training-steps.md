@@ -240,4 +240,5 @@ This behavior matches our logged model accuracy, which is around 80% after only 
   Feel free to reset/flush your components and try it again, or dive straight into creating customized projects.
 {{< /callout >}}
 
+FLOps' base case is just a demonstration to get you familiar with the core functionalities and workflow.
 Continue to the next page to learn how to configure custom SLAs and ML Git repositories.

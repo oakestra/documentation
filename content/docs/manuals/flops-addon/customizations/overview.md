@@ -11,10 +11,14 @@ seo:
   noindex: false # false (default) or true
 ---
 
+<span class="lead">
+  The true power of FLOps lies in its flexibility and adaptability.
+  This guide will teach you how to personalize your projects and make FLOps yours.
+</span>
+
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
   - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
 {{< /callout >}}
-
 
 {{< link-card
   title="Customize Project SLAs"
@@ -29,6 +33,11 @@ seo:
 >}}
 
 ---
+
+Are the currently available options and features of FLOps not enough to fulfill your desires?
+Do you think FLOps is a great system, but if it only supported X or Z, it would be a dream match for your use case?
+You can be the key to making this dream a reality.
+Help yourself and the community by contributing to FLOps' lightweight, extendable, open-source code base.
 
 {{< link-card
   title="Need more Customization?"
