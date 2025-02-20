@@ -117,13 +117,11 @@ In other words, the cluster aggregator mimics a learner by using the same interf
 The main differences between a learner and the cluster aggregator are that the fit model method performs classic FL training rounds, the evaluate function retrieves recorded results from the aggregator objects, and the aggregator has no access to data.
 This way, FLOps can perform clustered hierarchical FL.
 
----
+{{< callout context="note" title="Run CHFL yourself" icon="outline/run" >}}
+  Feel free to use the `hierarchical_mnist_sklearn_small.json` project SLA for reference and initial testing.
+  It is provided by the `oak-cli`.
+{{< /callout >}}
 
-If you want to run CHFL via FLOps yourself, feel free to use the `hierarchical_mnist_sklearn_small.json` project SLA for reference and initial testing.
-It is provided by the `oak-cli`.
-
-{{< link-card
-  title="Create CHFL Project SLAs"
-  description="Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs."
-  href="/docs/manuals/flops-addon/customizations/project-slas/"
->}}
+{{< callout context="note" title="Create CHFL Project SLAs" icon="outline/file-plus" >}}
+  Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs [here](/docs/manuals/flops-addon/customizations/project-slas/).
+{{< /callout >}}

@@ -53,9 +53,7 @@ This demo shows this build process from the perspective of a priviledged CLI use
 
 
 {{< asciinema key="flops_base_case_fl_actors_build" poster="0:08" idleTimeLimit="1.5" >}}
-<br>
-{{< link-card
-  title="Want to know more about the image building process?"
-  description="Learn why and how container images are build in FLOps" 
-  href="/docs/manuals/flops-addon/internals/image-building-process"
->}}
+
+{{< callout context="note" title="Want to know more about FLOps' image building process?" icon="outline/settings-question" >}}
+  Explore why and how container images are build in FLOps [here](/docs/manuals/flops-addon/internals/image-building-process).
+{{< /callout >}}

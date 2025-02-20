@@ -75,8 +75,6 @@ The model requirements, conda environment, and model (pkl) file are all present.
 MLflow's GUI directly supports in-build techniques to compare, analyze, and visualize these logged results.
 All of these recorded properties can be exported and shared with other people.
 
-{{< link-card
-  title="Want to know more about how FLOps uses MLflow for elevating its MLOps capabilities?"
-  description="Learn how FLOps integrates MLflow into its architecture and workflows"
-  href="/docs/manuals/flops-addon/internals/mlflow-mlops-integration/"
->}}
+{{< callout context="note" title="How exactly does FLOps use MLflow for elevating its MLOps capabilities?" icon="outline/settings-question" >}}
+  Learn how FLOps integrates MLflow into its architecture and workflows [here](/docs/manuals/flops-addon/internals/mlflow-mlops-integration/).
+{{< /callout >}}
