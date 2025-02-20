@@ -69,7 +69,7 @@ The FLOps manager undeploys and removes the image builder service.
 
 This demo shows this build process from the perspective of a priviledged CLI user.
 
-{{< callout context="note" title="*Time Lapse*" icon="outline/coffee" >}}
+{{< callout context="note" title="*Time Lapse*" icon="outline/clock" >}}
   Building images can easily take 5-30+ minutes.
 
   This depends on:
