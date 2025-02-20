@@ -55,5 +55,5 @@ This demo shows this build process from the perspective of a priviledged CLI use
 {{< asciinema key="flops_base_case_fl_actors_build" poster="0:08" idleTimeLimit="1.5" >}}
 
 {{< callout context="note" title="Want to know more about FLOps' image building process?" icon="outline/settings-question" >}}
-  Explore why and how container images are build in FLOps [here](/docs/manuals/flops-addon/internals/image-building-process).
+  Explore why and how container images are build in FLOps [here](/docs/concepts/flops/internals/image-building-process).
 {{< /callout >}}

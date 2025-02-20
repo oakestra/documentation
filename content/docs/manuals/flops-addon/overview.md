@@ -1,5 +1,5 @@
 ---
-title: "FLOps Overview"
+title: "FLOps Manuals Overview"
 summary: ""
 draft: false
 weight: 309010000
@@ -54,24 +54,4 @@ seo:
   title="Clustered Hierarchical FL"
   description="Explore how FLOps can utilize Oakestra's clustered hierarchy"
   href="/docs/manuals/flops-addon/advanced/clustered-hierarchical-fl/"
->}}
-
-## FLOps Internals 
-
-{{< link-card
-  title="Local ML Data Management"
-  description="Explore how FLOps manages ML data for local training"
-  href="/docs/manuals/flops-addon/internals/ml-data-management/"
->}}
-
-{{< link-card
-  title="Image Building Process"
-  description="Learn why and how container images are build in FLOps" 
-  href="/docs/manuals/flops-addon/internals/image-building-process"
->}}
-
-{{< link-card
-  title="MLflow MLOps Integration"
-  description="Learn how FLOps integrates MLflow into its architecture and workflows" 
-  href="/docs/manuals/flops-addon/internals/mlflow-mlops-integration"
 >}}

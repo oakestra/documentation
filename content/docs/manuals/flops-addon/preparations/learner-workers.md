@@ -28,7 +28,7 @@ seo:
 {{< /callout >}}
 
 {{< callout context="note" title="How do learners handle and store data for training in FLOps?" icon="outline/settings-question" >}}
-  Explore how FLOps manages ML data for local training [here](/docs/manuals/flops-addon/internals/ml-data-management/)
+  Explore how FLOps manages ML data for local training [here](/docs/concepts/flops/internals/ml-data-management/)
 {{< /callout >}}
 
 On the worker nodes where you wish to perform ML model training, do the following:

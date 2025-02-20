@@ -76,5 +76,5 @@ MLflow's GUI directly supports in-build techniques to compare, analyze, and visu
 All of these recorded properties can be exported and shared with other people.
 
 {{< callout context="note" title="How exactly does FLOps use MLflow for elevating its MLOps capabilities?" icon="outline/settings-question" >}}
-  Learn how FLOps integrates MLflow into its architecture and workflows [here](/docs/manuals/flops-addon/internals/mlflow-mlops-integration/).
+  Learn how FLOps integrates MLflow into its architecture and workflows [here](/docs/concepts/flops/internals/mlflow-mlops-integration/).
 {{< /callout >}}

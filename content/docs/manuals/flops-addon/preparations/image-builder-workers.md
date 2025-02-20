@@ -26,7 +26,7 @@ seo:
 {{< /callout >}}
 
 {{< callout context="note" title="Curious about FLOps' Image Building Process?" icon="outline/settings-question" >}}
-  Explore why and how container images are build in FLOps [here](/docs/manuals/flops-addon/internals/image-building-process).
+  Explore why and how container images are build in FLOps [here](/docs/concepts/flops/internals/image-building-process).
 {{< /callout >}}
 
 On the worker nodes where you wish to do the image building, do the following:

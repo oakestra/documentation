@@ -13,7 +13,7 @@ seo:
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   "Mocking" data for training requires a basic understanding of how FLOps manages ML data on learner nodes.
-  Ensure you have read the [respective documentation](/docs/manuals/flops-addon/internals/ml-data-management/).
+  Ensure you have read the [respective documentation](/docs/concepts/flops/internals/ml-data-management/).
 {{< /callout >}}
 
 FLOps provides a mock data provider (**MDP**) service *(container image)* that helps newcomers or those without access to edge devices to get started quickly and use FLOps, e.g., on a single machine.

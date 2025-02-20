@@ -132,6 +132,27 @@ FLOps’ architecture/workflow consists of the following parts:
 - The FLOps management deploys its required components with the help of Oakestra as services on worker nodes.
 - The different computational components (e.g., learners, container image builders, etc.) are scaled up and distributed among various worker nodes.
 
+## FLOps Internals 
+
+{{< link-card
+  title="Local ML Data Management"
+  description="Explore how FLOps manages ML data for local training"
+  href="/docs/concepts/flops/internals/ml-data-management/"
+>}}
+
+{{< link-card
+  title="Image Building Process"
+  description="Learn why and how container images are build in FLOps" 
+  href="/docs/concepts/flops/internals/image-building-process"
+>}}
+
+{{< link-card
+  title="MLflow MLOps Integration"
+  description="Learn how FLOps integrates MLflow into its architecture and workflows" 
+  href="/docs/concepts/flops/internals/mlflow-mlops-integration"
+>}}
+
+## How to use FLOps
 
 {{< link-card
   title="FLOps Manuals"

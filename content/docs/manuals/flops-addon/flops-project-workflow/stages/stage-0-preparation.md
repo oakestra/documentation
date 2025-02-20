@@ -27,7 +27,7 @@ For the base-case project we will use one of the prepared repositories provided 
 ## Training Data
 
 In addition to preparing your system for FLOps we need data to perform FL *(training on the learner nodes)* before creating our base-case project.
-To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](/docs/manuals/flops-addon/internals/mock-data-providers/) (**MDP**).
+To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](/docs/concepts/flops/internals/mock-data-providers/) (**MDP**).
 In short, an MDP is a service deployed by FLOps on a learner node to populate it with data for training.
 
 {{< callout context="caution" title="MDP Requirements" icon="outline/alert-triangle">}}
@@ -66,5 +66,5 @@ Output:
 ```
 
 {{< callout context="note" title="Curious about FLOp's ML data management?" icon="outline/settings-question" >}}
-  Explore how FLOps manages ML data for local training [here](/docs/manuals/flops-addon/internals/ml-data-management/)
+  Explore how FLOps manages ML data for local training [here](/docs/concepts/flops/internals/ml-data-management/)
 {{< /callout >}}

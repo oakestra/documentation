@@ -50,7 +50,7 @@ $ oak s i
 {{< link-card
   title="Want to know more about the trained model image build?"
   description="Learn how the logged trained model gets transformed into a container image" 
-  href="/docs/manuals/flops-addon/internals/image-building-process"
+  href="/docs/concepts/flops/internals/image-building-process"
 >}}
 
 ## Step B: Deploy Trained Model Image
