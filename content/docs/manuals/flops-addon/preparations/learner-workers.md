@@ -27,6 +27,10 @@ seo:
   Prefer more powerful, resource-rich machines to speed up training times.
 {{< /callout >}}
 
+{{< callout context="note" title="How do learners handle and store data for training in FLOps?" icon="outline/settings-question" >}}
+  Explore how FLOps manages ML data for local training [here](/docs/manuals/flops-addon/internals/ml-data-management/)
+{{< /callout >}}
+
 On the worker nodes where you wish to perform ML model training, do the following:
 - Ensure the NodeEngine is running
   ```bash
@@ -46,9 +50,3 @@ On the worker nodes where you wish to perform ML model training, do the followin
     Configured Addons:
          - FLOps-learner: 🟢 Active
   ```
-
-{{< link-card
-  title="Curious about how learners handle and store data for training?"
-  description="Explore how FLOps manages ML data for local training"
-  href="/docs/manuals/flops-addon/internals/ml-data-management/"
->}}
