@@ -25,6 +25,10 @@ Go to the FLOps addon repository and create a new Issue.
 ## Linting & Formatting
 The FLOps addon repository uses [ruff](https://github.com/astral-sh/ruff) for Python linting and formatting.
 
+Install ruff via `pip install ruff`.
+
+Use `ruff format` and `ruff check --fix` to keep your code compliant.
+
 ## Local Development
 For local development clone the FLOps addon repository and ensure to have Oakestra and its CLI running on your machine.
 
