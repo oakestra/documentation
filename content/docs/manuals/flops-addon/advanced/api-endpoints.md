@@ -2,7 +2,7 @@
 title: "FLOps API Endpoints"
 summary: ""
 draft: false
-weight: 309020000
+weight: 309050100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -46,10 +46,7 @@ This endpoint only allows admins to reset the FLOps database.
 Otherwise, the entire FLOps management suite needs a restart.
 It returns a confirmation.
 
----
 
-{{< link-card
-  title="FLOps CLI commands"
-  description="You don't need to remember these endpoints - the oak-cli has you covered!" 
-  href="/docs/manuals/cli/features/flops-addon/"
->}}
+{{< callout context="note" icon="outline/first-aid-kit" >}}
+  You don't need to remember these endpoints - [the oak-cli has you covered](/docs/manuals/cli/features/flops-addon/)!
+{{< /callout >}}
