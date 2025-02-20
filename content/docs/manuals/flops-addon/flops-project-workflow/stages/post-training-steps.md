@@ -12,7 +12,7 @@ seo:
 asciinema: true
 ---
 
-Post-training steps (PTS) are optional steps or stages that FLOps can perform for the user after training concludes and the model is logged.
+Post-training steps are optional steps or stages that FLOps can perform for the user after training concludes and the model is logged.
 Users can freely specify what steps they want for their projects as part of their SLAs.
 If no post-training steps are requested, the FLOps project counts as completed.
 The tracking server and its GUI keep running so users can inspect and work with their project results.
@@ -20,7 +20,7 @@ Our base case uses post-training steps.
 
 FLOps currently supports the following post-training steps:
 
-## PTS A: Build Image for Trained Model
+## Step A: Build Image for Trained Model
 
 In this step, FLOps deploys another image-builder service.
 It fetches the logged trained model from the artifact store which is part of the FLOps management suite.
@@ -29,6 +29,7 @@ The initial project SLA determines these target platforms.
 The built image can be pulled by users directly from their FLOps image registry and used freely.
 
 ```bash
+$ oak s i
 ╭──────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
 │ Service Name         │ Service ID               │ Instances      │ App Name         │ App ID                   │
 ├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
@@ -52,16 +53,17 @@ The built image can be pulled by users directly from their FLOps image registry 
   href="/docs/manuals/flops-addon/internals/image-building-process"
 >}}
 
-## PTS B: Deploy Trained Model Image
+## Step B: Deploy Trained Model Image
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-  Relies on PTS A to be successful and the trained model image to be present in your FLOps image registry. 
+{{< callout context="caution" icon="outline/alert-triangle">}}
+  Relies on step A to be successful and the trained model image to be present in your FLOps image registry. 
 {{< /callout >}}
 
 FLOps lets you directly and automatically deploy the built-trained model/inference server image onto an orchestrated worker node.
 Once deployed, this service will serve as an inference server for your trained model.
 
 ```bash
+$ oak s i
 ╭──────────────────────┬──────────────────────────┬────────────────┬─────────────┬──────────────────────────╮
 │ Service Name         │ Service ID               │ Instances      │ App Name    │ App ID                   │
 ├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
@@ -169,6 +171,7 @@ The test service will continue requesting predictions in a loop until it is remo
             "run",
             "python",
             "main.py",
+            # Paste the copied RR IP here
             "<The internal service IP ~ 10.30.X.Y>"
           ],
           "memory": 100,
@@ -237,8 +240,4 @@ This behavior matches our logged model accuracy, which is around 80% after only 
   Feel free to reset/flush your components and try it again, or dive straight into creating customized projects.
 {{< /callout >}}
 
-{{< link-card
-  title="Customize your FLOps Projects"
-  description="Learn how to configure custom SLAs and ML Git repositories"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
->}}
+Continue to the next page to learn how to configure custom SLAs and ML Git repositories.
