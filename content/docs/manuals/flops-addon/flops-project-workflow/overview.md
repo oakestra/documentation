@@ -60,13 +60,23 @@ Projects are based on the SLA you use - they can vary in:
 >}}
 
 {{< link-card
-  title="Stages 2 & 3: Building FL Actors"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-2-3-building-fl-actors/"
+  title="Stage 2: Image-Builder Deployment"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-2-image-builder-deployment/"
 >}}
 
 {{< link-card
-  title="Stages 4 & 5: Doing FL"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stages-4-5-performing-fl/"
+  title="Stage 3: FL-Actors Image Build"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-3-fl-actors-image-build/"
+>}}
+
+{{< link-card
+  title="Stage 4: FL-Actors Deployment"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-4-fl-actors-deployment/"
+>}}
+
+{{< link-card
+  title="Stage 5: FL Training"
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-5-fl-training/"
 >}}
 
 {{< link-card
