@@ -46,15 +46,15 @@ The URL will be reachable if you combine the tracking service's public IP and po
 ```
 In this case, the GUI will be accessible under `http://192.168.178.74:7027`.
 
+{{< callout context="note" icon="outline/info-circle">}}
+  FLOps uses MLflow’s GUI and does not modify it.
+  Therefore, this wiki only provides a brief selection of impressions of the GUI.
+  MLflow is a feature-rich and well-documented MLOps tool.
+  Excellent further details and extended capabilities are explained directly at [MLflow](https://mlflow.org/docs/latest/index.html).
+{{< /callout >}}
 
-FLOps uses MLflow’s GUI and does not modify it.
-Therefore, this wiki only provides a brief selection of impressions of the GUI.
-MLflow is a feature-rich and well-documented MLOps tool.
-Excellent further details and extended capabilities are explained directly at [MLflow](https://mlflow.org/docs/latest/index.html).
+{{<light-dark-png "gui-experiments-view-small" "Experiments Overview Page">}}
 
-{{<light-dark-png "gui-experiments-view-small">}}
-
-This first screenshot shows parts of the MLflow’s experiments overview page.
 The left column (which is collapsed) lists all recorded experiments/projects.
 Only a single experiment is currently selected.
 Multiple experiments can be selected simultaneously to view their combined contents.
@@ -62,19 +62,18 @@ The centerpiece offers a table view of the different FL rounds.
 Each table row depicts a single FL round, when it was recorded, and its duration.
 Only the best round contains a logged model.
 
-{{<light-dark-png "gui-experiments-view-metrics">}}
+{{<light-dark-png "gui-experiments-view-metrics" "Experiment Metrics View">}}
+
 This page can also display the evolution of metrics, such as accuracy or system metrics.
 Currently, FLOps focuses on the model’s accuracy and loss.
 It shows that the model’s accuracy improved, and its loss decreased over time.
 
-{{<light-dark-png "gui-logged-artifacts">}}
+{{<light-dark-png "gui-logged-artifacts" "Logged Model Details Page" >}}
 
-The last screenshot shows the logged model details page.
 The left folder shows the different aspects that were recorded.
 The model requirements, conda environment, and model (pkl) file are all present.
 MLflow's GUI directly supports in-build techniques to compare, analyze, and visualize these logged results.
 All of these recorded properties can be exported and shared with other people.
-
 
 {{< link-card
   title="Want to know more about how FLOps uses MLflow for elevating its MLOps capabilities?"
