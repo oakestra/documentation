@@ -39,12 +39,12 @@
 @import url(https://weloveiconfonts.com/api/?family=entypo);
 @import url(https://weloveiconfonts.com/api/?family=zocial);
 
-/* entypo 
+/* entypo
 [class*="entypo-"]:before {
   font-family: "entypo", sans-serif;
 }*/
 
-/* zocial 
+/* zocial
 [class*="zocial-"]:before {
   font-family: "zocial", sans-serif;
 }*/
@@ -831,16 +831,16 @@ table.alt tfoot {
   /*font-family: FontAwesome !important;*/
 }
 
-.pubs_img {
-  width: 50%;
-  min-width: 120px;
-  display: box;
-  /* border-right: 2px solid black;
-  padding-right: 1em;
-  padding-left: 6em;
-  text-align: right; */
-  text-decoration: none !important;
-}
+// .pubs_img {
+//   width: 50%;
+//   min-width: 120px;
+//   display: box;
+//   /* border-right: 2px solid black;
+//   padding-right: 1em;
+//   padding-left: 6em;
+//   text-align: right; */
+//   text-decoration: none !important;
+// }
 
 .pubs_title {
   text-decoration: none !important;
@@ -848,13 +848,16 @@ table.alt tfoot {
   /* font-family: CMUSansSerifMedium;
   /* font-family: SegoeUILightWeb, Segoe UI Light, Helvetica, Verdana, Sans-Serif; */
   font-size: 130%;
+  // font-weight: 600;
   /* font-weight: bold; */
-  color: #497286 !important;
+  // color: #497286 !important;
+  // margin-top: 0 !important;
 }
 
 .pubs_authors {
   /* font-family: SegoeUILightWeb, Segoe UI Light, Helvetica, Verdana, Sans-Serif; */
-  font-size: 110%;
+  font-size: 115%;
+  font-style: italic;
 }
 
 .pubs_type {
@@ -879,11 +882,31 @@ table.alt tfoot {
   min-width: 120px;
 }
 
+.pub-item {
+  // padding-bottom: 1.5rem;
+  // border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
 .pubs_img {
   border-style: solid !important;
   border-width: 1px !important;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+.highlighted-conference {
+  background-color: #e3f8fd; /* Light-blue highlight; adjust as needed */
+  padding: 0.2rem 0.4rem;
+  border-radius: 10px;
+  font-weight: bold;
+  border-style:groove;
+  border-width: 1px;
 }
 
 /* .pubs_title {

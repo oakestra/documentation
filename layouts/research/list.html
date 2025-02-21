@@ -3,61 +3,71 @@
 <link rel="stylesheet" href="/css/main.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="justify-content-center pubs">
-    <div class="container">
-      <article>
-        <h1 class="text-center">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
-        {{ with .Content }}<div class="text-center">{{ . }}</div>{{ end }}
-                <div class="container-fluid">
-                
-                <br>
-                <div class="pubs-table">
-                   
-                  {{ $currentSection := .CurrentSection }}
-                  {{ range where .Site.RegularPages.ByWeight "Section" .Section }}
-                      {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
-                        <div class="row">
-                            <div class="col-3 pubs-img-container">
-                                <a href={{ .Params.pdf }} class="no-decoration" target="_blank">
-                                    <img class="pubs_img" src={{ .Params.img }}>
-                                </a>
-                                <div class="badges-img text-center">
-                                    {{ range .Params.badges }}
-                                        <img src="{{ . }}">
-                                    {{ end }}
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <span class="pubs_title">
-                                        <a href={{ .Params.pdf }}
-                                            style="text-decoration: none!important; border: none; color: inherit;"
-                                            target="_blank">
-                                            {{ .Params.title }}
-                                        </a>
-                                    </span>
-                                    <br>
-                                    <span class="pubs_authors">
-                                        {{ .Params.authors }}
-                                    </span>
-                                    <br>
-                                    <span class="pubs_type">
-                                        {{ .Params.conference }}
-                                    </span> 
-                                    <br>
-                                    <a class="btn btn-sm" style="font-size: 110%; padding: 0em;" href={{ .Params.doi }}
-                                            target="_blank">
-                                        <i class="fa fa-globe" aria-hidden="true"></i> DOI
-                                    </a>
-  
-                            </div>
-                        </div>
-                        <hr/>
-                      {{ end }}
-                  {{ end }}
-                 </div>
-                </div>
-              </div>
-      </article>
-    </div>
+<!-- Full-width container, no horizontal padding -->
+<div class="container-fluid px-0 pubs-list">
+  <article>
+    <!-- Title with minimal margin -->
+    <h1 class="text-center mt-0 mb-3">
+      {{ if eq .CurrentSection .FirstSection }}
+        {{ .Section | humanize }}
+      {{ else }}
+        {{ .Title }}
+      {{ end }}
+    </h1>
+
+    <!-- Optional page description/content -->
+    {{ with .Content }}
+      <div class="text-center mb-4">{{ . }}</div>
+    {{ end }}
+
+    {{ $currentSection := .CurrentSection }}
+    {{ range where .Site.RegularPages.ByWeight "Section" .Section }}
+      {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+        <!-- Use g-0 to remove default gutters; each column has its own padding -->
+        <div class="row pub-item align-items-start">
+          <!-- Image column:
+               - full width on XS
+               - 3 columns on MD and up -->
+          <div class="col-md-2 text-center p-3">
+            <a href="{{ .Params.pdf }}" target="_blank" class="no-decoration">
+              <img
+                class="img-fluid pubs_img"
+                src="{{ .Params.img }}"
+                alt="Publication Image"
+              />
+            </a>
+          </div>
+
+          <!-- Text column:
+               - full width on XS
+               - 9 columns on MD and up -->
+          <div class="col-12 col-md-12 p-3">
+            <h3 class="pubs_title mt-0 mb-2">
+              <a href="{{ .Params.pdf }}"
+                 target="_blank"
+                 class="text-decoration-none text-dark">
+                {{ .Params.title }}
+              </a>
+            </h3>
+            <p class="pubs_authors mb-1">{{ .Params.authors }}</p>
+
+            <!-- Only show conference highlight if it exists -->
+            {{ if .Params.conference }}
+              <p class="pubs_type mb-2">
+                <span class="highlighted-conference">{{ .Params.conference }}</span>
+              </p>
+            {{ end }}
+
+            <!-- DOI link -->
+            <a class="btn btn-sm btn-outline-primary"
+               href="{{ .Params.doi }}"
+               target="_blank">
+              <i class="fa fa-globe" aria-hidden="true"></i> DOI
+            </a>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </article>
 </div>
 {{ end }}
