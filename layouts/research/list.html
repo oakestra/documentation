@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Full-width container, no horizontal padding -->
-<div class="container-fluid px-0 pubs-list">
+<div class="container-fluid px-1">
   <article>
     <!-- Title with minimal margin -->
     <h1 class="text-center mt-0 mb-3">
@@ -24,7 +24,7 @@
     {{ range where .Site.RegularPages.ByWeight "Section" .Section }}
       {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
         <!-- Use g-0 to remove default gutters; each column has its own padding -->
-        <div class="row pub-item align-items-start">
+        <div class="row pub-item align-items-start mx-auto pubs-list">
           <!-- Image column:
                - full width on XS
                - 2 columns on MD and up -->
