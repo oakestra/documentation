@@ -64,13 +64,7 @@ curl -sfL oakestra.io/install-cluster.sh | sh -
 This script will download the required files to the directory `~/oakestra/cluster_orchestrator`. From there it will walk you through
 configuring the cluster. Once the setup is complete, it will build the cluster orchestrator and register with the root orchestrator.
 
-{{< callout context="danger" title="Watch out!" icon="outline/alert-octagon" >}}
-The root orchestrator has to be reachable by the cluster orchestrator. When not on the same network the root orchestrator URL has to be a public
-address!
-{{< /callout >}}
-
-You can register as many cluster orchestrators with the root orchestrator as you would like. Repeat the above commmand on a new device and specify
-a unique `Cluster Name` and `Cluster Location`.
+You can register as many cluster orchestrators with the root orchestrator as you would like. Repeat the above commmand on a new device and [configure](#configure-the-orchestrators) the orchestrator with a unique `Cluster Name` and `Cluster Location`.
 
 {{< link-card
   title="Registering Nodes"
@@ -88,6 +82,24 @@ Oakestra also allows you to customize your system deployment to best suit your n
 
 Check out [addons](../extending-oakestra/creating-addons) for even more customization options!
 
+{{< /callout >}}
+
+### Configure the Orchestrators
+
+The root and cluster orchestrator can be configured using environment variables. If they have not been set, they are automatically set when using the above scripts. They can also be manually configured, e.g. when building using the docker compose files.
+
+
+**Root Orchestrator Environment Variables**
+* `SYSTEM_MANAGER_URL`: Specify how the root orchestrator can be reached (URL or IP)
+
+**Cluster Orchestrator Environment Variables**
+* `SYSTEM_MANAGER_URL`: Specify how the root orchestrator can be reached (URL or IP)
+* `CLUSTER_NAME`: Specify the name of the cluster. Make sure this is unique for every additional cluster
+* `CLUSTER_LOCATION`: (optional) Specify the location of the cluster in the format `<latitude>, <longitude>, <radius>`
+
+{{< callout context="danger" title="Watch out!" icon="outline/alert-octagon" >}}
+The root orchestrator has to be reachable by the cluster orchestrator. When not on the same network the root orchestrator URL has to be a public
+address!
 {{< /callout >}}
 
 ### Choose a Different Branch
