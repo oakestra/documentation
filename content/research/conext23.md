@@ -6,6 +6,7 @@ img: "/pubs/conext23.jpg"
 badges: ["/img/acm-badges/acm_available.png","/img/acm-badges/acm_evaluated.png","/img/acm-badges/acm_reproduced.png"]
 pdf: "/pubs/conext23.pdf"
 doi: "https://doi.org/10.1145/3624354.3630584"
+video: "https://youtu.be/WtAcquGw-_U"
 summary: ""
 draft: false"
 weight: 210

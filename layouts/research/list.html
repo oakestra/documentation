@@ -57,12 +57,22 @@
               </p>
             {{ end }}
 
-            <!-- DOI link -->
+            <!-- DOI link with icon -->
             <a class="btn btn-md btn-outline-primary"
-               href="{{ .Params.doi }}"
-               target="_blank">
+            href="{{ .Params.doi }}"
+            target="_blank">
               <i class="fa fa-globe" aria-hidden="true"></i> DOI
             </a>
+
+            <!-- Video link with icon (only if video parameter exists) -->
+            {{ if .Params.video }}
+            <a class="btn btn-md btn-outline-primary"
+               href="{{ .Params.video }}"
+               target="_blank">
+              <i class="fa fa-video-camera" aria-hidden="true"></i> Video
+            </a>
+          {{ end }}
+
           </div>
         </div>
       {{ end }}
