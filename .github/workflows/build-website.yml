@@ -45,6 +45,7 @@ jobs:
         full_rebuild: true
         hugo_publish_directory: 'oakestra.github.io'   
         hugo_build_options: '--minify --gc'
+        do_not_delete_regex: '\.sh|.nojekyll'
         commit_message: "auto-website-build"
         # test_mode: true <<enable to run a few verification tests before your first live run>>
 
