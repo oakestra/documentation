@@ -43,7 +43,7 @@ You can install the CLI via `pip install oak-cli`.
   ```bash
   python3 -m venv venv
 
-  source ~/venv/bin/activate
+  source ~/.venv/bin/activate
   ```
 {{< /callout >}}
 
