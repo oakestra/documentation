@@ -92,10 +92,22 @@ The root and cluster orchestrator can be configured using environment variables.
 **Root Orchestrator Environment Variables**
 * `SYSTEM_MANAGER_URL`: Specify how the root orchestrator can be reached (URL or IP)
 
+```bash
+# Example configuration for root orchestrator
+export SYSTEM_MANAGER_URL=192.158.18.104
+```
+
 **Cluster Orchestrator Environment Variables**
 * `SYSTEM_MANAGER_URL`: Specify how the root orchestrator can be reached (URL or IP)
 * `CLUSTER_NAME`: Specify the name of the cluster. Make sure this is unique for every additional cluster
 * `CLUSTER_LOCATION`: (optional) Specify the location of the cluster in the format `<latitude>, <longitude>, <radius>`
+
+```bash
+# Example configuration for cluster orchestrator
+export SYSTEM_MANAGER_URL=192.158.18.104
+export CLUSTER_NAME=My_Cluster
+export CLUSTER_LOCATION=48.26275365157924,11.668627302307236,100
+```
 
 {{< callout context="danger" title="Watch out!" icon="outline/alert-octagon" >}}
 The root orchestrator has to be reachable by the cluster orchestrator. When not on the same network the root orchestrator URL has to be a public
