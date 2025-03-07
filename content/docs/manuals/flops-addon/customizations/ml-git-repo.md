@@ -311,17 +311,18 @@ The learner uses the code found in the model and data managers and wraps itself 
 As a result, you do not need to implement the FL (boilerplate) code yourself.
 Therefore, a learner’s `getParameters` method uses the `getParameters` method described in the user’s ML repository with additional logic.
 
-{{< link-card
-  title="Image Building Process"
-  description="Learn how FLOps uses your ML code to build fitting FL actor images" 
-  href="/docs/concepts/flops/internals/image-building-process"
->}}
-
-{{< link-card
-  title="Local ML Data Management"
-  description="Explore how FLOps synergizes local data with your augmented ML components for training" 
-  href="/docs/concepts/flops/internals/ml-data-management/"
->}}
+{{< card-grid >}}
+    {{< link-card
+    title="Image Building Process"
+    description="Learn how FLOps uses your ML code to build fitting FL actor images" 
+    href="/docs/concepts/flops/internals/image-building-process"
+    >}}
+    {{< link-card
+    title="Local ML Data Management"
+    description="Explore how FLOps synergizes local data with your augmented ML components for training" 
+    href="/docs/concepts/flops/internals/ml-data-management/"
+    >}}
+{{< /card-grid >}}
 
 <br>
 
