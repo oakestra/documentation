@@ -20,19 +20,20 @@ seo:
   - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
 {{< /callout >}}
 
-{{< link-card
-  title="Customize Project SLAs"
-  description="Discover how to finetune your FLOps projects and make them your own"
-  href="/docs/manuals/flops-addon/customizations/project-slas/"
->}}
+{{< card-grid >}}
+  {{< link-card
+    title="Customize Project SLAs"
+    description="Discover how to finetune your FLOps projects and make them your own"
+    href="/docs/manuals/flops-addon/customizations/project-slas/"
+  >}}
+  {{< link-card
+    title="Federate your ML Code"
+    description="Learn how to structure your ML Git repository to use it with FLOps"
+    href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"
+  >}}
+{{< /card-grid >}}
 
-{{< link-card
-  title="Federate your ML Code"
-  description="Learn how to structure your ML Git repository to use it with FLOps"
-  href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"
->}}
-
----
+<br>
 
 Are the currently available options and features of FLOps not enough to fulfill your desires?
 Do you think FLOps is a great system, but if it only supported X or Z, it would be a dream match for your use case?
