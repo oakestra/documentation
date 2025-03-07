@@ -92,9 +92,3 @@ oak addon flops re
 
   If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/cli/features/worker-node/).
 {{< /callout >}}
-
-{{< link-card
-  title="Run FLOps Projects"
-  description="Now that your system is prepared you can run FLOps Projects"
-  href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
->}}
