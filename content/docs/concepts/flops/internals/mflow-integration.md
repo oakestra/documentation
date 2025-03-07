@@ -2,7 +2,7 @@
 title: "MLflow MLOps Integration"
 summary: ""
 draft: false
-weight: 309060100
+weight: 205030400
 toc: true
 seo:
   title: "" # custom title (optional)
