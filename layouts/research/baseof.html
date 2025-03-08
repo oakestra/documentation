@@ -2,7 +2,7 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}" data-bs-theme="{{ site.Params.doks.colorMode | default "auto" }}">
   {{ partial "head/head" . }}
   {{ partial "head/body-class" . }}
-  <style>
+  <!-- <style>
     .grey-box {
         background-color: #f2f2f2;
         color: black;
@@ -14,7 +14,7 @@
     .alert-icon {
         color: #ff0000; /* Change the color as needed */
     }
-</style>
+</style> -->
   <body class="{{ delimit (.Scratch.Get "class") " " }}"{{ if eq site.Params.doks.scrollSpy true }} data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0"{{ end }}>
     {{ partial "header/header" . }}
     <link rel="stylesheet" href="/css/main.css" />

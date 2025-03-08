@@ -41,6 +41,14 @@
           <!-- Text column:
                - full width on XS -->
           <div class="col-12 col-md-12 p-3">
+
+            <!-- Only show conference highlight if it exists -->
+            {{ if .Params.conference }}
+              <p class="pubs_type mb-2">
+                <span class="highlighted-conference">{{ .Params.conference }}</span>
+              </p>
+            {{ end }}
+            
             <h3 class="pubs_title mt-0 mb-2">
               <a href="{{ .Params.pdf }}"
                  target="_blank"
@@ -49,13 +57,6 @@
               </a>
             </h3>
             <p class="pubs_authors mb-1">{{ .Params.authors }}</p>
-
-            <!-- Only show conference highlight if it exists -->
-            {{ if .Params.conference }}
-              <p class="pubs_type mb-2">
-                <span class="highlighted-conference">{{ .Params.conference }}</span>
-              </p>
-            {{ end }}
 
             <!-- DOI link with icon -->
             <a class="btn btn-md btn-outline-primary"
