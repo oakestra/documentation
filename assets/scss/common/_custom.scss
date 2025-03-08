@@ -39,12 +39,12 @@
 @import url(https://weloveiconfonts.com/api/?family=entypo);
 @import url(https://weloveiconfonts.com/api/?family=zocial);
 
-/* entypo 
+/* entypo
 [class*="entypo-"]:before {
   font-family: "entypo", sans-serif;
 }*/
 
-/* zocial 
+/* zocial
 [class*="zocial-"]:before {
   font-family: "zocial", sans-serif;
 }*/
@@ -826,39 +826,18 @@ table.alt tfoot {
 }
 
 /* pubs css */
-
-.pubs {
-  /*font-family: FontAwesome !important;*/
-}
-
-.pubs_img {
-  width: 50%;
-  min-width: 120px;
-  display: box;
-  /* border-right: 2px solid black;
-  padding-right: 1em;
-  padding-left: 6em;
-  text-align: right; */
-  text-decoration: none !important;
-}
-
 .pubs_title {
   text-decoration: none !important;
   border: none;
-  /* font-family: CMUSansSerifMedium;
-  /* font-family: SegoeUILightWeb, Segoe UI Light, Helvetica, Verdana, Sans-Serif; */
   font-size: 130%;
-  /* font-weight: bold; */
-  color: #497286 !important;
 }
 
 .pubs_authors {
-  /* font-family: SegoeUILightWeb, Segoe UI Light, Helvetica, Verdana, Sans-Serif; */
-  font-size: 110%;
+  font-size: 115%;
+  font-style: italic;
 }
 
 .pubs_type {
-  /* font-family: SegoeUILightWeb, Segoe UI Light, Helvetica, Verdana, Sans-Serif; */
   font-size: 110%;
   color: #526873;
 }
@@ -882,26 +861,24 @@ table.alt tfoot {
 .pubs_img {
   border-style: solid !important;
   border-width: 1px !important;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  height: auto;
+  max-width: 200px;
 }
 
-/* .pubs_title {
-  font-family: 'CMUSansSerif';
-  font-size: 1.2em;
+.highlighted-conference {
+  background-color: #e2fdff; /* Light-blue highlight; adjust as needed */
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  font-weight:bolder;
+  border-style:solid;
+  border-width: 1px;
+  border-color: #5ec1d0;
+  text-decoration: whitesmoke;
 }
-
-.pubs_title_a {
-  text-decoration: none;
-  border: none;
-  font-family: 'CMUSansSerif';
-  font-size: 16pt;
-} */
-
-/* .pubs_content {
-  font-family: 'CMUSansSerif';
-  font-size: 16pt;
-} */
 
 .badges-img {
   width: 40%;
@@ -915,7 +892,6 @@ table.alt tfoot {
   margin: auto;
   margin-top: 5px;
   padding: 5px;
-  /* display: block; */
 }
 
 .image-holder {

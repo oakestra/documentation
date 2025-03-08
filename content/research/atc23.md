@@ -6,7 +6,8 @@ img: "/pubs/Oakestra-ATC2023.png"
 badges: ["/img/usenix-badges/usenixbadges-available.png","/img/usenix-badges/usenixbadges-functional.png","/img/usenix-badges/usenixbadges-reproduced.png"]
 pdf: "/pubs/Oakestra-ATC2023.pdf"
 doi: "https://www.usenix.org/conference/atc23/presentation/bartolomeo"
-summary: ""
+video: "https://youtu.be/tdwTqPh8lH0"
+summary: "https://youtu.be/tdwTqPh8lH0"
 draft: false
 weight: 204
 toc: false
