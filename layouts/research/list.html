@@ -59,11 +59,13 @@
             <p class="pubs_authors mb-1">{{ .Params.authors }}</p>
 
             <!-- DOI link with icon -->
+            {{ if .Params.doi }}
             <a class="btn btn-md btn-outline-primary pub-btn"
             href="{{ .Params.doi }}"
             target="_blank">
               <i class="fa fa-globe" aria-hidden="true"></i> DOI
             </a>
+            {{ end }}
 
             <!-- Video link with icon (only if video parameter exists) -->
             {{ if .Params.video }}

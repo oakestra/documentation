@@ -19,4 +19,4 @@ seo:
 ---
 
 Oakestra is a research-driven platform. Most of its components have been documented in peer-reviewed publications.
-Please take a look at the list of our publications:
+Please take a look at the list of our publications.
