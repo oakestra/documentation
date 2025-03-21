@@ -163,4 +163,4 @@ Oakestra was also present at the Oktoberfest in Munich 🍻:
 
 We are incredibly excited about the opportunities the Bass release unlocks for developers and end users alike. Whether you’re a veteran in edge computing or just starting out, this update is designed to simplify complexity and inspire innovative solutions.
 
-Happy orchestrating! 🌳💻`
+Happy orchestrating! 🌳💻
