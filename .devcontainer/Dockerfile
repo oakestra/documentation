@@ -8,7 +8,7 @@ RUN usermod -s /usr/bin/zsh ${USER}
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
 ARG VARIANT=hugo_extended
 # VERSION can be either 'latest' or a specific version number
-ARG VERSION=0.140.2
+ARG VERSION=0.139.0
 
 # Download Hugo
 RUN case ${VERSION} in \
