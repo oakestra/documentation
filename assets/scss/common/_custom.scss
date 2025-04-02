@@ -880,6 +880,23 @@ table.alt tfoot {
   text-decoration: whitesmoke;
 }
 
+.highlighted-award {
+  background-color: #f1e2ff; /* Light-blue highlight; adjust as needed */
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  font-weight:bolder;
+  border-style:ridge;
+  border-width: 1px;
+  border-color: #b060df;
+  text-decoration: whitesmoke;
+}
+
+.highlighted-award::before {
+  content: '\1F3C6'; /* Unicode for trophy emoji */
+  display: inline-block;
+  margin-right: 0.5rem; /* Adjust spacing between icon and text */
+}
+
 .pub-btn {
   margin-right: .2em;
 }
