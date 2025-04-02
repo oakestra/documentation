@@ -36,7 +36,7 @@ At ACM EdgeSys 2025, **Prof. Dr. Jörg Ott** delivered the keynote talk, **"The 
 
 Oakestra's innovative research shined bright when its paper, **"Supporting Hybrid Virtualization Orchestration for Edge Computing"**, won the Best Paper Award at ACM EdgeSys 2025. This work demonstrates Oakestra’s integral solution in supporting both Unikraft unikernel and container virtualization -- a capability that has been part of Oakestra since the [Accordion release](/blog/oakestra-releases-v0.4.301-accordion/).
 
-<div style="display: flex; gap: 20px;">
+<div class="image-container">
   <div style="flex: 1.4;">
     <img src="best-paper-award.jpg" alt="best-paper-announcement" style="width: 100%;">
   </div>

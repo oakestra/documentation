@@ -73,11 +73,23 @@ Embracing the future of machine learning, our new FLOps addon introduces robust 
 
 This addon automatically augments your standard machine learning code into FL-compatible, multi-platform container images and deploys them onto orchestrated worker nodes for training. Users can monitor training rounds live via a sophisticated GUI, then pull the trained model or let FLOps build and deploy an inference server. FLOps supports both classical and clustered hierarchical federated learning, leveraging tools like [Flower](https://flower.ai/), [mlflow](https://mlflow.org/), and [Buildah](https://buildah.io/).
 
-<div style="display: flex; justify-content: center;">
+<div class="image-container">
+  <div class="image-item">
+    <img src="flower.png">
+  </div>
+  <div class="image-item">
+    <img src="mlflow.png">
+  </div>
+  <div class="image-item">
+    <img src="buildah.png">
+  </div>
+</div>
+
+<!-- <div style="display: flex; justify-content: center;">
   <img src="flower.png" width="300" />
     <img src="mlflow.png" width="250" />
     <img src="buildah.png" width="350" />
-</div>
+</div> -->
 
 {{< callout context="note" icon="outline/bolt" >}}
 Find out more in our dedicated [FLOps documentation](https://www.oakestra.io/docs/concepts/flops/overview/#fl-with-oakestra).

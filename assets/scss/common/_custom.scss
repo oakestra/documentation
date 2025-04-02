@@ -995,3 +995,25 @@ figcaption {
     color: $body-color-dark !important;
   }
 }
+
+// blog image sizing
+.image-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  flex: 1 1 calc(33.333% - 20px); /* Adjusts to one-third width minus the gap */
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .image-item {
+    flex: 1 1 100%; /* Stacks images vertically on smaller screens */
+  }
+}
