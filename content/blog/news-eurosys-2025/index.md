@@ -28,7 +28,7 @@ Oakestra has truly made its mark at **ACM EuroSys + ASPLOS 2025**—the largest 
 
 ## ACM EdgeSys 2025 Keynote: "The Edge is Near"
 
-At ACM EdgeSys 2025, the renowned **Prof. Dr. Jörg Ott** delivered the keynote talk, **"The Edge is Near"**, emphasizing that the core challenges in edge computing come down to effective orchestration. His insights highlighted that solutions like Oakestra are best suited to alleviate these challenges and drive the future of connected edge systems.
+At ACM EdgeSys 2025, **Prof. Dr. Jörg Ott** delivered the keynote talk, **"The Edge is Near"**, emphasizing that the core challenges in edge computing come down to effective orchestration. His insights highlighted that solutions like Oakestra are best suited to alleviate these challenges and drive the future of connected edge systems.
 
 ![Keynote Talk](oakestra-keynote.jpg)
 
