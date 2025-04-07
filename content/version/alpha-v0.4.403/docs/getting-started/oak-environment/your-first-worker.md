@@ -20,7 +20,7 @@ If you have a running **Root Orchestrator** and at least one **Cluster Orchestra
 First, you need to install your **Worker Node** components on every Edge Device you want to use as a worker running:
 
 ```bash
-export OAKESTRA_VERSION=alpha-0.4.403
+export OAKESTRA_VERSION=alpha-v0.4.403
 curl -sfL oakestra.io/install-worker.sh | sh - 
 ```
 

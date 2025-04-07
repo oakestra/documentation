@@ -35,7 +35,8 @@ After the orchestrators are up and running, you can add Edge Devices as workers 
 You can install the **Root** and **Cluster Orchestrator** in a single machine using the following command:
 
 ```bash
-export OAKESTRA_VERSION=alpha-0.4.403
+export OAKESTRA_VERSION=alpha-v0.4.403
+export OVERRIDE_FILES=override-alpha-versions.yaml
 curl -sfL oakestra.io/getstarted.sh | sh - 
 ```
 
