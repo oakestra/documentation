@@ -28,7 +28,7 @@ A script will ask you for your
 
 
 {{< callout context="note" title="Note" icon="outline/info-circle" >}}
-All these variables can be set before startup exporting them:
+All these variables can be set before startup, exporting them:
 ```bash
 export CLUSTER_LOCATION=<latitude>,<longitude>,<radius>
 export CLUSTER_NAME=my_awesome_cluster
