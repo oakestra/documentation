@@ -13,7 +13,7 @@ seo:
 
 ### Add a New Cluster to your Infrastructure.
 
-If you want to create new Clusters to attatch to you Oakestra Root, on each Cluster Orchestrator machine you can run:
+If you want to create new Clusters to attach to your Oakestra Root, on each Cluster Orchestrator machine, you can run:
 
 ```bash
 export OAKESTRA_VERSION=alpha-v0.4.403
