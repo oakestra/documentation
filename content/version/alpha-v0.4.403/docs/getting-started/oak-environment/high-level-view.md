@@ -13,7 +13,7 @@ seo:
 
 {{< svg "architecture" >}}
 
-Oakestra lets you deploy your workload on devices of any size, from a small RasperryPi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
+Oakestra lets you deploy your workload on devices of any size, from a small Raspberry Pi to a cloud instance far away on GCP or AWS. The tree structure enables you to create multiple clusters of resources.
 
 * The **Root Orchestrator** manages different clusters of resources. The root only sees aggregated cluster resources.
 * The **Cluster Orchestrator** manages your worker nodes. This component collects real-time resources and schedules your workloads to the perfect matching device.
