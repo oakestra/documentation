@@ -26,8 +26,8 @@ Addons fall into two primary categories in Oakestra:
 
 {{< link-card
   title="FLOps"
-  description="Oakestra federated learing extension"
-  href="../../flops"
+  description="Oakestra's federated learning extension"
+  href="../../flops/overview/#flops-addon"
   target="_blank"
 >}}
 
