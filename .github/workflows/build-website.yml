@@ -23,7 +23,7 @@ jobs:
           submodules: "recursive"
           # <<recommended if project uses git submodules for any purpose>>
           # <<required if deploying to git submodule directory>>
-          token: ${{ secrets.REPO_TOKEN }} # <<if needed for private repos>>
+          token: ${{ secrets.GITHUB_TOKEN }} # <<if needed for private repos>>
           fetch-depth: "0"
           # <<fetch-depth: '0' currently required until shallow clone problems are solved>>
 
