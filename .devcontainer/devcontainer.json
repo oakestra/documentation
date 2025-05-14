@@ -1,0 +1,63 @@
+{
+  "name": "Oakestra Documentation",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+  // "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
+
+  // 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [9090],
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "html.format.templating": true
+      },
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        // https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-front-matter
+        "eliostruyf.vscode-front-matter",
+        // https://marketplace.visualstudio.com/items?itemName=rusnasonov.vscode-hugo
+        "rusnasonov.vscode-hugo",
+        // https://marketplace.visualstudio.com/items?itemName=budparr.language-hugo-vscode
+        "budparr.language-hugo-vscode",
+        // https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-hugo-themer
+        "eliostruyf.vscode-hugo-themer",
+        // https://marketplace.visualstudio.com/items?itemName=kaellarkin.hugo-shortcode-syntax
+        "kaellarkin.hugo-shortcode-syntax",
+        // https://marketplace.visualstudio.com/items?itemName=csstools.postcss
+        "csstools.postcss",
+        // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+        "esbenp.prettier-vscode",
+        // https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
+        "tamasfe.even-better-toml",
+        // https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight
+        "naumovs.color-highlight",
+        // https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+        "GitHub.vscode-pull-request-github",
+        // https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+        "eamodio.gitlens",
+        // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+        "davidanson.vscode-markdownlint",
+        // https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+        "streetsidesoftware.code-spell-checker",
+        // https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+        "ms-azuretools.vscode-docker",
+        // https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools
+        "ms-vscode.makefile-tools"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode",
+  "postCreateCommand": "npm install",
+  "features": {
+	  "ghcr.io/devcontainers/features/go:1": {}
+  }
+}

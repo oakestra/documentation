@@ -46,8 +46,13 @@
             {{ if .Params.conference }}
               <p class="pubs_type mb-2">
                 <span class="highlighted-conference">{{ .Params.conference }}</span>
+                {{ if .Params.award }}
+                <span class="highlighted-award">{{ .Params.award }}</span>
+                {{ end }}
               </p>
             {{ end }}
+
+            
             
             <h3 class="pubs_title mt-0 mb-2">
               <a href="{{ .Params.pdf }}"

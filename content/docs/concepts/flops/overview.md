@@ -157,5 +157,5 @@ FLOps’ architecture/workflow consists of the following parts:
 {{< link-card
   title="FLOps Manuals"
   description="Explore how to set up and use FLOps yourself"
-  href="/docs/manuals/flops-addon/flops-overview/"
+  href="/docs/manuals/flops-addon/flops-manuals-overview/"
 >}}

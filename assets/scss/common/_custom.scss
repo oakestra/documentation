@@ -880,6 +880,23 @@ table.alt tfoot {
   text-decoration: whitesmoke;
 }
 
+.highlighted-award {
+  background-color: #f1e2ff; /* Light-blue highlight; adjust as needed */
+  padding: 0.2rem 0.4rem;
+  border-radius: 2px;
+  font-weight:bolder;
+  border-style:ridge;
+  border-width: 1px;
+  border-color: #b060df;
+  text-decoration: whitesmoke;
+}
+
+.highlighted-award::before {
+  content: '\1F3C6'; /* Unicode for trophy emoji */
+  display: inline-block;
+  margin-right: 0.5rem; /* Adjust spacing between icon and text */
+}
+
 .pub-btn {
   margin-right: .2em;
 }
@@ -976,5 +993,27 @@ figcaption {
   td {
     background-color: $body-bg-dark !important;
     color: $body-color-dark !important;
+  }
+}
+
+// blog image sizing
+.image-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  flex: 1 1 calc(33.333% - 20px); /* Adjusts to one-third width minus the gap */
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .image-item {
+    flex: 1 1 100%; /* Stacks images vertically on smaller screens */
   }
 }
