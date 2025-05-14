@@ -27,11 +27,14 @@
 					</ol>
 				</nav>
 			{{ end }}
-			<h1>{{ .Title }}</h1>
-
+			
+			<br>
 			<div class="grey-box">
                 <span class="alert-icon">&#9888;</span> This page documents a version of Oakestra which is not the latest stable. Please refer to the <a href="/docs/getting-started/welcome-to-oakestra-docs/">latest docs</a> for a current version.
             </div>
+
+			<h1>{{ .Title }}</h1>
+
 			<!-- <p class="lead">{{ .Params.lead | safeHTML }}</p> -->
 			{{ if ne .Params.toc false -}}
 			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
