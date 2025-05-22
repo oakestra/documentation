@@ -2,7 +2,7 @@
 title: "Creating Custom Resources"
 summary: ""
 draft: false
-weight: 307050000
+weight: 308060000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "IPv4 Addressing"
 summary: ""
 draft: false
-weight: 303020000
+weight: 304030000
 toc: true
 seo:
   title: "" # custom title (optional)
