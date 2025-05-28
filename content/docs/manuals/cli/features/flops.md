@@ -2,7 +2,7 @@
 title: "FLOps Addon"
 summary: ""
 draft: false
-weight: 306020700
+weight: 306030800
 toc: true
 seo:
   title: "" # custom title (optional)
