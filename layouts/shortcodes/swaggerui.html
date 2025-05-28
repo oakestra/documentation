@@ -1,0 +1,3 @@
+{{ with resources.Get (.Get 0) }}
+    <swagger-ui spec="{{ .RelPermalink }}"></swagger-ui>
+{{ end }}
