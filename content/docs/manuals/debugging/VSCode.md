@@ -2,7 +2,7 @@
 title: "VSCode Debugging"
 summary: ""
 draft: true
-weight: 311060000
+weight: 311050000
 toc: true
 seo:
   title: "" # custom title (optional)

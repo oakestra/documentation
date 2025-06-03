@@ -2,7 +2,7 @@
 title: "Load Balancing"
 summary: ""
 draft: false
-weight: 304050000
+weight: 304040000
 toc: true
 seo:
   title: "" # custom title (optional)

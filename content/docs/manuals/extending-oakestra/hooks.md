@@ -2,7 +2,7 @@
 title: "Setting up Hooks"
 summary: ""
 draft: false
-weight: 308050000
+weight: 308040000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "Nginx Unikernel Deployment"
 summary: ""
 draft: false
-weight: 306040000
+weight: 306030000
 toc: true
 hidden: true
 seo:

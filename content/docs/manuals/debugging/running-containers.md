@@ -2,7 +2,7 @@
 title: "Debugging Running Applications"
 summary: ""
 draft: false
-weight: 311050000
+weight: 311040000
 toc: true
 seo:
   title: "Monitoring and Debugging Options for Running Containers" 

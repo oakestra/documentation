@@ -2,7 +2,7 @@
 title: "Worker Node"
 summary: ""
 draft: false
-weight: 306030600
+weight: 307020500
 toc: true
 seo:
   title: "" # custom title (optional)
