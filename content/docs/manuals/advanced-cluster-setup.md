@@ -13,12 +13,14 @@ seo:
 
 {{< callout context="caution" title="System Requirements" icon="outline/alert-triangle">}}
 **Root and Cluster orchestrators:**
+
 - Docker + Docker Compose v2
 - 5GB of Disk
 - 500MB of RAM
 - ARM64 or AMD64 architecture
 
 **Worker Nodes:**
+
 - Linux-based distro with `iptables` compatibility 
 - 50MB of space
 - 100MB RAM
@@ -98,6 +100,7 @@ export SYSTEM_MANAGER_URL=192.158.18.104
 ```
 
 **Cluster Orchestrator Environment Variables**
+
 * `SYSTEM_MANAGER_URL`: Specify how the root orchestrator can be reached (URL or IP)
 * `CLUSTER_NAME`: Specify the name of the cluster. Make sure this is unique for every additional cluster
 * `CLUSTER_LOCATION`: (optional) Specify the location of the cluster in the format `<latitude>, <longitude>, <radius>`
