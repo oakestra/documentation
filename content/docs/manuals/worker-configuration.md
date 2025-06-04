@@ -62,7 +62,7 @@ and then re-running the above install command.
 
 ## Configuration
 
-The NodeEngine and NetManager are implemented as systemd services. While it is possible to run the former without the latter, this configuration is impractical for most applications, therefore the NodeEngine service internally calls on the NetManager service. The NetManager cannot be run without the NodeEngine.
+The NodeEngine and NetManager are implemented as systemd services. While it is possible to run the former without the latter, this configuration is impractical for most applications, therefore the NodeEngine service internally calls on the NetManager service. The NetManager cannot be run without the NodeEngine. The NodeEngine and NetManager commands require elevated privileges
 
 ### Commands supported by both components
 
@@ -73,17 +73,13 @@ The NodeEngine and NetManager are implemented as systemd services. While it is p
 | `status`   | Shows the systemd service status                               |
 | `logs`     | Tails the service logs                                         |
 
-{{< callout context="note" title="Elevated Privileges" icon="outline/info-circle" >}}
-The NodeEngine and NetManager require elevated privileges for many operations. Therefore it is often necessary to execute commands as the root user with `sudo`.
-{{< /callout >}}
-
 ### Configuring the NetManager
 
-You can configure the NetManager by editing the file at `/etc/netmanager/netcfg.json`. Here you can configure the following properties:
+You can configure the NetManager by editing `/etc/netmanager/netcfg.json`:
 
 | Property          | Description                                                                                                        |
 |-------------------|--------------------------------------------------------------------------------------------------------------------|
-| NodePublicAddress | The address by which the worker node can be reached                                                                |
+| NodePublicAddress | The IP address by which the worker node can be reached                                                                |
 | NodePublicPort    | The port by which the worker node can be reached (default 50103)                                                   |
 | ClusterUrl        | The URL/address by which the cluster can be reached                                                                |
 | ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000)                                           |
@@ -91,19 +87,6 @@ You can configure the NetManager by editing the file at `/etc/netmanager/netcfg.
 | Debug             | Toggles more verbose logging                                                                                       |
 | MqttCert          | The path to the certificate file to facilitate [MQTTS](../networking-internals/mqtt-authentication)                |
 | MqttKey           | The path to the key file to facilitate [MQTTS](../networking-internals/mqtt-authentication)                        |
-
-### Running the NodeEngine
-
-Once the worker components have been installed the NodeEngine can be run with `sudo NodeEngine`. This will start the NodeEngine service per the default configuration.
-When running it for the first time, or changing the cluster the worker is being connected to, use:
-
-```bash
-sudo NodeEngine -a <Address of Cluster>
-```
-
-{{< callout context="note" title="Detach the NodeEngine" icon="outline/info-circle" >}}
-To run the NodeEngine in the background use the `-d` flag.
-{{< /callout >}}
 
 ### Configuring the NodeEngine
 
