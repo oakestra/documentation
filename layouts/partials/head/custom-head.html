@@ -6,7 +6,6 @@
 {{ if .Params.swaggerui }}
     {{ with resources.GetRemote "https://raw.githubusercontent.com/swagger-api/swagger-ui/refs/tags/v5.22.0/dist/swagger-ui-bundle.js" }}
         <script src="{{ .RelPermalink }}"></script>
-        {{ warnf  "%#v" .RelPermalink }}
     {{ else }}
         {{ errorf "Failed to fetch swagger JS resource" }}
     {{ end }}
