@@ -66,7 +66,7 @@ curl -sfL oakestra.io/install-cluster.sh | sh -
 This script will download the required files to the directory `~/oakestra/cluster_orchestrator`. From there it will walk you through
 configuring the cluster. Once the setup is complete, it will build the cluster orchestrator and register with the root orchestrator.
 
-You can register as many cluster orchestrators with the root orchestrator as you would like. Repeat the above commmand on a new device and [configure](#configure-the-orchestrators) the orchestrator with a unique `Cluster Name` and `Cluster Location`.
+You can register as many cluster orchestrators with the root orchestrator as you would like. Repeat the above command on a new device and [configure](#configure-the-orchestrators) the orchestrator with a unique `Cluster Name` and `Cluster Location`.
 
 {{< link-card
   title="Registering Nodes"
