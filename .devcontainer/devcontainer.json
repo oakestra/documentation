@@ -58,6 +58,10 @@
   "remoteUser": "vscode",
   "postCreateCommand": "npm install",
   "features": {
-	  "ghcr.io/devcontainers/features/go:1": {}
+	  "ghcr.io/devcontainers/features/go:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20",
+      "installTool": "true"  // installs npm and corepack (pnpm & yarn)
+    }
   }
 }
