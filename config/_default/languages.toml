@@ -1,9 +1,9 @@
 [en]
-  languageName = "English"
-  contentDir = "content/en"
-  weight = 10
-  [en.params]
-    languageISO = "EN"
-    languageTag = "en-US"
-    footer = '© 2025 The Oakestra Authors. All rights reserved.'
-    alertText = '<a class="alert-link stretched-link fw-normal" href="https://www.oakestra.io/blog/oakestra-releases-v0.4.4-bass/" target="_blank">Oakestra stable release Bass (v 0.4.4) is out! </a>'
+languageName = "English"
+contentDir = "content/en"
+weight = 10
+[en.params]
+languageISO = "EN"
+languageTag = "en-US"
+footer = '© 2025 The Oakestra Authors. All rights reserved.'
+alertText = '<a class="alert-link stretched-link fw-normal" href="/blog/unveiling-oakestra-dashboard-v0.4.207-enhanced-visibility-and-control-for-your-distributed-infrastructure/" target="_blank">Check out new updates to the Oakestra Dashboard (v 0.4.207)! </a>'
