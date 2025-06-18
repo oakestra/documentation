@@ -51,7 +51,7 @@ curl -sfL oakestra.io/install-worker.sh | sh -
 ```
 
 {{< callout context="note" title="Specify the Version" icon="outline/info-circle" >}}
-You can specify which version should be installed from the [list](https://github.com/oakestra/oakestra-net/releases) by first setting
+You can specify which [version](https://github.com/oakestra/oakestra-net/releases) to install by setting
 
 ```bash
 export OAKESTRA_VERSION=<release version>
