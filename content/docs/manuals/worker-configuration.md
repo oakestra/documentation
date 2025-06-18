@@ -79,7 +79,7 @@ You can configure the NetManager by editing `/etc/netmanager/netcfg.json`:
 
 | Property          | Description                                                                                                        |
 |-------------------|--------------------------------------------------------------------------------------------------------------------|
-| NodePublicAddress | The IP address by which the worker node can be reached                                                                |
+| NodePublicAddress | The IP address by which the worker node can be reached. With default value 0.0.0.0 the worker infers the address from the default interface|
 | NodePublicPort    | The port by which the worker node can be reached (default 50103)                                                   |
 | ClusterUrl        | The URL/address by which the cluster can be reached                                                                |
 | ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000)                                           |
