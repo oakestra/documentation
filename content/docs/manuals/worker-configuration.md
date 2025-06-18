@@ -81,7 +81,7 @@ You can configure the NetManager by editing `/etc/netmanager/netcfg.json`:
 |-------------------|--------------------------------------------------------------------------------------------------------------------|
 | NodePublicAddress | The IP address by which the worker node can be reached. With default value 0.0.0.0 the worker infers the address from the default interface|
 | NodePublicPort    | The port by which the worker node can be reached (default 50103)                                                   |
-| ClusterUrl        | The URL/address by which the cluster can be reached                                                                |
+| ClusterUrl        | The URL/address by which the cluster can be reached. With the default value 0.0.0.0 the Cluster URL will be inherited from the NodeEngine component.                                       |
 | ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000)                                           |
 | DefaultInterface  | Should the system have multiple default interfaces (e.g. `eth0` and `wlan0`) the appropriate one must be specified |
 | Debug             | Toggles more verbose logging                                                                                       |
