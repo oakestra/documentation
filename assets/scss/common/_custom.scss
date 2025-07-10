@@ -5,8 +5,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
 @import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
 @import url(https://fonts.googleapis.com/css?family=Advent+Pro:400,200,700);
-@import url(https://weloveiconfonts.com/api/?family=entypo);
-@import url(https://weloveiconfonts.com/api/?family=zocial);
+// @import url(https://weloveiconfonts.com/api/?family=entypo);
+// @import url(https://weloveiconfonts.com/api/?family=zocial);
 
 .navbar-custom-button {
   background-color: #497286 !important;
@@ -36,8 +36,11 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
 @import url(https://fonts.googleapis.com/css?family=Raleway+Dots);
 @import url(https://fonts.googleapis.com/css?family=Advent+Pro:400,200,700);
-@import url(https://weloveiconfonts.com/api/?family=entypo);
-@import url(https://weloveiconfonts.com/api/?family=zocial);
+// @import url(https://weloveiconfonts.com/api/?family=entypo);
+// @import url(https://weloveiconfonts.com/api/?family=zocial);
+// adding alternatives
+@import url('https://cdnjs.cloudflare.com/ajax/libs/entypo/2.0/entypo.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/zocial/1.4.0/css/zocial.min.css');
 
 /* entypo
 [class*="entypo-"]:before {
