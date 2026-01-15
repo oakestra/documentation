@@ -1,4 +1,4 @@
-<a class='dropdown-item {{ if eq .Section "docs" }} current {{end}}' aria-current='{{ if eq .Section "docs" }} true {{end}}' href="/docs/getting-started/welcome-to-oakestra-docs/"> Latest: Bass (v{{ site.Params.doks.docsVersion }}) &nbsp;&nbsp;</a>
-<hr class="dropdown-divider">
-<a class="dropdown-item " href="/version/alpha-v0.4.403/docs/getting-started/welcome-to-oakestra/">Alpha v0.4.403</a> 
-<a class="dropdown-item " href="/version/0.4.301/docs/getstarted/get-started-cluster/">Accordion v0.4.301</a>
+<li><a class="dropdown-item{{ if not (strings.HasPrefix .RelPermalink "/version/") }} current{{end}}" aria-current="{{ if not (strings.HasPrefix .RelPermalink "/version/") }}true{{end}}" href="/docs/getting-started/welcome-to-oakestra-docs/">Latest: Bass (v{{ site.Params.doks.docsVersion }})</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item{{ if strings.HasPrefix .RelPermalink "/version/alpha-v0.4.403/" }} current{{end}}" href="/version/alpha-v0.4.403/docs/getting-started/welcome-to-oakestra/">Alpha v0.4.403</a></li>
+<li><a class="dropdown-item{{ if strings.HasPrefix .RelPermalink "/version/0.4.301/" }} current{{end}}" href="/version/0.4.301/docs/getstarted/get-started-cluster/">Accordion v0.4.301</a></li>
