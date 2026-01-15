@@ -222,16 +222,21 @@
         </div>
         {{ end -}}
 
-        <!-- Versioning dropdown  -->
-        {{ if eq site.Params.doks.docsVersioning true -}}{{ if not (eq .Params.hideVersions true) -}}
-        <div class="dropdown mt-1 order-lg-5" role="group">
-          <button class="btn btn-dropdown dropdown-toggle text-dark" id="doks-versions" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Toggle version menu">
-            <span class="">Releases ▿</span> 
-            <span class="dropdown-caret"></span>
+        <!-- Versioning dropdown - show on all pages except home -->
+        {{ if eq site.Params.doks.docsVersioning true -}}{{ if not .IsHome -}}
+        <div class="dropdown mt-1 order-lg-3">
+          <button class="btn btn-dropdown" id="doks-versions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-display="static" aria-label="Toggle version menu">
+            <span>Releases</span>
+            <span class="dropdown-caret">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M6 9l6 6l6 -6"></path>
+              </svg>
+            </span>
           </button>
-          <div class="dropdown-menu me-lg-2 shadow rounded dropdown-menu-end" aria-labelledby="doks-versions">
+          <ul class="dropdown-menu dropdown-menu-lg-end me-lg-2 shadow rounded border-0" aria-labelledby="doks-versions">
             {{ partial "versions.html" . }}
-          </div>
+          </ul>
         </div>
         {{ end -}}{{ end -}}
         
@@ -263,15 +268,15 @@
         {{ end -}}
 
 
-        <!-- Navbar button mobile -->
-        {{ if site.Params.doks.navBarButton -}} {{ if eq .Params.hideVersions true  -}}
+        <!-- Navbar button mobile - only show on home page -->
+        {{ if site.Params.doks.navBarButton -}} {{ if .IsHome -}}
           <a class="btn btn-primary rounded-pill mt-2 btn-block d-lg-none navbar-custom-button " href="{{ site.Params.doks.navBarButtonUrl | absURL }}" role="button">{{ site.Params.doks.navBarButtonText }}</a>
         {{ end -}} {{ end -}}
       </div>
     </div>
 
-    <!-- Navbar button desktop -->
-    {{ if site.Params.doks.navBarButton -}} {{ if eq .Params.hideVersions true  -}}
+    <!-- Navbar button desktop - only show on home page -->
+    {{ if site.Params.doks.navBarButton -}} {{ if .IsHome -}}
       <a class="btn btn-primary rounded-pill ms-3 me-2 px-4 order-lg-3 d-none d-lg-block navbar-custom-button " href="{{ site.Params.doks.navBarButtonUrl | absURL }}" role="button">{{ site.Params.doks.navBarButtonText }}</a>
     {{ end -}}{{ end -}}
 
