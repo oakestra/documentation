@@ -188,7 +188,7 @@ For example, a `curl` one-shot client looks like this:
 
 ## Quick way to start your Oakestra cluster
 
-Now you can kickstart start a full [1-DOC Cluster](https://www.oakestra.io/docs/getstarted/get-started-cluster/#1-doc-1-device-one-cluster) using a single command:
+Now you can kickstart start a full [1-DOC Cluster](https://www.oakestra.io/docs/getstarted/get-started-cluster/#setup-1-doc-1-device-one-cluster) using a single command:
 
 ```bash
 curl -sfL oakestra.io/getstarted.sh | sh -
