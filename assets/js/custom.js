@@ -33,7 +33,6 @@
 
 
 const DROPDOWN_DEBUG = true;
-const log = (...args) => DROPDOWN_DEBUG && console.log('[Versions Dropdown]', ...args);
 
 document.addEventListener('click', (event) => {
     const toggle = document.getElementById('doks-versions');
@@ -43,18 +42,15 @@ document.addEventListener('click', (event) => {
     if (!menu || !menu.classList.contains('dropdown-menu')) return;
     
     if (toggle.contains(event.target)) {
-        log('Toggle clicked');
         event.preventDefault();
         event.stopPropagation();
         
         const isOpen = menu.classList.contains('show');
         if (isOpen) {
-            log('Closing menu');
             menu.classList.remove('show');
             toggle.classList.remove('show');
             toggle.setAttribute('aria-expanded', 'false');
         } else {
-            log('Opening menu');
             menu.classList.add('show');
             toggle.classList.add('show');
             toggle.setAttribute('aria-expanded', 'true');
@@ -63,11 +59,8 @@ document.addEventListener('click', (event) => {
     }
     
     if (!menu.contains(event.target) && menu.classList.contains('show')) {
-        log('Click outside - closing menu');
         menu.classList.remove('show');
         toggle.classList.remove('show');
         toggle.setAttribute('aria-expanded', 'false');
     }
 });
-
-log('Event delegation listener attached');
