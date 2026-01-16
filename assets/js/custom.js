@@ -31,43 +31,43 @@
     });
 })();
 
-// Versions dropdown fallback (Bootstrap data API may not initialize)
-document.addEventListener('DOMContentLoaded', () => {
+
+const DROPDOWN_DEBUG = true;
+const log = (...args) => DROPDOWN_DEBUG && console.log('[Versions Dropdown]', ...args);
+
+document.addEventListener('click', (event) => {
     const toggle = document.getElementById('doks-versions');
     if (!toggle) return;
-
+    
     const menu = toggle.nextElementSibling;
     if (!menu || !menu.classList.contains('dropdown-menu')) return;
-
-    if (window.bootstrap && typeof window.bootstrap.Dropdown === 'function') {
-        window.bootstrap.Dropdown.getOrCreateInstance(toggle);
+    
+    if (toggle.contains(event.target)) {
+        log('Toggle clicked');
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const isOpen = menu.classList.contains('show');
+        if (isOpen) {
+            log('Closing menu');
+            menu.classList.remove('show');
+            toggle.classList.remove('show');
+            toggle.setAttribute('aria-expanded', 'false');
+        } else {
+            log('Opening menu');
+            menu.classList.add('show');
+            toggle.classList.add('show');
+            toggle.setAttribute('aria-expanded', 'true');
+        }
         return;
     }
-
-    const closeMenu = () => {
+    
+    if (!menu.contains(event.target) && menu.classList.contains('show')) {
+        log('Click outside - closing menu');
         menu.classList.remove('show');
         toggle.classList.remove('show');
         toggle.setAttribute('aria-expanded', 'false');
-    };
-
-    const openMenu = () => {
-        menu.classList.add('show');
-        toggle.classList.add('show');
-        toggle.setAttribute('aria-expanded', 'true');
-    };
-
-    toggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        if (menu.classList.contains('show')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        if (event.target === toggle || menu.contains(event.target)) return;
-        closeMenu();
-    });
+    }
 });
+
+log('Event delegation listener attached');
