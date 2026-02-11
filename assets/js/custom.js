@@ -30,37 +30,3 @@
         attributeFilter: ['data-bs-theme']
     });
 })();
-
-
-const DROPDOWN_DEBUG = true;
-
-document.addEventListener('click', (event) => {
-    const toggle = document.getElementById('doks-versions');
-    if (!toggle) return;
-    
-    const menu = toggle.nextElementSibling;
-    if (!menu || !menu.classList.contains('dropdown-menu')) return;
-    
-    if (toggle.contains(event.target)) {
-        event.preventDefault();
-        event.stopPropagation();
-        
-        const isOpen = menu.classList.contains('show');
-        if (isOpen) {
-            menu.classList.remove('show');
-            toggle.classList.remove('show');
-            toggle.setAttribute('aria-expanded', 'false');
-        } else {
-            menu.classList.add('show');
-            toggle.classList.add('show');
-            toggle.setAttribute('aria-expanded', 'true');
-        }
-        return;
-    }
-    
-    if (!menu.contains(event.target) && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        toggle.classList.remove('show');
-        toggle.setAttribute('aria-expanded', 'false');
-    }
-});

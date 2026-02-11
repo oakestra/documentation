@@ -68,7 +68,7 @@
 [[mounts]]
   source = "node_modules/@thulite/doks-core/layouts"
   target = "layouts"
-  excludeFiles = ["home.html", "baseof.html", "_partials/header/header.html"]
+  excludeFiles = ["_partials/header/header.html", "_partials/head/head.html"]
 
 [[mounts]]
   source = "node_modules/@thulite/inline-svg/layouts"

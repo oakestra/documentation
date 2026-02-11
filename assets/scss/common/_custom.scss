@@ -38,7 +38,8 @@
 @import url(https://fonts.googleapis.com/css?family=Advent+Pro:400,200,700);
 // @import url(https://weloveiconfonts.com/api/?family=entypo);
 // @import url(https://weloveiconfonts.com/api/?family=zocial);
-
+// adding alternatives
+@import url('https://cdnjs.cloudflare.com/ajax/libs/entypo/2.0/entypo.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/zocial/1.4.0/css/zocial.min.css');
 
 /* entypo
@@ -1019,9 +1020,6 @@ figcaption {
     flex: 1 1 100%; /* Stacks images vertically on smaller screens */
   }
 }
-
-
-// Fix for blog card images - prevent stretching with object-fit
 .card > img,
 .card > picture > img {
   width: 100%;
@@ -1029,73 +1027,15 @@ figcaption {
   display: block;
 }
 
-// Fix for stretched images in docs content - allow natural sizing
+.nav-link img {
+  width: 30px !important;
+  height: auto;
+  display: inline;
+}
+
 .docs-content img:not(.card > img):not(.card > picture > img),
 .content img:not(.card > img):not(.card > picture > img) {
-  width: auto !important;
+  width: auto;
   max-width: 100%;
   height: auto;
-}
-
-// Bootstrap utility class for auto width
-.w-auto {
-  width: auto !important;
-}
-
-// img-fluid override to prevent stretching
-.img-fluid.w-auto {
-  width: auto !important;
-  max-width: 100%;
-  height: auto;
-}
-
-// Figure shortcode styling
-figure {
-  margin: 1.5rem 0;
-}
-
-figure img {
-  width: auto !important;
-  max-width: 100%;
-  height: auto;
-}
-
-figure.img-fluid img {
-  width: auto !important;
-}
-
-figcaption {
-  font-size: 0.9rem;
-  color: var(--sl-color-gray-3);
-  margin-top: 0.5rem;
-}
-
-// =============================================
-// Blog card image fix - maintain aspect ratio
-// =============================================
-.card img[data-sizes="auto"],
-.card img.lazyload {
-  width: 100% !important;
-  height: auto !important;
-}
-
-// =============================================
-// Version dropdown styling - no border, matches original
-// =============================================
-.btn-dropdown {
-  background: transparent;
-  border: none;
-  padding: 0.25rem 0.5rem;
-  color: inherit;
-  
-  &:hover, &:focus {
-    background-color: transparent;
-    border: none;
-  }
-}
-
-#doks-versions {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 0.25rem;
 }

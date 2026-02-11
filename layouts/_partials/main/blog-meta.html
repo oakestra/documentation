@@ -1,37 +1,40 @@
-{{- $contributorsLen := 0 -}}
-{{- if .Params.contributors -}}
-  {{- $contributorsLen = len .Params.contributors -}}
-{{- end -}}
-{{- $last := sub $contributorsLen 1 -}}
+{{ if .Params.contributors }}
+{{ $last := sub (len .Params.contributors) 1 -}}
 <p>
   <small>
     {{- time.Format (default ":date_long" .Site.Params.dateFormat) .PublishDate -}}
     {{- with .Params.categories -}}
-      &nbsp;{{ i18n "in" }}&nbsp;
+      &nbsp;in&nbsp;
       {{- range $index, $category := . -}}
         {{ if gt $index 0 }}, {{ end -}}
         <a class="stretched-link position-relative link-muted" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
       {{- end }}
     {{- end }}
     {{- with .Params.contributors -}}
-      &nbsp;{{ i18n "by" }}&nbsp;
+      &nbsp;by&nbsp;
       {{- range $index, $contributor := . -}}
         {{- if gt $index 0 }}{{ if eq $index $last }} and {{ else }}, {{ end }}{{ end -}}
         {{- with $.Site.GetPage "taxonomyTerm" (printf "contributors/%s" (urlize .)) -}}
-          {{ if $.Params.avatar -}}
+          {{ if .Params.avatar -}}
             {{ $image := .Resources.GetMatch (printf "**%s" .Params.avatar) -}}
-            {{ $imageLq := $image.Resize "15x15 webp q95" -}}
-            {{ $image = $image.Resize "60x60 webp q95" -}}
-            <img class="avatar avatar-xsmall rounded-circle me-1" src="{{ $imageLq.RelPermalink }}" alt="{{ .Params.name }}" width="15" height="15" loading="lazy" decoding="async" data-src="{{ $image.RelPermalink }}" data-sizes="auto">
+            {{ $i := $image.Process "fill 168x168" -}}
+            {{ $l := $image.Resize "14x webp q20" -}}
+            <img class="lazyload blur-up rounded-circle d-inline ms-1" src="{{ $l.RelPermalink }}" data-src="{{ $i.RelPermalink }}" alt="{{ .Title }}" width="42" height="42" loading="lazy" decoding="async" fetch-priority="auto">
           {{ end -}}
-          <a class="stretched-link position-relative link-muted" href="{{ .RelPermalink }}">{{ .Params.name }}</a>
-        {{- else -}}
-          <a class="stretched-link position-relative link-muted" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
         {{- end -}}
+        <a class="stretched-link position-relative ms-1" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
       {{- end }}
-    {{- end }}
+    {{- end -}}
+    <span class="mx-2">—</span>
+    {{- /* NOTE: classes 'stretched-link position-relative' are necessary to properly display the title attribute on hover */ -}}
+    <span class="ms-0 stretched-link position-relative reading-time" title="{{ i18n "reading_time" }}">{{/* trim subsequent whitespace */ -}}
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+        <path d="M12 7v5l3 3"></path>
+      </svg>
+      {{- .ReadingTime }}&nbsp;{{ i18n "minute" .ReadingTime -}}
+    </span>{{/* trim subsequent whitespace */ -}}
   </small>
 </p>
-{{- with .Params.updated -}}
-  <p><small><strong>{{ i18n "updated" }}</strong>: {{ time.Format (default ":date_long" $.Site.Params.dateFormat) . -}}</small></p>
-{{- end -}}
+{{ end }}
