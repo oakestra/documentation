@@ -22,6 +22,22 @@ You can just serve a development version of your website locally using:
 npm run dev
 ```
 
+## How to format code?
+
+This project uses [Prettier](https://prettier.io/) for consistent code formatting. Configuration is in `.prettierrc.yaml`.
+
+Format all files:
+```bash
+npm run format
+```
+
+Check formatting without making changes:
+```bash
+npx prettier --check .
+```
+
+> **Note:** `npm run format` is a shortcut for `npx prettier **/** -w -c`. Both approaches work, but the npm script is the recommended way.
+
 ## How to build and test the production website locally?
 
 Build and serve the production website using:
@@ -34,6 +50,26 @@ Then reach the website at `http://localhost:8000` and test the build.
 The website should look like the production one deployed at [oakestra.com](https://oakestra.com).
 
 > **N.b.** While `npm run dev` is a good way to test your website during development, sometimes artifacts occur in the build process that are not present in the development website. For this reason, it is always a good idea to test the production build locally before deploying.
+
+## Development Environments
+
+This project supports multiple development environments:
+
+### DevContainer (Recommended)
+- Open in VS Code with Dev Containers extension
+- Configuration: `.devcontainer/devcontainer.json`
+- Hugo version: **v0.152.2**
+
+### CodeSandbox
+- Open at: `https://codesandbox.io/p/github/oakestra/documentation`
+- Configuration: `.codesandbox/tasks.json`
+- Hugo version: **v0.152.2** (installed automatically on setup)
+
+### Gitpod
+- Open at: `https://gitpod.io/#https://github.com/oakestra/documentation`
+- Configuration: `.gitpod.yml`
+- Requires Gitpod account (free tier available)
+- Uses `pnpm` package manager
 
 ## Weights Explained
 
