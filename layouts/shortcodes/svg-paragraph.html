@@ -5,6 +5,7 @@
 {{ $lightSvgPath := printf "%ssvgs/%s/light.svg" $pageDir $svgName }}
 {{ $darkSvgPath := printf "%ssvgs/%s/dark.svg" $pageDir $svgName }}
 
+
 <style>
     .grid {
         display: flex;
@@ -26,10 +27,10 @@
 </style>
 
 <div class="grid">
-    {{ if eq $alignment "right"}}
+    {{ if eq $alignment "right" }}
         <div class="col-70">
             <div class="content">
-            {{ .Inner | safeHTML }}
+                {{ .Inner | safeHTML }}
             </div>
         </div>
     {{ end }}
@@ -43,10 +44,10 @@
             </figure>
         </div>
     </div>
-    {{ if eq $alignment "left"}}
+    {{ if eq $alignment "left" }}
         <div class="col-70">
             <div class="content">
-            {{ .Inner | safeHTML }}
+                {{ .Inner | safeHTML }}
             </div>
         </div>
     {{ end }}

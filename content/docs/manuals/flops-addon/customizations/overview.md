@@ -17,15 +17,16 @@ seo:
 </span>
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
-  - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
-{{< /callout >}}
+
+- You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
+  {{< /callout >}}
 
 {{< card-grid >}}
-  {{< link-card
+{{< link-card
     title="Customize Project SLAs"
     description="Discover how to finetune your FLOps projects and make them your own"
     href="/docs/manuals/flops-addon/customizations/project-slas/"  >}}
-  {{< link-card
+{{< link-card
     title="Federate your ML Code"
     description="Learn how to structure your ML Git repository to use it with FLOps"
     href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"  >}}

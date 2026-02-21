@@ -5,6 +5,7 @@
 {{ $lightSvgPath := printf "%ssvgs/%s/light.svg" $pageDir $svgName }}
 {{ $darkSvgPath := printf "%ssvgs/%s/dark.svg" $pageDir $svgName }}
 
+
 <style>
     .constrain-image {
         max-width: 100% !important;
@@ -26,6 +27,6 @@
     </figure>
     {{ if $caption }}
         <figcaption>{{ $caption | markdownify }}</figcaption>
-        <br>
+        <br />
     {{ end }}
 </div>

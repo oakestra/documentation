@@ -1,5 +1,5 @@
 {{ if .Params.asciinema -}}
-<link rel="stylesheet" type="text/css" href="/css/asciinema-player.css">
+    <link rel="stylesheet" type="text/css" href="/css/asciinema-player.css" />
 {{- end }}
 {{ if .Params.swaggerui }}
     {{ with resources.GetRemote "https://raw.githubusercontent.com/swagger-api/swagger-ui/refs/tags/v5.22.0/dist/swagger-ui-bundle.js" }}

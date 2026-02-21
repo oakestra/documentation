@@ -12,24 +12,27 @@ seo:
 ---
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
-  - You have carefully read [the application deployment with the `oak-cli`](/docs/getting-started/deploy-app/with-the-cli).
-  - You are familiar with the basic setup, configuration, and usage of the CLI.
-{{< /callout >}}
+
+- You have carefully read [the application deployment with the `oak-cli`](/docs/getting-started/deploy-app/with-the-cli).
+- You are familiar with the basic setup, configuration, and usage of the CLI.
+  {{< /callout >}}
 
 ## The Root CLI Commands
+
 These are the root **`oak-cli`** commands shown in the main `--help` output.
 {{< include-sphinx-html "/static/automatically_generated_oak_cli_docs/index.html" >}}
 Most root commands have their own set of subcommands.
 
-### Setup 
+### Setup
+
 {{< card-grid >}}
 
-  {{< link-card
+{{< link-card
     title="Installer"
     href="/docs/manuals/cli/features/installer/"
     description="Set up necessary requirements the easy way."  >}}
 
-  {{< link-card
+{{< link-card
     title="Configuration"
     href="/docs/manuals/cli/features/configuration/"
     description="Configure the CLI to your liking."  >}}
@@ -40,12 +43,12 @@ Most root commands have their own set of subcommands.
 
 {{< card-grid >}}
 
-  {{< link-card
+{{< link-card
     title="Applications"
     href="/docs/manuals/cli/features/applications/"
     description="Interact with apps."  >}}
 
-  {{< link-card
+{{< link-card
     title="Services"
     href="/docs/manuals/cli/features/services/"
     description="Interact with services."   >}}
@@ -56,30 +59,28 @@ Most root commands have their own set of subcommands.
 
 {{< card-grid >}}
 
-  {{< link-card
+{{< link-card
     title="FLOps"
     href="/docs/manuals/cli/features/flops-addon/"
     description="Interact with the FLOps addon to perform practical federated machine learning."  >}}
 
 {{< /card-grid >}}
 
-
 ### Developing Oakestra
 
 {{< card-grid >}}
 
-  {{< link-card
+{{< link-card
     title="Development"
     href="/docs/manuals/cli/features/development/"
     description="Accelerate local docker based Oakestra development."  >}}
 
-  {{< link-card
+{{< link-card
     title="Worker Node"
     href="/docs/manuals/cli/features/worker-node/"
     description="Manage your local worker node."  >}}
 
 {{< /card-grid >}}
-
 
 ---
 
