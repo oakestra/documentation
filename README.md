@@ -38,10 +38,10 @@ npm run format
 
 Check formatting without making changes:
 ```bash
-npx prettier --check .
+npx prettier --check . --ignore-unknown
 ```
 
-> **Note:** `npm run format` is a shortcut for `npx prettier **/** -w -c`. Both approaches work, but the npm script is the recommended way.
+> **Note:** `npm run format` is a shortcut for `npx prettier . --write --ignore-unknown`. Both approaches work, but the npm script is the recommended way.
 
 ## How to build and test the production website locally?
 

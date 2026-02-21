@@ -17,8 +17,7 @@ seo:
 {{< link-card
   title="FL Basics"
   description="Explore fundamental concepts of Federated Learning"
-  href="/docs/concepts/flops/fl-basics"
->}}
+  href="/docs/concepts/flops/fl-basics" >}}
 
 ## FL with Oakestra
 The main target group for (cross-device) FL is heterogeneous edge devices.
@@ -137,25 +136,21 @@ FLOps’ architecture/workflow consists of the following parts:
 {{< link-card
   title="Local ML Data Management"
   description="Explore how FLOps manages ML data for local training"
-  href="/docs/concepts/flops/internals/ml-data-management/"
->}}
+  href="/docs/concepts/flops/internals/ml-data-management/" >}}
 
 {{< link-card
   title="Image Building Process"
   description="Learn why and how container images are build in FLOps" 
-  href="/docs/concepts/flops/internals/image-building-process"
->}}
+  href="/docs/concepts/flops/internals/image-building-process" >}}
 
 {{< link-card
   title="MLflow MLOps Integration"
   description="Learn how FLOps integrates MLflow into its architecture and workflows" 
-  href="/docs/concepts/flops/internals/mlflow-mlops-integration"
->}}
+  href="/docs/concepts/flops/internals/mlflow-mlops-integration" >}}
 
 ## How to use FLOps
 
 {{< link-card
   title="FLOps Manuals"
   description="Explore how to set up and use FLOps yourself"
-  href="/docs/manuals/flops-addon/flops-manuals-overview/"
->}}
+  href="/docs/manuals/flops-addon/flops-manuals-overview/" >}}

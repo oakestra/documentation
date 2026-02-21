@@ -72,8 +72,7 @@ You can register as many cluster orchestrators with the root orchestrator as you
   title="Registering Nodes"
   description="Check out how to register worker nodes with a cluster"
   href="../../getting-started/oak-environment/add-edge-devices-workers-to-your-setup"
-  target="_blank"
->}}
+  target="_blank" >}}
 
 
 ## Custom Deployments

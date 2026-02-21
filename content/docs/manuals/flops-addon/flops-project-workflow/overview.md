@@ -51,38 +51,31 @@ Projects are based on the SLA you use - they can vary in:
 
 {{< link-card
   title="Stage 0: Preparations"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-0-preparation/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-0-preparation/" >}}
 
 {{< link-card
   title="Stage 1: Project Start"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-1-project-start/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-1-project-start/" >}}
 
 {{< link-card
   title="Stage 2: Image-Builder Deployment"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-2-image-builder-deployment/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-2-image-builder-deployment/" >}}
 
 {{< link-card
   title="Stage 3: FL-Actors Image Build"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-3-fl-actors-image-build/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-3-fl-actors-image-build/" >}}
 
 {{< link-card
   title="Stage 4: FL-Actors Deployment"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-4-fl-actors-deployment/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-4-fl-actors-deployment/" >}}
 
 {{< link-card
   title="Stage 5: FL Training"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-5-fl-training/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-5-fl-training/" >}}
 
 {{< link-card
   title="Post-training Steps"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/" >}}
 
 
 

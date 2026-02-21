@@ -21,37 +21,31 @@ seo:
 {{< link-card
   title="Prepare your system for FLOps"
   description="Explore the necessary steps and requirements to use FLOps" 
-  href="/docs/manuals/flops-addon/preparations/flops-preparations-overview/"
->}}
+  href="/docs/manuals/flops-addon/preparations/flops-preparations-overview/" >}}
 
 {{< link-card
   title="Running a FLOps Project"
   description="Follow a step-by-step guide to create a trained FL model and inference server" 
-  href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
->}}
+  href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/" >}}
 
 {{< link-card
   title="Customize your FLOps Projects"
   description="Learn how to configure custom SLAs and ML Git repositories"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
->}}
+  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/" >}}
 
 {{< link-card
   title="Contribute to FLOps"
   description="Explore how to modify, extend, and contribute to FLOps"
-  href="/docs/contribution-guide/flops-addon/"
->}}
+  href="/docs/contribution-guide/flops-addon/" >}}
 
 ## Advanced Topics
 
 {{< link-card
   title="FLOps API Endpoints  "
   description="Discover the FLOps API"
-  href="/docs/manuals/flops-addon/advanced/flops-api-endpoints/"
->}}
+  href="/docs/manuals/flops-addon/advanced/flops-api-endpoints/" >}}
 
 {{< link-card
   title="Clustered Hierarchical FL"
   description="Explore how FLOps can utilize Oakestra's clustered hierarchy"
-  href="/docs/manuals/flops-addon/advanced/clustered-hierarchical-fl/"
->}}
+  href="/docs/manuals/flops-addon/advanced/clustered-hierarchical-fl/" >}}

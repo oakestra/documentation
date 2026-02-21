@@ -315,13 +315,11 @@ Therefore, a learner’s `getParameters` method uses the `getParameters` method 
     {{< link-card
     title="Image Building Process"
     description="Learn how FLOps uses your ML code to build fitting FL actor images" 
-    href="/docs/concepts/flops/internals/image-building-process"
-    >}}
+    href="/docs/concepts/flops/internals/image-building-process"    >}}
     {{< link-card
     title="Local ML Data Management"
     description="Explore how FLOps synergizes local data with your augmented ML components for training" 
-    href="/docs/concepts/flops/internals/ml-data-management/"
-    >}}
+    href="/docs/concepts/flops/internals/ml-data-management/"    >}}
 {{< /card-grid >}}
 
 <br>

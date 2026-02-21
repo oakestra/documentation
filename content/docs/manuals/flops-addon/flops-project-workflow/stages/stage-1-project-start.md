@@ -88,5 +88,4 @@ After sending out the project request via the CLI, the following happens:
 {{< link-card
   title="In need of customization?"
   description="Learn how to create and fine-tune your own FLOps projects"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
->}}
+  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/" >}}

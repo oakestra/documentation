@@ -20,8 +20,7 @@ The addons system consists of two subsystems that must both be running:
   title="Addons"
   description="Learn more about addons"
   href="../../../concepts/oakestra-extensions/addons"
-  target="_blank"
->}}
+  target="_blank" >}}
 
 ## Run the Addons System
 
