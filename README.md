@@ -1,5 +1,10 @@
 # Oakestra Documentation
 
+This project includes ready-to-use development environments for DevContainer and CodeSandbox.
+
+- **DevContainer:** open this repository in VS Code and select **Reopen in Container** (from the Command Palette or prompt).
+- **CodeSandbox:** open `https://codesandbox.io/p/github/oakestra/documentation`.
+
 ## Dependencies
 
 In order to build the webside you need to install:

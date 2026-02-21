@@ -26,7 +26,7 @@ The dashboard is automatically deployed when you start Oakestra using the standa
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
 - You have a running Root Orchestrator
-- You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`
+- You can access the APIs at `<IP_OF_ROOT_ORCHESTRATOR>:10000`
 {{< /callout >}}
 
 ## Manual Deployment Steps
@@ -42,25 +42,25 @@ git clone https://github.com/oakestra/dashboard.git && cd dashboard
 Create a file containing the environment variables:
 
 ```bash
-echo "API_ADDRESS=<IP_OF_CLUSTER_ORCHESTRATOR>:10000" > .env
+echo "API_ADDRESS=<IP_OF_ROOT_ORCHESTRATOR>:10000" > .env
 ```
 
-Replace `<IP_OF_CLUSTER_ORCHESTRATOR>` with the actual IP address of your cluster orchestrator.
+Replace `<IP_OF_ROOT_ORCHESTRATOR>` with the actual IP address of your root orchestrator.
 
 ### 3. Run the Dashboard
 
 Start the dashboard using Docker Compose:
 
 ```bash
-sudo docker-compose up
+sudo docker compose up
 ```
 
 ## Verification
 
 Once deployed, the dashboard should be accessible at:
 
-```
-http://<IP_OF_CLUSTER_ORCHESTRATOR>
+```bash
+http://<IP_OF_ROOT_ORCHESTRATOR>
 ```
 
 {{< callout context="danger" icon="outline/alert-octagon">}}
@@ -75,7 +75,7 @@ Upon launching the system for the first time, an administrative user is automati
 - **Password:** `Admin`
 
 {{< callout context="caution" title="Security Warning" icon="outline/alert-triangle">}}
-**After setting up the cluster, immediately change the password of the admin user!**
+**After setting up the root, immediately change the password of the admin user!**
 {{< /callout >}}
 
 ## Troubleshooting
@@ -85,6 +85,6 @@ If you experience issues accessing the dashboard:
 1. Verify that the Root Orchestrator and all required components are running
 2. Check that the `API_ADDRESS` in the `.env` file is correct
 3. Ensure that port 80 (or your configured port) is not blocked by a firewall
-4. Check the dashboard logs: `docker-compose logs`
+4. Check the dashboard logs: `docker compose logs`
 
 For more information on dashboard features, see the other pages in this section.

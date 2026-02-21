@@ -49,7 +49,7 @@ If you need to deploy the dashboard manually (e.g., for custom configurations or
 
 Once Oakestra is running, you can access the dashboard at:
 
-```
+```bash
 http://<IP_OF_CLUSTER_ORCHESTRATOR>
 ```
 
