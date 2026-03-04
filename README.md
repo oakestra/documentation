@@ -2,7 +2,6 @@
 
 This project includes ready-to-use development environments for DevContainer and CodeSandbox.
 
-
 ## Dependencies
 
 In order to build the webside you need to install:

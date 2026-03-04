@@ -22,15 +22,15 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
 
 ```json
 {
-  "sla_version" : "v2.0",
-  "customerID" : "Admin",
-  "applications" : [
+  "sla_version": "v2.0",
+  "customerID": "Admin",
+  "applications": [
     {
-      "applicationID" : "",
-      "application_name" : "X",
-      "application_namespace" : "default",
-      "application_desc" : "X application",
-      "microservices" : [
+      "applicationID": "",
+      "application_name": "X",
+      "application_namespace": "default",
+      "application_desc": "X application",
+      "microservices": [
         {
           "microserviceID": "",
           "microservice_name": "X1",
@@ -41,7 +41,7 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
           "code": "docker.io/X/X1",
           "addresses": {
             "rr_ip": "10.30.0.1"
-          },
+          }
         },
         {
           "microserviceID": "",
@@ -53,7 +53,7 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
           "code": "docker.io/X/X3",
           "addresses": {
             "rr_ip": "10.30.1.30"
-          	},
+          }
         }
       ]
     }

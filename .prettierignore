@@ -16,3 +16,6 @@ auxiliary/**
 static/automatically_generated_oak_cli_docs/**
 static/js/asciinema-player.min.js
 static/css/asciinema-player.css
+node_modules/**
+layouts/**/*.html
+themes/**/layouts/**/*.html

@@ -31,6 +31,7 @@ After sending out the project request via the CLI, the following happens:
     Success: 'Init new FLOps project for SLA '~/oak_cli/addons/flops/projects/mnist_sklearn_small.json'
   ```
 - The manager creates two new applications:
+
   ```bash
   ╭──────────────────┬──────────┬──────────────────────────╮
   │ Name             │ Services │ Application ID           │
@@ -44,6 +45,7 @@ After sending out the project request via the CLI, the following happens:
   - A `proj..` application that acts as a wrapper encompassing all current and future services that only belong to our project.
     - We could create several projects at the same time - each would get its own app.
   - A single observatory app is created that will be shared only among projects of the same user.
+
 - The manager creates and deployes a project observer service.
   ```bash
   ╭─────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
