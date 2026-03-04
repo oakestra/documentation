@@ -28,7 +28,7 @@ In the following we give a short meaning for each tag.
 
 ## Example Application Assignment
 
-If we deploy an example application `A` with two instances of microservice `S` (i.e. {{< math >}}$S_1${{< /math >}} and {{< math >}}$S_2${{< /math >}}) on the worker node W, an example address configuration can be the following:
+If we deploy an example application `A` with two instances of microservice `S` (i.e. S<sub>1</sub> and S<sub>2</sub>) on the worker node W, an example address configuration can be the following:
 
 | App A    | Addresses / Subnets assigned                             |
 |----------|----------------------------------------------------------|

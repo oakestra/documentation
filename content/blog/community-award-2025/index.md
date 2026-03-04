@@ -43,7 +43,7 @@ Therefore, let's take a moment to congratulate all the amazing contributors to t
 >[Nitinder Mohan](https://github.com/nitindermohan)
 
 
-# Our very fist community award 🥇
+# Our very first community award 🥇
 
 This year, for the very first time, we also wanted to celebrate someone who has distinguished themselves from an already amazing team of people. In particular, we want to show a small token of appreciation to a person who has substantially impacted the community with their ideas.
 

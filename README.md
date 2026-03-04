@@ -70,12 +70,6 @@ This project supports multiple development environments:
 - Configuration: `.codesandbox/tasks.json`
 - Hugo version: **v0.152.2** (installed automatically on setup)
 
-### Gitpod
-- Open at: `https://gitpod.io/#https://github.com/oakestra/documentation`
-- Configuration: `.gitpod.yml`
-- Requires Gitpod account (free tier available)
-- Uses `pnpm` package manager
-
 ## Weights Explained
 
 Weights are necessary for the ordering shown in the left side bar as well as for the "Prev" and "Next" pages displayed at the bottom of every page.
