@@ -43,7 +43,7 @@ The cluster orchestrator functions as a logical twin of the root orchestrator bu
 
 * **Worker Management:** Unlike the root orchestrator, the cluster orchestrator manages worker nodes instead of clusters.
 
-* **Resource Aggregation:** The cluster orchestrator aggregates resources from its worker nodes and abstracts the cluster's internal composition from the root orchestrator. At the root level, a cluster appears as a generic resource with a total capacity equal to the sum of its worker node resources.
+* **Resource Aggregation:** The cluster orchestrator aggregates resources from its worker nodes and abstracts the cluster's internal composition to the root orchestrator. At the root level, a cluster appears as a generic resource with a total capacity equal to the sum of its worker node resources.
 
 * **Intra-Cluster Communication:** MQTT is used as the communication protocol for the intra-cluster control plane.
 
