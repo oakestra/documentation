@@ -46,3 +46,7 @@ average is calculated, and the available runtimes are appended to a list.
     * **String:** Append to list
     * **List:** Flatten to list
 
+{{< callout context="note" icon="outline/info-circle">}}
+Aside from scheduling, the resource abstractor enables the Addons system for the root and cluster orchestrator. Read more on [extending Oakestra](../oakestra-extensions/addons) here.
+
+{{< /callout >}}
