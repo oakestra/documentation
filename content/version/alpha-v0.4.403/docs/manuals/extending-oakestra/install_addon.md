@@ -11,12 +11,6 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle" >}}
-
-- The addons engine is running. Visit the [setup section](../setting-up) for more details.
-- The addon has been [published](../creating-addons) to the marketplace. This can be verified by sending a `GET` request to `/api/v1/marketplace/addons/{addon_marketplace_id}`.
-{{< /callout >}}
-
 ## Installation
 
 You can view the available Marketplace Addons in the tab "Marketplace".
