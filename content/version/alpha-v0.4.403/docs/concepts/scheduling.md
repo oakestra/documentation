@@ -85,10 +85,3 @@ limits the deployment to the node `xavier1` of the cluster `cluster1`. While the
           ]
 ```
 limits the deployment to all worker nodes within the cluster `gpu`.
-
-
-
-
-
-
-
