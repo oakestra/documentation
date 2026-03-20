@@ -77,16 +77,17 @@ The NodeEngine and NetManager are implemented as systemd services. While it is p
 
 You can configure the NetManager by editing `/etc/netmanager/netcfg.json`:
 
-| Property          | Description                                                                                                        |
-|-------------------|--------------------------------------------------------------------------------------------------------------------|
-| NodePublicAddress | The IP address by which the worker node can be reached. With default value 0.0.0.0 the worker infers the address from the default interface|
-| NodePublicPort    | The port by which the worker node can be reached (default 50103)                                                   |
-| ClusterUrl        | The URL/address by which the cluster can be reached. With the default value 0.0.0.0 the Cluster URL will be inherited from the NodeEngine component.                                       |
-| ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000)                                           |
+| Property | Description |
+| :--- | :--- |
+| NodePublicAddress | The IP address by which the worker node can be reached. With default value 0.0.0.0 the worker infers the address from the default interface |
+| NodePublicPort    | The port by which the worker node can be reached (default 50103) |
+| ClusterUrl        | The URL/address by which the cluster can be reached. With the default value 0.0.0.0 the Cluster URL will be inherited from the NodeEngine component |
+| ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000) |
 | DefaultInterface  | Should the system have multiple default interfaces (e.g. `eth0` and `wlan0`) the appropriate one must be specified |
-| Debug             | Toggles more verbose logging                                                                                       |
-| MqttCert          | The path to the certificate file to facilitate [MQTTS](../networking-internals/mqtt-authentication)                |
-| MqttKey           | The path to the key file to facilitate [MQTTS](../networking-internals/mqtt-authentication)                        |
+| Debug             | Toggles more verbose logging |
+| PublicIPNetworking | Set to `true` or `false`. Toggles the NetManager from resolving it's public or private IP address. Overriden by `NodePublicAddress` |
+| MqttCert          | The path to the certificate file to facilitate [MQTTS](../networking-internals/mqtt-authentication) |
+| MqttKey           | The path to the key file to facilitate [MQTTS](../networking-internals/mqtt-authentication) |
 
 ### Configuring the NodeEngine
 
