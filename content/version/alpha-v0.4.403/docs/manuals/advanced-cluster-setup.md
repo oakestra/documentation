@@ -49,7 +49,7 @@ curl -sfL oakestra.io/install-root.sh | sh -
 This script will download the required files to the directory `~/oakestra/root_orchestrator`. From there it will build the root orchestrator.
 
 {{< callout context="caution" title="Network Configuration" icon="outline/alert-triangle">}}
-If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../firewall-configuration)  
+If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../firewall/)  
 {{< /callout >}}
 
 ### Stand-alone Cluster Orchestrator
@@ -71,7 +71,7 @@ You can register as many cluster orchestrators with the root orchestrator as you
 {{< link-card
   title="Registering Nodes"
   description="Check out how to register worker nodes with a cluster"
-  href="../../getting-started/oak-environment/add-edge-devices-workers-to-your-setup"
+  href="../../getting-started/oak-environment/your-first-worker"
   target="_blank"
 >}}
 
