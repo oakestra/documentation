@@ -20,7 +20,7 @@ The SLA deployment descriptor is a JSON file that describes the deployment of an
 
 An example SLA of application `X` with two microservices `X1` and `X3` can be as follows.
 
-```yaml
+```json
 {
   "sla_version" : "v2.0",
   "customerID" : "Admin",

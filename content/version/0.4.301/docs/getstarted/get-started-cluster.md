@@ -25,7 +25,7 @@ Let's start simple with a single node deployment, where all the components are i
 - Docker + Docker compose v2 (Orchestrators only)
 - Cluster Orchestrator and Root Orchestrator machines must be mutually reachable. 
 
-### 1-DOC (1 Device, One Cluster) 
+### Setup 1-DOC (1 Device, One Cluster) {#setup-1-doc-1-device-one-cluster} 
 
 In this example, we will use a single device to deploy all the components. This is not recommended for production environments, but it is pretty cool for home environments and development. 
 
@@ -203,9 +203,9 @@ You should have got the gist now, but if you want, you can build the infrastruct
 Do you want to give your Cluster Orchestrator computational capabilities for the deployment? Deploy there the NodeEngine+Netmanager components, and you're done. You don't want to use a separate node for the Root Orchestrator? Simply deploy it all together with a cluster orchestrator.
 
 # 🎯 Troubleshoot
-<a name="🎯-troubleshoot"></a>
+<a name="troubleshoot"></a>
 
-- #### 1-DOC startup sends a warning regarding missing cluster name or location.
+- #### Setup 1-DOC startup sends a warning regarding missing cluster name or location. {#setup-1-doc-startup-warning}
   After exporting the env variables at step 1, if you're using sudo with docker-compose, remember the `-E` parameter.
 
 - #### NetManager bad network received 

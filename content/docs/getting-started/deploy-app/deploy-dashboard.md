@@ -31,43 +31,36 @@ You can also manage your infrastructure and deploy/monitor applications using Oa
 ## Deployment
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-- You have a running Root Orchestrator.
+- You have a running Oakestra setup (Root and Cluster Orchestrator)
 - You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`
 {{< /callout >}}
 
-If you deployed your cluster with one of the provided docker-compose files, this has already been done for you and you can simply head over to `<http://IP_OF_CLUSTER_ORCHESTRATOR>`. Otherwise follow the instructions below for manual configuration.
+### Automatic Deployment
 
-### Manual deployment
+When you start Oakestra using the standard installation scripts (as described in the [Create your first Oakestra Orchestrator](../../oak-environment/create-your-first-oakestra-orchestrator/) section), **the dashboard is automatically deployed along with the other Oakestra components**.
 
-*0)* Clone the repository
+You don't need to perform any additional steps to deploy the dashboard.
 
-```bash
-git clone https://github.com/oakestra/dashboard.git && cd dashboard
-```
+### Manual Deployment
 
-*1)* Create a file that contains the environment variables
+If you need to deploy the dashboard manually (e.g., for custom configurations or when using override files to exclude the dashboard), please refer to the [Dashboard Manual Deployment](../../../manuals/dashboard-features/dashboard-manual-deployment/) guide.
 
-```bash
-echo "API_ADDRESS=<IP_OF_CLUSTER_ORCHESTRATOR>:10000" > .env
-```
+## Accessing the Dashboard
 
-*2)* Run the dashboard
+Once Oakestra is running, you can access the dashboard at:
 
 ```bash
-sudo docker-compose up
+http://<IP_OF_CLUSTER_ORCHESTRATOR>
 ```
 
-### Start the Oakestra Components
-
-To access the dashboard, both the System Manager and MongoDB must be running. Instructions for starting them are provided in the [getting started](../deploy-your-first-oakestra-cluster/) section.
+Replace `<IP_OF_CLUSTER_ORCHESTRATOR>` with the IP address of the machine hosting your Cluster Orchestrator.
 
 {{< callout context="danger" icon="outline/alert-octagon">}}
 If the Oakestra components are not running or configured correctly, you can reach the login screen but will not be able to log in.
 {{< /callout >}}
 
-## Accessing the dashboard
+### Default Credentials
 
-Now that the dashboard is up and running, let's log in and explore its functionality.
 Upon launching the system for the first time, an administrative user is automatically created.
 This user can create and manage other users and organizations within the system, more on [User Management](../../../manuals/dashboard-features/organizations/#user-management) later.
 

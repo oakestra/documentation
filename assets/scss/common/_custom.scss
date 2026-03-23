@@ -1020,3 +1020,22 @@ figcaption {
     flex: 1 1 100%; /* Stacks images vertically on smaller screens */
   }
 }
+.card > img,
+.card > picture > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nav-link img {
+  width: 30px !important;
+  height: auto;
+  display: inline;
+}
+
+.docs-content img:not(.card > img):not(.card > picture > img),
+.content img:not(.card > img):not(.card > picture > img) {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}

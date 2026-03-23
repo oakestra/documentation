@@ -10,6 +10,8 @@ hugo.linux
 
 # Temporary lock file while building
 .hugo_build.lock
+.env
+.netlify
 
 public/
 node_modules/
@@ -29,3 +31,6 @@ auxiliary/oak_cli/documentation_automation/docs/build/
 # macOS
 .DS_Store
 
+node_modules
+public
+resources
