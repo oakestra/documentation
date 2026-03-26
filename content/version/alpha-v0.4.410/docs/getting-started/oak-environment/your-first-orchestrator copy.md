@@ -1,5 +1,5 @@
 ---
-title: "Create your first Oakestra Cluster"
+title: "Create your first Single-Machine Cluster"
 summary: ""
 draft: false
 weight: 102020000
@@ -54,7 +54,7 @@ oak cluster ls
 
 If your cluster is showing up with 1 active node, **congratulations! 🎉🎉**
 
-If not, wait a few minutes, the cluster startup might take a while. If still nothing happens, you can refer to the [Troubleshooting Guider](../troubleshooting).
+If not, wait a few minutes, the cluster startup might take a while. If still nothing happens, you can refer to the [Troubleshooting Guide](../../../manuals/troubleshooting).
 
 ### Shutdown the Components
 
