@@ -8,6 +8,7 @@ This project includes ready-to-use development environments for DevContainer and
 ## Dependencies
 
 In order to build the webside you need to install:
+
 - [`npm`](https://nodejs.org/en/download/package-manager)
 - [`golang`](https://go.dev/doc/install)
 
@@ -32,11 +33,13 @@ npm run dev
 This project uses [Prettier](https://prettier.io/) for consistent code formatting. Configuration is in `.prettierrc.yaml`.
 
 Format all files:
+
 ```bash
 npm run format
 ```
 
 Check formatting without making changes:
+
 ```bash
 npx prettier --check .
 ```
@@ -61,11 +64,13 @@ The website should look like the production one deployed at [oakestra.com](https
 This project supports multiple development environments:
 
 ### DevContainer (Recommended)
+
 - Open in VS Code with Dev Containers extension
 - Configuration: `.devcontainer/devcontainer.json`
 - Hugo version: **v0.152.2**
 
 ### CodeSandbox
+
 - Open at: `https://codesandbox.io/p/github/oakestra/documentation`
 - Configuration: `.codesandbox/tasks.json`
 - Hugo version: **v0.152.2** (installed automatically on setup)
@@ -75,6 +80,7 @@ This project supports multiple development environments:
 Weights are necessary for the ordering shown in the left side bar as well as for the "Prev" and "Next" pages displayed at the bottom of every page.
 
 Every page should have a weight - e.g:
+
 ```md
 ---
 title: "High-Level Architecture"
@@ -85,18 +91,19 @@ toc: true
 ...
 ---
 ```
+
 One can think about pages and their weights as nodes on a tree structure.
 The following example helps you to visualize how we use weights:
 
 ```
-- 📁 Getting Started                  | 1 00 00 00 00  
+- 📁 Getting Started                  | 1 00 00 00 00
     - 📄 Welcome to Oakestra ...      | 1 01 00 00 00
     - 📁 Create your first ...        | 1 02 00 00 00
         - 📄 High Level Setup ...     | 1 02 01 00 00
         - 📄 Create your first ...    | 1 02 02 00 00
-- 📁 Concepts                         | 2 00 00 00 00 
+- 📁 Concepts                         | 2 00 00 00 00
 - 📁 Manuals                          | 3 00 00 00 00
-    - ... 
+    - ...
     - 📁 Federated Learning (FLOps)   | 3 07 00 00 00
         - 📄 FLOps Overview           | 3 07 01 00 00
         - 📄 FLOps API Endpoints      | 3 07 02 00 00
@@ -106,17 +113,18 @@ The following example helps you to visualize how we use weights:
         - 📁 FLOps Project Workflow   | 3 07 04 00 00
             - 📄 ... Overview         | 3 07 04 01 00
             - 📁 Project Stages       | 3 07 04 02 00
-                - 📄 Stage 0 ...      | 3 07 04 02 01 
+                - 📄 Stage 0 ...      | 3 07 04 02 01
                 - 📄 ...
     - 📁 Debugging                    | 3 10 00 00 00
     - ...
 - 📁 Contributng Guide                | 4 00 00 00 00
 - 📁 Reference                        | 5 00 00 00 00
 ```
+
 We are working with a maximum document/tree depth of 5.
 We are using 10 digits for the weight - 2 digits per depth level.
 Thus every level can fit 99 documents.
 (Why so many? -> Because 10 in one level is easily and already breached.)
 Each digit pair from left to right represents how deep the respective page/folder is located in.
-Each folder requires an `_index.md` file that contains its weight. 
+Each folder requires an `_index.md` file that contains its weight.
 The weight should not start with a 0 otherwise errors occur (octal interpretation).

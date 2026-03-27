@@ -55,7 +55,7 @@ In the ACM EuroSys 2025 main conference program, the Oakestra team presented an 
 
 {{< video src="poster-working" autoplay="true" muted="true" width="50%" >}}
 
-The team clinched the **Best Poster Award at ACM EuroSys 2025**. 
+The team clinched the **Best Poster Award at ACM EuroSys 2025**.
 
 <div style="display: flex; gap: 20px;">
   <div style="flex: 1.6;">
@@ -78,5 +78,4 @@ The awards and recognitions at ACM EuroSys + ASPLOS 2025 underscore the scientif
   title="Leverage the power of scientifically-backed Oakestra framework"
   description="Join us as we continue to redefine the future of edge computing."
   href="/docs/getting-started/welcome-to-oakestra-docs/"
-  target="_blank"
->}}
+  target="_blank" >}}
