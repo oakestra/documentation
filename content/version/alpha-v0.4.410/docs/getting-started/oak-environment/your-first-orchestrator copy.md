@@ -25,12 +25,12 @@ You can install the **Root** and **Cluster Orchestrator** in a single machine us
 
 1) Install the `oak` cli in your machine:
 ```bash
-curl -sfL oakestra.io/oak.sh | sh -
+curl -sfL oakestra.io/oak.sh | bash
 ```
 
 2) Perform a full Root + Cluster + Worker installation using:
 ```bash
-oak install full
+oak install full alpha-v0.4.410
 ```
 The installer will as you to start your worker right away or not.
 **If you choose to not start it right away** you can do so later on using:

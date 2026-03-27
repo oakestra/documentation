@@ -1,5 +1,5 @@
 ---
-title: "Create your first Oakestra Cluster"
+title: "Install Oakestra"
 description: "Getting started with Oakestra infrastructure setup"
 summary: ""
 date: 2023-09-07T16:06:50+02:00

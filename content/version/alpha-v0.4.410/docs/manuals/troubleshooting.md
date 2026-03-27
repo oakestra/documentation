@@ -28,10 +28,9 @@ With such command, you can either check the status of the root, cluster or worke
 
 # What to do next?
 
-- [You can use AI to automaticall troubleshoot the installation for you.](#troubleshoot-with-ai)
-- [You can manually troubleshoot your installation](#oakestra-manual-troubleshooting--quick-reference)
 
-# Troubleshoot with AI
+{{< tabs "Troubleshoot" >}}
+{{< tab "🤖 Troubleshoot with AI" >}}
 
 You can use Claude AI to pinpoint your problem and help you fix your innfrastructure configuration
 
@@ -51,16 +50,18 @@ oak doctor <component> --ai-troubleshoot
 
 You can either perform a general check or describe a specific issue.
 
-{{< callout context="caution" title="Be Carefull 💸" icon="outline/alert-triangle">}}
-Oak doctor with the `-ai-troubleshoot` flag uses Claude CLI. It requires either an active subscription or a payment method configured for your token consumptions. Check the pricing [here](https://claude.com/pricing).
-{{< /callout >}}
+<div style="background:#FAE251;padding-top:3px;padding-bottom:3px;padding-right:3px;padding-left:3px">
+<h3> Be Carefull 💸 </h3>
 
+Oak doctor with the `-ai-troubleshoot` flag uses Claude CLI. It requires either an active subscription or a payment method configured for your token consumptions. Check the pricing <a href=https://claude.com/pricing>here</a>.
+</div>
 
 ### You don't like Claude? Use your preferred AI instead
 If you want to use your own AI agent to help you troubleshoot your Oakestra deployment, you can request assistence to you agent by manually installing the [troubleshoot oakestra skill](https://raw.githubusercontent.com/oakestra/oakestra/refs/heads/develop/SKILLS/troubleshoot-oakestra.md).
 
 
-# Oakestra Manual Troubleshooting — Quick Reference
+{{< /tab >}}
+{{< tab "👾 Manual Troubleshooting" >}}
 
 Here a quick reference of the commands you can run to manually troubleshoot your Oakestra installation.
 
@@ -220,6 +221,9 @@ oak install root   # or cluster or full
 | 80 | Dashboard | Browser → Root |
 
 ---
+
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Still stuck?
 
