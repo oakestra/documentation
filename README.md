@@ -2,6 +2,9 @@
 
 This project includes ready-to-use development environments for DevContainer and CodeSandbox.
 
+- **DevContainer:** open this repository in VS Code and select **Reopen in Container** (from the Command Palette or prompt).
+- **CodeSandbox:** open `https://codesandbox.io/p/github/oakestra/documentation`.
+
 ## Dependencies
 
 In order to build the webside you need to install:
@@ -38,10 +41,10 @@ npm run format
 Check formatting without making changes:
 
 ```bash
-npx prettier --check . --ignore-unknown
+npx prettier --check .
 ```
 
-> **Note:** `npm run format` is a shortcut for `npx prettier . --write --ignore-unknown`. Both approaches work, but the npm script is the recommended way.
+> **Note:** `npm run format` is a shortcut for `npx prettier **/** -w -c`. Both approaches work, but the npm script is the recommended way.
 
 ## How to build and test the production website locally?
 
