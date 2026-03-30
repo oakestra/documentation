@@ -15,7 +15,7 @@
     "build": "hugo --minify --gc",
     "serve": "http-server public -p 8000 -c-1 -g",
     "preview": "vite preview --outDir public",
-    "update-oak-cli-docs": "bash ./auxiliary/oak_cli/update-oak-cli-docs.sh"
+    "update-oak-cli-docs": "bash ./auxiliary/oak_go_cli/update-oak-cli-docs.sh"
   },
   "dependencies": {
     "@tabler/icons": "^3.34.1",
