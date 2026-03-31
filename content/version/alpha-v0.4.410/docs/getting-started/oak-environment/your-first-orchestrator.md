@@ -1,5 +1,5 @@
 ---
-title: "Create your first Single-Machine Cluster"
+title: "Create Single-Node Cluster"
 summary: ""
 draft: false
 weight: 102020000
@@ -19,7 +19,7 @@ In this guide, we'll perform a Single Machine Setup. This setup is the easiest w
 
 After the orchestrators are up and running, you can add Edge Devices as workers to your cluster (see: [Add Edge Devices (Workers) to Your Setup](/docs/getting-started/oak-environment/add-edge-devices-workers-to-your-setup/)).
 
-{{< svg "deploy-orchestrators" >}}
+{{< svg-small "deploy-orchestrators" >}}
 
 You can install the **Root** and **Cluster Orchestrator** in a single machine using the following commands:
 
@@ -32,15 +32,20 @@ curl -sfL oakestra.io/oak.sh | bash
 ```bash
 oak install full alpha-v0.4.410
 ```
-The installer will as you to start your worker right away or not.
-**If you choose to not start it right away** you can do so later on using:
-```bash
-oak worker -d
-```
+
+That's it! You should be good to go now!
+**Take a look at the example below.**
+{{< asciinema key="install" poster="0:15" idleTimeLimit="1">}}
+
+>The installer asks you to start your worker right away or not.
+>**If you choose to not start it right away** you can do so later on using:
+>```
+>oak worker -d
+>```
 
 {{< callout context="note" title="Did you know?" icon="outline/info-circle" >}}
 You can set a multi-cluster infrastructure by installing each **Cluster Orchestrator** and **Worker Node** on a different machine.
-Check out [Advanced Oakestra Clusters Setup](/docs/manuals/advanced-cluster-setup) section for more details.
+Check out [Advanced Oakestra Clusters Setup](../advanced-cluster-setup) section for more details.
 {{< /callout >}}
 
 {{< callout context="caution" title="Network Configuration" icon="outline/alert-triangle">}}

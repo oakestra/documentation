@@ -35,25 +35,20 @@ You can also manage your infrastructure and deploy/monitor applications using Oa
 - You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`
 {{< /callout >}}
 
-### Automatic Deployment
 
 When you start Oakestra using the standard installation scripts (as described in the [Create your first Oakestra Orchestrator](../../oak-environment/create-your-first-oakestra-orchestrator/) section), **the dashboard is automatically deployed along with the other Oakestra components**.
 
 You don't need to perform any additional steps to deploy the dashboard.
-
-### Manual Deployment
-
-If you need to deploy the dashboard manually (e.g., for custom configurations or when using override files to exclude the dashboard), please refer to the [Dashboard Manual Deployment](../../../manuals/dashboard-features/dashboard-manual-deployment/) guide.
 
 ## Accessing the Dashboard
 
 Once Oakestra is running, you can access the dashboard at:
 
 ```bash
-http://<IP_OF_CLUSTER_ORCHESTRATOR>
+http://<IP_OF_ROOT_ORCHESTRATOR>
 ```
 
-Replace `<IP_OF_CLUSTER_ORCHESTRATOR>` with the IP address of the machine hosting your Cluster Orchestrator.
+Replace `<IP_OF_ROOT_ORCHESTRATOR>` with the IP address of the machine hosting your Root Orchestrator.
 
 {{< callout context="danger" icon="outline/alert-octagon">}}
 If the Oakestra components are not running or configured correctly, you can reach the login screen but will not be able to log in.
@@ -104,7 +99,7 @@ First you will have to create an application. Choose a concise name, the namespa
 
 ### Creating a Service
 
-In the [previous section](../with-the-api) we discussed registering
+In the [previous section](../with-the-cli) we discussed registering
 deployment descriptors via the API. This is great for automated deployments, but the SLAs were not designed with human readability in mind.
 While the dashboard still allows you to upload SLAs as a JSON file, it also provides you with an interactive form.
 

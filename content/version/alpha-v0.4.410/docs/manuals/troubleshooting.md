@@ -227,7 +227,7 @@ oak install root   # or cluster or full
 
 ## Still stuck?
 
-Open an issue at **https://github.com/oakestra/oakestra/issues**  or ask in our [discord channel](https://discord.gg/7F8EhYCJDf) and include:
+[Open an issue](https://github.com/oakestra/oakestra/issues) or ask in our [discord channel](https://discord.gg/7F8EhYCJDf) and include:
 - Output of `docker ps -a`
 - Logs of the failing container (`docker logs <name> 2>&1`)
 - Your deployment type (1-DOC / multi-machine)
