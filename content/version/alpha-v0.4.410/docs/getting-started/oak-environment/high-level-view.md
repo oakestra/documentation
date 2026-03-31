@@ -25,7 +25,7 @@ Oakestra lets you deploy your workload on devices of any size, from a small Rasp
 {{< callout context="caution" title="Minimum System Requirements" icon="outline/alert-triangle">}}
 Oakestra CLI:
 - 10MB of Disk
-- Widnows, Linux or MacOS
+- Windows, Linux or MacOS
 - AMD64 or ARM64 architecture
 - 50MB of RAM
 

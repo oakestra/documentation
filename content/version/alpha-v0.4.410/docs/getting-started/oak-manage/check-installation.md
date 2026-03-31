@@ -65,7 +65,7 @@ oak doctor root
 
 This will show you if all components are running correctly.
 {{< /tab >}}
-{{< tab "🪾 Check your Root Orchestrator" >}}
+{{< tab "🪾 Check your Cluster Orchestrator" >}}
 In each cluster, the orchestrator machine runs
 
 ```bash
