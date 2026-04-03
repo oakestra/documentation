@@ -25,6 +25,8 @@ You can also manage your infrastructure and deploy/monitor applications using Oa
 - Create and modify individual services
 - Check the status of running services
 - Configure service-level agreements (SLAs)
+- Check status and location of your clusters
+- Create/manage users and organizations
 {{< /callout >}}
 
 
@@ -54,12 +56,15 @@ Replace `<IP_OF_ROOT_ORCHESTRATOR>` with the IP address of the machine hosting y
 If the Oakestra components are not running or configured correctly, you can reach the login screen but will not be able to log in.
 {{< /callout >}}
 
-### Default Credentials
+## Using the Dashbaord
+
+{{< tabs "dashbaord" >}}
+{{< tab "👤 Login" >}}
 
 Upon launching the system for the first time, an administrative user is automatically created.
 This user can create and manage other users and organizations within the system, more on [User Management](../../../manuals/dashboard-features/organizations/#user-management) later.
 
-{{< details "**Click here to view dashboard credentials**" >}}
+{{< details "**Click here to view dashboard default credentials**" >}}
 
 > Username: `Admin`\
 > Password: `Admin`
@@ -68,7 +73,9 @@ This user can create and manage other users and organizations within the system,
 
 {{< /details >}}
 
-## Organization Login
+![](login.gif)
+
+#### (Optional) Organization Login
 
 To log in to an organization check the *Organization login* box and enter the organization name. If the box is not checked or the organization
 name is left empty, then you will logged in to the default root organization.
@@ -84,23 +91,21 @@ Here you can see the login to the *sampleOrga* organization.
 
 ![](orga-login.gif)
 
-<!-- Todo: Move somewhere else -->
-## Applications, Services, Namespaces
-
+{{< /tab >}}
+{{< tab "📱 Create App" >}}
 In Oakestra there are applications, services and namespaces. One Application can encompass multiple services and one user can create
 multiple applications on one system. Namespaces allow you to create applications and services by the same name in different namespaces,
 e.g. `production` and `development`.
 
-### Creating an Application
-
 First you will have to create an application. Choose a concise name, the namespace and optionally a description.
 
-![](add-app.gif)
+![](create-app.gif)
+{{< /tab >}}
 
-### Creating a Service
 
-In the [previous section](../with-the-cli) we discussed registering
-deployment descriptors via the API. This is great for automated deployments, but the SLAs were not designed with human readability in mind.
+{{< tab "💽 Create Services" >}}
+
+if you used the [CLI](../with-the-cli) you are already familiar with the SLAs.
 While the dashboard still allows you to upload SLAs as a JSON file, it also provides you with an interactive form.
 
 Once you have created an application you can create services. Once again you will have to choose a concise name, a namespace and optionally a description.
@@ -109,12 +114,38 @@ However this is far from it; system requirements, environmental variables, conne
 You will have to choose a virtualization method (Container or Unikernel) and tell Oakestra where it can find your code.
 Hit save and your service is ready for deployment!
 
+{{< tabs "service" >}}
+{{< tab "Use the From" >}}
 ![](create-service.gif)
+{{< /tab >}}
+{{< tab "Use the SLA" >}}
+![](create-service-sla.gif)
+{{< /tab >}}
+{{< /tabs >}}
 
-### Service Details
+{{< /tab >}}
+
+
+{{< tab "📲 Deploy" >}}
+
+After you registered your services, you can start a deployment. This operations uses the Root and Cluser schedulers to install the application in one of your worker nodes.
+You can eihter click "Deploy All" to deploy all the services in your application. Or you can use the service drop down menu to deploy a single instance of a specific service.
+
+![](deploy.gif)
+
+{{< /tab >}}
+
+
+{{< tab "📈 Monitor" >}}
 
 Once a service has been created and deployed, you can check on it's status and other details. Choose a service from the *Service List* and from the drop-down
 menu, choose an instance and click on *View Instance Details*.
+
+![](monitor.gif)
+
+{{< /tab >}}
+{{< /tabs >}}
+
 
 
 {{< callout context="note" title="Something Missing?" icon="outline/building-factory">}}
