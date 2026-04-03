@@ -23,7 +23,7 @@ seo:
 - You can access the APIs at `<root-orch-ip>:10000/api/docs`
 {{< /callout >}}
 
-Let's try deploying an Nginx server and a client. Then we'll enter inside the client container and try to curl `Nginx` webserver.
+Let's try deploying an Nginx server and a client using the API.
 
 All we need to do to deploy an application is to create a deployment descriptor and submit it to the platform using the APIs.
 
@@ -37,65 +37,70 @@ The following is an example of an Oakestra deployment descriptor:
 
 ```yaml {title="deploy_curl_application.yaml"}
 {
-  "sla_version" : "v2.0",
-  "customerID" : "Admin",
-  "applications" : [
+  "applications": [
     {
-      "applicationID" : "",
-      "application_name" : "clientserver",
-      "application_namespace" : "test",
-      "application_desc" : "Simple demo with curl client and Nginx server",
-      "microservices" : [
+      "applicationID": "",
+      "application_desc": "Simple demo with curl client and Nginx server",
+      "application_name": "clientsrvr",
+      "application_namespace": "test",
+      "microservices": [
         {
+          "added_files": [],
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "cmd": [
+            "sh",
+            "-c",
+            "curl 10.30.30.30 ; sleep 5"
+          ],
+          "code": "docker.io/curlimages/curl:7.82.0",
+          "constraints": [],
+          "memory": 100,
           "microserviceID": "",
           "microservice_name": "curl",
           "microservice_namespace": "test",
-          "virtualization": "container",
-          "cmd": ["sh", "-c", "tail -f /dev/null"],
-          "memory": 100,
+          "port": "",
+          "state": "",
+          "storage": 0,
           "vcpus": 1,
           "vgpus": 0,
-          "vtpus": 0,
-          "bandwidth_in": 0,
-          "bandwidth_out": 0,
-          "storage": 0,
-          "code": "docker.io/curlimages/curl:7.82.0",
-          "state": "",
-          "port": "9080",
-          "added_files": []
+          "virtualization": "container",
+          "vtpus": 0
         },
         {
-          "microserviceID": "",
-          "microservice_name": "nginx",
-          "microservice_namespace": "test",
-          "virtualization": "container",
-          "cmd": [],
-          "memory": 100,
-          "vcpus": 1,
-          "vgpus": 0,
-          "vtpus": 0,
-          "bandwidth_in": 0,
-          "bandwidth_out": 0,
-          "storage": 0,
-          "code": "docker.io/library/nginx:latest",
-          "state": "",
-          "port": "6080:80/tcp",
+          "added_files": [],
           "addresses": {
             "rr_ip": "10.30.30.30"
           },
-          "added_files": []
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "cmd": [],
+          "code": "docker.io/library/nginx:latest",
+          "memory": 100,
+          "microserviceID": "",
+          "microservice_name": "nginx",
+          "microservice_namespace": "test",
+          "port": "6080:80/tcp",
+          "state": "",
+          "storage": 0,
+          "vcpus": 1,
+          "vgpus": 0,
+          "virtualization": "container",
+          "vtpus": 0
         }
       ]
     }
-  ]
+  ],
+  "customerID": "Admin",
+  "sla_version": "v2.0"
 }
 ```
 
 Save this description as `deploy_curl_application.yaml` and upload it to the system using the APIs.
 
 This deployment descriptor example generates one application named *clientserver* with the `test` namespace and two microservices:
-- nginx server with test namespace, namely `clientserver.test.nginx.test`
-- curl client with test namespace, namely `clientserver.test.curl.test`
+- nginx server with test namespace, namely `clientsrvr.test.nginx.test`
+- curl client with test namespace, namely `clientrvr.test.curl.test`
 
 {{< link-card title="Learn more about the SLA specifications" href="/docs/reference/application-sla-description">}}
 
@@ -150,15 +155,15 @@ Each call to this endpoint generates a new instance of the service
 - Use `DELETE /api/service/<serviceid>/instance/<instance number>` to delete a specific instance of a service
 - Use `DELETE /api/application/<appid>` to delete all together an application with all the services and instances
 
-### Check if the service (un)deployment succeeded
+### Check if the service deployment succeeded
 
 Familiarize yourself with the API and discover for each one of the service the status and the public address.
 
-If both services are **ACTIVE**, it is time to test the communication.
+If both services are **RUNNING**, check the logs of the `curl` service. If you see the `welcome page` of the nginx application it means they are communicating correctly.
 
 {{< callout context="danger" icon="outline/alert-octagon" >}} If either of the services are not ACTIVE, there might be a configuration issue or a bug. You can check the logs of the NetManager and NodeEngine components with `docker logs system_manager -f --tail=1000` on the root orchestrator, with `docker logs cluster_manager -f --tail=1000` on the cluster orchestrator. If unable to resolve, please open an [issue on GitHub](https://github.com/oakestra/oakestra/issues/new/choose). {{< /callout >}}
 
-Try to reach the nginx server you just deployed.
+Now try to reach the nginx server you just deployed to check if the port mappings are working.
 
 ```bash
 http://<deployment_machine_ip>:6080
