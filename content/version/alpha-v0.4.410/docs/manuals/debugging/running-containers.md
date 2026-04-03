@@ -6,7 +6,7 @@ weight: 312040000
 toc: true
 seo:
   title: "Monitoring and Debugging Options for Running Containers" 
-  description: "This guide will show you how, after a deployment, you can attatch yourself to a running container and execute commands"
+  description: "This guide will show you how, after a deployment, you can attach yourself to a running container and execute commands"
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
 ---
