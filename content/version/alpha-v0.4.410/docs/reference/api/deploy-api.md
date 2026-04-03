@@ -1,11 +1,11 @@
 ---
-title: "With the API"
+title: "Deploy an App with the API"
 description: "Deploy your app using the Oakestra API"
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
 draft: false
-weight: 103030000
+weight: 503010000
 toc: true
 sidebar:
   collapsed: false
@@ -106,27 +106,27 @@ After running a cluster you can use the debug OpenAPI page at `<root_orch_ip>:10
 Authenticate using the following procedure:
 
 1. Locate the login method and use the try-out button
-![try-login](login-try.png)
+![try-login](pngs/login-try.png)
 
 2. Use the **default Admin credentials** to login
 ```
   username: "Admin"
   password: "Admin"
 ```
-![execute-login](login-execute.png)
+![execute-login](pngs/login-execute.png)
 
 3. Copy the result login token
-![token-login](login-token-copy.png)
+![token-login](pngs/login-token-copy.png)
 
 4. Go to the top of the page and authenticate with this token
-![auth-login](authorize.png)
-![auth2-login](authorize-2.png)
+![auth-login](pngs/authorize.png)
+![auth2-login](pngs/authorize-2.png)
 
 ### Register an application and the services
 After you authenticate with the login function, you can try out to deploy the first application.
 
 1. Upload the deployment description to the system. You can try using the deployment descriptor above.
-![post app](post-app.png)
+![post app](pngs/post-app.png)
 
 The response contains the Application id and the id for all the application's services. Now the application and the services are registered to the platform. It's time to deploy the service instances!
 
