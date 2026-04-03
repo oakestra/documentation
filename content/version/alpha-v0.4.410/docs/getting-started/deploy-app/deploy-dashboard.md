@@ -25,6 +25,8 @@ You can also manage your infrastructure and deploy/monitor applications using Oa
 - Create and modify individual services
 - Check the status of running services
 - Configure service-level agreements (SLAs)
+- Check status and location of your clusters
+- Create/manage users and organizations
 {{< /callout >}}
 
 
