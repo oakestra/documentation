@@ -190,7 +190,7 @@ The `oak service scale up <SERVICE_ID|SERVICE_NAME> <number>` allows you to scal
 This page only highlights a small subset of available `oak-cli` capabilities.
 
 {{< link-card
-  title="CLI Manuals"
+  title="CLI Reference"
   description="Explore every available CLI command in detail and more"
   href="../../../reference/cli/oak"
   target="_blank"
