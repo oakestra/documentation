@@ -43,6 +43,14 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
           "addresses": {
             "rr_ip": "10.30.0.1"
           },
+          "constraints": [],
+          "volumes": [
+            {
+                "volume_id":   "test",
+                "csi_driver":  "csi.oakestra.io/hostpath",
+                "mount_path":  "/app",
+            }
+          ]
         },
         {
           "microserviceID": "",
@@ -105,3 +113,14 @@ The file is composed of the following fields:
                   }
                 ]
       ```
+    - `volumes`: Volume claims for your applications. Volumes can only be provisioned by CSI drivers in your infrastructure. Make sure that at least a cluster matches the selected `csi_driver`.
+    ```
+    "volumes": [
+      {
+          "volume_id":   "<volume_name>",
+          "csi_driver":  "<name of the CSI driver>",
+          "mount_path":  "<mount path inside the container>",
+          "config": {} <-- any extra configuration allowed by the selected csi_driver
+      }
+    ]
+    ```
