@@ -2,7 +2,7 @@
 title: "Advanced Cluster Configurations"
 summary: ""
 draft: false
-weight: 301000000
+weight: 303000000
 toc: true
 seo:
   title: "" # custom title (optional)

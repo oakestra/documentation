@@ -2,7 +2,7 @@
 title: "Post-training Steps"
 summary: ""
 draft: false
-weight: 309030207
+weight: 311030207
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -29,37 +29,56 @@ The initial project SLA determines these target platforms.
 The built image can be pulled by users directly from their FLOps image registry and used freely.
 
 ```bash
-$ oak s s
-SERVICE ID                 NAME                   NAMESPACE   APPLICATION         INSTANCES   STATUS
-────────────────────────   ────────────────────   ─────────   ────────────────    ─────────   ───────────
-69ce3368ac34fd64870c9d28   observae1d30449057     observ      observatory          1          1/1 running
-69ce3368ac34fd64870c9d29   trackinge3afed0047b0   tracking    observatory          1          1/1 running
-69ce3696ac34fd64865c9d3f   builder645bb530b3f8    builder     projda7ee3eebd48     1          1/1 running
+$ oak s i
+╭──────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
+│ Service Name         │ Service ID               │ Instances      │ App Name         │ App ID                   │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ observ645bb530b3f8   │ 67a46c2398d83ad599b91a84 │  0 RUNNING     │ observatory      │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │                  │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ trackinge3afed0047b0 │ 67a46c2498d83ad599b91a85 │  0 RUNNING     │ observatory      │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │                  │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+│                      │                          │                │                  │                          │
+│ builder645bb530b3f8  │ 67a46c5d98d83ad599b91a88 │  0 RUNNING     │ projc52d30441176 │ 67a46c2398d83ad599b91a83 │
+│                      │                          │                │                  │                          │
+╰──────────────────────┴──────────────────────────┴────────────────┴──────────────────┴──────────────────────────╯
 ```
 
 {{< link-card
   title="Want to know more about the trained model image build?"
-  description="Learn how the logged trained model gets transformed into a container image"
+  description="Learn how the logged trained model gets transformed into a container image" 
   href="/docs/concepts/flops/internals/image-building-process"
 >}}
 
 ## Step B: Deploy Trained Model Image
 
 {{< callout context="caution" icon="outline/alert-triangle">}}
-  Relies on step A to be successful and the trained model image to be present in your FLOps image registry.
+  Relies on step A to be successful and the trained model image to be present in your FLOps image registry. 
 {{< /callout >}}
 
 FLOps lets you directly and automatically deploy the built-trained model/inference server image onto an orchestrated worker node.
-Once deployed, this service will serve as an inference server for your trained model. In the example below we see `trmodel` as the deployed trained model.
+Once deployed, this service will serve as an inference server for your trained model.
 
 ```bash
-$ oak s s
-SERVICE ID                 NAME                   NAMESPACE   APPLICATION   INSTANCES   STATUS
-────────────────────────   ────────────────────   ─────────   ───────────   ─────────   ───────────
-69ce3368ac34fd64870c9d28   observae1d30449057     observ      observatory   1           1/1 running
-69ce3368ac34fd64870c9d29   trackinge3afed0047b0   tracking    observatory   1           1/1 running
-69ce3696ac34fd64870c9d2f   trmodeleb74ab34f64f    trmodel     helper        1           1/1 running
-
+$ oak s i
+╭──────────────────────┬──────────────────────────┬────────────────┬─────────────┬──────────────────────────╮
+│ Service Name         │ Service ID               │ Instances      │ App Name    │ App ID                   │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ observ645bb530b3f8   │ 67a46c2398d83ad599b91a84 │  0 RUNNING     │ observatory │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │             │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ trackinge3afed0047b0 │ 67a46c2498d83ad599b91a85 │  0 RUNNING     │ observatory │ 67a46c2398d83ad599b91a82 │
+│                      │                          │                │             │                          │
+├──────────────────────┼──────────────────────────┼────────────────┼─────────────┼──────────────────────────┤
+│                      │                          │                │             │                          │
+│ trmodel7bbd83d3a548  │ 67a46d2998d83ad599b91a8a │  0 RUNNING     │ helper      │ 67a46d2998d83ad599b91a89 │
+│                      │                          │                │             │                          │
+╰──────────────────────┴──────────────────────────┴────────────────┴─────────────┴──────────────────────────╯
 ```
 
 ### Testing the deployed Inference Server
@@ -67,35 +86,56 @@ SERVICE ID                 NAME                   NAMESPACE   APPLICATION   INST
 To conclude the base case, let's test our trained model's deployed inference server service.
 
 We need to find out the internal service IP of the running inference service.
-One way to do this is via the `oak s i <service_name> 0` command which will inspect the instance 0 of the service. In our example we run `oak s i trmodeleb74ab34f64f 0`.
+One way to do this is via the `oak s s -v exhaustive` command:
 
 ```json
-Service:                 trmodeleb74ab34f64f
-Service ID:              69ce3696ac34fd64870c9d2f
-Application:             helper / helper
-Namespace:               trmodel
-Image:                   123.23.25.26:5073/admin/trained_model:90bae37c48ae4eb29358a0f194214894
-Virtualization:          docker
-Port:                    8088:8080
-Round-Robin IP:          10.30.185.40
-Service Status:          RUNNING
-
-Instance 0:
-  Status:             RUNNING
-  Detail:             No extra information
-  Host:               123.23.25.26
-  Public IP:          123.23.25.26
-  Cluster:            69cd3280ac34fd64870c9d0d
-  Location:           48.1386,11.5556,1000
-  Worker:             69cd32a2fabc03b20eea31f8
-  CPU:                0.002798%
-  Memory:             0.000000%
-  Disk:               0.3 MB
+...
+{
+  'RR_ip': '10.30.77.4',                                                                          
+  'RR_ip_v6': None,                                                                               
+  '_id': {'$oid': '67a46d2998d83ad599b91a8a'},                                                    
+  'addresses': {'rr_ip': '10.30.77.4'},                                                           
+  'app_name': 'helper',                                                                           
+  'app_ns': 'helper',                                                                             
+  'applicationID': '67a46d2998d83ad599b91a89',                                                    
+  'cmd': [],                                                                                      
+  'code': '192.168.178.74:5073/admin/trained_model:98afa654c6b441cb95b8185be5856163',             
+  'image': '192.168.178.74:5073/admin/trained_model:98afa654c6b441cb95b8185be5856163',            
+  'instance_list': [{'cluster_id': '679cba79af4c1923eb5df1ae',                                    
+                      'cluster_location': '49.8717,8.6503,1000',                                   
+                      'cpu': '0.003675',                                                           
+                      'cpu_history': '(hidden by CLI)',                                            
+                      'disk': '331776',                                                            
+                      'instance_number': 0,                                                        
+                      'logs': '(hidden by CLI)',                                                   
+                      'memory': '0.000000',                                                        
+                      'memory_history': '(hidden by CLI)',                                         
+                      'publicip': '192.168.178.74',                                                
+                      'status': 'RUNNING',                                                         
+                      'status_detail': None}],                                                     
+  'job_name': 'helper.helper.trmodel7bbd83d3a548.trmodel',                                        
+  'memory': 200,                                                                                  
+  'microserviceID': '67a46d2998d83ad599b91a8a',                                                   
+  'microservice_name': 'trmodel7bbd83d3a548',                                                     
+  'microservice_namespace': 'trmodel',                                                            
+  'next_instance_progressive_number': 1,                                                          
+  'one_shot': False,                                                                              
+  'port': '8088:8080',                                                                            
+  'privileged': False,                                                                           
+  'service_name': 'trmodel7bbd83d3a548',                                                          
+  'service_ns': 'trmodel',                                                                        
+  'status': 'NODE_SCHEDULED',                                                                     
+  'status_detail': 'Waiting for scheduling decision',                                             
+  'storage': 0,                                                                                   
+  'vcpus': 1,                                                                                     
+  'virtualization': 'docker'
+}
+...
 ```
-We copy the `'Round-Robin IP': '10.30.185.40'`.
+We copy the `'RR_ip': '10.30.77.4'`.
 
 
-Inference serving depends on the concrete model signature, which includes input/data types and formats.
+Inference serving depends on the concrete model signature, which includes input/data types and formats. 
 This model signature can differ significantly between models.
 Therefore, FLOps does not provide a universally applicable inference test service.
 For our base-case example, we provide a ready-made image and SLA for you.
@@ -157,19 +197,36 @@ The test service will continue requesting predictions in a loop until it is remo
 
 The following demo shows the intended base-case inference test workflow.
 
-{{< asciinema key="flops_inference" poster="0:12" idleTimeLimit="2" >}}
+{{< asciinema key="flops_inference_test" poster="0:12" idleTimeLimit="2" >}}
 
 ```bash
-inftest  69ce3828ac34fd64870c9d31  instance 0
-
-Generating train split: 100%|          | 60000/60000 [00:00<00:00, 124613.76 examples/s]
-Generating test split: 100%|          | 10000/10000 [00:00<00:00, 123933.07 examples/s]
-Picking a random sample from the MNIST dataset for inference checking
-Label of the random test sample: '7'
-Sending inference request to the trained model container
-ic| response: <Response [200]>
-Inference result: '{"predictions": [9]}'
-ic| original_expected_label == inference_result: False
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ name: inftest | NODE_SCHEDULED    | app name: inferencetester | app ID: 67a4743898d83ad599b91a8f       │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 0 | RUNNING    | public IP: 192.168.178.74 | cluster ID: 679cba79af4c1923eb5df1ae | Logs :             │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ |          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000        │
+│ [00:00<00:00, 212483.86 examples/s]                                                                    │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '1'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [1]}'                                                               │
+│ ic| original_expected_label == inference_result: True                                                  │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '9'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [9]}'                                                               │
+│ ic| original_expected_label == inference_result: True                                                  │
+│ Picking a random sample from the MNIST dataset for inference checking                                  │
+│ Label of the random test sample: '1'                                                                   │
+│ Sending inference request to the trained model container                                               │
+│ ic| response: <Response [200]>                                                                         │
+│ Inference result: '{"predictions": [6]}'                                                               │
+│ ic| original_expected_label == inference_result: False                                                 │
+│ ...                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 This snippet from the demo shows the logs from the inference tester service.

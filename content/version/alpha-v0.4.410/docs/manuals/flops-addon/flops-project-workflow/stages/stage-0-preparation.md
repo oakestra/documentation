@@ -2,7 +2,7 @@
 title: "Stage 0: Preparation"
 summary: ""
 draft: false
-weight: 309030201
+weight: 311030201
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -35,27 +35,28 @@ In short, an MDP is a service deployed by FLOps on a learner node to populate it
   - If you want to work with multiple learner nodes, ensure you deploy an MDP for each one.
 {{< /callout >}}
 
-Download the example SLA:
-```bash
-  curl -sSl https://oakestra.io/FLOps_SLAs/mocks/mnist_multi.json > mnist_multi.json
-```
-
 Deploy the base-case MDP:
 ```bash
-  oak addon flops m mnist_multi.json
+  oak addon flops m --mock-sla-file-name mnist_multi.json
 ```
 
 This demo shows you the base-case MDP in action:
 
-{{< asciinema key="flops_prep" poster="0:32" idleTimeLimit="2" >}}
+{{< asciinema key="flops_base_case_mdk" poster="0:32" idleTimeLimit="2" >}}
 
 Once the MDP service's state is `COMPLETED ✅` you can undeploy it (`oak a d -y`).
 
 You can verify that the data has been populated on the learner by running the following on that node:
 
+- Find the `ml-data-server` docker container ID 
+```bash
+  docker ps | grep oakestra/addon-flops/ml-data-server
+```
+Output: `0ce8c5d46372   ghcr.io/oakestra/addon-flops/ml-data-server:latest ...`
+
 - Check that data was added:
 ```bash
-  docker exec ml_data_server ls /ml_data_server_volume
+  docker exec 0ce8c5d46372 ls /ml_data_server_volume  
 ```
 Output:
 ```

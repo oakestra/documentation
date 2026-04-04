@@ -2,7 +2,7 @@
 title: "Prepare Image-builder Workers"
 summary: ""
 draft: false
-weight: 309020200
+weight: 311020200
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -30,22 +30,20 @@ seo:
 {{< /callout >}}
 
 On the worker nodes where you wish to do the image building, do the following:
-- Ensure the Worker Node is running
+- Ensure the NodeEngine is running
   ```bash
-    oak worder -d && oak worker status
+    sudo NodeEngine -a <cluster-address> -d && sudo NodeEngine status
   ```
 - Activate the `imageBuilder` addon for the NodeEngine:
   ```bash
-    oak worder config addon imageBuilder on
+    sudo NodeEngine config addon imageBuilder on
   ```
-  *N.b. `oak worker` is just an alias for the `NodeEngine` command*
-- Restart the worker node (the NodeEngine component)
-  ```bash
-    oak worker stop && oak worker -d
-  ```
+- Restart the NodeEngine
+  - Either run `sudo NodeEngine stop` and then start it up again
+  - Or run `sudo systemctl restart nodeengine.service` 
 - Verify that the addon is active:
   ```bash
-    > oak worker config addon
+    > sudo NodeEngine config addon
 
     Configured Addons:
          - image-builder: 🟢 Active

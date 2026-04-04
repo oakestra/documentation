@@ -2,7 +2,7 @@
 title: "Prepare Learner Workers"
 summary: ""
 draft: false
-weight: 309020300
+weight: 311020300
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -14,9 +14,9 @@ seo:
 {{< callout context="caution" title="Mandatory" icon="outline/alert-triangle">}}
   FLOps' main goal is to perform federated learning, i.e., to train a machine learning model on local data in a distributed and privacy-preserving way.
   Training an ML model requires compatible data.
-  A worker node is required to aggregate matching data to be able to participate in training.
+  A worker node is required to aggregate matching data to be able to participate in training. 
   By default, orchestrated nodes do not aggregate training data.
-  Only worker nodes that have been prepared as described on this page can collect such data and become FL learners.
+  Only worker nodes that have been prepared as described on this page can collect such data and become FL learners. 
 
   For FLOps to work as intended, you are required to prepare at least one of your orchestrated nodes, as described in this guide.
 {{< /callout >}}
@@ -34,19 +34,18 @@ seo:
 On the worker nodes where you wish to perform ML model training, do the following:
 - Ensure the NodeEngine is running
   ```bash
-    oak worder -d && oak worker status
+    sudo NodeEngine -a <cluster-address> -d && sudo NodeEngine status
   ```
 - Activate the `FLOps-learner` addon for the NodeEngine:
   ```bash
-    oak worker config addon FLOps on
+    sudo NodeEngine config addon FLOps-learner on
   ```
 - Restart the NodeEngine
-  ```bash
-    oak worker stop && oak worker -d
-  ```
+  - Either run `sudo NodeEngine stop` and then start it up again
+  - Or run `sudo systemctl restart nodeengine.service` 
 - Verify that the addon is active:
   ```bash
-    > oak worker config addon
+    > sudo NodeEngine config addon
 
     Configured Addons:
          - FLOps-learner: 🟢 Active

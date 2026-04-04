@@ -2,7 +2,7 @@
 title: "Stage 5: FL Training"
 summary: ""
 draft: false
-weight: 309030206
+weight: 311030206
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -17,7 +17,7 @@ For our base-case scenario, the processes are as described in the [FL Overview](
 Because the base case should be as fast as possible, it only trains for 3 rounds.
 The following demo shows how a CLI user can inspect the running actors to observe the training rounds.
 
-{{< asciinema key="flops_training" poster="0:12" idleTimeLimit="1.5" >}}
+{{< asciinema key="flops_fl_training" poster="0:12" idleTimeLimit="1.5" >}}
 
 In the end, the aggregator sends the observer service the final/best-achieved trained model metrics, including accuracy and loss.
 The aggregator notifies the FLOps manager, which undeploys and removes the FL actors.
