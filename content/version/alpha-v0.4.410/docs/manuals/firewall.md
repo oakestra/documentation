@@ -47,7 +47,7 @@ Follow these steps on every **Worker Node** attached to the Oakestra cluster.
 1) Shutdown your worker node components using 
 ```bash
 sudo NodeEngine stop
-````
+```
 
 2) Edit the NetManager configuration file `/etc/netmanager/netcfg.json` as follows:
 
@@ -57,7 +57,7 @@ sudo NodeEngine stop
   "NodePublicPort": "<TUNNEL PORT, The PORT must be reachable from the other workers, use 50103 as default>",
   "ClusterUrl": "<IP Address of cluster orchestrator or 0.0.0.0 if deployed on the same machine>",
   "ClusterMqttPort": "10003",
-  "Debug": False
+  "Debug": false
 }
 ```
 

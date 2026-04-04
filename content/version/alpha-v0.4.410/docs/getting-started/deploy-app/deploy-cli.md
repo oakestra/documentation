@@ -70,6 +70,62 @@ oak config set root_orchestrator_address <IP OF YOUR ROOT ORCHESTRATOR>
 
 For further information about the CLI configuration see the [CLI Configuration Manuals](/docs/manuals/cli/features/configuration).
 
+### Deploying your first Application using the CLI
+
+Deploying your first app with the CLI is simple. Oak CLI already provides 3 default application descriptors that you can use right away.
+
+**Step 1**: Create your default application
+```bash
+oak app create
+```
+
+The CLI will ask you what example you want to deploy:
+
+- [1] blank_app_without_services.json
+- [2] default_app_with_services.json
+- [3] edge_gaming.json
+
+{{< tabs apps >}}
+{{< tab "📲 Default App" >}}
+
+This is an application composed of a client and a server.
+
+- The client (`curl`) performs a GET request to the server, and exits.
+- The server (`nginx`) replies with the default page
+- Every time the client exits, Okaestra re-deploys it and the cycle continues.
+
+**Step 2**: Deploy all the services of your application
+```bash
+oak service deploy --all
+```
+
+**Step 3**: There is no step 3! 🥳 Read the rest of this Wiki to learn how to monitor your services and get the logs.
+
+{{< /tab >}}
+{{< tab "📃 Blank App" >}}
+
+This is just an empty App without services. You can check that the app is registered to the system using the `oak a s` command, but nothing else really hapens here.
+
+{{< /tab >}}
+{{< tab "👾 Edge Gaming" >}}
+
+This is an application composed of 3 micorservices.
+
+- The client: a minecraft client. You connect to this service via your browser to start the game.
+- The server: a minecraft server.
+- The Proxy: a proxy linking the client and the server.
+
+**Step 2**: Deploy all the services of your application
+```bash
+oak service deploy --all
+```
+
+**Step 3**: There is no step 3! 🥳 Read the rest of this Wiki to learn how to monitor your services and get the logs. To configure your game, take a look at the [Minecraft in Oakestra](https://github.com/oakestra/app-minecraft-client-server-example) repository and check out the *Step 7* and *Step 8*.
+
+Pro tip: you can obtain the IP of your proxy and client in the cli using this command respectively: `oak s i proxy` and `oak s i client`
+
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Basic CLI Usage
 The root command for the CLI is **oak**
@@ -88,6 +144,7 @@ All available SLAs can be inspected via the `oak application sla` command.
 
 Your personal SLA files describing your applications can be stored in any folder in your machine.
 
+{{< link-card title="Check out these examples" href="/docs/manuals/app-catalog/example-applications">}}
 {{< link-card title="Learn more about the SLA specifications" href="/docs/reference/application-sla-description">}}
 
 ### Managing Applications
@@ -133,7 +190,7 @@ The `oak service scale up <SERVICE_ID|SERVICE_NAME> <number>` allows you to scal
 This page only highlights a small subset of available `oak-cli` capabilities.
 
 {{< link-card
-  title="CLI Manuals"
+  title="CLI Reference"
   description="Explore every available CLI command in detail and more"
   href="../../../reference/cli/oak"
   target="_blank"

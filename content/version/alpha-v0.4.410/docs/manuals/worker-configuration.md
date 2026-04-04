@@ -85,7 +85,7 @@ You can configure the NetManager by editing `/etc/netmanager/netcfg.json`:
 | ClusterMqttPort   | The port by which the cluster MQTT broker can be reached (default 10000) |
 | DefaultInterface  | Should the system have multiple default interfaces (e.g. `eth0` and `wlan0`) the appropriate one must be specified |
 | Debug             | Toggles more verbose logging |
-| PublicIPNetworking | Set to `true` or `false`. Toggles the NetManager from resolving it's public or private IP address. Overriden by `NodePublicAddress` |
+| PublicIPNetworking | Set to `true` or `false`. Toggles the NetManager from resolving its public or private IP address. Overridden by `NodePublicAddress` |
 | MqttCert          | The path to the certificate file to facilitate [MQTTS](../networking-internals/mqtt-authentication) |
 | MqttKey           | The path to the key file to facilitate [MQTTS](../networking-internals/mqtt-authentication) |
 
