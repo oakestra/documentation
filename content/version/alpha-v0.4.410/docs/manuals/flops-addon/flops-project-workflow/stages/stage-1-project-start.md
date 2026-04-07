@@ -14,7 +14,7 @@ asciinema: true
 
 To start a project we need to request the FLOps Manager (*which is part of FLOps Management*) to create one.
 FLOps projects are based on project SLAs.
-We will use one of the predefined ones that the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/) provides.
+We will use one of the predefined ones that the [oak-cli](../../../../../getting-started/deploy-app/deploy-cli/) provides.
 
 ```bash
   oak addon flops p --project-sla-file-name mnist_sklearn_small.json
@@ -31,26 +31,26 @@ After sending out the project request via the CLI, the following happens:
   ```
 - The manager creates two new applications:
   ```bash
-  ╭──────────────────┬──────────┬──────────────────────────╮ 
-  │ Name             │ Services │ Application ID           │ 
-  ├──────────────────┼──────────┼──────────────────────────┤ 
-  │ observatory      │ (1)      │ 6761bf5d59461659a24b1196 │ 
-  ├──────────────────┼──────────┼──────────────────────────┤ 
-  │ projc3fd78f56b75 │ (1)      │ 6761bf5d59461659a24b1197 │ 
-  ╰──────────────────┴──────────┴──────────────────────────╯ 
+  ╭──────────────────┬──────────┬──────────────────────────╮
+  │ Name             │ Services │ Application ID           │
+  ├──────────────────┼──────────┼──────────────────────────┤
+  │ observatory      │ (1)      │ 6761bf5d59461659a24b1196 │
+  ├──────────────────┼──────────┼──────────────────────────┤
+  │ projc3fd78f56b75 │ (1)      │ 6761bf5d59461659a24b1197 │
+  ╰──────────────────┴──────────┴──────────────────────────╯
   ```
   - A `proj..` application that acts as a wrapper encompassing all current and future services that only belong to our project.
     - We could create several projects at the same time - each would get its own app.
-  - A single observatory app is created that will be shared only among projects of the same user. 
+  - A single observatory app is created that will be shared only among projects of the same user.
 - The manager creates and deploys a project observer service.
   ```bash
-  ╭─────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮     
-  │ Service Name        │ Service ID               │ Instances      │ App Name         │ App ID                   │     
-  ├─────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤     
-  │                     │                          │                │                  │                          │     
-  │ observ8266202cd6db  │ 6761bf5d59461659a24b1198 │  0 RUNNING     │ observatory      │ 6761bf5d59461659a24b1196 │      
-  │                     │                          │                │                  │                          │     
-  ╰─────────────────────┴──────────────────────────┴────────────────┴──────────────────┴──────────────────────────╯     
+  ╭─────────────────────┬──────────────────────────┬────────────────┬──────────────────┬──────────────────────────╮
+  │ Service Name        │ Service ID               │ Instances      │ App Name         │ App ID                   │
+  ├─────────────────────┼──────────────────────────┼────────────────┼──────────────────┼──────────────────────────┤
+  │                     │                          │                │                  │                          │
+  │ observ8266202cd6db  │ 6761bf5d59461659a24b1198 │  0 RUNNING     │ observatory      │ 6761bf5d59461659a24b1196 │
+  │                     │                          │                │                  │                          │
+  ╰─────────────────────┴──────────────────────────┴────────────────┴──────────────────┴──────────────────────────╯
   ```
 
 {{< callout context="note" title="Stay up to date" icon="outline/eye" >}}
@@ -64,14 +64,14 @@ After sending out the project request via the CLI, the following happens:
 
   ```bash
 ╭───────────────────────────────────────────────────────────────────────╮
-│ name: observ8266202cd6db | NODE_SCHEDULED    | app name: observat..   │ 
+│ name: observ8266202cd6db | NODE_SCHEDULED    | app name: observat..   │
 ├───────────────────────────────────────────────────────────────────────┤
-│ 0 | RUNNING    | public IP: 192.168.178.44 | cluster ID: 67619d3d..   │ 
+│ 0 | RUNNING    | public IP: 192.168.178.44 | cluster ID: 67619d3d..   │
 ├───────────────────────────────────────────────────────────────────────┤
 │ Project Observer started                                              │
 │ New Builder service created & deployed                                │
 │ Start building                                                        │
-│ 192.168.178.44:5073/malyuk-a/flops_ml_repo_mnist_sklearn/base:...     │ 
+│ 192.168.178.44:5073/malyuk-a/flops_ml_repo_mnist_sklearn/base:...     │
 │ (This can take a while)                                               │
 │ < Future Events ... >                                                 │
 ╰───────────────────────────────────────────────────────────────────────╯
@@ -88,5 +88,5 @@ After sending out the project request via the CLI, the following happens:
 {{< link-card
   title="In need of customization?"
   description="Learn how to create and fine-tune your own FLOps projects"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
+  href="../../../customizations/overview/"
 >}}

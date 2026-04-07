@@ -47,6 +47,3 @@ Otherwise, the entire FLOps management suite needs a restart.
 It returns a confirmation.
 
 
-{{< callout context="note" icon="outline/first-aid-kit" >}}
-  You don't need to remember these endpoints - [the oak-cli has you covered](/docs/manuals/cli/features/flops-addon/)!
-{{< /callout >}}

@@ -28,16 +28,16 @@ Oakestra is built from the ground-up to support computational flexibility of edg
 {{< card title="Edge-Cloud Native" icon="filled/feather" color="yellow" >}}
 Oakestra prioritizes minimal overhead to address the computational, storage, and network limitations of edge nodes to unlock the full potential of edge-cloud continuum.
 
-- [Set up your first Oakestra environment](/docs/getting-started/oak-environment/high-level-setup-overview/)
+- [Set up your first Oakestra environment](../oak-environment/high-level-view/)
 {{< /card >}}
 
 {{< card title="Efficient App Management" icon="outline/layout-dashboard" color="blue" >}}
 Take full control of your microservices with Oakestra's powerful API and intuitive management tools.
 
-- [Oakestra API](/docs/getting-started/deploy-app/with-the-api/)
-- [Oakestra CLI](/docs/getting-started/deploy-app/with-the-cli/)
-- [Oakestra Dashboard](/docs/getting-started/deploy-app/with-the-dashboard/)
-- [Application Catalog](/docs/manuals/app-catalog/example-applications/)
+- [Oakestra CLI](../deploy-app/deploy-cli/)
+- [Oakestra Dashboard](../deploy-app/deploy-dashboard/)
+- [Oakestra API](../deploy-app/deploy-api/)
+- [Application Catalog](../manuals/app-catalog/example-applications/)
 
 {{< /card >}}
 
@@ -47,17 +47,17 @@ Take full control of your microservices with Oakestra's powerful API and intuiti
 {{< card title="Extensible Design" icon="outline/stack-2" color="purple" >}}
 Designed with a plug-and-play approach, Oakestra supports customizable orchestration policies, scheduling algorithms, and integration with third-party tools.
 
-- [Addons](/docs/concepts/oakestra-extensions/addons/)
-- [Hooks](/docs/concepts/oakestra-extensions/hooks/)
-- [Custom Resources](/docs/concepts/oakestra-extensions/custom-resources/)
+- [Addons](../../concepts/oakestra-extensions/addons/)
+- [Hooks](../../concepts/oakestra-extensions/hooks/)
+- [Custom Resources](../../concepts/oakestra-extensions/custom_resources/)
 {{< /card >}}
 
 {{< card title="Bleeding-Edge Features" icon="outline/adjustments-star" color="red" >}}
-Leverage several innovative techniques Oakestra uses to make your applications edge-cloud efficient. 
+Leverage several innovative techniques Oakestra uses to make your applications edge-cloud efficient.
 
-- [Multi-Virtualization Support](/docs/manuals/execution-runtimes/supported-virtualization-runtimes/)
-- [Semantic Networking](/docs/concepts/networking/)
-- [Federated Machine Learning Support](/docs/concepts/flops/overview/)
+- [Multi-Virtualization Support](../../manuals/execution-runtimes/supported-runtimes/)
+- [Semantic Networking](../../concepts/networking/)
+- [Federated Machine Learning Support](../../concepts/flops/overview/)
 
 {{< /card >}}
 

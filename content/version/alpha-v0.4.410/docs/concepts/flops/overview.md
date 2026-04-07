@@ -17,7 +17,7 @@ seo:
 {{< link-card
   title="FL Basics"
   description="Explore fundamental concepts of Federated Learning"
-  href="/docs/concepts/flops/fl-basics"
+  href="../fl_basics"
 >}}
 
 ## FL with Oakestra
@@ -30,7 +30,7 @@ This is an ideal environment for FL because this layout supports privacy on a st
 Oakestra's lean open-source code base allows for easy extension, further development, and experimentation with FL features.
 
 ## FLOps Addon
-FLOps is an [Oakestra Addon](/docs/concepts/oakestra-extensions/addons/) that enables streamlined and accelerated practical FL workflows through many of its automation features. 
+FLOps is an [Oakestra Addon](/docs/concepts/oakestra-extensions/addons/) that enables streamlined and accelerated practical FL workflows through many of its automation features.
 
 {{< callout context="note" title="Designed for Change" icon="outline/target-arrow" >}}
   FLOps aims to be easily modifiable and extendable by developers and researchers.
@@ -51,7 +51,7 @@ FLOps is an [Oakestra Addon](/docs/concepts/oakestra-extensions/addons/) that en
   FLOps can build these images for multiple different target platforms.
   Thus, FL components can run on ARM edge devices like Raspberry Pis or Nvidia Jetsons.
   FLOps enables FL on all devices that support containerization technologies like Docker or containerd.
-  This approach eliminates the need for tedious device setup and the struggle to configure heterogeneous dependencies to match the training requirements. 
+  This approach eliminates the need for tedious device setup and the struggle to configure heterogeneous dependencies to match the training requirements.
 {{< /details >}}
 
 {{< details "**Automated Orchestration of FL Components and Auxiliaries**" >}}
@@ -86,7 +86,7 @@ FLOps is an [Oakestra Addon](/docs/concepts/oakestra-extensions/addons/) that en
 
   ### mlflow
   [MLflow](https://mlflow.org/) is a mature open-source MLOps tool that powers the runtime observability and tracking features of FLOps.
-  MLflow augments and supports the entire ML lifecycle, from conception, to code and dependency archivation and unification, tracking and tagging ML models and artifacts, and re-deployments. 
+  MLflow augments and supports the entire ML lifecycle, from conception, to code and dependency archivation and unification, tracking and tagging ML models and artifacts, and re-deployments.
 
   ### Apache's 'Data Suite'
   FLOps works with real data on learner devices.
@@ -132,24 +132,24 @@ FLOps’ architecture/workflow consists of the following parts:
 - The FLOps management deploys its required components with the help of Oakestra as services on worker nodes.
 - The different computational components (e.g., learners, container image builders, etc.) are scaled up and distributed among various worker nodes.
 
-## FLOps Internals 
+## FLOps Internals
 
 {{< link-card
   title="Local ML Data Management"
   description="Explore how FLOps manages ML data for local training"
-  href="/docs/concepts/flops/internals/ml-data-management/"
+  href="../internals/ml-data-management/"
 >}}
 
 {{< link-card
   title="Image Building Process"
-  description="Learn why and how container images are build in FLOps" 
-  href="/docs/concepts/flops/internals/image-building-process"
+  description="Learn why and how container images are build in FLOps"
+  href="../internals/image-building-process"
 >}}
 
 {{< link-card
   title="MLflow MLOps Integration"
-  description="Learn how FLOps integrates MLflow into its architecture and workflows" 
-  href="/docs/concepts/flops/internals/mlflow-mlops-integration"
+  description="Learn how FLOps integrates MLflow into its architecture and workflows"
+  href="../internals/mflow-integration/"
 >}}
 
 ## How to use FLOps
@@ -157,5 +157,5 @@ FLOps’ architecture/workflow consists of the following parts:
 {{< link-card
   title="FLOps Manuals"
   description="Explore how to set up and use FLOps yourself"
-  href="/docs/manuals/flops-addon/flops-manuals-overview/"
+  href="../../../manuals/flops-addon/overview/"
 >}}

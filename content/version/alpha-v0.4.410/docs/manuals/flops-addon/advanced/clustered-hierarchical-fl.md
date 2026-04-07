@@ -12,9 +12,9 @@ seo:
 ---
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
-  - You understood how FLOps performs [classic FL](/docs/concepts/flops/fl-basics/)
-  - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/)
-  - You are familiar with [the structure of FLOps compatible ML Git Repositories](/docs/manuals/flops-addon/customizations/ml-git-repositories/)
+  - You understood how FLOps performs [classic FL](../../../../concepts/flops/overview)
+  - You have carefully read the [base-case FLOps project workflow](../../flops-project-workflow/overview/)
+  - You are familiar with [the structure of FLOps compatible ML Git Repositories](../../customizations/ml-git-repo/)
 {{< /callout >}}
 
 Different FL architectures exist to support large-scale FL environments.
@@ -123,5 +123,5 @@ This way, FLOps can perform clustered hierarchical FL.
 {{< /callout >}}
 
 {{< callout context="note" title="Create CHFL Project SLAs" icon="outline/file-plus" >}}
-  Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs [here](/docs/manuals/flops-addon/customizations/project-slas/).
+  Learn how to turn your classic FL projects into CHFL ones by customizing your SLAs [here](../../customizations/slas/).
 {{< /callout >}}
