@@ -36,7 +36,7 @@ Take full control of your microservices with Oakestra's powerful API and intuiti
 
 - [Oakestra CLI](../deploy-app/deploy-cli/)
 - [Oakestra Dashboard](../deploy-app/deploy-dashboard/)
-- [Oakestra API](../deploy-app/deploy-api/)
+- [Oakestra API](../../reference/api/deploy-api/)
 - [Application Catalog](../manuals/app-catalog/example-applications/)
 
 {{< /card >}}
