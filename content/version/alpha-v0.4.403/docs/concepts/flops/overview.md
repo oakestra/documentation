@@ -149,7 +149,7 @@ FLOps’ architecture/workflow consists of the following parts:
 {{< link-card
   title="MLflow MLOps Integration"
   description="Learn how FLOps integrates MLflow into its architecture and workflows" 
-  href="/docs/concepts/flops/internals/mlflow-mlops-integration"
+  href="/docs/concepts/flops/internals/mflow-integration/"
 >}}
 
 ## How to use FLOps
