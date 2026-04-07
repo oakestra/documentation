@@ -16,7 +16,7 @@ In this wiki you'll learn how to Uninstall or Update your Oakestra installation.
 ## Uninstall Oakestra Components
 
 {{< tabs "Uninstall" >}}
-{{< tab "Single Machine Setup" >}}
+{{< tab "Single Machine" >}}
 If you have a single machine setup where all your components (Root, Cluster and Worker node) are installed in the same machine, then you can run:
 
 ```bash
@@ -49,6 +49,14 @@ oak uninstall cluster
 In your root orchestrator machine run:
 ```bash
 oak uninstall root
+```
+{{< /tab >}}
+{{< tab "Cleanup" >}}
+
+Bruteforce removal of all Oakestra containers, volumes, images, and worker binaries.
+In each machine, run:
+```bash
+oak uninstall cleanup
 ```
 {{< /tab >}}
 {{< /tabs >}}
