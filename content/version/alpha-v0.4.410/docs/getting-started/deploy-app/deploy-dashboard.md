@@ -1,6 +1,6 @@
 ---
 title: "With the Dashboard"
-description: "Deploy your app using the Oakestra Dashboard"
+description: "Deploy your app using the Oakestra Dashboard."
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
@@ -17,28 +17,28 @@ seo:
 ---
 
 <span class="lead">
-You can also manage your infrastructure and deploy/monitor applications using Oakestra frontend dashboard.
+You can also manage your infrastructure and deploy/monitor applications using the Oakestra frontend dashboard.
 </span>
 
-{{< callout context="tip" title="Dashboard features" icon="outline/rocket">}}
-- View the applications currently running on the cluster
-- Create and modify individual services
-- Check the status of running services
-- Configure service-level agreements (SLAs)
-- Check status and location of your clusters
-- Create/manage users and organizations
+{{< callout context="tip" title="Dashboard Features" icon="outline/rocket">}}
+- View the applications currently running on the cluster.
+- Create and modify individual services.
+- Check the status of running services.
+- Configure service-level agreements (SLAs).
+- Check the status and location of your clusters.
+- Create/manage users and organizations.
 {{< /callout >}}
 
 
 ## Deployment
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
-- You have a running Oakestra setup (Root and Cluster Orchestrator)
-- You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`
+- You have a running Oakestra setup (Root and Cluster Orchestrator).
+- You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`.
 {{< /callout >}}
 
 
-When you start Oakestra using the standard installation scripts (as described in the [Create your first Oakestra Orchestrator](../../oak-environment/create-your-first-oakestra-orchestrator/) section), **the dashboard is automatically deployed along with the other Oakestra components**.
+When you start Oakestra using the standard installation scripts (as described in the [Create Your First Oakestra Orchestrator](../../oak-environment/create-your-first-oakestra-orchestrator/) section), **the dashboard is automatically deployed along with the other Oakestra components**.
 
 You don't need to perform any additional steps to deploy the dashboard.
 
@@ -56,20 +56,20 @@ Replace `<IP_OF_ROOT_ORCHESTRATOR>` with the IP address of the machine hosting y
 If the Oakestra components are not running or configured correctly, you can reach the login screen but will not be able to log in.
 {{< /callout >}}
 
-## Using the Dashbaord
+## Using the Dashboard
 
-{{< tabs "dashbaord" >}}
+{{< tabs "dashboard" >}}
 {{< tab "👤 Login" >}}
 
 Upon launching the system for the first time, an administrative user is automatically created.
-This user can create and manage other users and organizations within the system, more on [User Management](../../../manuals/dashboard-features/organizations/#user-management) later.
+This user can create and manage other users and organizations within the system. More on [User Management](../../../manuals/dashboard-features/organizations/#user-management) later.
 
 {{< details "**Click here to view dashboard default credentials**" >}}
 
 > Username: `Admin`\
 > Password: `Admin`
 
-**After setting up the cluster manager immediately change the password of the admin user!**
+**After setting up the cluster manager, immediately change the password of the admin user!**
 
 {{< /details >}}
 
@@ -77,8 +77,8 @@ This user can create and manage other users and organizations within the system,
 
 #### (Optional) Organization Login
 
-To log in to an organization check the *Organization login* box and enter the organization name. If the box is not checked or the organization
-name is left empty, then you will logged in to the default root organization.
+To log in to an organization, check the *Organization login* box and enter the organization name. If the box is not checked or the organization
+name is left empty, then you will be logged in to the default root organization.
 
 {{< link-card
   title="Organizations"
@@ -93,11 +93,11 @@ Here you can see the login to the *sampleOrga* organization.
 
 {{< /tab >}}
 {{< tab "📱 Create App" >}}
-In Oakestra there are applications, services and namespaces. One Application can encompass multiple services and one user can create
-multiple applications on one system. Namespaces allow you to create applications and services by the same name in different namespaces,
-e.g. `production` and `development`.
+In Oakestra, there are applications, services, and namespaces. One application can encompass multiple services, and one user can create
+multiple applications on one system. Namespaces allow you to create applications and services with the same name in different namespaces,
+e.g., `production` and `development`.
 
-First you will have to create an application. Choose a concise name, the namespace and optionally a description.
+First, you will have to create an application. Choose a concise name, the namespace, and optionally a description.
 
 ![](create-app.gif)
 {{< /tab >}}

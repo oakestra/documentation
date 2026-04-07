@@ -1,6 +1,6 @@
 ---
-title: "Deploy your first App"
-description: "Deploy your first Oakestra Application"
+title: "Deploy Your First App"
+description: "Deploy your first Oakestra application."
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
