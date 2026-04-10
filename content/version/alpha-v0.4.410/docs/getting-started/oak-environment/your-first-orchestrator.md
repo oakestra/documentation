@@ -2,7 +2,7 @@
 title: "Create a Single-Node Cluster"
 summary: ""
 draft: false
-weight: 102020000
+weight: 010102020000
 toc: true
 seo:
   title: "" # custom title (optional)

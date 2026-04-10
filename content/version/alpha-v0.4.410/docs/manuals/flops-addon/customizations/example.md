@@ -2,7 +2,7 @@
 title: "Example Projects"
 summary: ""
 draft: false
-weight: 309040300
+weight: 010309040300
 toc: true
 seo:
   title: "" # custom title (optional)

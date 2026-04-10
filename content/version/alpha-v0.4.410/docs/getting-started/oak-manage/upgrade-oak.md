@@ -2,7 +2,7 @@
 title: "Update or Uninstall your Oakestra Components"
 summary: "A quick guide on how to update your Oakestra Components"
 draft: false
-weight: 103020000
+weight: 010103020000
 toc: true
 seo:
   title: "Update your Oakestra Components" # custom title (optional)

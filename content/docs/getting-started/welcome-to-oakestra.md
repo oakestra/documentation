@@ -2,7 +2,7 @@
 title: "Welcome to Oakestra Docs"
 summary: ""
 draft: false
-weight: 101000000
+weight: 000101000000
 toc: true
 seo:
   title: "welcome to oakestra docs" # custom title (optional)

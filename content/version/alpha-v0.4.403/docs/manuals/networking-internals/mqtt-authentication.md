@@ -2,7 +2,7 @@
 title: "MQTT Authentication"
 summary: ""
 draft: false
-weight: 305060000
+weight: 020305060000
 toc: true
 seo:
   title: "" # custom title (optional)
