@@ -2,7 +2,7 @@
 title: "Add a Cluster"
 summary: ""
 draft: true
-weight: 102040000
+weight: 000102040000
 toc: true
 seo:
   title: "" # custom title (optional)

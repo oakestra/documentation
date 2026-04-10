@@ -2,7 +2,7 @@
 title: "Overlay Network"
 summary: ""
 draft: false
-weight: 303010000
+weight: 000303010000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -12,7 +12,7 @@ seo:
 ---
 
 Let's first understand the different network abstraction layers within Oakestra, as well as the associated address space
-reservations, before we discuss with [semantic addressing](../load-balancing/).
+reservations, before we discuss [semantic addressing](../load-balancing/).
 
 ## Layers
 
