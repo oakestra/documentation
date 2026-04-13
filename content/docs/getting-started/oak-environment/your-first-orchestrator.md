@@ -1,8 +1,8 @@
 ---
-title: "Create your first Oakestra Orchestrator"
+title: "Create a Single-Node Cluster"
 summary: ""
 draft: false
-weight: 000102020000
+weight: 010102020000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -11,52 +11,78 @@ seo:
   noindex: false # false (default) or true
 ---
 
-Let's get you up to speed with the easiest possible setup. You'll be able to run your first Oakestra Orchestrator in a few seconds!
+Let's get you up to speed with the easiest possible setup. You'll be able to run your first Oakestra orchestrator in a few seconds, all on a single device!
 
-{{< callout context="note" title="Did you know?" icon="outline/info-circle" >}}
-You can install all required dependencies for Oakestra setup on your machine using the `oak-cli`. Simply use the command
+### Start the Orchestrators on a Single Machine
 
+In this guide, we'll perform a single-machine setup. This setup is the easiest way to get started with Oakestra, with a single cluster managed by a single machine. To do so, we'll install the **Root Orchestrator**, the **Cluster Orchestrator**, and the **Worker Node** together, as shown in the following figure.
+
+After the orchestrators are up and running, you can add edge devices as workers to your cluster (see: [Add Edge Devices (Workers) to Your Setup](/docs/getting-started/oak-environment/add-edge-devices-workers-to-your-setup/)).
+
+{{< svg-small "deploy-orchestrators" >}}
+
+You can install the **Root** and **Cluster Orchestrator** on a single machine using the following commands:
+
+1) Install the `oak` CLI on your machine:
 ```bash
-oak i fundamentals 
+curl -sfL oakestra.io/oak.sh | bash
 ```
 
-Learn more about installing the `oak-cli` in the [CLI Setup](/docs/getting-started/deploy-app/with-the-cli) page.
-
-{{< /callout >}}
-
-### Startup the Orchestrators in a Single Machine
-
-In this guide, we'll perform a Single Machine Setup. This setup is the easiest way to get started with Oakestra with a single Cluster managed by a single machine. To do so, we'll install the **Root Orchestrator** and the **Cluster Orchestrator** together, as shown in the following figure. 
-
-After the orchestrators are up and running, you can add Edge Devices as workers to your cluster (see: [Add Edge Devices (Workers) to Your Setup](/docs/getting-started/oak-environment/add-edge-devices-workers-to-your-setup/)). 
-
-{{< svg "deploy-orchestrators" >}}
-
-You can install the **Root** and **Cluster Orchestrator** in a single machine using the following command:
-
+2) Perform a full Root + Cluster + Worker installation using:
 ```bash
-curl -sfL oakestra.io/getstarted.sh | sh - 
+oak install full
 ```
 
-This command downloads and runs the Oakestra's docker compose files in `~/oakestra` folder. 
+That's it! You should be good to go now.
+**Take a look at the example below.**
+{{< asciinema key="install" poster="0:15" idleTimeLimit="1">}}
+
+>The installer asks whether to start your worker right away.
+>**If you choose not to start it immediately**, you can do so later using:
+>```
+>oak worker -d
+>```
 
 {{< callout context="note" title="Did you know?" icon="outline/info-circle" >}}
-You can set a multi-cluster infrastructure by installing each **Cluster Orchestrator** on a different machine. 
-Check out [Advanced Oakestra Clusters Setup](/docs/manuals/advanced-cluster-setup) section for more details.
+You can set up a multi-cluster infrastructure by installing each **Cluster Orchestrator** and **Worker Node** on a different machine.
+Check out the [Advanced Oakestra Clusters Setup](../advanced-cluster-setup) section for more details.
 {{< /callout >}}
 
 {{< callout context="caution" title="Network Configuration" icon="outline/alert-triangle">}}
-If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../../../manuals/firewall-configuration)  
+If you run into a restricted network (e.g., on a cloud VM), you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../../../manuals/firewall-configuration)
 {{< /callout >}}
 
-If the startup succeeds, **congratulations! 🎉🎉**
-You're now ready to add your first worker node to your cluster (see: [Add Edge Devices (Workers) to Your Setup](/docs/getting-started/oak-environment/add-edge-devices-workers-to-your-setup/)).
+If the installation command succeeded, you can now check if your cluster is showing up correctly using the command:
+```bash
+oak cluster ls
+```
+
+If your cluster is showing up with one active node, **congratulations! 🎉🎉**
+
+If not, wait a few minutes; the cluster startup might take a while. If still nothing happens, you can refer to the [Troubleshooting Guide](../../../manuals/troubleshooting).
 
 ### Shutdown the Components
 
-To stop your **Root & Cluster** orchestrator components run:
+To stop your **Worker node**, run:
 
 ```bash
-docker compose -f ~/oakestra/1-DOC.yaml down
+oak worker stop
 ```
 
+{{< callout context="note" title="Restart your worker" icon="outline/info-circle" >}}
+If you stop your worker without uninstalling it, you can use the following command to restart it in the background:
+```bash
+oak worker -d
+```
+{{< /callout >}}
+
+To uninstall your **Worker node**, run:
+```bash
+oak uninstall worker
+```
+
+To stop your **Root and cluster**, run:
+
+```bash
+oak uninstall cluster && oak uninstall root
+```

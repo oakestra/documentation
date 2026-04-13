@@ -6,26 +6,336 @@ layout = "index"
     hideVersions = true
 +++
 
+<style>
+  /* ── Hero ─────────────────────────────────────────────── */
+  .oak-hero {
+    text-align: center;
+  }
+  .oak-hero img.oak-logo {
+    width: min(340px, 70%);
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+  .oak-hero .oak-tagline {
+    font-size: 1.35rem;
+    color: var(--bs-secondary-color, #6c757d);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
 
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  /* ── Install box ──────────────────────────────────────── */
+  .oak-install {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bs-code-bg, #f8f9fa);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-family: var(--bs-font-monospace, monospace);
+    font-size: 0.95rem;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .oak-install .oak-install-label {
+    font-family: var(--bs-body-font-family);
+    font-weight: 600;
+    color: #497286;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  [data-bs-theme="dark"] .oak-install {
+    background: #1e2530;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  [data-bs-theme="dark"] .oak-install-label {
+    color: #7ecfe0;
+  }
+  .oak-install code {
+    background: none;
+    padding: 0;
+    color: var(--bs-body-color);
+    word-break: break-all;
+  }
+  [data-bs-theme="dark"] .oak-install code {
+    color: #e2e8f0;
+  }
+  .oak-copy-btn {
+    background: none;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.35rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #497286;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  [data-bs-theme="dark"] .oak-copy-btn {
+    color: #7ecfe0;
+    border-color: rgba(126,207,224,.35);
+  }
+  .oak-copy-btn:hover { background: #497286; color: #fff; }
 
+  .oak-cta-row {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .oak-btn {
+    display: inline-block;
+    padding: 0.55rem 1.4rem;
+    border-radius: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .oak-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+  .oak-btn-primary {
+    background: #497286;
+    color: #fff !important;
+    border: 1.5px solid #497286;
+  }
+  .oak-btn-primary:hover { background: #3c5d6e; border-color: #3c5d6e; }
+  .oak-btn-outline {
+    background: transparent;
+    color: #497286 !important;
+    border: 1.5px solid #497286;
+  }
+  .oak-btn-outline:hover { background: #497286; color: #fff !important; }
 
-<div class="mx-auto">
-<section class="header-logo">
-    <div name="logo-container">
-        <img src="img/logo/color-full.png" class="logo" style="width: 90%;">
-    </div>
-    <div class="logo-text">
-        THE Orchestration Framework for all your Edge Computing needs!
-    </div>
+  /* ── Divider ──────────────────────────────────────────── */
+  .oak-divider {
+    border: none;
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    margin: 3rem auto;
+    max-width: 800px;
+  }
+
+  /* ── Features ─────────────────────────────────────────── */
+  .oak-section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .oak-section-subtitle {
+    text-align: center;
+    color: var(--bs-secondary-color, #6c757d);
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .oak-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .oak-feature-card {
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.6rem;
+    padding: 1.4rem 1.25rem;
+    background: var(--bs-body-bg);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .oak-feature-card:hover {
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    transform: translateY(-2px);
+  }
+  .oak-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    color: #497286;
+  }
+  [data-bs-theme="dark"] .oak-feature-icon { color: #7ecfe0; }
+  .oak-feature-icon svg { width: 22px; height: 22px; flex-shrink: 0; display: block; }
+  .oak-feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+  }
+  .oak-feature-card p {
+    font-size: 0.88rem;
+    color: var(--bs-secondary-color, #6c757d);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ── Link cards ───────────────────────────────────────── */
+  .oak-link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+  .oak-link-card {
+    border: 1.5px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.6rem;
+    padding: 1.5rem 1.25rem;
+    text-decoration: none !important;
+    background: var(--bs-body-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    color: inherit !important;
+  }
+  .oak-link-card:hover {
+    border-color: #497286;
+    box-shadow: 0 4px 18px rgba(73,114,134,.14);
+    transform: translateY(-2px);
+  }
+  .oak-link-card .oak-link-icon {
+    display: flex;
+    justify-content: center;
+    color: #497286;
+  }
+  [data-bs-theme="dark"] .oak-link-card .oak-link-icon { color: #7ecfe0; }
+  .oak-link-card .oak-link-icon svg { width: 22px; height: 22px; display: block; }
+  .oak-link-card .oak-link-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #497286;
+  }
+  .oak-link-card .oak-link-desc {
+    font-size: 0.85rem;
+    color: var(--bs-secondary-color, #6c757d);
+    line-height: 1.5;
+  }
+  .oak-link-card .oak-link-arrow {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #497286;
+  }
+</style>
+
+<!-- ── Hero ──────────────────────────────────────────────────── -->
+<section class="oak-hero">
+  <img src="img/logo/color-full.png" alt="Oakestra" class="oak-logo" data-bs-theme-src-dark="img/logo/logo_dark.png">
+
+  <p class="oak-tagline">
+    A lightweight orchestration framework for deploying containerized workloads across the edge&#8209;cloud continuum.
+  </p>
+
+  <!-- Install box -->
+  <div class="oak-install">
+    <span class="oak-install-label">Get Started</span>
+    <code id="oak-cmd">curl -sfL oakestra.io/oak.sh | bash</code>
+    <button class="oak-copy-btn" onclick="(function(b){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('oak-cmd').textContent).then(function(){var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},1500)})})(this)">Copy</button>
+  </div>
+
+  <div class="oak-cta-row">
+    <a href="/docs/getting-started/welcome-to-oakestra-docs/" class="oak-btn oak-btn-primary">Read the docs</a>
+    <a href="https://github.com/oakestra/oakestra" class="oak-btn oak-btn-outline" target="_blank" rel="noopener">GitHub</a>
+  </div>
 </section>
 
-<div style="padding-top: 20%; ">&nbsp</div>
+<hr class="oak-divider">
+
+<!-- ── Features ──────────────────────────────────────────────── -->
+<h2 class="oak-section-title">Why Oakestra?</h2>
+<p class="oak-section-subtitle">Oakestra provides everything you need to run distributed applications reliably — from small edge devices to powerful cloud servers.</p>
+
+<div class="oak-features">
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- layers / cloud-edge -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <h3>Edge-Cloud Native</h3>
+    <p>Minimal overhead designed for constrained edge hardware, while staying fully compatible with the cloud-native ecosystem.</p>
+  </div>
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- layout dashboard -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+    </div>
+    <h3>Efficient App Management</h3>
+    <p>Deploy and control microservices via a powerful REST API, intuitive CLI, or a web dashboard — all from a single control plane.</p>
+  </div>
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- puzzle / plug -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M8 6H4a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1v2a2 2 0 0 0 4 0v-2h6v2a2 2 0 0 0 4 0v-2h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-4M12 2h0M16 6h-4"/><line x1="12" y1="2" x2="12" y2="6"/></svg>
+    </div>
+    <h3>Extensible by Design</h3>
+    <p>Plug in custom scheduling algorithms, orchestration policies, addons, and hooks without touching the core.</p>
+  </div>
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- network / share -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><line x1="15.58" y1="6.34" x2="8.42" y2="10.66"/><line x1="15.58" y1="17.66" x2="8.42" y2="13.34"/></svg>
+    </div>
+    <h3>Semantic Networking</h3>
+    <p>Service-to-service communication with built-in semantic addressing — no manual IP management across heterogeneous nodes.</p>
+  </div>
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- boxes / containers -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    </div>
+    <h3>Multi-Runtime Support</h3>
+    <p>Run containers, unikernels, and other virtualization technologies side-by-side on the same infrastructure.</p>
+  </div>
+  <div class="oak-feature-card">
+    <div class="oak-feature-icon">
+      <!-- flask / research -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M9 3v7l-4.5 7.5A2 2 0 0 0 6.22 21h11.56a2 2 0 0 0 1.72-3L15 10V3"/><line x1="6.5" y1="16" x2="17.5" y2="16"/></svg>
+    </div>
+    <h3>Research-Backed</h3>
+    <p>Born in academia and deployed in real-world edge testbeds. Featured at top-tier venues including IEEE, ACM, and USENIX.</p>
+  </div>
 </div>
 
+<hr class="oak-divider">
 
+<!-- ── Link cards ─────────────────────────────────────────────── -->
+<h2 class="oak-section-title">Explore</h2>
+<p class="oak-section-subtitle">Dive deeper into the project through documentation, research publications, and the community blog.</p>
 
-
-
-
+<div class="oak-link-cards">
+  <a href="/docs/" class="oak-link-card">
+    <span class="oak-link-icon">
+      <!-- book-open -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </span>
+    <span class="oak-link-title">Documentation</span>
+    <span class="oak-link-desc">Guides, API references, tutorials, and everything you need to build with Oakestra.</span>
+    <span class="oak-link-arrow">Browse docs &rarr;</span>
+  </a>
+  <a href="/research/" class="oak-link-card">
+    <span class="oak-link-icon">
+      <!-- microscope / research -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+    </span>
+    <span class="oak-link-title">Research</span>
+    <span class="oak-link-desc">Peer-reviewed papers, presentations, and datasets published by the Oakestra team.</span>
+    <span class="oak-link-arrow">See publications &rarr;</span>
+  </a>
+  <a href="/blog/" class="oak-link-card">
+    <span class="oak-link-icon">
+      <!-- file-pen / blog -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    </span>
+    <span class="oak-link-title">Blog</span>
+    <span class="oak-link-desc">Updates, deep-dives, and stories from the community building on Oakestra.</span>
+    <span class="oak-link-arrow">Read posts &rarr;</span>
+  </a>
+</div>

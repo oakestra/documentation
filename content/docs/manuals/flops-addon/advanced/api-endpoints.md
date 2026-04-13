@@ -2,7 +2,7 @@
 title: "FLOps API Endpoints"
 summary: ""
 draft: false
-weight: 000309050100
+weight: 010311050100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -47,6 +47,3 @@ Otherwise, the entire FLOps management suite needs a restart.
 It returns a confirmation.
 
 
-{{< callout context="note" icon="outline/first-aid-kit" >}}
-  You don't need to remember these endpoints - [the oak-cli has you covered](/docs/manuals/cli/features/flops-addon/)!
-{{< /callout >}}

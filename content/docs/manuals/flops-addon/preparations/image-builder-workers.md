@@ -2,7 +2,7 @@
 title: "Prepare Image-builder Workers"
 summary: ""
 draft: false
-weight: 000309020200
+weight: 010311020200
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -26,7 +26,7 @@ seo:
 {{< /callout >}}
 
 {{< callout context="note" title="Curious about FLOps' Image Building Process?" icon="outline/settings-question" >}}
-  Explore why and how container images are build in FLOps [here](/docs/concepts/flops/internals/image-building-process).
+  Explore why and how container images are build in FLOps [here](../../../../concepts/flops/internals/image-building-process).
 {{< /callout >}}
 
 On the worker nodes where you wish to do the image building, do the following:
@@ -40,7 +40,7 @@ On the worker nodes where you wish to do the image building, do the following:
   ```
 - Restart the NodeEngine
   - Either run `sudo NodeEngine stop` and then start it up again
-  - Or run `sudo systemctl restart nodeengine.service` 
+  - Or run `sudo systemctl restart nodeengine.service`
 - Verify that the addon is active:
   ```bash
     > sudo NodeEngine config addon

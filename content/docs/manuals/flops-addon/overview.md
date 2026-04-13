@@ -2,7 +2,7 @@
 title: "FLOps Manuals Overview"
 summary: ""
 draft: false
-weight: 000309010000
+weight: 010311010000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -12,7 +12,7 @@ seo:
 ---
 
 {{< callout context="caution" icon="outline/alert-octagon">}}
-  If you want to learn about Federated Learning and FLOps basics have a look at [the concepts](/docs/concepts/flops/overview/).
+  If you want to learn about Federated Learning and FLOps basics have a look at [the concepts](../../../concepts/flops/overview/).
 {{< /callout >}}
 
 
@@ -20,13 +20,13 @@ seo:
 
 {{< link-card
   title="Prepare your system for FLOps"
-  description="Explore the necessary steps and requirements to use FLOps" 
+  description="Explore the necessary steps and requirements to use FLOps"
   href="/docs/manuals/flops-addon/preparations/flops-preparations-overview/"
 >}}
 
 {{< link-card
   title="Running a FLOps Project"
-  description="Follow a step-by-step guide to create a trained FL model and inference server" 
+  description="Follow a step-by-step guide to create a trained FL model and inference server"
   href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
 >}}
 

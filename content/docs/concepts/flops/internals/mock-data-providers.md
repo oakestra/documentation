@@ -2,7 +2,7 @@
 title: "Mock Data Providers"
 summary: ""
 draft: false
-weight: 000205030300
+weight: 010206030300
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -13,7 +13,7 @@ seo:
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
   "Mocking" data for training requires a basic understanding of how FLOps manages ML data on learner nodes.
-  Ensure you have read the [respective documentation](/docs/concepts/flops/internals/ml-data-management/).
+  Ensure you have read the [respective documentation](../ml-data-management/).
 {{< /callout >}}
 
 FLOps provides a mock data provider (**MDP**) service *(container image)* that helps newcomers or those without access to edge devices to get started quickly and use FLOps, e.g., on a single machine.
@@ -53,7 +53,7 @@ To deploy an MDP you have to send an API request to the FLOps manager with a fit
 The POST endpoint is: `/api/flops/mocks`
 
 {{< callout context="note" title="Make mocking data easy" icon="outline/info-circle" >}}
-  The `oak-cli` provides predefined MDP SLAs and can deploy them for you with a single [command](/docs/manuals/cli/features/flops-addon/#oak-addon-flops-mock-data-m).
+  With the `oak-cli` you can deploy predefined MDP SLAs and can deploy them for you with a single [command](../../../../manuals/flops-addon/flops-project-workflow/stages/stage-0-preparation/).
 {{< /callout >}}
 
 ## Architecture

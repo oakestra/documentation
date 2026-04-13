@@ -2,7 +2,7 @@
 title: "Creating Addons"
 summary: ""
 draft: false
-weight: 000307030000
+weight: 010307030000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -64,16 +64,20 @@ Where:
 - **services**: Defines the service(s) required by the addon.
 - **volumes/networks**: Specifies optional configurations for data persistence or connectivity.
 
+To make the addon available for other in the Oakestra ecosystem, publish it to the addons marketplace by selecting "Add New Addon" and then filling out the form. Alternatively you can paste the raw JSON document.
 
-To make the addon available for others in the Oakestra ecosystem, publish it to the addons marketplace by sending a `POST` request with the JSON descriptor to the addons marketplace API `/api/v1/marketplace/addons`.
+![create](pngs/create.png)
 
 The addons marketplace will validate the descriptor. Once approved, the addon will be marked as `approved` and become available for installation.
 
+{{< details "With the API" >}}
+Publish an addon by sending a `POST` request with the JSON descriptor to the addons marketplace API `/api/v1/marketplace/addons`.
+{{< /details >}}
 
 {{< callout context="note" title="Plugins" icon="outline/info-circle" >}}
 To create a service that would replace a component inside Oakestra (i.e. a [Plugin](../../../concepts/oakestra-extensions/addons)), the service name should match the name of that component. 
 
-For instance, to replace the scheduler component the service would have to be called by its exact name `cloud_scheduler`.
+For instance, to replace the scheduling component at the cluster the service would have to be called by its exact name `cluster_scheduler`.
 Note the difference between a service and an addon, is that an **addon may contain multiple services**.
 
 {{< /callout >}}
