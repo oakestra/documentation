@@ -15,6 +15,10 @@ Let's get you up to speed with the easiest possible setup. You'll be able to run
 
 ### Start the Orchestrators on a Single Machine
 
+{{< callout context="caution" title="System Requirements" icon="outline/alert-triangle">}}
+Make sure you first check the system requirements [here](../high-level-setup-overview).
+{{< /callout >}}
+
 In this guide, we'll perform a single-machine setup. This setup is the easiest way to get started with Oakestra, with a single cluster managed by a single machine. To do so, we'll install the **Root Orchestrator**, the **Cluster Orchestrator**, and the **Worker Node** together, as shown in the following figure.
 
 After the orchestrators are up and running, you can add edge devices as workers to your cluster (see: [Add Edge Devices (Workers) to Your Setup](/docs/getting-started/oak-environment/add-edge-devices-workers-to-your-setup/)).

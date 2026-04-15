@@ -18,225 +18,122 @@ seo:
   noindex: false # false (default) or true
 ---
 
-We are proud to announce that Oakestra v0.4.301 (codename: **Accordion** 🪗) is here! *This is also the first major release for Oakestra and marks the beginning of a periodic release cycle.*
-
-Here are the new features introduced in this version!
+We are proud to announce that Oakestra Conga 🪘 (v0.4.410) is here! *This is the third major release of Oakestra and the rhythm of the new features will have you dancing!*
 
 {{< card-grid >}}
-{{< link-card description="Unikraft meets Oakestra!" href="#unikraft-meets-oakestra" >}}
-{{< link-card description="Oakestra semantic overlay networking now speaks IPv6" href="#oakestra-semantic-overlay-networking-now-speaks-ipv6" >}}
-{{< link-card description="Dashboard service logs" href="#dashboard-service-logs" >}}
-{{< link-card description="Orchestrator Grafana alerts and cluster logs" href="#orchestrator-grafana-alerts-and-cluster-logs" >}}
+{{< link-card description="A new CLI" href="#new-cli" >}}
+{{< link-card description="New Installation Procedure" href="#new-installation-procedure" >}}
+{{< link-card description="Storage Drivers" href="#storage-drivers" >}}
+{{< link-card description="Revamped Schedulers" href="#service-scheduling-redefined" >}}
 {{< /card-grid >}}
 
 {{< card-grid >}}
-{{< link-card description="One-shot service deployment" href="#one-shot-service-deployment" >}}
-{{< link-card description="Quick way to start your Oakestra cluster" href="#quick-way-to-start-your-oakestra-cluster" >}}
-{{< link-card description="Resource abstractor" href="#resource-abstractor-part-one" >}}
-{{< link-card description="Community Activities" href="#community-activities" >}}
+{{< link-card description="Marketplace and Addons Dashboard" href="#a-new-look-for-your-addons" >}}
+{{< link-card description="CrossVM Compatibility" href="#cross-vm-compatibility" >}}
+{{< link-card description="Dashboard SLA Editor" href="#dashboard-deployment-descriptor" >}}
+{{< link-card description="A Step Closer to a Production Release" href="#a-step-closer-to-a-production-release" >}}
 {{< /card-grid >}}
 
-## Unikraft meets Oakestra!
 
-![unikraft logo](Unikraft_Logo.png)
+# New CLI
 
-A new deployment type, `unikernel` is now available for your deployments.
+![oakestra-cli](oakestra-cli.png)
 
-In the code section, you can now provide the link to an OCI image for containers as well as the link to a .tar.gz file for unikernel deployments (e.g., `http://<hosting-url-and-port>/nginx_amd64.tar.gz`).
+The CLI is now the default way to install and interact with your Oakestra installation. The new CLI is a simple binary that gets installed with a single command: `curl -sfL oakestra.io/oak.sh | bash`
 
-If a unikernel image is provided you need to add the architecture selector based on the kernel file compatibility. E.g., `"arch": ["amd64"]`, this way the scheduler will place the image only on `amd64` machines with an active unikernel runtime.
+From here you can:
 
-Try out this deployment descriptor to deploy your first [unikraft](unikraft.org) powered Nginx service.
-
-```json
-{
-      "microservices": [
-        {
-          "microserviceID": "",
-          "microservice_name": "nginx",
-          "microservice_namespace": "nginx",
-          "virtualization": "unikernel",
-          "cmd": [""],
-          "memory": 400,
-          "vcpus": 1,
-          "vgpus": 0,
-          "vtpus": 0,
-          "code": "https://github.com/oakestra/oakestra/releases/download/alpha-v0.4.301/nginx_amd64.tar.gz",
-          "arch": [
-            "amd64"
-          ],
-          "state": "",
-          "port": "80:80",
-          "addresses": {},
-          "added_files": [],
-          "constraints": []
-        }
-    ]
-}
-```
-
-{{< callout context="tip" title="Empower your setup with unikernels" icon="outline/info-circle" >}}
-To enable a unikraft capable worker node in your cluster, you simply need to:
-
-- Install KVM
-- Run your node engine as usual but using the `-u=true`. E.g., `sudo NodeEngine -n 6000 -p 10100 -a <Cluster Orchestrator IP Address> -u=true`
-
-{{< /callout >}}
+- 📀 Manage your Oakestra components installation
+- 📡 Check your cluster status
+- 📲 Create and remove applications
+- 📈 Create, scale, remove services
+- 📊 Monitor deployment status and service information (such as deployment failures, logs, resource usage, and more!)
+- 🤖 You can even use Claude AI to solve your Oakestra setup problems
 
 
-A general unikraft unikernel tar file should be composed as follows:
+### Check how `oak doctor` can verify your installation
 
-```bash
-mytar.tar.gz
-|
-|- kernel  (your unikraft kernel file)
-|- files1/ (a folder containing additional files you need)
-```
+<div style="width:50em;margin-right:auto;margin-left:auto">
+{{< asciinema key="doctor" theme="dracula" poster="0:10" autoPlay="false" loop="false" startAt="0:5" idleTimeLimit="2" >}}
+</div>
 
-## Oakestra semantic overlay networking now speaks IPv6
+{{< callout context="note" title="Did you know?" icon="outline/rocket">}}
 
-The semantic overlay network has been extending to support up to 30 balancing policies in parallel thanks to the new IPv6 implementation. This also enables the provisioning of bigger clusters of resources with up to `2^113` worker nodes.
+You can use Claude AI 🤖 to help you troubleshooting your infrastructure!
 
-To provision a round robin IPv6 address to your service you can use the `rr_ip_v6` keyword in your deployment descriptor as follows:
+- Configure the Claude Oakestra Doctor skill using `oak config claude`
+- Then use `oak doctor <component>` command with the `--ai-troubleshoot` flag and let Claude handle the rest.
 
-```json
-{
-    "microserviceID": "",
-    "microservice_name": "nginx",
-    "microservice_namespace": "test",
-    "virtualization": "container",
-    "cmd": [],
-    "memory": 100,
-    "vcpus": 1,
-    "vgpus": 0,
-    "vtpus": 0,
-    "bandwidth_in": 0,
-    "bandwidth_out": 0,
-    "storage": 0,
-    "code": "docker.io/library/nginx:latest",
-    "state": "",
-    "port": "",
-    "addresses": {
-        "rr_ip": "10.30.55.55",
-        "rr_ip_v6": "fdff:2000::55:55"
-    },
-    "added_files": [],
-    "constraints": []
-}
-```
+Check out the troubleshooting [wiki](/docs/manuals/troubleshooting-guide/).
 
-{{< callout context="note" title="Note" icon="outline/info-circle" >}} IPv6 round robin addresses must all be part of the subnetwork `fdff:2000::`, same way as IPv4 round robin addresses must be part of the `10.30.0.0` subnetwork.
-{{< /callout >}}
+ {{< /callout >}}
 
-## Dashboard service logs
+# New Installation Procedure
 
-![image](service-logs.png)
+Thanks to the new CLI, installing Oakestra has never been easier! Check this out ⬇︎
 
-The service status page of your dashboard now provides the `stdout`and `stderr` streams of your instances.
+<div style="width:50em;margin-right:auto;margin-left:auto">
+{{< asciinema key="install" theme="dracula" poster="0:10" autoPlay="true" loop="true" startAt="0:5" idleTimeLimit="2" >}}
+</div>
 
-## Orchestrator Grafana alerts and cluster logs
+Check out the [installation wiki](http://localhost:55514/docs/getting-started/oak-environment/create-a-single-node-cluster/) for a quick installation and the [advanced setup guide](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/) to unleash the full potential of Oakestra.
 
-![image](grafana.png)
+# Storage Drivers
 
-Your root orchestrator and cluster orchestrator now expose a Grafana dashboard showing the current control plane status, logs, and alerts.
+![csi](csi.png)
 
-Access it via:
-- From the frontend click the `Infrastructure Dashboard` button
-- Or directly at
-    - `<root_orchestrator_ip>:3000` for the root dashboard
-    - `<cluster_orchestrator_ip>:3001` for the cluster dashboard
+This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/).
 
-{{< callout context="note" title="Note" icon="outline/info-circle" >}}
-1-DOC deployments will only expose a unique root-cluster dashboard at `<root_orchestrator_ip>:3000`
-{{< /callout >}}
+# Service Scheduling Redefined
 
-## One-shot service deployment
+Oakestra Conga introduces a redefined concept for task scheduling. Resources and aggregation strategies are now fully generalized, making schedulers swappable across root and cluster components.
 
-You can now deploy one-shot services, as instances that are executed then are marked as completed when the execution ends without triggering a re-deployment. Simply add the `"one_shot": true` key-word to your deployment descriptor.
+![scheduling](scheduling.png)
 
-![image](service-deployment.png)
+If you're doing research on task scheduling, you can now customize, implement and replace scheduling strategies at the root and cluster level with minimal effort!
 
-For example, a `curl` one-shot client looks like this:
+Check out the new [Resource Management wiki](/docs/concepts/resource-management/#canonical-resources) to find out how scheduling and resource management have changed. If you want to implement a new scheduler for Oakestra, check out the [scheduler component README](https://github.com/oakestra/oakestra/tree/develop/scheduler).
 
-```json
-{
-      "microservices" : [
-        {
-          "microserviceID": "",
-          "microservice_name": "curl",
-          "microservice_namespace": "test",
-          "virtualization": "container",
-          "cmd": ["sh", "-c", "curl 10.30.55.55 ; sleep 5"],
-          "memory": 100,
-          "vcpus": 1,
-          "vgpus": 0,
-          "vtpus": 0,
-          "bandwidth_in": 0,
-          "bandwidth_out": 0,
-          "storage": 0,
-          "code": "docker.io/curlimages/curl:7.82.0",
-          "state": "",
-          "port": "",
-          "added_files": [],
-          "one_shot": true,
-          "constraints":[]
-        },
-        ...
-    ]
-}
-```
+# A New Look for Your Addons
 
-## Quick way to start your Oakestra cluster
+![addons](addons.png)
 
-Now you can kickstart start a full [1-DOC Cluster](https://www.oakestra.io/docs/getstarted/get-started-cluster/#setup-1-doc-1-device-one-cluster) using a single command:
+The new addons dashboard allows you to easily manage:
 
-```bash
-curl -sfL oakestra.io/getstarted.sh | sh -
-```
+- [Addons](/docs/manuals/extending-oakestra/installing-addons/) by connecting to your local marketplace instance and installing your preferred ones.
+- [Hooks](/docs/manuals/extending-oakestra/setting-up-hooks/) via a dedicated UI interface.
+- [Custom Resources](/docs/manuals/extending-oakestra/creating-custom-resources/) for both creation and management operations.
 
-## Resource abstractor (part one)
+![marketplace](marketplace.png)
 
-We'll slowly abstract the concept of worker or cluster to a general aggregation of resoruces and capabilities. This will enable more general schedulers, which will be easier to replace and improve.
+If the marketplace dashboard is reachable from your network, a link will appear in your Oakestra Dashboard!
 
-The first step is the `root resource abstractor` component, which gathers the capabilities of a cluster and exposes a standardized interface to the root scheduler.
+# Cross VM Compatibility
 
-In upcoming releases, we'll bring this component to the cluster as well, making the scheduler components finally interchangeable and pluggable.
+Oakestra Conga now enables seamless workloads across different virtual machine environments, providing greater flexibility for edge deployments.
 
-## Community Activities
+# Dashboard Deployment Descriptor
 
-### Oakestra as feature education tool in the University of Helsinki 🇫🇮
+The SLA uploader in the dashboard now supports in-line editing.
 
-![hqdefault](oak-uh.png)
+![dashboard](sla-upload.png)
 
-Oakestra was invited as default framework in the course "Networked AI Systems" offered in the University of Helsinki. [Giovanni Bartolomeo](https://www.giovannibartolomeo.it/) gave a guest lecture to an audience of 80+ students and the students were invited to use Oakestra to build various edgeAI applications and usecases.
+Additionally, you can provide the same SLAs as your CLI and APIs, provided that the application name and namespace match the application you're providing the SLA for.
 
-{{< link-card title="Watch the complete video recording of the lecture" href="https://youtu.be/zXekRd9GveQ" >}}
+# A Step Closer to a Production Release
 
-### Oakestra was inivited to IETF 119 in Australia 🇦🇺
+This release introduces plenty of under-the-hood improvements for system stability, bringing the platform one step closer to production readiness. You can check the full changelog [here](https://github.com/oakestra/oakestra/releases/tag/v0.4.410).
 
-Internet Engineering Task Force (IETF) is a standards organization for the Internet and is responsible for the technical standards that make up the Internet. Oakestra was invited to attend the **Exposure of Network and Compute information to Support Edge Computing Applications** [side-meeting](https://github.com/communication-compute-exposure/ietf-side-meetings/tree/main/ietf-119-side-meeting) to showcase how applications can be accelerated within Oakestra by sharing internal QoS metrics.
-
-{{< link-card title="Oakestra in IETF 117" description="Oakestra was also presented at COINRG in IETF 117. See the presentation here." href="https://youtu.be/HVfKAzE_wsY?t=2678" >}}
-
-Oakestra was well-appreciated by the IETFers and is making strides as leading orchestration framework for managing edge computing applications and infrastructures.
-
-{{< callout context="tip" title="Stay tuned for more" icon="outline/rocket" >}}
-Oakestra developers are hard at work on the next release, which will include several new features and improvements, such as:
-
-- More simplified startup process including porting to `systemd`
-- Federated Learning workloads support via FLOps
-- Plugin interface and Okaestra plugin marketplace
-- Gateway component for external workloads
-- K8s cluster integration
-- ... and more
-{{< /callout >}}
+Get in touch with us and help us grow stronger. We've got plenty of open issues and exciting problems to work on.
 
 #### Acknowledgments:
 
-Many thanks to our new contributors for this release:
+Many thanks to the contributors for this release:
 
-- [@smnzlnsk](https://github.com/smnzlnsk)
-- [@Sabanic-P](https://github.com/Sabanic-P)
-- [@Malyuk-A](https://github.com/Malyuk-A)
+- [@Mjaethers](https://github.com/Mjaethers)
+- [@axiphi](https://github.com/axiphi)
+- [@HMF2475](https://github.com/HMF2475)
 - [@melkodary](https://github.com/melkodary)
-- [@TheDarkPyotr](https://github.com/TheDarkPyotr)
+- [@smnzlnsk](https://github.com/smnzlnsk)
+- [@giobart](https://github.com/giobart)
+- [@nitindermohan](https://github.com/nitindermohan)
