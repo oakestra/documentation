@@ -28,16 +28,16 @@ Oakestra is built from the ground up to support the computational flexibility of
 {{< card title="Edge-Cloud Native" icon="filled/feather" color="yellow" >}}
 Oakestra prioritizes minimal overhead to address the computational, storage, and network limitations of edge nodes to unlock the full potential of the edge-cloud continuum.
 
-- [Set up your first Oakestra environment](../oak-environment/high-level-view/)
+- [Set up your first Oakestra environment](../oak-environment/high-level-setup-overview/)
 {{< /card >}}
 
 {{< card title="Efficient App Management" icon="outline/layout-dashboard" color="blue" >}}
 Take full control of your microservices with Oakestra's powerful API and intuitive management tools.
 
-- [Oakestra CLI](../deploy-app/deploy-cli/)
-- [Oakestra Dashboard](../deploy-app/deploy-dashboard/)
-- [Oakestra API](../../reference/api/deploy-api/)
-- [Application Catalog](../manuals/app-catalog/example-applications/)
+- [Oakestra CLI](../deploy-app/with-the-cli/)
+- [Oakestra Dashboard](../deploy-app/with-the-dashboard/)
+- [Oakestra API](../../reference/api/deploy-an-app-with-the-api/)
+- [Application Catalog](../../manuals/app-catalog/example-applications/)
 
 {{< /card >}}
 
@@ -49,13 +49,13 @@ Designed with a plug-and-play approach, Oakestra supports customizable orchestra
 
 - [Addons](../../concepts/oakestra-extensions/addons/)
 - [Hooks](../../concepts/oakestra-extensions/hooks/)
-- [Custom Resources](../../concepts/oakestra-extensions/custom_resources/)
+- [Custom Resources](../../concepts/oakestra-extensions/custom-resources/)
 {{< /card >}}
 
 {{< card title="Bleeding-Edge Features" icon="outline/adjustments-star" color="red" >}}
 Leverage several innovative techniques Oakestra uses to make your applications edge-cloud efficient.
 
-- [Multi-Virtualization Support](../../manuals/execution-runtimes/supported-runtimes/)
+- [Multi-Virtualization Support](../../manuals/execution-runtimes/supported-virtualization-runtimes/)
 - [Semantic Networking](../../concepts/networking/)
 - [Federated Machine Learning Support](../../concepts/flops/overview/)
 
