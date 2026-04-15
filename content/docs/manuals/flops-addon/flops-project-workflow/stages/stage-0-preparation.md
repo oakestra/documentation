@@ -2,7 +2,7 @@
 title: "Stage 0: Preparation"
 summary: ""
 draft: false
-weight: 10311030201
+weight: 010311030201
 toc: true
 seo:
   title: "" # custom title (optional)
