@@ -105,7 +105,7 @@ First, you will have to create an application. Choose a concise name, the namesp
 
 {{< tab "💽 Create Services" >}}
 
-if you used the [CLI](../with-the-cli) you are already familiar with the SLAs.
+If you used the [CLI](../with-the-cli) you are already familiar with the SLAs.
 While the dashboard still allows you to upload SLAs as a JSON file, it also provides you with an interactive form.
 
 Once you have created an application you can create services. Once again you will have to choose a concise name, a namespace and optionally a description.
