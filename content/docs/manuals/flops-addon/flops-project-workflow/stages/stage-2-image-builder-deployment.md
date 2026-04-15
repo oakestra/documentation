@@ -2,7 +2,7 @@
 title: "Stage 2: Image-Builder Deployment"
 summary: ""
 draft: false
-weight: 010311030203
+weight: 10311030203
 toc: true
 seo:
   title: "" # custom title (optional)

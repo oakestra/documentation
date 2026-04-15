@@ -1,11 +1,11 @@
 ---
-title: "FLOps Project Workflow"
-description: "Explore how to execute a FLOps project"
+title: "CLI Features"
+description: "Explore the advanced features offered by the Oakestra CLI"
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
 draft: false
-weight: 10311030000
+weight: 10308020000
 toc: false
 sidebar:
   collapsed: true
