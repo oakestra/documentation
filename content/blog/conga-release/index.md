@@ -126,6 +126,85 @@ This release introduces plenty of under-the-hood improvements for system stabili
 
 Get in touch with us and help us grow stronger. We've got plenty of open issues and exciting problems to work on.
 
+
+{{< rawhtml >}}
+<style>
+  @keyframes conga-shake {
+    0%   { transform: rotate(0deg) scale(1); }
+    10%  { transform: rotate(-12deg) scale(1.05); }
+    25%  { transform: rotate(12deg) scale(1.08); }
+    40%  { transform: rotate(-10deg) scale(1.05); }
+    55%  { transform: rotate(10deg) scale(1.08); }
+    70%  { transform: rotate(-6deg) scale(1.03); }
+    85%  { transform: rotate(6deg) scale(1.03); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+  #conga-egg-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0 2rem 0;
+    user-select: none;
+  }
+  #conga-egg {
+    height: 110px;
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition: filter 0.2s;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+  }
+  #conga-egg:hover {
+    filter: drop-shadow(0 6px 18px rgba(200,120,0,0.35));
+  }
+  #conga-egg.shaking {
+    animation: conga-shake 0.45s ease-in-out;
+  }
+  #conga-hint {
+    margin-top: 0.55rem;
+    font-size: 0.82rem;
+    color: #a07030;
+    letter-spacing: 0.03em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    min-height: 1.2em;
+  }
+</style>
+<div id="conga-egg-wrap">
+  <img id="conga-egg" src="conga-icon.svg" alt="Conga drum – click me!" title="Click me..." />
+  <span id="conga-hint"></span>
+</div>
+<script>
+(function () {
+  var egg = document.getElementById('conga-egg');
+  var hint = document.getElementById('conga-hint');
+  var clicks = 0;
+  var hints = ['🥁 Again…', '🥁 One more!', '🎵 Here we go!'];
+
+  egg.addEventListener('click', function () {
+    egg.classList.remove('shaking');
+    void egg.offsetWidth; // force reflow to restart animation
+    egg.classList.add('shaking');
+    clicks++;
+
+    if (clicks <= 3) {
+      hint.style.opacity = '1';
+      hint.textContent = hints[clicks - 1] || '';
+    }
+
+    if (clicks >= 3) {
+      setTimeout(function () {
+        window.location.href = '/oakestra-instruments/';
+      }, 520);
+    }
+  });
+
+  egg.addEventListener('animationend', function () {
+    egg.classList.remove('shaking');
+  });
+})();
+</script>
+{{< /rawhtml >}}
+
 #### Acknowledgments:
 
 Many thanks to the contributors for this release:
