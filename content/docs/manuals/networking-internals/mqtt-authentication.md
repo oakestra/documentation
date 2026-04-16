@@ -41,7 +41,7 @@ The MQTT broker can be configured to only accept incoming secured connection, an
 {{< link-card
   title="Getting Started Guide"
   description="Check out the Getting Started guide to set up your first cluster"
-  href="../../../getting-started/oak-environment/your-first-orchestrator/"
+  href="../../../getting-started/oak-environment/create-a-single-node-cluster/"
   target="_blank"
 >}}
 

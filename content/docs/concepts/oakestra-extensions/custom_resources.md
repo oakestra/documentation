@@ -40,6 +40,6 @@ In Oakestra, a custom controller could be implemented as an [addon](../addons), 
 {{< link-card
   title="Creating Custom Resources"
   description="Read more on how to use custom resources within Oakestra"
-  href="../../../manuals/extending-oakestra/custom_resources"
+  href="../../../manuals/extending-oakestra/creating-custom-resources/"
   target="_blank"
 >}}

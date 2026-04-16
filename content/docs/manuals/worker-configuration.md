@@ -25,7 +25,7 @@ Only the NodeEngine is required to register a worker with a cluster, however the
 {{< link-card
   title="Set up a Worker"
   description="Connect your first worker to an Oakestra cluster"
-  href="../../getting-started/oak-environment/your-first-worker/"
+  href="../../getting-started/oak-environment/create-a-single-node-cluster/"
   target="_blank"
 >}}
 {{< link-card

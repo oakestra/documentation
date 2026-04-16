@@ -81,7 +81,7 @@ In your application descriptor (`SLA`), you can define a volume using the follow
 ```
 
 {{< callout context="tip" title="Check the SLA Specification" icon="outline/alert-triangle" >}}
-You can find [here](../../../reference/app-sla) the full specification for the Oakestra deployment descriptor.
+You can find [here](../../../reference/application-sla-description/) the full specification for the Oakestra deployment descriptor.
 {{< /callout >}}
 
 - `volume_id`: The unique identifier for your volume. If `config.host_path` is not set, this will be used as the folder name for your mount in the system.
