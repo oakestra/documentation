@@ -87,5 +87,5 @@ This will show you if the NodeEngine and NetManager components, the living soul 
 
 
 {{< callout context="caution" title="Something is not working?" icon="outline/alert-triangle">}}
-If something is not working, please check out our [Troubleshooting Guide](../../../manuals/troubleshooting).
+If something is not working, please check out our [Troubleshooting Guide](../../../manuals/troubleshooting-guide).
 {{< /callout >}}
