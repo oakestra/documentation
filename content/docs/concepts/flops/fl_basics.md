@@ -2,7 +2,7 @@
 title: "FL Basics"
 summary: ""
 draft: false
-weight: 010206020000
+weight: 10206020000
 toc: true
 seo:
   title: "" # custom title (optional)

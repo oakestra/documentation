@@ -2,7 +2,7 @@
 title: "FLOps Projects Overview"
 summary: ""
 draft: false
-weight: 110311030100
+weight: 10311030100
 toc: true
 seo:
   title: "" # custom title (optional)

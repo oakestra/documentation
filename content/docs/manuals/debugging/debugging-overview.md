@@ -2,7 +2,7 @@
 title: "How to start debugging?"
 summary: "Debugging in Oakestra"
 draft: false
-weight: 110312010000
+weight: 10312010000
 toc: true
 seo:
   title: "Debugging in Oakestra" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "High-Level Architecture"
 summary: ""
 draft: false
-weight: 010201000000
+weight: 10201000000
 toc: true
 seo:
   title: "" # custom title (optional)

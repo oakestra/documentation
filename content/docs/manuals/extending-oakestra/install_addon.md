@@ -2,7 +2,7 @@
 title: "Installing Addons"
 summary: ""
 draft: false
-weight: 110309020000
+weight: 10309020000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "Check your Installation"
 summary: "Check if your oakestra installation is working"
 draft: false
-weight: 010103010000
+weight: 10103010000
 toc: true
 seo:
   title: "Check your Oakestra Environment" # custom title (optional)

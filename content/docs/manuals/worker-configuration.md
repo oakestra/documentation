@@ -2,7 +2,7 @@
 title: "Worker Configuration"
 summary: ""
 draft: false
-weight: 110302000000
+weight: 10302000000
 toc: true
 seo:
   title: "" # custom title (optional)

@@ -2,7 +2,7 @@
 title: "CSI-Plugins"
 summary: "How to manage container CSI-Plugins in Oakestra Clusters"
 draft: false
-weight: 110310520000
+weight: 10310520000
 toc: true
 seo:
   title: "Manage Container CSI-Plugins in Oakestra"

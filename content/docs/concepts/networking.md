@@ -2,7 +2,7 @@
 title: "Networking"
 summary: ""
 draft: false
-weight: 010204000000
+weight: 10204000000
 toc: true
 seo:
   title: "Networking Concepts" # custom title (optional)

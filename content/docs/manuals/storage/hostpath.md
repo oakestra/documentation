@@ -2,7 +2,7 @@
 title: "Volumes"
 summary: "How to manage container volumes in Oakestra Clusters"
 draft: false
-weight: 110310510000
+weight: 10310510000
 toc: true
 seo:
   title: "Manage Container Volumes in Oakestra"

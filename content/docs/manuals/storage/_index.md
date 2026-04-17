@@ -3,7 +3,7 @@ title: "Storage"
 description: "How to manage storage and volumes in Oakestra"
 summary: ""
 draft: false
-weight: 110310500000
+weight: 10310500000
 toc: false
 sidebar:
   collapsed: true

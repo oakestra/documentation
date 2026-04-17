@@ -2,7 +2,7 @@
 title: "Command Line Interface (CLI)"
 summary: ""
 draft: false
-weight: 010405000000
+weight: 10405000000
 toc: true
 seo:
   title: "" # custom title (optional)
