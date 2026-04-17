@@ -72,6 +72,6 @@ When installing an addon, the Addons Engine checks if a similar core component i
 {{< link-card
   title="Installing addons"
   description="Read more on how to use addons within Oakestra"
-  href="../../../manuals/extending-oakestra/installing-addons"
+  href="../../../manuals/extending-oakestra/install_addon"
   target="_blank"
 >}}

@@ -68,7 +68,7 @@ Finally, you can configure the IP of your Oakestra Root Orchestrator:
 oak config set root_orchestrator_address <IP OF YOUR ROOT ORCHESTRATOR>
 ```
 
-For further information about the CLI configuration, see the [CLI Configuration Reference](/docs/reference/cli/oak-config/).
+For further information about the CLI configuration, see the [CLI Configuration Manuals](/docs/manuals/cli/features/configuration).
 
 ### Deploying Your First Application Using the CLI
 

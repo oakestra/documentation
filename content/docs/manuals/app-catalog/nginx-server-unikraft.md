@@ -15,7 +15,7 @@ seo:
 ![Nginx Balancing](balancing-unikraft.png)
 
 {{< callout context="caution" title="Unikernels within Oakestra" icon="outline/alert-triangle">}}
-This guide is (almost) a clone of the containers Nginx client-server applications described in [previous walkthrough](/docs/manuals/app-catalog/nginx-client-server-with-load-balancing/), however, we instead use Unikraft Nginx server. 
+This guide is (almost) a clone of the containers Nginx client-server applications described in [previous walkthrough](/docs/manuals/app-catalog/nginx-sever), however, we instead use Unikraft Nginx server. 
 
 {{< /callout >}}
 

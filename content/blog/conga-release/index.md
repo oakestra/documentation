@@ -76,13 +76,13 @@ Thanks to the new CLI, installing Oakestra has never been easier! Check this out
 {{< asciinema key="install" theme="dracula" poster="0:10" autoPlay="true" loop="true" startAt="0:5" idleTimeLimit="2" >}}
 </div>
 
-Check out the [installation wiki](../../docs/getting-started/oak-environment/create-a-single-node-cluster/) for a quick installation and the [advanced setup guide](../../docs/getting-started/oak-environment/advanced-cluster-setup/) to unleash the full potential of Oakestra.
+Check out the [installation wiki](http://localhost:55514/docs/getting-started/oak-environment/create-a-single-node-cluster/) for a quick installation and the [advanced setup guide](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/) to unleash the full potential of Oakestra.
 
 # Storage Drivers
 
 ![csi](csi.png)
 
-This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](../../docs/getting-started/oak-environment/advanced-cluster-setup/).
+This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/).
 
 # Service Scheduling Redefined
 
@@ -122,7 +122,7 @@ Additionally, you can provide the same SLAs as your CLI and APIs, provided that 
 
 # A Step Closer to a Production Release
 
-This release introduces plenty of under-the-hood improvements for system stability, bringing the platform one step closer to production readiness. You can check the full changelog [here](https://github.com/oakestra/oakestra/releases/tag/alpha-v0.4.410).
+This release introduces plenty of under-the-hood improvements for system stability, bringing the platform one step closer to production readiness. You can check the full changelog [here](https://github.com/oakestra/oakestra/releases/tag/v0.4.410).
 
 Get in touch with us and help us grow stronger. We've got plenty of open issues and exciting problems to work on.
 

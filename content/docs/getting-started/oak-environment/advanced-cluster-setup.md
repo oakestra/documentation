@@ -34,7 +34,7 @@ Here, the instructions on how to install the standalone components and where to 
 
 {{<svg "architecture/Arch-Root">}}
 
-The Root Orchestrator component will manage your clusters. You will interact with the root orchestrator to deploy and manage your applications via the [oak](../../deploy-app/with-the-cli/) terminal command, the [dashboard](../../deploy-app/with-the-dashboard/) or the [APIs](../../../reference/api/deploy-an-app-with-the-api/).
+The Root Orchestrator component will manage your clusters. You will interact with the root orchestrator to deploy and manage your applications via the [oak](../../getting-started/deploy-app/with-the-cli/) terminal command, the [dashboard](../../getting-started/deploy-app/with-the-dashboard/) or the [APIs](../../getting-started/deploy-app/with-the-api/).
 
 #### Installation
 
@@ -131,5 +131,5 @@ If within your cluster network, you prefer an internal address where the cluster
 ---
 
 {{< callout context="caution" title="Network Configuration" icon="outline/alert-triangle">}}
-If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../../../manuals/firewall-configuration)
+If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../firewall-configuration)
 {{< /callout >}}
