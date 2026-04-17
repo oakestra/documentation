@@ -102,7 +102,7 @@ This deployment descriptor example generates one application named *clientserver
 - nginx server with test namespace, namely `clientsrvr.test.nginx.test`
 - curl client with test namespace, namely `clientrvr.test.curl.test`
 
-{{< link-card title="Learn more about the SLA specifications" href="/docs/reference/application-sla-description">}}
+{{< link-card title="Learn more about the SLA specifications" href="/docs/reference/app-sla">}}
 
 ### Login to the APIs
 

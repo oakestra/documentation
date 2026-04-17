@@ -13,7 +13,7 @@ seo:
 
 Having one root orchestrator and one cluster orchestrator on one device is a great way to start using Oakestra, but the true power of the system lies in its federated architecture.
 
-## Deploy Multiple Clusters
+## Install Root, Cluster and Worker Components
 
 This guide will walk you through deploying the stand-alone Oakestra components so you can mix and match them to compose the infrastructure you need. Remember, for a valid Oakestra installation, you need at least: 1x Root Orchestrator 🌳, 1x Cluster Orchestrator 🪾 , and 1x Worker Node 🦾.
 
@@ -34,7 +34,9 @@ Here, the instructions on how to install the standalone components and where to 
 
 {{<svg "architecture/Arch-Root">}}
 
-The Root Orchestrator component will manage your clusters. You will interact with the root orchestrator to deploy and manage your applications via the [oak](../../getting-started/deploy-app/with-the-cli/) terminal command, the [dashboard](../../getting-started/deploy-app/with-the-dashboard/) or the [APIs](../../getting-started/deploy-app/with-the-api/).
+### Create a Root Orchestrator
+
+The Root Orchestrator component will manage your clusters. You will interact with the root orchestrator to deploy and manage your applications via the [oak](../../deploy-app/deploy-cli/) terminal command, the [dashboard](../../deploy-app/deploy-dashboard/) or the [APIs](../../../reference/api/deploy-api/).
 
 #### Installation
 
@@ -55,6 +57,8 @@ oak install root
 {{< tab "🪾 Cluster Orchestrator" >}}
 
 {{<svg "architecture/Arch-Cluster">}}
+
+### Create a Cluster Orchestrator
 
 You can deploy a cluster orchestrator in the same machine as your root or in a separate machine. You can create as many clusters as you need by deploying multiple cluster orchestrators (**each one on a different machine**). This component will manage the worker nodes and reports to the root orchestrator aggregated information about the cluster status.
 
@@ -87,6 +91,8 @@ You can register as many cluster orchestrators with the root orchestrator as you
 {{< tab "🦾 Worker Node" >}}
 
 {{< svg "deploy-worker" >}}
+
+### Create a Worker Node
 
 If you have at least a running **Root Orchestrator** and at least one **Cluster Orchestrator** you can add as many new worker nodes to each cluster as you need.
 

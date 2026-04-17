@@ -27,10 +27,10 @@ The root orchestrator is the centralized control plane that coordinates the part
 The image above illustrates the components of the root orchestrator. Each component operates as an independent service, integrated and managed using the Docker Compose plugin.
 
 * The **System Manager** serves as the primary interface for users to access the system as an application deployment platform. It provides two sets of APIs:
-  1. To receive deployment commands from users via [CLI](../../getting-started/deploy-app/with-the-cli/), [Dashboard](../../getting-started/deploy-app/with-the-dashboard/), or directly via [REST API](../../getting-started/deploy-app/with-the-api/).
+  1. To receive deployment commands from users via [CLI](../../getting-started/deploy-app/deploy-cli/), [Dashboard](../../getting-started/deploy-app/deploy-dashboard/), or directly via [REST API](/docs/reference/api/deploy-api/).
   2. To handle child Oakestra Clusters.
 
-* The **Root Network Component** manages Semantic IP and Instance IP addresses for each service and the cluster's subnetworks. Refer to the Networking [concepts](../networking) and [manuals](../../manuals/networking-internals/semantic-addressing/) for more details.
+* The **Root Network Component** manages Semantic IP and Instance IP addresses for each service and the cluster's subnetworks. Refer to the Networking [concepts](../networking) and [manuals](../../manuals/networking-internals/load-balancing/) for more details.
 
 * The **Addons Engine** manages custom resources, hooks, plugins and extensions that enable flexible customizations to the system. Read more on [extending Oakestra](../oakestra-extensions/addons) here.
 

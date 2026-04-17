@@ -65,7 +65,7 @@ export OVERRIDE_FILES=override-ipv6-enabled.yml
 ```
 
 {{< details "*Click to see an overview of Root Orchestrator overrides*" >}}
-* `override-no-addons.yml`: Disable the [addons](../extending-oakestra/creating-addons) engine and marketplace.
+* `override-no-addons.yml`: Disable the [addons](../extending-oakestra/create_addon/) engine and marketplace.
 * `override-no-dashboard.yml`: Do not deploy the dashboard.
 * `override-no-network.yml`: Exclude network components.
 * `override-ipv6-enabled.yml`: Enable IPv6 for container deployments.
@@ -75,7 +75,7 @@ export OVERRIDE_FILES=override-ipv6-enabled.yml
 {{< details "*Click to see an overview of Cluster Orchestrator overrides*" >}}
 * `override-ipv6-enabled.yml`: Enable IPv6 for container deployments.
 * `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md).
-* `override-mosquitto-auth.yml`: Enable [MQTT Authentication](../networking-internals/MQTT-Authentication).
+* `override-mosquitto-auth.yml`: Enable [MQTT Authentication](../networking-internals/mqtt-authentication/).
 * `override-no-network.yml`: Exclude network components.
 * `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md).
 {{< /details >}}

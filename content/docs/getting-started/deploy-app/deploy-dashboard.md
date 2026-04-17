@@ -38,7 +38,7 @@ You can also manage your infrastructure and deploy/monitor applications using th
 {{< /callout >}}
 
 
-When you start Oakestra using the standard installation scripts (as described in the [Create Your First Oakestra Orchestrator](../../oak-environment/create-your-first-oakestra-orchestrator/) section), **the dashboard is automatically deployed along with the other Oakestra components**.
+When you start Oakestra using the standard installation scripts (as described in the [Create Your First Oakestra Orchestrator](../../oak-environment/your-first-orchestrator) section), **the dashboard is automatically deployed along with the other Oakestra components**.
 
 You don't need to perform any additional steps to deploy the dashboard.
 
@@ -105,7 +105,7 @@ First, you will have to create an application. Choose a concise name, the namesp
 
 {{< tab "💽 Create Services" >}}
 
-If you used the [CLI](../with-the-cli) you are already familiar with the SLAs.
+If you used the [CLI](../deploy-cli) you are already familiar with the SLAs.
 While the dashboard still allows you to upload SLAs as a JSON file, it also provides you with an interactive form.
 
 Once you have created an application you can create services. Once again you will have to choose a concise name, a namespace and optionally a description.

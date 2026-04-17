@@ -109,9 +109,9 @@ FLOps is an [Oakestra Addon](/docs/concepts/oakestra-extensions/addons/) that en
 
 {{< details "**Convenient Installation & native CLI**" >}}
   FLOps can be easily set up by cloning its [repository](https://github.com/oakestra/addon-FLOps) and running the docker-compose file on the same machine as the Oakestra Root Orchestrator.
-  See the [FLOps Manuals](/docs/manuals/flops-addon/flops-overview/) for concrete instructions.
+  See the [FLOps Manuals](/docs/manuals/flops-addon/overview/) for concrete instructions.
 
-  The [Oakestra CLI](/docs/getting-started/deploy-app/with-the-cli/#the-oak-cli) supports a [set of commands](/docs/manuals/cli/features/flops-addon/#oak-addon-flops) to work with FLOps.
+  The [Oakestra CLI](/docs/getting-started/deploy-app/deploy-cli/) supports a [set of commands](/docs/reference/cli/oak_addon_flops/) to work with FLOps.
 {{< /details >}}
 
 As a result, individuals with different levels of expertise in FL, automation, DevOps, containerization, and orchestration can benefit from these techniques and perform FL.
