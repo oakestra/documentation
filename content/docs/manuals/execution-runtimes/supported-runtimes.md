@@ -2,7 +2,7 @@
 title: "Supported Virtualization Runtimes"
 summary: ""
 draft: false
-weight: 308010000
+weight: 10310010000
 toc: true
 seo:
   title: "Supported Virtualization Runtimes" # custom title (optional)
@@ -34,7 +34,7 @@ Currently, Oakestra supports the following virtualization runtimes.
 
 | **Technology**        | **Type**                    | **Description**                                                                                 |
 |-----------------------|-----------------------------|-------------------------------------------------------------------------------------------------|
-| Containerd            | Container Execution Runtime | Ideal for deploying applications that require easy portability and management.                  |
+| Containerd            | Container Execution Runtime | Ideal for deploying OCI compliant applications that require easy portability and management.                  |
 | Unikraft              | Unikernel Execution Runtime | Specialized, lightweight virtual machines that are optimized for high performance and security. |
 | crosvm (experimental) | VM Execution Runtime        | Lightweight virtual machines that allow sharing a GPU between multiple workloads.               |
 
@@ -51,3 +51,82 @@ With Oakestra, you can easily switch between runtimes to find the best fit for y
 >}}
 
 Or continue reading to deploy your unikernel applications with Oakestra.
+
+### Additional OCI compliant runtimes 
+
+Containerd allows any OCI compliant runtime to be used as plugin. This means that you can use any OCI compliant runtime with Oakestra, including:
+- runc
+- runsc 
+- runu 
+
+and many more.
+
+To do so, simply install any compatible runtime on your containerd distirbution. 
+
+{{< callout context="tip" title="How do I install Containerd?" icon="outline/rocket" >}}
+Oakestra installation automatically provides you with a containerd distribution that is compatible with the OCI runtime you choose. 
+{{< /callout >}}
+
+**For example, do you with to install gVisor as secure container runtime?**
+
+1. Add the following configuration in your containerd configuration file:
+```toml {title="/etc/containerd/config.toml"}
+[plugins.cri.containerd.runtimes.runsc]
+  runtime_type = "io.containerd.runsc.v1"
+[plugins.cri.containerd.runtimes.runsc.options]
+  TypeUrl = "io.containerd.runsc.v1.options"
+  ConfigPath = "/etc/containerd/runsc.toml"
+```
+
+2. Install gVisor on your system as usual following the [gVisor installation instructions](https://gvisor.dev/docs/user_guide/install/).
+
+3. Restart the Oakestra node engine. You will notice how the new runtime is automatically detected and available for your applications. 
+
+{{< callout context="tip" title="How do I check the available virtualizations in my cluster?" icon="outline/rocket" >}}
+Using Oakestra root orchestrator APIs you can check the available runtimes in your cluster at the endpoint `http://<root orchestrator address>:10000/api/clusters/`
+
+Check API documentation from our wiki for more details.
+
+{{< /callout >}}
+
+gVisor secure runtime uses the `runsc` runtime type. Therefore, in your application, simply use `runsc` as virtualization type. An Example application configuration is shown below:
+
+```json
+{
+  "sla_version": "v2.0",
+  "customerID": "Admin",
+  "applications": [
+    {
+      "applicationID": "",
+      "application_name": "clientsrvr",
+      "application_namespace": "test",
+      "application_desc": "Simple demo with curl client and Nginx server",
+      "microservices": [
+        {
+          "microserviceID": "",
+          "microservice_name": "nginx",
+          "microservice_namespace": "test",
+          "virtualization": "runsc",
+          "cmd": [],
+          "memory": 100,
+          "vcpus": 1,
+          "vgpus": 0,
+          "vtpus": 0,
+          "bandwidth_in": 0,
+          "bandwidth_out": 0,
+          "storage": 0,
+          "code": "docker.io/library/nginx:latest",
+          "state": "",
+          "port": "",
+          "addresses": {
+            "rr_ip": "10.30.55.55",
+            "rr_ip_v6": "fdff:2000::55:55"
+          },
+          "added_files": []
+        }
+      ]
+    }
+  ]
+}
+```
+

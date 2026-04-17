@@ -2,7 +2,7 @@
 title: "ML Data Management"
 summary: ""
 draft: false
-weight: 206030100
+weight: 010206030100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -17,7 +17,7 @@ FLOps aims to make FL more practical and application-oriented.
 To emphasize this, FLOps requires real data from edge devices or "mocked" data provided in such a way that it could have originated from real devices.
 
 {{< callout context="note" title="Mock Data Providers" icon="outline/info-circle" >}}
-  Find out how to easily 'mock' real devices and data if you don't have access to such devices or want to simply try out FLOps on a single machine [here](/docs/concepts/flops/internals/mock-data-providers/).
+  Find out how to easily 'mock' real devices and data if you don't have access to such devices or want to simply try out FLOps on a single machine [here](../mock-data-providers/).
 {{< /callout >}}
 
 ## Architecture

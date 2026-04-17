@@ -1,11 +1,11 @@
 ---
 title: "Application SLA Description"
-description: "This document describes the details of the Service Level Agreement (SLA) for the application."
+description: "This document describes the details of the Service Level Agreement (SLA) for an application."
 summary: ""
 date: 2023-09-07T16:13:18+02:00
 lastmod: 2023-09-07T16:13:18+02:00
 draft: false
-weight: 501000000
+weight: 990501000000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -18,7 +18,7 @@ seo:
 
 The SLA deployment descriptor is a JSON file that describes the deployment of an application in the Oakestra platform.
 
-An example SLA of application `X` with two microservices `X1` and `X3` can be as follows.
+An example SLA of application `X` with two microservices, `X1` and `X3`, can be as follows:
 
 ```json
 {
@@ -36,12 +36,21 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
           "microservice_name": "X1",
           "microservice_namespace": "default",
           "virtualization": "container",
+          "environment":[],
           "vcpu": 1,
           "storage": 100,
           "code": "docker.io/X/X1",
           "addresses": {
             "rr_ip": "10.30.0.1"
           },
+          "constraints": [],
+          "volumes": [
+            {
+                "volume_id":   "test",
+                "csi_driver":  "csi.oakestra.io/hostpath",
+                "mount_path":  "/app",
+            }
+          ]
         },
         {
           "microserviceID": "",
@@ -65,29 +74,30 @@ An example SLA of application `X` with two microservices `X1` and `X3` can be as
 
 The file is composed of the following fields:
 
-- `sla_version`: the current version
-- `customerID`: id of the user, default is Admin
-- *application list*, in a single deployment descriptor it is possible to define multiple applications, each containing:
-  - Fully qualified app name: A fully qualified name in Oakestra is composed of
-      - `application_name`: unique name representing the application (max 10 char, no symbols)
-      - `application_namespace`: namespace of the app, used to reference different deployment of the same application. Examples of namespace name can be `default` or `production` or `test` (max 10 char, no symbols)
-      - `applicationID`: leave it empty for new deployments, this is needed only to edit an existing deployment.
+- `sla_version`: the current version.
+- `customerID`: ID of the user; the default is Admin.
+- *application list*: in a single deployment descriptor, it is possible to define multiple applications, each containing:
+  - Fully qualified app name: A fully qualified name in Oakestra is composed of:
+      - `application_name`: a unique name representing the application (max 10 characters, no symbols).
+      - `application_namespace`: the namespace of the app, used to reference different deployments of the same application. Examples of namespace names can be `default`, `production`, or `test` (max 10 characters, no symbols).
+      - `applicationID`: leave it empty for new deployments; this is needed only to edit an existing deployment.
 
-  - `application_desc`: Short description of the application
+  - `application_desc`: a short description of the application.
 
-  - *microservice list* is a list of the microservices composing the application. For each microservice the user can specify:
-    - `microserviceID`: leave it empty for new deployments, this is needed only to edit an existing deployment.
-    - Fully qualified service name: Similar to applicattion name, it is composed of
-      - `microservice_name`: name of the service (max 10 char, no symbols)
-      - `microservice_namespace`: namespace of the service, used to reference different deployment of the same service. Examples of namespace name can be `default` or `production` or `test` (max 10 char, no symbols)
+  - *microservice list*: a list of the microservices composing the application. For each microservice, the user can specify:
+    - `microserviceID`: leave it empty for new deployments; this is needed only to edit an existing deployment.
+    - Fully qualified service name: Similar to the application name, it is composed of:
+      - `microservice_name`: the name of the service (max 10 characters, no symbols).
+      - `microservice_namespace`: the namespace of the service, used to reference different deployments of the same service. Examples of namespace names can be `default`, `production`, or `test` (max 10 characters, no symbols).
 
-    - `virtualization`: Starting with  :accordion: Accordion `v0.4.301`, Oakestra supports both `container` and `unikernel` virtualization
-    - `cmd`: list of the commands to be executed inside the container at startup
-    - `vcpu`: minimum cpu vcores needed to run the container
-    - `vgpu`: minimum gpu vcores needed to run the container
-    - `memory`: minimum memory amount needed to run the container
-    - `storage`: minimum storage size required (currently the scheduler does not take this value into account)
-    - `bandwidth_in/out`: minimum required bandwith on the worker node. (currently the scheduler does not take this value into account)
+    - `virtualization`: Starting with :accordion: Accordion `v0.4.301`, Oakestra supports both `container` and `unikernel` virtualization.
+    - `cmd`: a list of the commands to be executed inside the container at startup.
+    - `vcpu`: the minimum number of CPU vcores needed to run the container.
+    - `vgpu`: the minimum number of GPU vcores needed to run the container.
+    - `memory`: the minimum amount of memory needed to run the container.
+    - `storage`: the minimum storage size required (currently, the scheduler does not take this value into account).
+    - `environment`: a list of environment variables. E.g., `"environment":["VAR=foo"]`.
+    - `bandwidth_in/out`: the minimum required bandwidth on the worker node (currently, the scheduler does not take this value into account).
     - `port`: port mapping for the container in the syntax hostport_1:containerport_1\[/protocol];hostport_2:containerport_2\[/protocol] (default protocol is tcp)
     - `addresses`: allows to specify a custom ip address to be used to balance the traffic across all the service instances.
       - `rr\_ip`: [optional filed] This field allows you to setup a custom Round Robin network address to reference all the instances belonging to this service. This address is going to be permanently bounded to the service. The address MUST be in the form `10.30.x.y` and must not collide with any other Instance Address or Service IP in the system, otherwise an error will be returned. If you don't specify a RR_ip and you don't set this field, a new address will be generated by the system.
@@ -103,3 +113,14 @@ The file is composed of the following fields:
                   }
                 ]
       ```
+    - `volumes`: Volume claims for your applications. Volumes can only be provisioned by CSI drivers in your infrastructure. Make sure that at least a cluster matches the selected `csi_driver`.
+    ```
+    "volumes": [
+      {
+          "volume_id":   "<volume_name>",
+          "csi_driver":  "<name of the CSI driver>",
+          "mount_path":  "<mount path inside the container>",
+          "config": {} <-- any extra configuration allowed by the selected csi_driver
+      }
+    ]
+    ```

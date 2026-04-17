@@ -2,7 +2,7 @@
 title: "Advanced Cluster Configurations"
 summary: ""
 draft: false
-weight: 301000000
+weight: 110303000000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -14,7 +14,7 @@ seo:
 
 **Root Orchestrator Environment Variables**
 
-In complex network environment you might want to reach your Root Orchestrator from a specific IP. You can customize the default IP exporting the following environment variable before the Root Orchestrator installation command.
+In a complex network environment, you might want to reach your Root Orchestrator from a specific IP. You can customize the default IP by exporting the following environment variable before the Root Orchestrator installation command.
 
 ```bash
 # Example configuration for root orchestrator
@@ -24,7 +24,7 @@ oak install root
 
 **Cluster Orchestrator Environment Variables**
 
-You can customize the IP address your cluster orchestrator has to use to reach your Root Orchestrator using teh followinf command before the cluster orchestrator installation
+You can customize the IP address your cluster orchestrator has to use to reach your Root Orchestrator using the following command before the cluster orchestrator installation:
 
 ```bash
 # Example configuration for the cluster orchestrator
@@ -33,18 +33,18 @@ oak install cluster
 ```
 
 {{< callout context="danger" title="Watch out!" icon="outline/alert-octagon" >}}
-The root orchestrator has to be reachable by the cluster orchestrator. When not on the same network the root orchestrator URL has to be a public
+The Root Orchestrator has to be reachable by the Cluster Orchestrator. When not on the same network, the Root Orchestrator URL has to be a public
 address!
 {{< /callout >}}
 
 
-### Choose a Different Installation version
+### Choose a Different Installation Version
 
-By default these scripts will use the latest version of Oakestra from the latest stable release. However this can be changed appending a specific Oakestra version for each component
+By default, these scripts will use the latest version of Oakestra from the latest stable release. However, this can be changed by appending a specific Oakestra version for each component.
 
 E.g.
 ```bash
-oak install root alpha-v0.4.403 #this install the alpha-v0.4.403 of oakestra root
+oak install root alpha-v0.4.403 #this installs the alpha-v0.4.403 of oakestra root
 ```
 
 {{< callout context="danger" title="Watch out!" icon="outline/alert-octagon" >}}
@@ -52,42 +52,42 @@ Please make sure all the components of your Oakestra installation run on the sam
 {{< /callout >}}
 
 {{< callout context="note" title="Note" icon="outline/info-circle" >}}
-Oakestra has many features which have not yet been released. You can check out what's in the pipeline by taking a look at some of the active [branches](https://github.com/oakestra/oakestra/branches) here.
+Oakestra has many features that have not yet been released. You can check out what's in the pipeline by taking a look at some of the active [branches](https://github.com/oakestra/oakestra/branches) here.
 {{< /callout >}}
 
 ### Compose Overrides
 
 Since Oakestra uses docker-compose to build the components, we can use overrides to fine-tune our build environment.
 
-To use the override files, specify the them in a comma-seperated list by setting the `OVERRIDE_FILES` env variable <u>before running the installation scripts</u>.
+To use the override files, specify them in a comma-separated list by setting the `OVERRIDE_FILES` env variable <u>before running the installation scripts</u>.
 ```bash
 export OVERRIDE_FILES=override-ipv6-enabled.yml
 ```
 
-{{< details "*Click to see overview of Root Orchestrator overrides*" >}}
-* `override-no-addons.yml`: Disable the [addons](../extending-oakestra/creating-addons) engine and marketplace
-* `override-no-dashboard.yml`: Do not deploy the dashboard
-* `override-no-network.yml`: Exclude network components
-* `override-ipv6-enabled.yml`: Enable IPv6 for container deployments
-* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md)
+{{< details "*Click to see an overview of Root Orchestrator overrides*" >}}
+* `override-no-addons.yml`: Disable the [addons](../extending-oakestra/creating-addons) engine and marketplace.
+* `override-no-dashboard.yml`: Do not deploy the dashboard.
+* `override-no-network.yml`: Exclude network components.
+* `override-ipv6-enabled.yml`: Enable IPv6 for container deployments.
+* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md).
 {{< /details >}}
 
-{{< details "*Click to see overview of Cluster Orchestrator overrides*" >}}
-* `override-ipv6-enabled.yml`: Enable IPv6 for container deployments
-* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md)
-* `override-mosquitto-auth.yml`: Enable [MQTT Authentication](../networking-internals/MQTT-Authentication)
-* `override-no-network.yml`: Exclude network components
-* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md)
+{{< details "*Click to see an overview of Cluster Orchestrator overrides*" >}}
+* `override-ipv6-enabled.yml`: Enable IPv6 for container deployments.
+* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md).
+* `override-mosquitto-auth.yml`: Enable [MQTT Authentication](../networking-internals/MQTT-Authentication).
+* `override-no-network.yml`: Exclude network components.
+* `override-no-observe.yml`: Disable the [observability stack](https://github.com/oakestra/oakestra/blob/7107115a747cf83268aea592df1478cd20933907/root_orchestrator/config/README.md).
 {{< /details >}}
 
 
 ### Advanced Network Configuration
 
-If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules accordingly
+If you run into a restricted network (e.g., on a cloud VM), you need to configure the firewall rules accordingly.
 
 Root:
   - External APIs: port 10000
-  - Cluster APIs: ports 10099,10000
+  - Cluster APIs: ports 10099, 10000
 
 Cluster:
   - Worker's Broker: port 10003
@@ -97,7 +97,7 @@ Worker:
   - P2P tunnel towards other workers: port 50103
 
 
-Additionally, the NetManager component, responsible for the worker nodes P2P tunnel, must be configured. Therefore follow these steps on every **Worker Node**
+Additionally, the NetManager component, responsible for the worker nodes' P2P tunnel, must be configured. Therefore, follow these steps on every **Worker Node**:
 
 1) Shutdown your worker node components using
 ```bash

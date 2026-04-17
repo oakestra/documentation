@@ -2,7 +2,7 @@
 title: "Hooks"
 summary: ""
 draft: false
-weight: 204020000
+weight: 10205020000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -43,6 +43,6 @@ Hooks can be triggered in two modes:
 {{< link-card
   title="Setting up Hooks"
   description="Read up on how to set up hooks within Oakestra"
-  href="../../../manuals/extending-oakestra/setting-up-hooks"
+  href="../../../manuals/extending-oakestra/hooks"
   target="_blank"
 >}}

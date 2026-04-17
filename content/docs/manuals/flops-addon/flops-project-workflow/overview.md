@@ -2,7 +2,7 @@
 title: "FLOps Projects Overview"
 summary: ""
 draft: false
-weight: 309030100
+weight: 10311030100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -14,12 +14,12 @@ asciinema: true
 
 {{< callout context="note" title="This Guide's Goals" icon="outline/target-arrow" >}}
   - Get you doing FL as quickly as possible
-  - Help you understand the basic FLOps project workflow 
-    
-  This guide uses predefined SLAs and ML Git repositories provided by the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/) to streamline the necessary steps.
+  - Help you understand the basic FLOps project workflow
+
+  This guide uses predefined SLAs and ML Git repositories provided by the [oak-cli](/docs/getting-started/deploy-app/deploy-cli/) to streamline the necessary steps.
   This base case is intended to run on a single machine to make it as easy as possible to follow along.
 
-  To create and use custom SLAs and ML Git repositories, please familiarize yourself with this base case and read the dedicated [FLOps customization documentation](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
+  To create and use custom SLAs and ML Git repositories, please familiarize yourself with this base case and read the dedicated [FLOps customization documentation](/docs/manuals/flops-addon/customizations/overview/).
 
 {{< /callout >}}
 
@@ -46,42 +46,42 @@ Projects are based on the SLA you use - they can vary in:
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
   - You have a running Oakestra deployment with at least one Worker Node with a registered NetManager.
-  - You have [prepared your system to use FLOps](/docs/manuals/flops-addon/preparations/flops-preparations-overview/).
+  - You have [prepared your system to use FLOps](/docs/manuals/flops-addon/preparations/overview/).
 {{< /callout >}}
 
 {{< link-card
   title="Stage 0: Preparations"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-0-preparation/"
+  href="../stages/stage-0-preparation/"
 >}}
 
 {{< link-card
   title="Stage 1: Project Start"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-1-project-start/"
+  href="../stages/stage-1-project-start/"
 >}}
 
 {{< link-card
   title="Stage 2: Image-Builder Deployment"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-2-image-builder-deployment/"
+  href="../stages/stage-2-image-builder-deployment/"
 >}}
 
 {{< link-card
   title="Stage 3: FL-Actors Image Build"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-3-fl-actors-image-build/"
+  href="../stages/stage-3-fl-actor-image-build/"
 >}}
 
 {{< link-card
   title="Stage 4: FL-Actors Deployment"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-4-fl-actors-deployment/"
+  href="../stages/stage-4-fl-actor-deployment/"
 >}}
 
 {{< link-card
   title="Stage 5: FL Training"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/stage-5-fl-training/"
+  href="../stages/stage-5-fl-training/"
 >}}
 
 {{< link-card
   title="Post-training Steps"
-  href="/docs/manuals/flops-addon/flops-project-workflow/stages/post-training-steps/"
+  href="../stages/post-training-steps/"
 >}}
 
 

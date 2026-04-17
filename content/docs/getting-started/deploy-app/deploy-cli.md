@@ -1,11 +1,11 @@
 ---
 title: "With the CLI"
-description: "Deploy your app using the Oakestra CLI"
+description: "Deploy your app using the Oakestra CLI."
 summary: ""
 date: 2023-09-07T16:06:50+02:00
 lastmod: 2023-09-07T16:06:50+02:00
 draft: false
-weight: 103030000
+weight: 10104010000
 toc: true
 sidebar:
   collapsed: false
@@ -18,76 +18,114 @@ asciinema: true
 ---
 
 <span class="lead">
-Besides using the API directly or clicking through the dashboard UI, you can also interact with Oakestra using the Command Line Interface.
+You can interact with your Oakestra installation using any terminal on any machine you like.
 </span>
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
   - You have a running Oakestra setup.
-  - You can access the APIs at `<IP_OF_CLUSTER_ORCHESTRATOR>:10000`
 {{< /callout >}}
 
 
 ## The `oak-cli`
 
-{{< callout context="note" title="Benefits of `oak-cli`" icon="outline/rocket">}} 
+{{< callout context="note" title="Benefits of `oak-cli`" icon="outline/rocket">}}
 
-- Easy installation via `pip`
-- Native interface for the Oakestra APIs
-  - Eliminates the need to use external third-party tools
-- Accelerated & simpler workflows
-  - Removes the need to memorize necessary API endpoints
-  - The CLI commands can be chained together and used in custom scripts
-  - Automates tedious tasks away (e.g. acquiring login token)
+- Every machine where you have installed at least one Oakestra component already has the CLI installed.
+- Native interface for the Oakestra APIs.
+  - Eliminates the need to use external third-party tools.
+- Accelerated & simpler workflows.
+  - Removes the need to memorize necessary API endpoints.
+  - The CLI commands can be chained together and used in custom scripts.
 {{< /callout >}}
-
-  
 
 
 ## CLI Setup
-You can install the CLI via `pip install oak-cli`. 
+**Any machine where you have installed at least one Oakestra component already has the CLI installed.**
+If you want to install the CLI on an external machine and manage your Oakestra deployment from there, follow these commands:
 
-{{< callout context="note" title="Helpful tip!" icon="outline/info-circle" >}}
-  You may need to setup a Python virtual environment first to avoid conflicts with other Python packages.
-  ```bash
-  python3 -m venv venv
+{{< tabs "Install" >}}
+{{< tab "🐧 Linux/ 🍎 MacOS" >}}
+From your terminal, run:
+```bash
+curl -sfL oakestra.io/oak.sh | bash
+```
+{{< /tab >}}
+{{< tab " 🚮 Windows" >}}
+From your terminal, run:
+```bash
+irm oakestra.io/oak.ps1 | iex
+```
+{{< /tab >}}
+{{< /tabs >}}
 
-  source ~/.venv/bin/activate
-  ```
-{{< /callout >}}
+Execute `oak -h` and you will be welcomed into the Oakestra CLI world 🌎
 
-Execute `oak` and you will be welcomed into the Oakestra CLI world 🌎
+![`oak-cli` Initial Welcome ASCII Art](cli-images/welcome-message.png)
 
-![`oak-cli` Initial Welcome ASCII Art](./cli-images/welcome-message.png)
+Finally, you can configure the IP of your Oakestra Root Orchestrator:
 
+```bash
+oak config set root_orchestrator_address <IP OF YOUR ROOT ORCHESTRATOR>
+```
 
-### Configurating the CLI
-The `oak-cli` supports different scenarios based on the concrete Oakestra use case and user preferences.
+For further information about the CLI configuration, see the [CLI Configuration Reference](/docs/reference/cli/oak_config).
 
-This CLI initially hides many of its commands to avoid overwhelming new users.
-Additionally, not every user needs every available command, and not every command makes sense in every situation or environment.
+### Deploying Your First Application Using the CLI
 
-To configure the set of shown commands run `oak configuration local-machine-purpose`.
+Deploying your first app with the CLI is simple. The Oak CLI already provides three default application descriptors that you can use right away.
 
-{{< callout context="note" title="FYI - Using Command Shortcuts" icon="outline/bolt" >}}
-  Most `oak` commands have aliases that enable shorter commands and easier combinations, thus faster workflows.
+**Step 1**: Create your default application.
+```bash
+oak app create
+```
 
-  E.g. Instead of typing out `oak configuration local-machine-purpose`.
-  Simply run `oak c l`.
+The CLI will ask you which example you want to deploy:
 
-  The available aliases are shown directly in the `-h` output.
-{{< /callout >}}
+- [1] blank_app_without_services.json
+- [2] default_app_with_services.json
+- [3] edge_gaming.json
 
-The CLI will ask you a set of questions about your intended use and your target environment.
-Based on your Yes/No responses it will provide you with the matching set of commands.
-{{< asciinema key="cli_configuration_demo" poster="0:16" >}}
+{{< tabs apps >}}
+{{< tab "📲 Default App" >}}
 
-This configuration is persistently stored on your machine.
+This is an application composed of a client and a server.
 
-Configuring your `oak-cli` is optional yet highly recommended.
-You can always revert your configuration to its initial state.
+- The client (`curl`) performs a GET request to the server and exits.
+- The server (`nginx`) replies with the default page.
+- Every time the client exits, Oakestra redeploys it, and the cycle continues.
 
-For further information about the CLI configuration see the [CLI Configuration Manuals](/docs/manuals/cli/features/configuration).
+**Step 2**: Deploy all the services of your application.
+```bash
+oak service deploy --all
+```
 
+**Step 3**: There is no step 3! 🥳 Read the rest of this Wiki to learn how to monitor your services and get the logs.
+
+{{< /tab >}}
+{{< tab "📃 Blank App" >}}
+
+This is just an empty App without services. You can check that the app is registered to the system using the `oak a s` command, but nothing else really hapens here.
+
+{{< /tab >}}
+{{< tab "👾 Edge Gaming" >}}
+
+This is an application composed of 3 micorservices.
+
+- The client: a minecraft client. You connect to this service via your browser to start the game.
+- The server: a minecraft server.
+- The Proxy: a proxy linking the client and the server.
+
+**Step 2**: Deploy all the services of your application
+```bash
+oak service deploy --all
+```
+
+**Step 3**: There is no step 3! 🥳 Read the rest of this Wiki to learn how to monitor your services and get the logs. To configure your game, take a look at the [Minecraft in Oakestra](https://github.com/oakestra/app-minecraft-client-server-example) repository and check out the *Step 7* and *Step 8*.
+
+Pro tip: you can obtain the IP of your proxy and client in the cli using this command respectively: `oak s i proxy` and `oak s i client`
+
+{{< /tab >}}
+{{< /tabs >}}
 
 ## Basic CLI Usage
 The root command for the CLI is **oak**
@@ -99,34 +137,24 @@ The root command for the CLI is **oak**
 {{< /callout >}}
 
 
-### Working with Application SLAs
-As detailed in the [API Approach]({{< relref "deploy-api.md" >}}) Oakestra apps and services are defined in SLAs.<br>
-The `oak-cli` comes with a set of pre-defined default SLAs.<br>
+### Working with deployment descriptors
+Oakestra apps and services are described in deployment descriptor files called `SLA`.<br>
+The `oak-cli` comes with a set of pre-defined default SLAs inside the folder `~/oak_cli/SLAs`.<br>
 All available SLAs can be inspected via the `oak application sla` command.
-{{< asciinema key="cli_sla_inspect" poster="0:16" >}}
 
-All SLAs are stored in your home directory in the `oak_cli` folder.
-It gets automatically created when you install the CLI.
+Your personal SLA files describing your applications can be stored in any folder in your machine.
 
-```bash {frame="none"}
-~/oak_cli
-├── ...
-└── SLAs
-    ├── blank_app_without_services.json
-    ├── default_app_with_services.json
-    └── mysla.json
-```
-
-To modify or add new custom SLAs just modify the content of your `~/oak_cli/SLAs` folder.
-E.g. The `mysla.json` is a custom SLA that we added after installing the CLI.
-
+{{< link-card title="Check out these examples" href="/docs/manuals/app-catalog/catalog">}}
+{{< link-card title="Learn more about the SLA specifications" href="/docs/reference/app-sla">}}
 
 ### Managing Applications
 Now that you are familiar with the SLAs we can start creating applications based on them.<br>
-Run `oak application show` (`oak a s`) to see the currently orchestrated applications.<br>
-The `oak application create` (`oak a c`) command asks you what SLA should be used as the blueprint for the new application and creates that app for you.<br>
-Delete one or all currently running apps via `oak application delete` (`oak a d`).
-{{< asciinema key="cli_create_default_app_demo" poster="0:10" >}}
+
+- Run `oak application show` (`oak a s`) to see the currently registered applications.<br>
+- The `oak application create` (`oak a c`) command asks you what SLA from the **predefined** ones should be used as the blueprint for the new application and creates that app for you.<br>
+- The `oak application create [file]` (`oak a c [file]`) allows you to specify a custom SLA file to be used for the creation of an application and its services. E.g. `oak a c mysla.json`, assuming we have a local SLA called `mysla.json`
+- Delete one or all currently running apps via `oak application delete` (`oak a d`).
+{{< asciinema key="create_app" poster="0:32" idleTimeLimit="1" >}}
 
 
 ### Deploying Services
@@ -134,43 +162,47 @@ The services of our applications are not yet deployed.<br>
 To deploy instances of these services we need to know the service IDs.<br>
 The IDs are visible when running `oak service show` (`oak s s`).<br>
 Click on your desired Service ID value in the Service ID column and copy it via `Ctrl+C`.<br>
-To deploy a new instance run `oak service deploy <YOUR_SERVICE_ID>`.
-{{< asciinema key="cli_minimal_service_demo" poster="0:13" >}}
+To deploy a new instance run `oak service deploy <SERVICE_ID|SERVICE_NAME>`.
+{{< asciinema key="oakdeploy" poster="0:15" idleTimeLimit="1">}}
 
 You can undeploy all instances of a service or only specific ones by providing the appropriate command option: <br>
-`oak service undeploy --service-id <YOUR_SERVICE_ID> / --instance-id <INSTANCE_ID>`.
+`oak service undeploy <service-id|name> [instance-number]`.
 
 {{< callout context="note" title="Combine Create & Deploy" icon="outline/bolt" >}}
-  You can create an application and automatically deploy its services by providing the `-d` *(for deploy)* flag to the `oak app create (-d)` command. 
+  You can create an application and automatically deploy its services by providing the `-d` *(for deploy)* flag to the `oak app create (-d)` command.
 {{< /callout >}}
 
-{{< callout context="note" title="Advanced Observation Features " icon="outline/eye" >}}
-  You can display apps and services with different levels of verbosity/detail and automatically refresh the display to stay in the know about the latest changes.
-  ![Detailed Service Display](./cli-images/detailed_service_display.png)
-  You can even display and automatically follow the latest service logs.
-  ![Inspected Service](./cli-images/inspect_service.png)
+### Inspecting Services
 
-  For further details and recorded examples see the [CLI Services Manuals](/docs/manuals/cli/features/services).
-{{< /callout >}}
+Using `oak service inspect <SERVICE_ID|SERVICE_NAME> [instance number]` you can either check the status of all the instances of a service or a specific instance if you provide the instance number. From here you can inspect the details of an instance, such as the worker where it is deployed, the detailed status explanation or failures reasons.
 
+Using `oak service logs <SERVICE_ID|SERVICE_NAME> <instance number>` you can check the logs of a running instance.
+
+{{< asciinema key="oakinspect" poster="0:13" idleTimeLimit="1">}}
+
+### Scaling up and down multiple instances
+
+The `oak service scale up <SERVICE_ID|SERVICE_NAME> <number>` allows you to scale up or down a certain `<number>` of isntances of a service give its ID or Name.
+
+{{< asciinema key="oakscale" poster="0:13" idleTimeLimit="1">}}
 
 ## Further Details
 This page only highlights a small subset of available `oak-cli` capabilities.
 
 {{< link-card
-  title="CLI Manuals"
+  title="CLI Reference"
   description="Explore every available CLI command in detail and more"
-  href="/docs/manuals/cli/cli-overview"
+  href="../../../reference/cli/oak"
   target="_blank"
 >}}
 
 {{< callout context="note" title="Maximize Speed & Convenience" icon="outline/bolt" >}}
-  The `oak-cli` is powered by [Typer](https://github.com/fastapi/typer) which supports tab autocompletion natively.
+  The `oak-cli` supports tab autocompletion natively.
 
   This means that you can press your **tab** key to either automatically complete the command you are currently typing or get a list of matching available commands.
   There is no need to memorize or fully type out the commands.
 
   ![Command Recommendation via Tab Auto-Completion](./cli-images/autocomplete.png)
 
-  Simply run `oak --install-completion` to enable this feature.
+  Simply after installation, make sure you open up a new terminal to get the up to date autocompletion setup.
 {{< /callout >}}

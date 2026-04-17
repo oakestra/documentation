@@ -2,7 +2,7 @@
 title: "Contributing Overview"
 summary: "How to contribute to Oakestra"
 draft: false
-weight: 401000000
+weight: 10401000000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -44,7 +44,7 @@ Just comment on an unassigned issue, stating you want to work on it. Once you ge
 
 There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
-1. **Reporting Bugs**  
+1. **Reporting Bugs**
    Found a bug? Please report it by creating a GitHub issue. Clear and detailed bug reports are invaluable.
    {{< link-card
   description="Submit a bug report"
@@ -52,7 +52,7 @@ There are other ways you can contribute without writing a single line of code. H
   target="_blank"
    >}}
 
-1. **Suggesting Features**  
+1. **Suggesting Features**
    Have a new feature idea? Feature requests are welcome! Please submit them as GitHub issues with details on why it would be useful and any implementation suggestions.
    {{< link-card
   description="Suggest a feature idea"
@@ -60,7 +60,7 @@ There are other ways you can contribute without writing a single line of code. H
   target="_blank"
    >}}
 
-1. **Improving Documentation**  
+1. **Improving Documentation**
    Documentation improvements are always appreciated! If you find something unclear or missing, feel free to submit an issue.
 
    {{< link-card
@@ -75,7 +75,7 @@ Your PR will be reviewed by a maintainer. Please be patient, as we maintain high
 
 ## Coding Guidelines
 
-- **Code Style**: Follow the [Oakestra Coding Style Guide](/docs/contribution-guide/code-style-guide-and-tools).
+- **Code Style**: Follow the [Oakestra Coding Style Guide](/docs/contribution-guide/code-style-guide).
 - **Commit Messages**: Use [Conventional Commits](https://www.conventionalcommits.org/).
 - **Documentation**: Update relevant documentation, especially if introducing new features or changing functionality.
 

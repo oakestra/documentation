@@ -2,7 +2,7 @@
 title: "Load Balancing"
 summary: ""
 draft: false
-weight: 303040000
+weight: 10305040000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -33,7 +33,7 @@ latter finds the geographically closer instance.
 Click on the following tabs to see how every request is handled.
 
 {{< tabs-icon "Requests" >}}
-{{< tab-icon "First" "./_envelope_1.png">}}
+{{< tab-icon "First" "_envelope_1.png">}}
 Service A performs the first request using the ServiceIP `fdff:1000::1` representing the closest instance balancing policy.
 The network components' proxy converts the address to the Namespace IP of Service B Instance 1, which looks like it is
 the geographically closer service. The message will be, therefore **transparently** delivered to the closest instance

@@ -2,7 +2,7 @@
 title: "FLOps Manuals Overview"
 summary: ""
 draft: false
-weight: 309010000
+weight: 10311010000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -12,7 +12,7 @@ seo:
 ---
 
 {{< callout context="caution" icon="outline/alert-octagon">}}
-  If you want to learn about Federated Learning and FLOps basics have a look at [the concepts](/docs/concepts/flops/overview/).
+  If you want to learn about Federated Learning and FLOps basics have a look at [the concepts](../../../concepts/flops/overview/).
 {{< /callout >}}
 
 
@@ -20,26 +20,26 @@ seo:
 
 {{< link-card
   title="Prepare your system for FLOps"
-  description="Explore the necessary steps and requirements to use FLOps" 
-  href="/docs/manuals/flops-addon/preparations/flops-preparations-overview/"
+  description="Explore the necessary steps and requirements to use FLOps"
+  href="/docs/manuals/flops-addon/preparations/overview/"
 >}}
 
 {{< link-card
   title="Running a FLOps Project"
-  description="Follow a step-by-step guide to create a trained FL model and inference server" 
-  href="/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/"
+  description="Follow a step-by-step guide to create a trained FL model and inference server"
+  href="/docs/manuals/flops-addon/flops-project-workflow/overview/"
 >}}
 
 {{< link-card
   title="Customize your FLOps Projects"
   description="Learn how to configure custom SLAs and ML Git repositories"
-  href="/docs/manuals/flops-addon/customizations/flops-customizations-overview/"
+  href="/docs/manuals/flops-addon/customizations/overview/"
 >}}
 
 {{< link-card
   title="Contribute to FLOps"
   description="Explore how to modify, extend, and contribute to FLOps"
-  href="/docs/contribution-guide/flops-addon/"
+  href="/docs/contribution-guide/flops_addon/"
 >}}
 
 ## Advanced Topics
@@ -47,7 +47,7 @@ seo:
 {{< link-card
   title="FLOps API Endpoints  "
   description="Discover the FLOps API"
-  href="/docs/manuals/flops-addon/advanced/flops-api-endpoints/"
+  href="/docs/manuals/flops-addon/advanced/api-endpoints/"
 >}}
 
 {{< link-card

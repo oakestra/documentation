@@ -2,7 +2,7 @@
 title: "Stage 3: FL-Actors Image Build"
 summary: ""
 draft: false
-weight: 309030204
+weight: 10311030204
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -23,12 +23,12 @@ In stage 3, the deployed image-builder service builds the requested images for t
 
   The only current way for FLOps to let you know that something went wrong during building is to send an error message to your project observer.
 
-  Watch out for these observer logs - especially when working with new ML repositories for the first time. 
+  Watch out for these observer logs - especially when working with new ML repositories for the first time.
 {{< /callout >}}
 
 The image-builder service does the following:
 - Clones the requested ML Git repository
-- Checks the cloned repository if it satisfies the mandatory structural requirements 
+- Checks the cloned repository if it satisfies the mandatory structural requirements
 - Checks for potential dependency issues and tries to resolve them if possible
 - Builds the FL-Actor images
 - Pushes the build images to the FLOps image registry
@@ -38,7 +38,7 @@ The FLOps manager undeploys and removes the image builder service.
 
 ### Showcase
 
-This demo shows this build process from the perspective of a priviledged CLI user.
+This demo shows this build process from the perspective of a privileged CLI user.
 
 {{< callout context="note" title="*Time Lapse*" icon="outline/clock" >}}
   Building images can easily take 5-30+ minutes.
@@ -48,12 +48,12 @@ This demo shows this build process from the perspective of a priviledged CLI use
   - Complexity of the provided ML repo dependencies
   - Number and kind of target platforms that should be supported
 
-  This demo cuts out long waiting periods for your viewing pleasure. 
+  This demo cuts out long waiting periods for your viewing pleasure.
 {{< /callout >}}
 
 
 {{< asciinema key="flops_base_case_fl_actors_build" poster="0:08" idleTimeLimit="1.5" >}}
 
 {{< callout context="note" title="Want to know more about FLOps' image building process?" icon="outline/settings-question" >}}
-  Explore why and how container images are build in FLOps [here](/docs/concepts/flops/internals/image-building-process).
+  Explore why and how container images are build in FLOps [here](../../../../../concepts/flops/internals/image-building-process).
 {{< /callout >}}

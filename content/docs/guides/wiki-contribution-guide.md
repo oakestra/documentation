@@ -98,7 +98,7 @@ To archive the current version of the docs you need to do the following:
  title: "v0.4.301"
  menus: none
  linkTitle: "v0.4.301"
- weight: 200000000
+ weight: 000200000000
  exclude_search: true
  toc_hide: false
  hide_summary: true

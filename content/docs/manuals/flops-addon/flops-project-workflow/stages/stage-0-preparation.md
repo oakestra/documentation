@@ -2,7 +2,7 @@
 title: "Stage 0: Preparation"
 summary: ""
 draft: false
-weight: 309030201
+weight: 10311030201
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -17,17 +17,17 @@ asciinema: true
 The heart of a FLOps project is the ML Git repository, which contains the ML training code that will be run by FLOps learner services.
 For FLOps to use this repository correctly, it must follow some simple structural requirements.
 
-For the base-case project we will use one of the prepared repositories provided by the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/).
+For the base-case project we will use one of the prepared repositories provided by the [oak-cli](../../../../../getting-started/deploy-app/deploy-cli/).
 
 {{< callout context="note" icon="outline/settings-question" >}}
-  Find out how to create your own ML Git Repository for FLOps [here](/docs/manuals/flops-addon/customizations/ml-git-repositories/).
+  Find out how to create your own ML Git Repository for FLOps [here](../../../customizations/ml-git-repo/).
 {{< /callout >}}
 
 
 ## Training Data
 
 In addition to preparing your system for FLOps we need data to perform FL *(training on the learner nodes)* before creating our base-case project.
-To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](/docs/concepts/flops/internals/mock-data-providers/) (**MDP**).
+To save time, we will ‘mock’ real edge devices by using a [Mock Data Provider](../../../../../concepts/flops/internals/mock-data-providers/) (**MDP**).
 In short, an MDP is a service deployed by FLOps on a learner node to populate it with data for training.
 
 {{< callout context="caution" title="MDP Requirements" icon="outline/alert-triangle">}}
@@ -48,7 +48,7 @@ Once the MDP service's state is `COMPLETED ✅` you can undeploy it (`oak a d -y
 
 You can verify that the data has been populated on the learner by running the following on that node:
 
-- Find the `ml-data-server` docker container ID 
+- Find the `ml-data-server` docker container ID
 ```bash
   docker ps | grep oakestra/addon-flops/ml-data-server
 ```
@@ -56,7 +56,7 @@ Output: `0ce8c5d46372   ghcr.io/oakestra/addon-flops/ml-data-server:latest ...`
 
 - Check that data was added:
 ```bash
-  docker exec 0ce8c5d46372 ls /ml_data_server_volume  
+  docker exec 0ce8c5d46372 ls /ml_data_server_volume
 ```
 Output:
 ```
@@ -66,5 +66,5 @@ Output:
 ```
 
 {{< callout context="note" title="Curious about FLOp's ML data management?" icon="outline/settings-question" >}}
-  Explore how FLOps manages ML data for local training [here](/docs/concepts/flops/internals/ml-data-management/)
+  Explore how FLOps manages ML data for local training [here](../../../../../concepts/flops/internals/ml-data-management/)
 {{< /callout >}}

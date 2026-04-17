@@ -2,7 +2,7 @@
 title: "FLOps Preparations Overview"
 summary: ""
 draft: false
-weight: 309020100
+weight: 10311020100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -27,13 +27,13 @@ You can use a single node to build images and collect training data or two separ
 {{< link-card
   title="Image Building Preparation"
   description="Prepare a worker node to build (multi-platform) container images"
-  href="/docs/manuals/flops-addon/preparations/prepare-image-builder-workers/"
+  href="/docs/manuals/flops-addon/preparations/image-builder-workers/"
 >}}
 
 {{< link-card
   title="ML Training Data Preparation"
   description="Prepare a worker node to aggregate data for training" 
-  href="/docs/manuals/flops-addon/preparations/prepare-learner-workers/"
+  href="/docs/manuals/flops-addon/preparations/learner-workers/"
 >}}
 
 ### Set up FLOps Management
@@ -53,7 +53,7 @@ export ARTIFACT_STORE_IP=<IP-E>
 export BACKEND_STORE_IP=<IP-F>
 ```
 
-{{< callout context="note" title="Hosting location for the FLOps managment suite" icon="outline/info-circle" >}}
+{{< callout context="note" title="Hosting location for the FLOps management suite" icon="outline/info-circle" >}}
   Currently, FLOps is intended to be co-hosted on the same node as your Oakestra root orchestrator.
 control plane.
   This means you should use the same public IP for all variables above.
@@ -74,7 +74,7 @@ oak addon flops re
 {{< link-card
   title="FLOps CLI commands"
   description="Explore the oak-cli commands that help you to work with FLOps." 
-  href="/docs/manuals/cli/features/flops-addon/"
+  href="/docs/reference/cli/oak_addon_flops/"
 >}}
 
 {{< callout context="note" title="Resetting your FLOps Management" icon="outline/info-circle" >}}
@@ -86,9 +86,9 @@ oak addon flops re
   **When clearing your FLOps management, remove all related running apps and services in your Oakestra deployment.**
 
   Here are a few different approaches to clearing your FLOps management suite:
-  - Restart the docker compose: This will clean everyhing but the image registy. (`oak addon flops re`)
+  - Restart the docker compose: This will clean everything but the image registry. (`oak addon flops re`)
   - `oak addon flops clear-registry`: Only clears the image registry.
   - `oak addon flops redb`: Only clears the FLOps manager DB. (Removes all information about the current/last FLOps projects from the DB.)
 
-  If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/cli/features/worker-node/).
+  If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/debugging/running-containers/).
 {{< /callout >}}

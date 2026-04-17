@@ -80,7 +80,7 @@ Every page should have a weight - e.g:
 title: "High-Level Architecture"
 summary: ""
 draft: false
-weight: 201000000
+weight: 00102010000
 toc: true
 ...
 ---
@@ -89,34 +89,43 @@ One can think about pages and their weights as nodes on a tree structure.
 The following example helps you to visualize how we use weights:
 
 ```
-- 📁 Getting Started                  | 1 00 00 00 00  
-    - 📄 Welcome to Oakestra ...      | 1 01 00 00 00
-    - 📁 Create your first ...        | 1 02 00 00 00
-        - 📄 High Level Setup ...     | 1 02 01 00 00
-        - 📄 Create your first ...    | 1 02 02 00 00
-- 📁 Concepts                         | 2 00 00 00 00 
-- 📁 Manuals                          | 3 00 00 00 00
+- 📁 Getting Started                  | 00 01 00 00 00 00  
+    - 📄 Welcome to Oakestra ...      | 00 01 01 00 00 00
+    - 📁 Create your first ...        | 00 01 02 00 00 00
+        - 📄 High Level Setup ...     | 00 01 02 01 00 00
+        - 📄 Create your first ...    | 00 01 02 02 00 00
+- 📁 Concepts                         | 00 02 00 00 00 00 
+- 📁 Manuals                          | 00 03 00 00 00 00
     - ... 
-    - 📁 Federated Learning (FLOps)   | 3 07 00 00 00
-        - 📄 FLOps Overview           | 3 07 01 00 00
-        - 📄 FLOps API Endpoints      | 3 07 02 00 00
-        - 📁 System Preparations      | 3 07 03 00 00
-            - 📄 ... Overview         | 3 07 03 01 00
-            - 📄 Prepare Image ...    | 3 07 03 02 00
-        - 📁 FLOps Project Workflow   | 3 07 04 00 00
-            - 📄 ... Overview         | 3 07 04 01 00
-            - 📁 Project Stages       | 3 07 04 02 00
-                - 📄 Stage 0 ...      | 3 07 04 02 01 
+    - 📁 Federated Learning (FLOps)   | 00 03 07 00 00 00
+        - 📄 FLOps Overview           | 00 03 07 01 00 00
+        - 📄 FLOps API Endpoints      | 00 03 07 02 00 00
+        - 📁 System Preparations      | 00 03 07 03 00 00
+            - 📄 ... Overview         | 00 03 07 03 01 00
+            - 📄 Prepare Image ...    | 00 03 07 03 02 00
+        - 📁 FLOps Project Workflow   | 00 03 07 04 00 00
+            - 📄 ... Overview         | 00 03 07 04 01 00
+            - 📁 Project Stages       | 00 03 07 04 02 00
+                - 📄 Stage 0 ...      | 00 03 07 04 02 01 
                 - 📄 ...
-    - 📁 Debugging                    | 3 10 00 00 00
+    - 📁 Debugging                    | 00 03 10 00 00 00
     - ...
-- 📁 Contributng Guide                | 4 00 00 00 00
-- 📁 Reference                        | 5 00 00 00 00
+- 📁 Contributng Guide                | 00 04 00 00 00 00
+- 📁 Reference                        | 00 05 00 00 00 00
 ```
-We are working with a maximum document/tree depth of 5.
-We are using 10 digits for the weight - 2 digits per depth level.
-Thus every level can fit 99 documents.
+We are working with a maximum document/tree depth of 6
+We are using 12 digits for the weight - 2 digits per depth level.
+Thus every level can fit 100 documents.
 (Why so many? -> Because 10 in one level is easily and already breached.)
 Each digit pair from left to right represents how deep the respective page/folder is located in.
 Each folder requires an `_index.md` file that contains its weight. 
-The weight should not start with a 0 otherwise errors occur (octal interpretation).
+
+The first 2 digits are for the documentation version:
+- Release           | 00 ...
+- alpha-v0.4.410    | 01 ...
+- ...
+
+The latest docs should have the lowest index
+
+<!-- I was not able to reprocude this: -->
+<!--The weight should not start with a 0 otherwise errors occur (octal interpretation).-->
