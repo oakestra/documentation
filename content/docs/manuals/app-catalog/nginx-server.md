@@ -185,6 +185,6 @@ For this example, we used the command `oak s i 672cf97ff7728660d15a5852`
 As you can see both instances got requests from the single client we have, even if the client is always using the same IP address. 
 
 {{< callout context="tip" title="Oakestra Dashboard" icon="outline/rocket">}}
-You can also monitor the services and their instances using the Oakestra Dashboard. To access the dashboard, open your browser and navigate to `http://<your-oakestra-root-ip>`. See the [Dashboard](/docs/getting-started/deploy-app/with-the-dashboard) section for more information.
+You can also monitor the services and their instances using the Oakestra Dashboard. To access the dashboard, open your browser and navigate to `http://<your-oakestra-root-ip>`. See the [Dashboard](/docs/getting-started/deploy-app/deploy-dashboard) section for more information.
 
  {{< /callout >}}

@@ -37,7 +37,7 @@ Take full control of your microservices with Oakestra's powerful API and intuiti
 - [Oakestra CLI](../deploy-app/deploy-cli/)
 - [Oakestra Dashboard](../deploy-app/deploy-dashboard/)
 - [Oakestra API](../../reference/api/deploy-api/)
-- [Application Catalog](../manuals/app-catalog/example-applications/)
+- [Application Catalog](../../manuals/app-catalog/catalog/)
 
 {{< /card >}}
 
@@ -77,7 +77,7 @@ Whether you're a beginner or an advanced user, joining our community is the best
 {{< link-card
   title="Contribute to Oakestra"
   description="Read our contribution guide"
-  href="/docs/contribution-guide/contributing-overview/"
+  href="/docs/contribution-guide/contributing-guide/"
 >}}
 
 {{< link-card

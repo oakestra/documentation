@@ -61,7 +61,6 @@ copyRight = "Copyright (c) 2020-2024 Thulite"
 
 [permalinks]
   blog = "/blog/:slug/"
-  docs = "/docs/:sections[1:]/:slug/"
 
 [minify]
   disableSVG = true

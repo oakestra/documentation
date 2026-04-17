@@ -68,7 +68,7 @@ Finally, you can configure the IP of your Oakestra Root Orchestrator:
 oak config set root_orchestrator_address <IP OF YOUR ROOT ORCHESTRATOR>
 ```
 
-For further information about the CLI configuration, see the [CLI Configuration Manuals](/docs/manuals/cli/features/configuration).
+For further information about the CLI configuration, see the [CLI Configuration Reference](/docs/reference/cli/oak_config).
 
 ### Deploying Your First Application Using the CLI
 
@@ -144,8 +144,8 @@ All available SLAs can be inspected via the `oak application sla` command.
 
 Your personal SLA files describing your applications can be stored in any folder in your machine.
 
-{{< link-card title="Check out these examples" href="/docs/manuals/app-catalog/example-applications">}}
-{{< link-card title="Learn more about the SLA specifications" href="/docs/reference/application-sla-description">}}
+{{< link-card title="Check out these examples" href="/docs/manuals/app-catalog/catalog">}}
+{{< link-card title="Learn more about the SLA specifications" href="/docs/reference/app-sla">}}
 
 ### Managing Applications
 Now that you are familiar with the SLAs we can start creating applications based on them.<br>

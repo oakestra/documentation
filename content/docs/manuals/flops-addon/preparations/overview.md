@@ -27,13 +27,13 @@ You can use a single node to build images and collect training data or two separ
 {{< link-card
   title="Image Building Preparation"
   description="Prepare a worker node to build (multi-platform) container images"
-  href="/docs/manuals/flops-addon/preparations/prepare-image-builder-workers/"
+  href="/docs/manuals/flops-addon/preparations/image-builder-workers/"
 >}}
 
 {{< link-card
   title="ML Training Data Preparation"
   description="Prepare a worker node to aggregate data for training" 
-  href="/docs/manuals/flops-addon/preparations/prepare-learner-workers/"
+  href="/docs/manuals/flops-addon/preparations/learner-workers/"
 >}}
 
 ### Set up FLOps Management
@@ -74,7 +74,7 @@ oak addon flops re
 {{< link-card
   title="FLOps CLI commands"
   description="Explore the oak-cli commands that help you to work with FLOps." 
-  href="/docs/manuals/cli/features/flops-addon/"
+  href="/docs/reference/cli/oak_addon_flops/"
 >}}
 
 {{< callout context="note" title="Resetting your FLOps Management" icon="outline/info-circle" >}}
@@ -90,5 +90,5 @@ oak addon flops re
   - `oak addon flops clear-registry`: Only clears the image registry.
   - `oak addon flops redb`: Only clears the FLOps manager DB. (Removes all information about the current/last FLOps projects from the DB.)
 
-  If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/cli/features/worker-node/).
+  If you want to make sure that your system is entirely free of any previous stains, ensure to [clear your local containerd images](/docs/manuals/debugging/running-containers/).
 {{< /callout >}}

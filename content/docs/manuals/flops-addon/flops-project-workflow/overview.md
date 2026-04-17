@@ -16,10 +16,10 @@ asciinema: true
   - Get you doing FL as quickly as possible
   - Help you understand the basic FLOps project workflow
 
-  This guide uses predefined SLAs and ML Git repositories provided by the [oak-cli](/docs/getting-started/deploy-app/with-the-cli/) to streamline the necessary steps.
+  This guide uses predefined SLAs and ML Git repositories provided by the [oak-cli](/docs/getting-started/deploy-app/deploy-cli/) to streamline the necessary steps.
   This base case is intended to run on a single machine to make it as easy as possible to follow along.
 
-  To create and use custom SLAs and ML Git repositories, please familiarize yourself with this base case and read the dedicated [FLOps customization documentation](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
+  To create and use custom SLAs and ML Git repositories, please familiarize yourself with this base case and read the dedicated [FLOps customization documentation](/docs/manuals/flops-addon/customizations/overview/).
 
 {{< /callout >}}
 
@@ -46,7 +46,7 @@ Projects are based on the SLA you use - they can vary in:
 
 {{< callout context="caution" title="Requirements" icon="outline/alert-triangle">}}
   - You have a running Oakestra deployment with at least one Worker Node with a registered NetManager.
-  - You have [prepared your system to use FLOps](/docs/manuals/flops-addon/preparations/flops-preparations-overview/).
+  - You have [prepared your system to use FLOps](/docs/manuals/flops-addon/preparations/overview/).
 {{< /callout >}}
 
 {{< link-card

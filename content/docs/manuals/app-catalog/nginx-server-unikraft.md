@@ -15,7 +15,7 @@ seo:
 ![Nginx Balancing](balancing-unikraft.png)
 
 {{< callout context="caution" title="Unikernels within Oakestra" icon="outline/alert-triangle">}}
-This guide is (almost) a clone of the containers Nginx client-server applications described in [previous walkthrough](/docs/manuals/app-catalog/nginx-sever), however, we instead use Unikraft Nginx server. 
+This guide is (almost) a clone of the containers Nginx client-server applications described in [previous walkthrough](/docs/manuals/app-catalog/nginx-server), however, we instead use Unikraft Nginx server. 
 
 {{< /callout >}}
 
@@ -24,7 +24,7 @@ We can deploy Nginx using [Unikraft](https://unikraft.org). This will allow us t
 {{< link-card
   title="Unikraft Runtime"
   description="To enable unikernel support, please refer to the Unikernel Support manual section."
-  href="/docs/manuals/execution-runtimes/unikernel-deployment/"
+  href="/docs/manuals/execution-runtimes/unikernel-operations/"
   target="_blank"
 >}}
 

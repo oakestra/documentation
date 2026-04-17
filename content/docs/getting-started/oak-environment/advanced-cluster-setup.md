@@ -120,7 +120,7 @@ oak worker -d
 ```
 
 N.b. The cluster selector during the installation shows you the default IP address of the cluster detected by the root orchestrator.
-If within your cluster network, you prefer an internal address where the cluster orchestrator is still reachable, check [Advanced Installation Options](../installation-options)
+If within your cluster network, you prefer an internal address where the cluster orchestrator is still reachable, check [Advanced Installation Options](../../../manuals/advanced-cluster-configuration)
 
 
 {{< /tab >}}
@@ -131,5 +131,5 @@ If within your cluster network, you prefer an internal address where the cluster
 ---
 
 {{< callout context="caution" title="Network Configuration" icon="outline/alert-triangle">}}
-If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../firewall-configuration)
+If you run into a restricted network (e.g., on a cloud VM) you need to configure the firewall rules and the NetManager component accordingly. Please refer to: [Firewall Setup](../../../manuals/firewall)
 {{< /callout >}}

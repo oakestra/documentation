@@ -25,7 +25,7 @@ oak cluster ls
 
 
 
-Did you know? You can install the Oakestra CLI on any machine and manage your Oakestra cluster remotely. Check [our CLI wiki](../../getting-started/deploy-app/with-the-cli/).
+Did you know? You can install the Oakestra CLI on any machine and manage your Oakestra cluster remotely. Check [our CLI wiki](../../deploy-app/deploy-cli/).
 {{< /tab >}}
 {{< tab "Use the Dashboard" >}}
 
@@ -46,7 +46,7 @@ Or use the Swagger API documentation available at `http://<ROOT_ORCHESTRATOR_IP>
 
 {{< callout context="tip" title="Oakestra Addons" icon="outline/rocket" >}}
 
-Check out [addons](../extending-oakestra/creating-addons) for the Oakestra customization options!
+Check out [addons](../../../concepts/oakestra-extensions/addons) for the Oakestra customization options!
 
 {{< /callout >}}
 
@@ -87,5 +87,5 @@ This will show you if the NodeEngine and NetManager components, the living soul 
 
 
 {{< callout context="caution" title="Something is not working?" icon="outline/alert-triangle">}}
-If something is not working, please check out our [Troubleshooting Guide](../../../manuals/troubleshooting-guide).
+If something is not working, please check out our [Troubleshooting Guide](../../../manuals/troubleshooting).
 {{< /callout >}}

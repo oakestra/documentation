@@ -50,7 +50,7 @@ You can also run live diagnostics commands to check the status of the components
 
 {{< link-card
   description="See CLI command descriptions for details"
-  href="/docs/manuals/cli/features"
+  href="/docs/reference/cli/"
   target="_blank"
 >}}
 
