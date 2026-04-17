@@ -110,7 +110,11 @@ If the marketplace dashboard is reachable from your network, a link will appear 
 
 # Cross VM Compatibility
 
-Oakestra Conga now enables seamless workloads across different virtual machine environments, providing greater flexibility for edge deployments.
+Oakestra Conga supports a new experimental runtime: `crossvm`. This runtime enables seamless workloads across different virtual machine environments, providing greater flexibility for edge deployments. 
+
+![crossvm](./crossvm.png)
+
+The crosvm runtime launches virtual machines directly from OCI container images. Additionally it provides support for **virtio-GPUs**. This makes it the ideal runtime for isolated edge-cloud gaming instances and AI inference. Check out the [Crosvm VM Deployment](/docs/manuals/execution-runtimes/crosvm-deployment/) page for further details.
 
 # Dashboard Deployment Descriptor
 
