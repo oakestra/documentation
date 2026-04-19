@@ -32,10 +32,11 @@ This unique functionality allows you to:
 
 Currently, Oakestra supports the following virtualization runtimes.
 
-| **Technology**    | **Type** |  **Description** |
-| --------- | ----------- | ----------- |
-| Containerd    | Container Execution Runtime | Ideal for deploying OCI compliant applications that require easy portability and management. |
-| Unikraft | Unikernel Execution Runtime |  Specialized, lightweight virtual machines that are optimized for high performance and security. |
+| **Technology**        | **Type**                    | **Description**                                                                                 |
+|-----------------------|-----------------------------|-------------------------------------------------------------------------------------------------|
+| Containerd            | Container Execution Runtime | Ideal for deploying OCI compliant applications that require easy portability and management.                  |
+| Unikraft              | Unikernel Execution Runtime | Specialized, lightweight virtual machines that are optimized for high performance and security. |
+| crosvm (experimental) | VM Execution Runtime        | Lightweight virtual machines that allow sharing a GPU between multiple workloads.               |
 
 ### How to Choose a Runtime
 
