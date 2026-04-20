@@ -38,7 +38,7 @@ First you need to install Claude CLI. Then you can run
 ```bash
 oak config claude
 ```
-This command installs the **Oakestra Teoubleshooting Skill** in your Claude CLI.
+This command installs the **Oakestra Troubleshooting Skill** in your Claude CLI.
 
 Then you can use:
 
