@@ -64,7 +64,7 @@ You can use Claude AI 🤖 to help you troubleshooting your infrastructure!
 - Configure the Claude Oakestra Doctor skill using `oak config claude`
 - Then use `oak doctor <component>` command with the `--ai-troubleshoot` flag and let Claude handle the rest.
 
-Check out the troubleshooting [wiki](/docs/manuals/troubleshooting-guide/).
+Check out the troubleshooting [wiki](/docs/manuals/troubleshooting/).
 
  {{< /callout >}}
 
@@ -76,13 +76,13 @@ Thanks to the new CLI, installing Oakestra has never been easier! Check this out
 {{< asciinema key="install" theme="dracula" poster="0:10" autoPlay="true" loop="true" startAt="0:5" idleTimeLimit="2" >}}
 </div>
 
-Check out the [installation wiki](http://localhost:55514/docs/getting-started/oak-environment/create-a-single-node-cluster/) for a quick installation and the [advanced setup guide](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/) to unleash the full potential of Oakestra.
+Check out the [installation wiki](/docs/getting-started/oak-environment/your-first-orchestrator/) for a quick installation and the [advanced setup guide](/docs/getting-started/oak-environment/advanced-cluster-setup/) to unleash the full potential of Oakestra.
 
 # Storage Drivers
 
 ![csi](csi.png)
 
-This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](http://localhost:55514/docs/getting-started/oak-environment/advanced-cluster-setup/).
+This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](/docs/getting-started/oak-environment/advanced-cluster-setup/).
 
 # Service Scheduling Redefined
 
