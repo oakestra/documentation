@@ -31,7 +31,7 @@ To deploy a workload using the crosvm runtime you need:
 1. A compatible OCI container image hosted in a registry accessible to
    your Oakestra worker nodes
 2. A service deployment descriptor
-3. A worker node with the crosvm runtime enabled, KVM support, and the
+3. A worker node with the crosvm runtime enabled (use `oak worker config virtualization crosvm on`), KVM support, and the
    required third-party dependencies installed
    {{< /callout >}}
 
@@ -147,7 +147,7 @@ From the directory containing `build.sh`, run it with no arguments:
 
 **2: Copy the archive to your worker node**
 
-Once the build completes, copy the appropriate archive from the `dist/` folder to your worker node (e.g. using `scp`): 
+Once the build completes, copy the appropriate archive from the `dist/` folder to your worker node (e.g. using `scp`):
 
 ```bash
 # For amd64 worker nodes
