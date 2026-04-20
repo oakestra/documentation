@@ -53,7 +53,7 @@ From here you can:
 
 ### Check how `oak doctor` can verify your installation
 
-<div style="width:50em;margin-right:auto;margin-left:auto">
+<div style="max-width:50em;margin-right:auto;margin-left:auto">
 {{< asciinema key="doctor" theme="dracula" poster="0:10" autoPlay="false" loop="false" startAt="0:5" idleTimeLimit="2" >}}
 </div>
 
@@ -72,7 +72,7 @@ Check out the troubleshooting [wiki](/docs/manuals/troubleshooting/).
 
 Thanks to the new CLI, installing Oakestra has never been easier! Check this out ⬇︎
 
-<div style="width:50em;margin-right:auto;margin-left:auto">
+<div style="max-width:50em;margin-right:auto;margin-left:auto">
 {{< asciinema key="install" theme="dracula" poster="0:10" autoPlay="true" loop="true" startAt="0:5" idleTimeLimit="2" >}}
 </div>
 
@@ -183,11 +183,11 @@ Get in touch with us and help us grow stronger. We've got plenty of open issues 
   var hint = document.getElementById('conga-hint');
   var clicks = 0;
   var hints = ['🥁 Again…', '🥁 One more!', '🎵 Here we go!'];
-  
-  var audio = new Audio('/audio/conga.mp3'); 
+
+  var audio = new Audio('/audio/conga.mp3');
 
   egg.addEventListener('click', function () {
-    audio.currentTime = 0; 
+    audio.currentTime = 0;
     audio.play().catch(error => {
     console.error("Audio failed to play:", error);
     hint.textContent = "Audio Error: " + error.message;
