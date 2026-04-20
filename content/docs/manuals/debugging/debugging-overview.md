@@ -2,7 +2,7 @@
 title: "How to start debugging?"
 summary: "Debugging in Oakestra"
 draft: false
-weight: 000310010000
+weight: 10312010000
 toc: true
 seo:
   title: "Debugging in Oakestra" # custom title (optional)
@@ -50,7 +50,7 @@ You can also run live diagnostics commands to check the status of the components
 
 {{< link-card
   description="See CLI command descriptions for details"
-  href="/docs/manuals/cli/features"
+  href="/docs/reference/cli/"
   target="_blank"
 >}}
 

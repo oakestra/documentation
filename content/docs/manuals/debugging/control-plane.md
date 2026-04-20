@@ -2,7 +2,7 @@
 title: "Control Plane Monitoring"
 summary: ""
 draft: false
-weight: 000310020000
+weight: 10312020000
 toc: true
 seo:
   title: "" # custom title (optional)

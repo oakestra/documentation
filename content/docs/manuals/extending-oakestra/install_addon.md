@@ -2,7 +2,7 @@
 title: "Installing Addons"
 summary: ""
 draft: false
-weight: 000307020000
+weight: 10309020000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -11,35 +11,22 @@ seo:
   noindex: false # false (default) or true
 ---
 
-{{< callout context="caution" title="Requirements" icon="outline/alert-triangle" >}}
-
-- The addons engine is running. Visit the [setup section](../setting-up) for more details.
-- The addon has been [published](../creating-addons) to the marketplace. This can be verified by sending a `GET` request to `/api/v1/marketplace/addons/{addon_marketplace_id}`.
-{{< /callout >}}
-
 ## Installation
 
-To install an addon, simply send a `POST` request to the addons engine - `/api/v1/addons`. The request body should have the following form:
+You can view the available Marketplace Addons in the tab "Marketplace".
+
+![Marketplace](pngs/marketplace.png)
+
+Installing an addon is as simple as pressing the button.
+
+{{< details "With the API" >}}
+To install an addon, send a `POST` request to the addons engine - `/api/v1/addons`. The request body should have the following form:
 ```json
 {
   "marketplace_id": "{addon_marketplace_id}"
 }
 ```
-
-{{< callout context="note" title="API Docs" icon="outline/info-circle" >}}
-
-You can find a detailed outline of all the API endpoints at:
-```bash
-<marketplace-ip>:11102/api/docs
-```
-{{< /callout >}}
-
-{{< link-card
-  title="Oakestra API"
-  description="Learn more about the Oakestra API"
-  href="../../../getting-started/deploy-app/with-the-api"
-  target="_blank"
->}}
+{{< /details >}}
 
 ## Verify Installation
 The Addons Manager will:
@@ -47,10 +34,26 @@ The Addons Manager will:
 - Pull the Docker image associated with the addon.
 - Deploy and integrate the addon into the Oakestra environment.
 
+You can view the status of the addon in the "Installed Addons" tab.
+While the addon is being pulled and started, it will show the status **installing**.
+
+Once the addon is deployed it will switch to **active**
+
+![active](pngs/active.png)
+
+{{< details "With the API" >}}
 You can verify the installation by checking the addon’s status using the addons manager API - `[GET] /api/v1/addons/{addons_id}`
+{{< /details >}}
 
 
 ## Uninstall an Addon
 
-Simply send a `DELETE` request to the addons manager - `/api/v1/addons/{addons_id}`
+To uninstall an addon, you must first disable it. One it has finished **disabling** you can select "Uninstall".
+
+![uninstall](pngs/uninstall.png)
+
+{{< details "With the API" >}}
+To uninstall an addon send a `DELETE` request to the addons manager - `/api/v1/addons/{addons_id}`
+{{< /details >}}
+
 

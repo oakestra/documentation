@@ -2,7 +2,7 @@
 title: "Creating Custom Resources"
 summary: ""
 draft: false
-weight: 000307050000
+weight: 10309050000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -36,8 +36,15 @@ Custom resources operate via the **resource abstractor**, which centralizes enti
 ## Using Custom Resources
 
 Custom resources are defined by specifying their type and schema. The schema determines the structure of the data the resource can hold.
+You can add custom resource under the "Custom Reosurces" tab, and then selecting "Create Resource Definition". The following form will apear:
 
-#### API Request to Create a Custom Resource
+![custom-resources](pngs/custom-resources.png)
+
+Where:
+- **resource_type**: Defines the name of the new resource type (e.g., `custom_type`).
+- **schema**: Defines the structure of the resource using an OpenAPI-compliant format.
+
+{{< details "With the API" >}}
 Send a `POST` request to the resource abstractor API with the following JSON body:
 ```json
 {
@@ -56,9 +63,7 @@ Send a `POST` request to the resource abstractor API with the following JSON bod
   }
 }
 ```
-Where:
-- **resource_type**: Defines the name of the new resource type (e.g., `custom_type`).
-- **schema**: Defines the structure of the resource using an OpenAPI-compliant format.
+{{< /details >}}
 
 ### Accessing the Custom Resource
 

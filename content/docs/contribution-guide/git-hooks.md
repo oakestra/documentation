@@ -2,7 +2,7 @@
 title: "Commit Hooks"
 summary: ""
 draft: false
-weight: 000403000000
+weight: 10403000000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -12,7 +12,7 @@ seo:
 ---
 
 <span class="lead">
-Git hooks are scripts that run automatically at various points in the Git workflow (e.g., before committing or pushing changes). They help maintain code quality by performing tasks like linting, formatting, and testing before changes land in the repository. 
+Git hooks are scripts that run automatically at various points in the Git workflow (e.g., before committing or pushing changes). They help maintain code quality by performing tasks like linting, formatting, and testing before changes land in the repository.
 </span>
 
 {{< callout context="tip" icon="outline/book" >}}
@@ -33,15 +33,15 @@ Despite the name, *pre-commit* can manage multiple hook types (such as `pre-push
 
 ### Setting Up
 
-1. **Install pre-commit**  
-   
+1. **Install pre-commit**
+
    ```bash
    pip install pre-commit
    # or
    brew install pre-commit  #if you are using macOS
    ```
 
-2. **Install the hooks**  
+2. **Install the hooks**
    The Oakestra repository includes a `.pre-commit-config.yaml` file. To set up hooks that run before pushing changes, run:
    ```bash
    pre-commit install --hook-type pre-push

@@ -2,7 +2,7 @@
 title: "High-Level Architecture"
 summary: ""
 draft: false
-weight: 000201000000
+weight: 10201000000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -27,20 +27,12 @@ The root orchestrator is the centralized control plane that coordinates the part
 The image above illustrates the components of the root orchestrator. Each component operates as an independent service, integrated and managed using the Docker Compose plugin.
 
 * The **System Manager** serves as the primary interface for users to access the system as an application deployment platform. It provides two sets of APIs:
-  1. To receive deployment commands from users via [CLI](../../getting-started/deploy-app/with-the-cli/), [Dashboard](../../getting-started/deploy-app/with-the-dashboard/), or directly via [REST API](../../getting-started/deploy-app/with-the-api/).
+  1. To receive deployment commands from users via [CLI](../../getting-started/deploy-app/deploy-cli/), [Dashboard](../../getting-started/deploy-app/deploy-dashboard/), or directly via [REST API](/docs/reference/api/deploy-api/).
   2. To handle child Oakestra Clusters.
-   
-* The **Scheduler** determines the most suitable cluster for deploying a given application.
 
-* **Mongo** acts as the interface for database access. The root manager stores aggregated information about its child clusters. Oakestra categorizes this data into:
-  1. *Static metadata*—such as IP addresses, port numbers, cluster names, and locations.
-  2. *Dynamic data*—such as the number of worker nodes per cluster, total CPU cores and memory, disk space, GPU capabilities, etc.
+* The **Root Network Component** manages Semantic IP and Instance IP addresses for each service and the cluster's subnetworks. Refer to the Networking [concepts](../networking) and [manuals](../../manuals/networking-internals/load-balancing/) for more details.
 
-* The **Resource Abstractor** standardizes resource management by abstracting generic resources into a unified interface. Whether managing clusters or workers, this abstraction ensures interoperability of scheduling algorithms between root and child clusters. Additionally, it provides an interface for managing the service lifecycle.
-
-* **Grafana** offers a dashboard with global system alerts, logs, and performance statistics.
-
-* The **Root Network Component** manages Semantic IP and Instance IP addresses for each service and the cluster's subnetworks. Refer to the Networking [concepts](../networking) and [manuals](../../manuals/networking-internals/semantic-addressing/) for more details.
+* The **Addons Engine** manages custom resources, hooks, plugins and extensions that enable flexible customizations to the system. Read more on [extending Oakestra](../oakestra-extensions/addons) here.
 
 
 ## Cluster Orchestrator
@@ -51,7 +43,7 @@ The cluster orchestrator functions as a logical twin of the root orchestrator bu
 
 * **Worker Management:** Unlike the root orchestrator, the cluster orchestrator manages worker nodes instead of clusters.
 
-* **Resource Aggregation:** The cluster orchestrator aggregates resources from its worker nodes and abstracts the cluster's internal composition from the root orchestrator. At the root level, a cluster appears as a generic resource with a total capacity equal to the sum of its worker node resources.
+* **Resource Aggregation:** The cluster orchestrator aggregates resources from its worker nodes and abstracts the cluster's internal composition to the root orchestrator. At the root level, a cluster appears as a generic resource with a total capacity equal to the sum of its worker node resources.
 
 * **Intra-Cluster Communication:** MQTT is used as the communication protocol for the intra-cluster control plane.
 

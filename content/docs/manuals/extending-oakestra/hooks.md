@@ -2,7 +2,7 @@
 title: "Setting up Hooks"
 summary: ""
 draft: false
-weight: 000307040000
+weight: 10309040000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -40,9 +40,19 @@ Hooks are implemented using the **resource abstractor** component, which central
 
 ## Using Hooks
 
-To subscribe to lifecycle events, services must register their webhook URL and specify the events they want to listen to. Here’s how to do it:
+To subscribe to lifecycle events, services must register their webhook URL and specify the events they want to listen to. To register a hook navigate to the "Hooks" tab and select "Add Hook".
 
-#### API Request to Register a Hook
+![hooks](pngs/hooks.png)
+
+The above form will appear where:
+- **hook_name**: Uniquely identifies the hook
+- **webhook_url**: Specifies the URL to which event notifications will be sent.
+- **entity**: Specifies the type of entity to monitor (e.g., `application`).
+- **events**: Specifies the events to listen for:
+  - `pre_create`: Synchronous notification before creation.
+  - `post_update`: Asynchronous notification after an update.
+
+{{< details "With the API" >}}
 Send a `POST` request to the Resource Abstractor API with the following JSON body:
 
 ```json
@@ -53,14 +63,7 @@ Send a `POST` request to the Resource Abstractor API with the following JSON bod
   "events": ["pre_create", "post_update"]
 }
 ```
-Where:
-- **hook_name**: Uniquely identifies the hook
-- **webhook_url**: Specifies the URL to which event notifications will be sent.
-- **entity**: Specifies the type of entity to monitor (e.g., `application`).
-- **events**: Specifies the events to listen for:
-  - `pre_create`: Synchronous notification before creation.
-  - `post_update`: Asynchronous notification after an update.
-
+{{< /details >}}
 
 ### Receiving Notifications
 

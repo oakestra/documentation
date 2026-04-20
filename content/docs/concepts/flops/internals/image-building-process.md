@@ -2,7 +2,7 @@
 title: "Image Building Process"
 summary: ""
 draft: false
-weight: 000205030200
+weight: 10206030200
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -13,7 +13,7 @@ seo:
 
 {{< details "**Why is building images necessary for FLOps?**">}}
   Performing FL can be challenging.
-  FLOps handles most FL aspects and configurations unless users want to [customize their FLOps projects](/docs/manuals/flops-addon/customizations/flops-customizations-overview/).
+  FLOps handles most FL aspects and configurations unless users want to [customize their FLOps projects](../../../../manuals/flops-addon/customizations/overview/).
   FLOps takes pure (non-FL) ML code (in the form of Git repositories) and augments it to support FL.
   In addition, FLOps wraps this augmented FL code and all necessary dependencies to perform ML training as a multi-platform container image.
   By using container images, learners can be deployed and distributed among various workers while stabilizing the training behavior and avoiding tedious varying configurations and setups that depend on the concrete worker machine.

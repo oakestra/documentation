@@ -3,7 +3,7 @@ title: "Networking Internals"
 description: "Explore the internal implementation the Oakestra network manager"
 summary: ""
 draft: false
-weight: 020305000000
+weight: 120305000000
 toc: false
 sidebar:
   collapsed: true

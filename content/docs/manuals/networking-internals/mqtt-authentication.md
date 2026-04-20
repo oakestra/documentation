@@ -2,7 +2,7 @@
 title: "MQTT Authentication"
 summary: ""
 draft: false
-weight: 000303060000
+weight: 10305060000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -41,7 +41,7 @@ The MQTT broker can be configured to only accept incoming secured connection, an
 {{< link-card
   title="Getting Started Guide"
   description="Check out the Getting Started guide to set up your first cluster"
-  href="../../../getting-started/oak-environment/create-your-first-oakestra-orchestrator"
+  href="../../../getting-started/oak-environment/your-first-orchestrator/"
   target="_blank"
 >}}
 

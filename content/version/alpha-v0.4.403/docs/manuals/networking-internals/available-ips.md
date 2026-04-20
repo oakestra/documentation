@@ -2,7 +2,7 @@
 title: "Retrieve Available Service IPs"
 summary: "API Endpoint to query for available Service IPs without reservation."
 draft: false
-weight: 020305080000
+weight: 120305080000
 toc: true
 seo:
   title: "Retrieve Available Service IPs"

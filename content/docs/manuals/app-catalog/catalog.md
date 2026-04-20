@@ -2,7 +2,7 @@
 title: "Example Applications"
 summary: ""
 draft: false
-weight: 000305010000
+weight: 10307010000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -24,7 +24,7 @@ To test out the balancing capabilities of Oakestra, you can deploy a simple Ngin
 {{< link-card
  title="Nginx Client-Server Example"
  description="Read more about how to create load-balanced microservices"
- href="../nginx-client-server-with-load-balancing/"
+ href="../nginx-server/"
  target="_blank"
 >}}
 
@@ -77,7 +77,7 @@ Similarly to the regular Nginx deployment in Oakestra, we can deploy nginx using
 {{< link-card
  title="Nginx Unikernel Deployment"
  description="Read more to learn how to create unikernel microservices."
- href="../nginx-unikernel-deployment/"
+ href="../nginx-server-unikraft/"
  target="_blank"
 >}}
 
