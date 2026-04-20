@@ -82,7 +82,7 @@ Check out the [installation wiki](/docs/getting-started/oak-environment/your-fir
 
 ![csi](csi.png)
 
-This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](/docs/getting-started/oak-environment/advanced-cluster-setup/).
+This release brings support for [CSI](https://github.com/container-storage-interface/spec/tree/master) Storage plugins! Volumes management at the edge is not an easy task, and with CSI plugins you can now attach storage drivers customized for your needs. Check out the [CSI Plugin Wiki](/docs/manuals/storage/csi-plugins/).
 
 # Service Scheduling Redefined
 
