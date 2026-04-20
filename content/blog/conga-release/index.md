@@ -100,9 +100,9 @@ Check out the new [Resource Management wiki](/docs/concepts/resource-management/
 
 The new addons dashboard allows you to easily manage:
 
-- [Addons](/docs/manuals/extending-oakestra/installing-addons/) by connecting to your local marketplace instance and installing your preferred ones.
-- [Hooks](/docs/manuals/extending-oakestra/setting-up-hooks/) via a dedicated UI interface.
-- [Custom Resources](/docs/manuals/extending-oakestra/creating-custom-resources/) for both creation and management operations.
+- [Addons](/docs/manuals/extending-oakestra/install_addon/) by connecting to your local marketplace instance and installing your preferred ones.
+- [Hooks](/docs/manuals/extending-oakestra/hooks/) via a dedicated UI interface.
+- [Custom Resources](/docs/manuals/extending-oakestra/custom_resources/) for both creation and management operations.
 
 ![marketplace](marketplace.png)
 
@@ -110,7 +110,7 @@ If the marketplace dashboard is reachable from your network, a link will appear 
 
 # Cross VM Compatibility
 
-Oakestra Conga supports a new experimental runtime: `crossvm`. This runtime enables seamless workloads across different virtual machine environments, providing greater flexibility for edge deployments. 
+Oakestra Conga supports a new experimental runtime: `crossvm`. This runtime enables seamless workloads across different virtual machine environments, providing greater flexibility for edge deployments.
 
 ![crossvm](./crossvm.png)
 
