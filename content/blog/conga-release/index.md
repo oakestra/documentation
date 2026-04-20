@@ -2,7 +2,7 @@
 title: "Oakestra releases v0.4.410 (Conga)"
 description: "Another big step for Edge-Cloud service orchestration"
 summary: ""
-date: 2026-04-13T12:27:22+02:00
+date: 2026-04-20T12:27:22+02:00
 lastmod: 2026-04-13T12:27:22+02:00
 draft: false
 weight: 50
