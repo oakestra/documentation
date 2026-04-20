@@ -183,8 +183,16 @@ Get in touch with us and help us grow stronger. We've got plenty of open issues 
   var hint = document.getElementById('conga-hint');
   var clicks = 0;
   var hints = ['🥁 Again…', '🥁 One more!', '🎵 Here we go!'];
+  
+  var audio = new Audio('/audio/conga.mp3'); 
 
   egg.addEventListener('click', function () {
+    audio.currentTime = 0; 
+    audio.play().catch(error => {
+    console.error("Audio failed to play:", error);
+    hint.textContent = "Audio Error: " + error.message;
+  });
+
     egg.classList.remove('shaking');
     void egg.offsetWidth; // force reflow to restart animation
     egg.classList.add('shaking');
