@@ -6,5 +6,7 @@ weight: 010000000000
 exclude_search: true
 toc_hide: false
 hide_summary: true
+sidebar:
+  collapsed: true
 ---
 
