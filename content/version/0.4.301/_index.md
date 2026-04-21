@@ -1,5 +1,5 @@
 ---
-title: "v0.4.301"
+title: "Accordion (v0.4.301)"
 menus: none
 linkTitle: "v0.4.301"
 weight: 030000000000
