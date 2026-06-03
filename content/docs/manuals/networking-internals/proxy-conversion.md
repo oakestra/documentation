@@ -2,7 +2,7 @@
 title: "Proxy Conversion"
 summary: ""
 draft: false
-weight: 303050000
+weight: 10305050000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -25,8 +25,8 @@ enabling the Virtual Layer abstraction.
 
 {{<svg "overlay-example" >}}
 
-The Service Layer abstraction is realized hierarchically with a mechanism of _route interest registration_ and
-_proxy translation_. This section details the proxy translation that allows transparent
+The Service Layer abstraction is realized hierarchically with a mechanism of *route interest registration* and
+*proxy translation*. This section details the proxy translation that allows transparent
 conversion of Service IPs into Namespace IPs, therefore enabling transparent Virtual Layer &harr; Service Layer conversion.
 
 Following the example mentioned above, suppose we deployed services X1 and X3 using the following deployment descriptor.
@@ -34,7 +34,42 @@ Following the example mentioned above, suppose we deployed services X1 and X3 us
 {{< details "Click here to view the deployment descriptor for Services X1 and X3" >}}
 
 ```yaml
-{ "sla_version": "v2.0", "customerID": "Admin", "applications": [{ "applicationID": "", "application_name": "X", "application_namespace": "default", "application_desc": "X application", "microservices": [{ "microserviceID": "", "microservice_name": "X1", "microservice_namespace": "default", "virtualization": "container", "code": "docker.io/X/X1", "addresses": { "rr_ip": "10.30.0.1", "rr_ip_v6": "fdff:2000::1" } }, { "microserviceID": "", "microservice_name": "X3", "microservice_namespace": "default", "virtualization": "container", "code": "docker.io/X/X3", "addresses": { "rr_ip": "10.30.1.30", "rr_ip_v6": "fdff:2000::30" } }] }] }
+{
+  "sla_version" : "v2.0",
+  "customerID" : "Admin",
+  "applications" : [
+    {
+      "applicationID" : "",
+      "application_name" : "X",
+      "application_namespace" : "default",
+      "application_desc" : "X application",
+      "microservices" : [
+        {
+          "microserviceID": "",
+          "microservice_name": "X1",
+          "microservice_namespace": "default",
+          "virtualization": "container",
+          "code": "docker.io/X/X1",
+          "addresses": {
+            "rr_ip": "10.30.0.1",
+            "rr_ip_v6": "fdff:2000::1"
+          },
+        },
+        {
+          "microserviceID": "",
+          "microservice_name": "X3",
+          "microservice_namespace": "default",
+          "virtualization": "container",
+          "code": "docker.io/X/X3",
+          "addresses": {
+            "rr_ip": "10.30.1.30",
+            "rr_ip_v6": "fdff:2000::30",
+          	},
+        }
+      ]
+    }
+  ]
+}
 ```
 
 Therefore, we register into the platform two services, `X.default.X1.default` and `X.default.X3.default`.
@@ -52,6 +87,7 @@ Click on different steps to see what is happening behind-the-scenes.
 
 {{< tabs-icon "Requests" >}}
 {{< tab-icon "Step 1 - GET" "_step1.png">}}
+
 
 #### http://10.30.1.30:30443/api/hello
 
@@ -82,10 +118,11 @@ services deployed on other worker nodes.
 
 This is an example of the Conversion Table maintained by the Environment Manager at this moment.
 
+
 ##### Node Service 1 Table before X3 table query
 
 | Appname         | X               | X               |
-| --------------- | --------------- | --------------- |
+|-----------------|-----------------|-----------------|
 | Appns           | default         | default         |
 | Sname           | X1              | X1              |
 | Sns             | default         | default         |
@@ -96,6 +133,7 @@ This is an example of the Conversion Table maintained by the Environment Manager
 | Instance IP     | 10.30.0.2       | 10.30.0.3       |
 | Round Robin IP  | 10.30.0.1       | 10.30.0.1       |
 | ... Service IPs | ...             | ...             |
+
 
 The entries of the table keep the cross-layer information of each service, including the physical layer address and
 port, the virtual layer address, and all the service layer addresses. As the number of records is limited, the table
@@ -128,14 +166,14 @@ Upon completion of the table query, the internal Conversion table is updated as 
 ##### Node Service 1 Table after X3 table query
 
 | Appname         | X               | X               | X                |
-| --------------- | --------------- | --------------- | ---------------- |
+|-----------------|-----------------|-----------------|------------------|
 | Appns           | default         | default         | default          |
 | Sname           | X1              | X1              | X3               |
 | Sns             | default         | default         | default          |
-| Instance #      | 0               | 1               | 0                |
+| Instance #      | 0               | 1               | 0                | 
 | Cluster         | 1               | 1               | 1                |
 | Node IP & Port  | 131.1.0.1 50103 | 131.1.0.2 50103 | 131.1.21.5 55301 |
-| Ns IP           | 10.19.1.3       | 10.19.1.6       | 10.21.0.1        |
+| Ns IP           | 10.19.1.3       | 10.19.1.6       | 10.21.0.1        | 
 | Instance IP     | 10.30.0.2       | 10.30.0.3       | 10.30.0.6        |
 | Round Robin IP  | 10.30.0.1       | 10.30.0.1       | 10.30.1.30       |
 | ... Service IPs | ...             | ...             | ...              |
@@ -143,7 +181,7 @@ Upon completion of the table query, the internal Conversion table is updated as 
 The cluster resolved the Service IP `10.30.1.30` into a table entry describing only `X.default.X3.default.0`
 (apparently, no other instances are in the system yet).
 
-The Environment Manager can now answer the proxy with the _virtual layer_ and _physical layer_ addresses resolving
+The Environment Manager can now answer the proxy with the *virtual layer* and *physical layer* addresses resolving
 the previous cache miss and the balancing policy metadata associated with the address. In this case the response
 will look like this:
 
@@ -156,10 +194,10 @@ instances: [
 		Node port: 55301
 		Cluster: 1
 		...
-		...
+		... 
 	}
 ]
-```
+``` 
 
 {{< /tab-icon >}}
 
@@ -185,9 +223,9 @@ In abstract terms, the proxy is converting a the incoming packet from the form o
 
 ```
 {
-	from:<Sender Virtual Layer Address>
+	from:<Sender Virtual Layer Address> 
 	to:<Receiver Service Layer Address>
-}
+} 
 ```
 
 to
@@ -195,7 +233,7 @@ to
 ```
 {
 	from:<Sender Service Layer Address>
-	to:<Receiver Virtual Layer Address>
+	to:<Receiver Virtual Layer Address> 
 }
 ```
 
@@ -219,7 +257,6 @@ A response from X3 to X1 then follows the same steps in-order as shown in this e
 
 {{< /tab-icon >}}
 {{< /tabs-icon >}}
-
 <hr>
 
 ---
@@ -231,7 +268,7 @@ hierarchy.
 
 {{<svg "overlay-example-sequential" >}}
 
-- The environment manager keeps the 'interests subscriptions' for 10 seconds
-- If the route is not used for more than 10 seconds, the interest is removed, and the table entry is cleared
-- A cluster maintains an interest as long as at least one worker node is interested in that route
-- A worker node is ALWAYS subscribed to interests regarding the instances deployed internally.
+* The environment manager keeps the 'interests subscriptions' for 10 seconds
+* If the route is not used for more than 10 seconds, the interest is removed, and the table entry is cleared
+* A cluster maintains an interest as long as at least one worker node is interested in that route
+* A worker node is ALWAYS subscribed to interests regarding the instances deployed internally.

@@ -2,7 +2,6 @@
 title: "Coding Style"
 draft: true
 ---
-
 # General rules
 
 # Golang style

@@ -2,7 +2,7 @@
 title: "FLOps Customizations Overview"
 summary: ""
 draft: false
-weight: 309040100
+weight: 10311040100
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -17,19 +17,20 @@ seo:
 </span>
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
-
-- You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/flops-projects-overview/).
-  {{< /callout >}}
+  - You have carefully read the [base-case FLOps project workflow](/docs/manuals/flops-addon/flops-project-workflow/overview/).
+{{< /callout >}}
 
 {{< card-grid >}}
-{{< link-card
+  {{< link-card
     title="Customize Project SLAs"
     description="Discover how to finetune your FLOps projects and make them your own"
-    href="/docs/manuals/flops-addon/customizations/project-slas/"  >}}
-{{< link-card
+    href="/docs/manuals/flops-addon/customizations/slas/"
+  >}}
+  {{< link-card
     title="Federate your ML Code"
     description="Learn how to structure your ML Git repository to use it with FLOps"
-    href="/docs/manuals/flops-addon/customizations/ml-git-repositories/"  >}}
+    href="/docs/manuals/flops-addon/customizations/ml-git-repo/"
+  >}}
 {{< /card-grid >}}
 
 <br>
@@ -42,4 +43,5 @@ Help yourself and the community by contributing to FLOps' lightweight, extendabl
 {{< link-card
   title="Need more Customization?"
   description="Explore how to modify, extend, and contribute to FLOps"
-  href="/docs/contribution-guide/flops-addon/" >}}
+  href="/docs/contribution-guide/flops_addon/"
+>}}

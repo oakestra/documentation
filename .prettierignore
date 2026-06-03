@@ -1,3 +1,4 @@
+*.html
 *.ico
 *.png
 *.jp*g
@@ -9,13 +10,3 @@ LICENSE
 .npmrc
 .gitkeep
 *.woff*
-*.sh
-public/**
-resources/**
-auxiliary/**
-static/automatically_generated_oak_cli_docs/**
-static/js/asciinema-player.min.js
-static/css/asciinema-player.css
-node_modules/**
-layouts/**/*.html
-themes/**/layouts/**/*.html

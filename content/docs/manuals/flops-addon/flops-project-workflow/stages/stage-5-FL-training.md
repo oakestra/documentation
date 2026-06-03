@@ -2,7 +2,7 @@
 title: "Stage 5: FL Training"
 summary: ""
 draft: false
-weight: 309030206
+weight: 10311030206
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -13,7 +13,7 @@ asciinema: true
 ---
 
 The actual FL training takes place during this stage.
-For our base-case scenario, the processes are as described in the [FL Overview](/docs/concepts/flops/fl-basics/#federated-learning-overview).
+For our base-case scenario, the processes are as described in the [FL Overview](../../../../../concepts/flops/overview).
 Because the base case should be as fast as possible, it only trains for 3 rounds.
 The following demo shows how a CLI user can inspect the running actors to observe the training rounds.
 
@@ -44,14 +44,13 @@ The URL will be reachable if you combine the tracking service's public IP and po
 │ ...                                                                                                     │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
-
 In this case, the GUI will be accessible under `http://192.168.178.74:7027`.
 
 {{< callout context="note" icon="outline/info-circle">}}
-FLOps uses MLflow’s GUI and does not modify it.
-Therefore, this wiki only provides a brief selection of impressions of the GUI.
-MLflow is a feature-rich and well-documented MLOps tool.
-Excellent further details and extended capabilities are explained directly at [MLflow](https://mlflow.org/docs/latest/index.html).
+  FLOps uses MLflow’s GUI and does not modify it.
+  Therefore, this wiki only provides a brief selection of impressions of the GUI.
+  MLflow is a feature-rich and well-documented MLOps tool.
+  Excellent further details and extended capabilities are explained directly at [MLflow](https://mlflow.org/docs/latest/index.html).
 {{< /callout >}}
 
 {{<light-dark-png "gui-experiments-view-small" "Experiments Overview Page">}}
@@ -77,5 +76,5 @@ MLflow's GUI directly supports in-build techniques to compare, analyze, and visu
 All of these recorded properties can be exported and shared with other people.
 
 {{< callout context="note" title="How exactly does FLOps use MLflow for elevating its MLOps capabilities?" icon="outline/settings-question" >}}
-Learn how FLOps integrates MLflow into its architecture and workflows [here](/docs/concepts/flops/internals/mlflow-mlops-integration/).
+  Learn how FLOps integrates MLflow into its architecture and workflows [here](../../../../../concepts/flops/internals/mflow-integration/).
 {{< /callout >}}

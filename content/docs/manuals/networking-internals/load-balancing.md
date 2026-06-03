@@ -2,7 +2,7 @@
 title: "Load Balancing"
 summary: ""
 draft: false
-weight: 303040000
+weight: 10305040000
 toc: true
 seo:
   title: "" # custom title (optional)
@@ -33,7 +33,7 @@ latter finds the geographically closer instance.
 Click on the following tabs to see how every request is handled.
 
 {{< tabs-icon "Requests" >}}
-{{< tab-icon "First" "./_envelope_1.png">}}
+{{< tab-icon "First" "_envelope_1.png">}}
 Service A performs the first request using the ServiceIP `fdff:1000::1` representing the closest instance balancing policy.
 The network components' proxy converts the address to the Namespace IP of Service B Instance 1, which looks like it is
 the geographically closer service. The message will be, therefore **transparently** delivered to the closest instance
@@ -89,10 +89,10 @@ sender receives the response.
 {{< /callout >}}
 
 {{< callout context="caution" title="Why Service IPs? Why do we need multiple balancing policies?" icon="outline/help-circle" >}}
-At the Edge, Oakestra's net component enables flexibility in the way developers can balance the traffic without
+At the Edge, Oakestra's net component enables flexibility in the way developers can balance the traffic without 
 the requirement of adapting the code. Just by using a Service IP instead of a regular IP, a developer can achieve
 balancing by using any protocol based on UDP or TCP and can also customize the balancing behavior of each request
-accordingly to their need. Edge computing brings resources closer to the users, so one might need to forward some
+accordingly to their need. Edge computing brings resources closer to the users, so one might need to forward some 
 traffic with very low latency using Closest balancing policy, or one might just want to evenly balance another
 endpoint with Round Robin policy.
 {{< /callout >}}

@@ -1,0 +1,17 @@
+---
+title: "Manage your Installation"
+description: "Check if your infrastructure is running and change things around"
+summary: ""
+date: 2026-03-07T16:06:50+02:00
+lastmod: 2026-03-07T16:06:50+02:00
+draft: false
+weight: 010103000000
+toc: false
+sidebar:
+  collapsed: true
+seo:
+  title: "Manage your Installation" # custom title (optional)
+  description: "" # custom description (recommended)
+  canonical: "" # custom canonical URL (optional)
+  noindex: false # false (default) or true
+---

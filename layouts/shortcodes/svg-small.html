@@ -5,7 +5,6 @@
 {{ $lightSvgPath := printf "%ssvgs/%s/light.svg" $pageDir $svgName }}
 {{ $darkSvgPath := printf "%ssvgs/%s/dark.svg" $pageDir $svgName }}
 
-
 <div class="container">
     <div class="box" style="width: 50%">
         <figure class="svg-lightmode constrain-image">
@@ -16,7 +15,7 @@
         </figure>
         {{ if $caption }}
             <figcaption>{{ $caption | markdownify }}</figcaption>
-            <br />
+            <br>
         {{ end }}
     </div>
 </div>
