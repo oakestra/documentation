@@ -77,7 +77,7 @@ oak config set cluster_name <UNIQUE NAME FOR YOUR CLUSTER>
 oak install cluster alpha-v0.4.410
 ```
 
-**Be carefull:** this install script asks you to confirm the address, name and position of your cluster, the name of the cluster and the geographical coordinates in the format `latitude,longitude,radius`. The radius is in meters. By default it guesses your location but you can change it during installation. **If you agree with the defaults, just press ENTER**
+**Be carefull:** this install script asks you to confirm the address, name and position of your cluster. The cluster address MUST be an address reachable from the root. The position is expressed with geographical coordinates in the format `latitude,longitude,radius`. The radius is in meters. By default it guesses your location but you can change it during installation. **If you agree with the defaults, just press ENTER**
 
 *What is this doing?* This script downloads the required files to the directory `~/.oakestra/cluster_orchestrator`. From there it executes the root orchestrator using docker compose.
 
