@@ -28,7 +28,7 @@ In the following we give a short meaning for each tag.
 
 ## Example Application Assignment
 
-If we deploy an example application `A` with two instances of microservice `S` (i.e. {{< math >}}$S_1${{< /math >}} and {{< math >}}$S_2${{< /math >}}) on the worker node W, an example address configuration can be the following:
+If we deploy an example application `A` with two instances of microservice `S` (i.e. S<sub>1</sub> and S<sub>2</sub>) on the worker node W, an example address configuration can be the following:
 
 | App A    | Addresses / Subnets assigned                             |
 |----------|----------------------------------------------------------|
@@ -52,13 +52,13 @@ new service IP type for later routing.
 Ideally you should start in the `sla/schema.py` in the root orchestrator. There you should add specific fields in order
 for the developers to allow to set their desired service IP for your routing policy.
 The next stop should then be the `root-service-manager`, who handles the address reservations.
-Under `operations/service_management.py` you will have to add code and add to the JSON template to be loaded into the 
+Under `operations/service_management.py` you will have to add code and add to the JSON template to be loaded into the
 database. In order to keep the code tidy, the handler functions are located in `network/subnetwork_management.py`. There
 you will also find some inspiration on what the handler is supposed to do.
 
 ```JSON
 [
-  { 
+  {
     "IpType": "<balancing-shortname>",
     "Address": "<your-addressv4-handler>()",
     "Address_v6": "<your-addressv6-handler>()"
