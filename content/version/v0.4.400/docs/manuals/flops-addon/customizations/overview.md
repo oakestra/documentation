@@ -17,20 +17,24 @@ seo:
 </span>
 
 {{< callout context="caution" title="Prerequisites" icon="outline/alert-triangle">}}
-  - You have carefully read the [base-case FLOps project workflow](../../flops-project-workflow/overview/).
-{{< /callout >}}
+
+- You have carefully read the [base-case FLOps project workflow](../../flops-project-workflow/overview/).
+  {{< /callout >}}
 
 {{< card-grid >}}
-  {{< link-card
-    title="Customize Project SLAs"
-    description="Discover how to finetune your FLOps projects and make them your own"
-    href="../slas/"
-  >}}
-  {{< link-card
+{{< link-card
+title="Customize Project SLAs"
+description="Discover how to finetune your FLOps projects and make them your own"
+href="../slas/"
+
+>}}
+{{< link-card
+
     title="Federate your ML Code"
     description="Learn how to structure your ML Git repository to use it with FLOps"
     href="../ml-git-repo/"
-  >}}
+
+>}}
 {{< /card-grid >}}
 
 <br>
@@ -41,7 +45,8 @@ You can be the key to making this dream a reality.
 Help yourself and the community by contributing to FLOps' lightweight, extendable, open-source code base.
 
 {{< link-card
-  title="Need more Customization?"
-  description="Explore how to modify, extend, and contribute to FLOps"
-  href="../../../../contribution-guide/flops_addon/"
+title="Need more Customization?"
+description="Explore how to modify, extend, and contribute to FLOps"
+href="../../../../contribution-guide/flops_addon/"
+
 >}}
